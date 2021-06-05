@@ -72,6 +72,7 @@ const PointContainerUI = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
+  cursor: pointer;
 `;
 
 const PointUI = styled.div`
@@ -84,6 +85,7 @@ const PointUI = styled.div`
   transform: rotate(45deg);
   background: white;
   cursor:pointer;
+  
   
 `;
 
@@ -123,7 +125,7 @@ const handleClick = (e) => {
     <PointContainerUI onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick} style={{ transform: transform}}>
         <PointUI style={{borderRadius: type == id ? '10%' : '100%'}}></PointUI>
         <PointCircleUI style={{opacity: pointHover ? '100%' : '0', }}></PointCircleUI>
-        <TagUI style={{transform: rotateTag, display: pointHover ? 'flex' : 'none'}}>{id}</TagUI>
+        <TagUI style={{transform: rotateTag, display: pointHover ? 'flex' : 'none'}}>{id.replace('-', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase())}</TagUI>
         <div style={{ transition: '0.5s ease-in' , width: type == id ? '2.5vw' : '0vw' , position: 'absolute', transform: 'rotate(90deg)', borderBottom: '1px solid white', top: '2.5vw', height: '0px'}}></div>
     </PointContainerUI>
 /*         <PointUI onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={() => setBachelor('media-arts')} id="media-arts" style={{ transform: "rotate(120deg) translateY(-20vw)" }}>

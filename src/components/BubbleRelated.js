@@ -23,6 +23,7 @@ const BubbleUI = styled.div`
   margin: 12px;
   animation: float 3s linear infinite;
   transition: 0.5s ease;
+  cursor: pointer;
 `;
 
 const SkillContainerUI = styled.div`
@@ -61,6 +62,8 @@ export const BubbleRelated = ({
 
 }) => {
   const [addSkill, setAddSkill] = useState(false);
+  const [bgColor, setBgColor] = useState("transparent");
+  const [textColor, setTextColor] = useState("white");
 
   const handleSkillClick = (e) => {
     console.log(e.target);
@@ -78,14 +81,23 @@ export const BubbleRelated = ({
   const handleRelatedClick = (e) => {
     console.log(e.target);
   };
-
+  
+  useEffect(() => {
+    if(skillList.includes(title)){
+      setBgColor('white')
+      setTextColor('#005695')
+    } else {
+      setBgColor('transparent')
+      setTextColor('white')
+    }
+  },[skillList])
 
 
   return (
     <>
     <BubbleUI
     
-      style={{ background: addSkill ? "white" : "transparent", color: addSkill ? "#005695" : "white" }}
+      style={{ background: bgColor, color: textColor }}
       onClick={handleSkillClick}
     >
     {title}

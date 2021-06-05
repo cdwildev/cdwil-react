@@ -135,9 +135,9 @@ major.length > 0 ? setMajorSelected(true) : setMajorSelected(false)
       </InnerRingUI>
 
       <TextContainerUI bachelor={bachelor}>
-          <TextUI>{bachelor}</TextUI>
-          <TextUI>{major}</TextUI>
-          <TextUI>{skill}</TextUI>
+          <TextUI>{bachelor.length > 0 ? bachelor.replace('-', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase()) : 'Select Your Bachelor'}</TextUI>
+          <TextUI style={{display: bachelor.length > 0 ? 'flex' : 'none' }}>{major.length > 0 ? major.replace('-', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase()) : 'Select your Major'}</TextUI>
+          <TextUI style={{display: bachelor.length > 0 ? 'flex' : 'none' }}>{skill.length > 0 ? skill.replace('-', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase()) : 'Select a Skill'}</TextUI>
       </TextContainerUI>
     </ContainerUI>
   );

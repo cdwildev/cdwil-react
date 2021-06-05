@@ -31,6 +31,13 @@ const GridUI = styled.div`
   }
 `;
 
+const ScrollMessageUI = styled.div`
+position: absolute;
+top: 90vh;
+right: 12.5vw;
+color: white;
+`
+
 export const SkillIdentifier = ({ allPostsData }) => {
   const [showPost, setShowPost] = useState(false);
   const [showRelated, setShowRelated] = useState(false);
@@ -56,7 +63,7 @@ export const SkillIdentifier = ({ allPostsData }) => {
 
   const handleInnerClick = (e) => {
     setShowPost(true);
-
+   /*  setFilterCategory(e.target.innerHTML); */
   };
 
   const handleMiddleClick = (e) => {
@@ -138,6 +145,8 @@ export const SkillIdentifier = ({ allPostsData }) => {
           scrollTop={scrollTop}
           skill={skill}
         />
+
+        { skill.length > 0 ? <ScrollMessageUI>Scroll down to see skills</ScrollMessageUI> : ''}
       </ContainerUI>
     </>
   );

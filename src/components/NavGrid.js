@@ -59,7 +59,9 @@ const TileUI = styled.div`
     border: 4px solid #252525;
     box-sizing: border-box;
     border-radius: 20px;
-    padding: 22px
+    padding: 22px;
+    color: black;
+
     
 
 `;
@@ -90,7 +92,7 @@ export const NavGrid = ({ allPostsData, showPost, setShowPost, data, color='whit
     <TitleContainerUI> <LineUI></LineUI><TitleUI>Not sure where to start? </TitleUI><LineUI></LineUI></TitleContainerUI>
     <GridUI>
       <TileUI style={{background: 'white'}} >Find Work</TileUI>
-      <TileUI style={{background: '#00B188', gridColumn: '2 / span 2'}}> <Link to="/skill-identifier">Identify Your Skills</Link></TileUI>
+      <Link style={{gridColumn: '2 / span 2', textDecoration: 'none'}} to="/skill-identifier"><TileUI style={{background: '#00B188'}}> Identify Your Skills</TileUI></Link>
       <TileUI style={{background: 'white', gridColumn: '4 / span 2'}}>Read How To</TileUI>
       <TileUI style={{background: '#C1D42F', gridColumn: '1 / span 2'}}>Explore Career Pathways</TileUI>
       <TileUI style={{background: '#F02091'}}>Build a Resume</TileUI>

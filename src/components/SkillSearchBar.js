@@ -166,7 +166,7 @@ export const SkillSearch = ({ allPostsData, setSkillList, skillList }) => {
   return (
     <ContainerUI>
 
-        <HelpUI>?</HelpUI>
+        {/* <HelpUI>?</HelpUI> */}
 
         <SearchContainerUI>
             <SearchUI style={{borderRadius: inputText.length > 1 ? '25px 25px 0 0' : '50px' }} onChange={handleInput} placeholder="Search Skills" value={inputText}/>
