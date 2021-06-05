@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { NavGrid } from "./components/NavGrid";
 import { InspireGrid } from "./components/InspireGrid";
@@ -11,6 +10,13 @@ import heroThree from './images/hero-3.png'
 import footerGradient from './images/footer.svg'
 import buttonBgOne from './images/bg-1.png'
 import buttonBgTwo from './images/bg-2.png'
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const SectionUI = styled.div`
   height: 100vh;
@@ -98,7 +104,7 @@ const FlexUI = styled.div`
   display: flex;
 `;
 
-function App() {
+function Home() {
   const [allPostsData, setAllPosts] = useState([]);
   return (
     <div className="App">
@@ -207,4 +213,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

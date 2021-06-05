@@ -2,6 +2,13 @@ import { useEffect, useState } from "react";
 import React from "react";
 import styled from "styled-components";
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 const ContainerUI = styled.div`
   display: flex;
   flex-direction: column;
@@ -83,7 +90,7 @@ export const NavGrid = ({ allPostsData, showPost, setShowPost, data, color='whit
     <TitleContainerUI> <LineUI></LineUI><TitleUI>Not sure where to start? </TitleUI><LineUI></LineUI></TitleContainerUI>
     <GridUI>
       <TileUI style={{background: 'white'}} >Find Work</TileUI>
-      <TileUI style={{background: '#00B188', gridColumn: '2 / span 2'}}>Identify Your Skills</TileUI>
+      <TileUI style={{background: '#00B188', gridColumn: '2 / span 2'}}> <Link to="/skill-identifier">Identify Your Skills</Link></TileUI>
       <TileUI style={{background: 'white', gridColumn: '4 / span 2'}}>Read How To</TileUI>
       <TileUI style={{background: '#C1D42F', gridColumn: '1 / span 2'}}>Explore Career Pathways</TileUI>
       <TileUI style={{background: '#F02091'}}>Build a Resume</TileUI>
