@@ -148,10 +148,7 @@ export const SkillSearch = ({ allPostsData, setSkillList, skillList }) => {
    }
 
 
-   const showSkills = () => {
-     
-     if (allPostsData.length > 0){
-     allPostsData
+   const showSkills = allPostsData
        .filter(function (allSkills) {
          return allSkills.title.toLowerCase().includes(inputText.toLowerCase());
        })
@@ -160,8 +157,8 @@ export const SkillSearch = ({ allPostsData, setSkillList, skillList }) => {
            <SearchCompleteUI onClick={(e) => setSkillList([...skillList, e.target.innerHTML])}>{data.title}</SearchCompleteUI>
          );
        });
-   }
-   }
+   
+   
 
   return (
     <ContainerUI>

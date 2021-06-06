@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const CardUI = styled.div`
 height: 281px;
-width: 640px;
+max-width: 600px;
+width: 70vw;
 border-radius: 25px;
 position: absolute;
 background: linear-gradient(128.63deg, rgba(255, 255, 255, 0.9) -3.22%, rgba(255, 255, 255, 0.9) 123.53%);
@@ -18,7 +19,7 @@ z-index: 1000;
 `;
 
 const ContainerUI = styled.div`
-  height: 174px;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,6 +35,7 @@ const HeaderUI = styled.div`
   line-height: 26px;
   letter-spacing: 0em;
   text-align: center;
+  margin: 25px 0 0 0;
 
 `;
 
@@ -45,7 +47,7 @@ const TextUI = styled.div`
   line-height: 30px;
   letter-spacing: 0em;
   text-align: center;
-  width:418px;
+  width:80%;
 
 `;
 
@@ -56,23 +58,43 @@ const ButtonUI = styled.div`
   height:20px;
   position: absolute;
   border: 1px solid black;
-  right: -80px;
-  top: -30px;
+  right: 10px;
+  top: 10px;
+  justify-content: center;
+  align-items: center;
 
 `;
+
+const PageUI = styled.div`
+margin: 0 0 25px 0;
+display: flex;
+`;
+
+const CircleUI = styled.div`
+width: 8px;
+height: 8px;
+border-radius: 100%;
+border: 1px solid black;
+margin 0 4px;
+`
 
 
 export const InfoCard = ({}) => {
 
   const [showCard, setShowCard] = useState(true)
+  const [page, setPage] = useState('one')
 
   return (
     <CardUI style={{ display: showCard ? 'flex' : 'none'}}>
       <ContainerUI>
-        <ButtonUI onClick={() => setShowCard(false)}>x</ButtonUI>
+        <ButtonUI style={{ display: page == 'two' ? 'flex' : 'none'}} onClick={() => setShowCard(false)}>x</ButtonUI>
+        <ButtonUI style={{ display: page == 'one' ? 'flex' : 'none'}} onClick={() => setPage('two')}>-></ButtonUI>
       <HeaderUI>IMPORTANT</HeaderUI>
-      <TextUI>Once you exit this page, your skills will not be saved. </TextUI>
-      <div>..</div>
+      <TextUI>{ page == 'one' ? 'Once you exit this page, your skills will not be saved.' : 'Export your map as a PDF and print it out or save it to your computer so you can always have access to it.' }</TextUI>
+      <PageUI>
+        <CircleUI onClick={() => setPage('one')} style={{background: page == 'one' ? 'black' : 'transparent'}}></CircleUI>
+        <CircleUI onClick={() => setPage('two')} style={{background: page == 'one' ? 'transparent' : 'black'}}></CircleUI>
+      </PageUI>
       </ContainerUI>
     </CardUI>
   );

@@ -90,7 +90,7 @@ export const Header = ({  }) => {
             <NavTopUI>
             <NavLinkTopUI>For Employers</NavLinkTopUI>
             <NavLinkTopUI>|</NavLinkTopUI>
-            <NavLinkTopUI>For Students</NavLinkTopUI>
+            <NavLinkTopUI>For Alumni</NavLinkTopUI>
 
             </NavTopUI>
             <NavBottomUI>
