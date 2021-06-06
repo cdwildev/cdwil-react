@@ -24,6 +24,7 @@ const BubbleUI = styled.div`
   animation: float 3s linear infinite;
   transition: 0.5s ease;
   cursor: pointer;
+
 `;
 
 const SkillContainerUI = styled.div`

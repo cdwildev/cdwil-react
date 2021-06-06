@@ -2,6 +2,7 @@ import "./App.css";
 import styled from "styled-components";
 import Home from "./Home";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,6 +19,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
+        
         <ScrollToTop />
         <Switch>
           <Route exact path="/">
@@ -26,6 +28,8 @@ function App() {
           <Route path="/Home" component={Home} />
           <Route path="/skill-identifier" component={SkillIdentifierTool} />
         </Switch>
+
+        
       </div>
     </Router>
   );

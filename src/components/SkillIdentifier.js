@@ -5,11 +5,12 @@ import { Skill } from "./Skill";
 import { SkillCompass } from "./SkillCompass";
 import { SkillBar } from "./SkillBar";
 import { SkillSearch } from "./SkillSearchBar";
+import { InfoCard } from './InfoCard'
 
 const ContainerUI = styled.div`
   width: 100vw;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   position: relative;
@@ -23,6 +24,7 @@ const GridUI = styled.div`
   grid-template-columns: 2fr 2fr 2fr;
   grid-template-row: auto;
   width: 80vw;
+  margin: 0 0 20vh 0;
   @media (max-width: 1000px) {
     grid-template-columns: 2fr 2fr;
   }
@@ -51,7 +53,7 @@ export const SkillIdentifier = ({ allPostsData }) => {
   const [scrolling, setScrolling] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
 
-  useEffect(() => {
+/*   useEffect(() => {
     const onScroll = (e) => {
       setScrollTop(e.target.documentElement.scrollTop);
       setScrolling(e.target.documentElement.scrollTop > scrollTop);
@@ -60,7 +62,7 @@ export const SkillIdentifier = ({ allPostsData }) => {
 
     return () => window.removeEventListener("scroll", onScroll);
   }, [scrollTop]);
-
+ */
   const handleInnerClick = (e) => {
     setShowPost(true);
    /*  setFilterCategory(e.target.innerHTML); */
@@ -87,6 +89,8 @@ export const SkillIdentifier = ({ allPostsData }) => {
           skillList={skillList}
           setSkillList={setSkillList}
         />
+
+       <InfoCard/>
         <SkillCompass
           major={major}
           setMajor={setMajor}

@@ -9,7 +9,8 @@ import heroTwo from './images/hero-2.png'
 import heroThree from './images/hero-3.png'
 import footerGradient from './images/footer.svg'
 import buttonBgOne from './images/bg-1.png'
-import buttonBgTwo from './images/bg-2.png'
+import buttonBgTwo from './images/bg-2.png';
+import Footer from "./components/Footer";
 
 import {
   BrowserRouter as Router,
@@ -207,8 +208,13 @@ function Home() {
             style={{ position: "absolute", bottom: "0px", width: "100vw" }}
             src={footerGradient}
           />
+          <Footer/>
         </SectionUI>
+        
       </div>
+
+
+
     </div>
   );
 }

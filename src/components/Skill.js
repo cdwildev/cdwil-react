@@ -48,6 +48,8 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList }) 
   useEffect(() => {
     setUpdateData(data)
     setUpdateSkillList(skillList)
+
+    console.log(data.related === null)
   })
 
   useEffect(() => {
@@ -59,8 +61,6 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList }) 
       setAddSkill(false)
     }
   },[skillList])
-
-
 
   return (
     <>
@@ -85,7 +85,7 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList }) 
             lineRotate={'rotate(130deg)'}
             lineWidth={'155px'}
             linePosition={'45px'}
-            title={'one'}
+            title={data.related === null ? 'one' : data.related.one}
           />
           <BubbleRelated
             skillList={skillList}
@@ -96,7 +96,7 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList }) 
             lineRotate={'rotate(90deg)'}
             lineWidth={'108px'}
             linePosition={'-4px'}
-            title={'two'}
+            title={data.related === null ? 'two' : data.related.two}
           />
           <BubbleRelated
             skillList={skillList}
@@ -107,7 +107,7 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList }) 
             lineRotate={'rotate(50deg)'}
             lineWidth={'155px'}
             linePosition={'-100px'}
-            title={'three'}
+            title={data.related === null ? 'three' : data.related.three}
           />
         </RowUI>
       </SkillContainerUI>
