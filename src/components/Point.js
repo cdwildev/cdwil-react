@@ -73,6 +73,7 @@ const PointContainerUI = styled.div`
   align-items: center;
   position: absolute;
   cursor: pointer;
+  z-index: 1500;
 `;
 
 const PointUI = styled.div`
@@ -103,16 +104,18 @@ const PointCircleUI = styled.div`
 
 
 
-export const Point = ({ handleInnerClick, handleMiddleClick, bachelor, type, setType, setSkillType, transform="rotate(0deg) translateY(-20vw)", id, rotateTag }) => {
+export const Point = ({ handleInnerClick, handleMiddleClick, bachelor, ring, type, setType, setSkillType, hover, setHover, transform="rotate(0deg) translateY(-20vw)", id, rotateTag }) => {
 
 const [pointHover, setPointHover] = useState(false)
 
 const handleMouseEnter = (e) => {
     setPointHover(true)
+    setHover(true)
 }
 
 const handleMouseLeave = (e) => {
   setPointHover(false)
+  setHover(false)
 }
 
 const handleClick = (e) => {
@@ -123,10 +126,11 @@ const handleClick = (e) => {
 
   return (
     <PointContainerUI onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick} style={{ transform: transform}}>
-        <PointUI style={{borderRadius: type == id ? '10%' : '100%'}}></PointUI>
-        <PointCircleUI style={{opacity: pointHover ? '100%' : '0', }}></PointCircleUI>
-        <TagUI style={{transform: rotateTag, display: pointHover ? 'flex' : 'none'}}>{id.replace('-', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase())}</TagUI>
         <div style={{ transition: '0.5s ease-in' , width: type == id ? '2.5vw' : '0vw' , position: 'absolute', transform: 'rotate(90deg)', borderBottom: '1px solid white', top: '2.5vw', height: '0px'}}></div>
+
+        <PointUI style={{borderRadius: type == id ? '10%' : '100%', background: hover && ring == 'outer' ? '#00B188' : hover && ring == 'middle' ? '#EDE04A' : hover && ring == 'inner' ? '#E01583' : 'white'}}></PointUI>
+        {/* <PointCircleUI style={{opacity: pointHover ? '100%' : '0', }}></PointCircleUI> */}
+        <TagUI style={{transform: rotateTag, display: hover ? 'flex' : 'none'}}>{id.replace('-', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase())}</TagUI>
     </PointContainerUI>
 /*         <PointUI onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={() => setBachelor('media-arts')} id="media-arts" style={{ transform: "rotate(120deg) translateY(-20vw)" }}>
         

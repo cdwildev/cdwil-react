@@ -6,10 +6,14 @@ import { ChevronUp, ChevronDown, X } from 'react-feather';
 
 const ContainerUI = styled.div`
   width: 100vw;
-  height: 100vh;
+ 
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  z-index: 2000;
 `;
 
 const ExpandUI = styled.div`
@@ -19,6 +23,7 @@ const ExpandUI = styled.div`
   position: absolute;
   left: 0;
   bottom: 10vh;
+  left: 5vw;
   transition: 0.5s ease;
   color: white;
   margin:  0 0 10px 0 ;
@@ -26,12 +31,12 @@ const ExpandUI = styled.div`
 
 const SkillBarUI = styled.div`
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+
+  justify-content: center;
   position: fixed;
   bottom: 0;
   flex-wrap: wrap;
-  width: 75vw;
+  width: 90vw;
   height: 10vh;
   background: rgba( 0, 86, 149, 0.5 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -41,11 +46,12 @@ const SkillBarUI = styled.div`
   border-radius: 10px 10px 0 0;
   transition: 0.5s ease;
   z-index: 2000;
+ 
+  align-items: flex-start;
+  
+  
 
-  @media (max-width: 500px) {
-    width: 90vw;
-    justify-content: flex-start;
-  }
+
 
 `;
 
@@ -53,8 +59,9 @@ const SkillTagUI = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30%;
-  height: 5vh;
+  width: 20%;
+  height: 6.5vh;
+  padding: 0 50px;
   margin: 1.5%;
   background: rgba( 0, 86, 149, 0.5 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -64,11 +71,12 @@ const SkillTagUI = styled.div`
   border-radius: 50px;
   color: white;
   cursor: pointer;
-
 position: relative;
-  @media (max-width: 500px) {
+  @media (max-width: 800px) {
     width: 100%;
   }
+
+
 `;
 
 
@@ -99,6 +107,7 @@ const SkillDeleteUI = styled.div`
   border-radius: 100%;
   position: absolute;
   left:10px;
+  
   
   pointer-events:none;
   
@@ -152,20 +161,22 @@ setSkillArray(skillList)
 
   return (
 
-      
-      <SkillBarUI style={{display: skillArray.length > 0 ? 'flex' : 'none', height: expandMenu ? '50vh' : '10vh'}}>
-        
-        {skillArray.length > 0 ?skillArray.map(skill => <SkillTagUI key={skill} onClick={handleClick}>{skill}<SkillDeleteUI><X/></SkillDeleteUI></SkillTagUI>) : ''}
-        <ExpandUI style={{ display:skillArray.length > 0 ? 'flex' : 'none', bottom: expandMenu ? '50vh' : '10vh'}} onClick={() => setExpandMenu(!expandMenu)}>
+      <ContainerUI>
+
+      <ExpandUI style={{ display:skillArray.length > 0 ? 'flex' : 'none', bottom: expandMenu ? '50vh' : '10vh'}} onClick={() => setExpandMenu(!expandMenu)}>
           {expandMenu ? <ChevronDown /> : <ChevronUp/>  }
           <ExpandTextUI>{expandMenu &&skillArray.length > 0 ? 'see less skills':skillArray.length == 0 ? '' : 'see all skills'}</ExpandTextUI>
           <SkillCountUI>{expandMenu &&skillArray.length > 0 ?skillArray.length :skillArray.length == 0 ? '' :skillArray.length }</SkillCountUI>
               
-        </ExpandUI>
+      </ExpandUI>
+      <SkillBarUI style={{overflowY: expandMenu ? 'scroll' : 'hidden', display: skillArray.length > 0 ? 'flex' : 'none', height: expandMenu ? '50vh' : '10vh'}}>
+        
+        {skillArray.length > 0 ?skillArray.map(skill => <SkillTagUI key={skill} onClick={handleClick}>{skill}<SkillDeleteUI><X/></SkillDeleteUI></SkillTagUI>) : ''}
+
         <ScrollIndicatorUI style={{display: skillType ? 'flex' : 'none'}}>{scrollTop > 200 ? 'back to top' : 'scroll down to see skills'}</ScrollIndicatorUI>
 
       </SkillBarUI>
-
+      </ContainerUI>
   );
 };
 

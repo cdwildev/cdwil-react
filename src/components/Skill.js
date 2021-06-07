@@ -84,7 +84,7 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList }) 
             title={ '' }
             lineRotate={'rotate(130deg)'}
             lineWidth={'155px'}
-            linePosition={'45px'}
+            linePosition={'75px'}
             title={data.related === null ? 'one' : data.related.one}
           />
           <BubbleRelated
@@ -95,7 +95,7 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList }) 
             title={ '' }
             lineRotate={'rotate(90deg)'}
             lineWidth={'108px'}
-            linePosition={'-4px'}
+            linePosition={'20px'}
             title={data.related === null ? 'two' : data.related.two}
           />
           <BubbleRelated
@@ -105,7 +105,7 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList }) 
             setShowRelated={setShowRelated}
             title={ '' }
             lineRotate={'rotate(50deg)'}
-            lineWidth={'155px'}
+            lineWidth={'165px'}
             linePosition={'-100px'}
             title={data.related === null ? 'three' : data.related.three}
           />

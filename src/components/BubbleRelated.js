@@ -11,8 +11,8 @@ const ContainerUI = styled.div`
 `;
 
 const BubbleUI = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;

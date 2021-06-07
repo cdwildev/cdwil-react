@@ -6,6 +6,9 @@ import { SkillCompass } from "./SkillCompass";
 import { SkillBar } from "./SkillBar";
 import { SkillSearch } from "./SkillSearchBar";
 import { InfoCard } from './InfoCard'
+import { SkillSelect } from './SkillSelect'
+import ReactPDF, { PDFDownloadLink } from '@react-pdf/renderer';
+import { MyDocument } from './SkillPdf'
 
 const ContainerUI = styled.div`
   width: 100vw;
@@ -25,10 +28,10 @@ const GridUI = styled.div`
   grid-template-row: auto;
   width: 80vw;
   margin: 0 0 20vh 0;
-  @media (max-width: 1000px) {
+  @media (max-width: 1500px) {
     grid-template-columns: 2fr 2fr;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 800px) {
     grid-template-columns: 2fr;
   }
 `;
@@ -102,6 +105,17 @@ export const SkillIdentifier = ({ allPostsData }) => {
           handleMiddleClick={handleMiddleClick}
           skillList={skillList}
         />
+                <SkillSelect
+          major={major}
+          setMajor={setMajor}
+          bachelor={bachelor}
+          setBachelor={setBachelor}
+          skill={skill}
+          setSkill={setSkill}
+          handleInnerClick={handleInnerClick}
+          handleMiddleClick={handleMiddleClick}
+          skillList={skillList}
+        />
 
         <GridUI skillList={skillList}>
           {!pageLoad
@@ -152,7 +166,9 @@ export const SkillIdentifier = ({ allPostsData }) => {
 
         { skill.length > 0 ? <ScrollMessageUI>Scroll down to see skills</ScrollMessageUI> : ''}
       </ContainerUI>
-    </>
+
+{/*       <PDFDownloadLink style={{position: 'fixed', top: '10px'}} document={<MyDocument skillList={skillList} />} fileName="somename.pdf">export</PDFDownloadLink>
+ */}    </>
   );
 };
 
