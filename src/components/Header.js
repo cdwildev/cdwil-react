@@ -64,6 +64,7 @@ font-size: 18px;
 margin-left: 35px;
 
 
+
 `
 
 
@@ -94,12 +95,12 @@ export const Header = ({  }) => {
 
             </NavTopUI>
             <NavBottomUI>
-                <Link to="/home"><NavLinkUI>Home</NavLinkUI></Link>
-                <Link to="/tools"><NavLinkUI>Tools</NavLinkUI></Link>
-                <Link to="/resources"><NavLinkUI>Resources</NavLinkUI></Link>
-                <Link to="/news"><NavLinkUI>News + Events</NavLinkUI></Link>
-                <Link to="/artswork"><NavLinkUI>Artswork</NavLinkUI></Link>
-                <Link to="/about"><NavLinkUI>About</NavLinkUI></Link>
+                <Link to="/home" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>Home</NavLinkUI></Link>
+                <Link to="/tools" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>Tools</NavLinkUI></Link>
+                <Link to="/resources" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>Resources</NavLinkUI></Link>
+                <Link to="/news" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>News + Events</NavLinkUI></Link>
+                <Link to="/artswork" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>Artswork</NavLinkUI></Link>
+                <Link to="/about" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>About</NavLinkUI></Link>
             </NavBottomUI>
 
 
