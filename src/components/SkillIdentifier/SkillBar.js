@@ -24,11 +24,11 @@ const ExpandUI = styled.div`
   justify-content: flex-start;
   position: absolute;
   left: 0;
-  bottom: 10vh;
+
   left: 5vw;
   transition: 0.5s ease;
   color: white;
-  margin:  0 0 10px 0 ;
+  margin:  0 0 2.5vh 0 ;
 `;
 
 const SkillBarUI = styled.div`
@@ -130,6 +130,10 @@ const SkillCountUI = styled.div`
   height:25px;
   border: 1px solid white;
   border-radius: 100%;
+  background: rgba( 0, 86, 149, 0.8 );
+ 
+  backdrop-filter: blur( 10.0px );
+  -webkit-backdrop-filter: blur( 10.0px );
 
 
 
@@ -144,8 +148,8 @@ const ExpandTextUI = styled.div`
 
 const ScrollMessageUI = styled.div`
 position: absolute;
-top: 90vh;
-right: 12.5vw;
+
+right: 5vw;
 color: white;
 display: flex;
 align-items: center;
@@ -153,21 +157,23 @@ justify-content: space-between;
 width: 250px;
 animation: up 2s ease infinite;
 position: fixed;
-top: 85vh;
+transition: 0.5s ease;
+
 
 
 `
 
 const ToTopUI = styled.a`
 position: fixed;
-top: 85vh;
-right: 12.5vw;
+
+right: 5vw;
 color: white;
 display: flex;
 align-items: center;
 justify-content: space-between;
 width: 150px;
 cursor: pointer;
+transition: 0.5s ease;
 
 
 
@@ -208,10 +214,12 @@ setSkillArray(skillList)
         {skillArray.length > 0 ?skillArray.map(skill => <SkillTagUI key={skill} onClick={handleClick}>{skill}<SkillDeleteUI><X/></SkillDeleteUI></SkillTagUI>) : ''}
 
        {/*  <ScrollIndicatorUI style={{display: skillType ? 'flex' : 'none', }}>{scrollTop > 200 ? 'back to top' : 'scroll down to see skills'}</ScrollIndicatorUI> */}
-       { skill.length > 0 && scrollTop < 1300 ? <ScrollMessageUI> Scroll down to see skills <ArrowDown/> </ScrollMessageUI> : skill.length > 0 && scrollTop > 1300 ? <ToTopUI onClick={executeScroll}> Back to Top <ArrowUp/> </ToTopUI> : ''}
-
+ 
 
       </SkillBarUI>
+
+      { skill.length > 0 && scrollTop < 1300 ? <ScrollMessageUI style={{ bottom: expandMenu ? '55vh' : '15vh'}}> Scroll down to see skills <ArrowDown/> </ScrollMessageUI> : skill.length > 0 && scrollTop > 1300 ? <ToTopUI onClick={executeScroll} style={{ bottom: expandMenu ? '52.5vh' : '12.5vh'}}> Back to Top <ArrowUp/> </ToTopUI> : ''}
+
       </ContainerUI>
   );
 };

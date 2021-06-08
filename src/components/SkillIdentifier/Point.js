@@ -53,7 +53,8 @@ const TagUI = styled.div`
 
   opacity: 100%;
   color: white;
-  transition: 0.5s ease;
+  transition-delay: 0.5s;
+  
 `;
 
 const TextUI = styled.div`

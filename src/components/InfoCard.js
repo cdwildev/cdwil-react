@@ -12,14 +12,16 @@ width: 70vw;
 border-radius: 25px;
 position: absolute;
 top:30vh;
-background: rgba( 0, 86, 149, 0.8 );
+background: #FFFFFF;
 backdrop-filter: blur(25px);
+
 border-radius: 25px;
 display: flex; 
 align-items: center;
 justify-content: center;
 z-index: 1000;
-color: white;
+color: rgba(22, 64, 95, 1);
+
 `;
 
 const ContainerUI = styled.div`
@@ -61,7 +63,7 @@ const ButtonUI = styled.div`
   width:20px;
   height:20px;
   position: absolute;
-  border: 1px solid white;
+  border: 1px solid rgba(22, 64, 95, 1);
   right: 10px;
   top: 10px;
   justify-content: center;
@@ -79,7 +81,7 @@ const CircleUI = styled.div`
 width: 8px;
 height: 8px;
 border-radius: 100%;
-border: 1px solid white;
+border: 1px solid rgba(22, 64, 95, 1);
 margin 0 4px;
 cursor: pointer;
 `
@@ -98,8 +100,8 @@ export const InfoCard = ({}) => {
       <HeaderUI>IMPORTANT</HeaderUI>
       <TextUI>{ page == 'one' ? 'Once you exit this page, your skills will not be saved.' : 'Export your map as a PDF and print it out or save it to your computer so you can always have access to it.' }</TextUI>
       <PageUI>
-        <CircleUI onClick={() => setPage('one')} style={{background: page == 'one' ? 'white' : 'transparent'}}></CircleUI>
-        <CircleUI onClick={() => setPage('two')} style={{background: page == 'one' ? 'transparent' : 'white'}}></CircleUI>
+        <CircleUI onClick={() => setPage('one')} style={{background: page == 'one' ? 'rgba(22, 64, 95, 1)' : 'transparent'}}></CircleUI>
+        <CircleUI onClick={() => setPage('two')} style={{background: page == 'one' ? 'transparent' : 'rgba(22, 64, 95, 1)'}}></CircleUI>
       </PageUI>
       </ContainerUI>
     </CardUI>
