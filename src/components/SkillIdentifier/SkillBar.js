@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import styled from "styled-components";
-import { ChevronUp, ChevronDown, X } from 'react-feather';
+
+
+import { ChevronUp, ChevronDown, X, ArrowDown , ArrowUp} from 'react-feather';
 
 
 const ContainerUI = styled.div`
@@ -38,11 +40,11 @@ const SkillBarUI = styled.div`
   flex-wrap: wrap;
   width: 90vw;
   height: 10vh;
-  background: rgba( 0, 86, 149, 0.5 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 10.0px );
-  -webkit-backdrop-filter: blur( 10.0px );
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background: linear-gradient(128.63deg, rgba(255, 255, 255, 0.7) -3.22%, rgba(255, 255, 255, 0.5) 123.53%);
+  backdrop-filter: blur(25px);
+  /* Note: backdrop-filter has minimal browser support */
+  
+  border-radius: 25px;
   border-radius: 10px 10px 0 0;
   transition: 0.5s ease;
   z-index: 2000;
@@ -60,11 +62,11 @@ const SkillTagUI = styled.div`
   align-items: center;
   justify-content: center;
   width: 20%;
-  height: 6.5vh;
+  height: 6vh;
   padding: 0 50px;
-  margin: 1.5%;
-  background: rgba( 0, 86, 149, 0.5 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  margin: 2vh;
+  background: rgba( 0, 86, 149, 0.8 );
+ 
   backdrop-filter: blur( 10.0px );
   -webkit-backdrop-filter: blur( 10.0px );
   border: 1px solid rgba( 255, 255, 255, 0.18 );
@@ -89,6 +91,7 @@ const ScrollIndicatorUI = styled.div`
   bottom: 10vh;
   right: 10vw;
   color: white;
+  
 
 
 
@@ -139,8 +142,39 @@ const ExpandTextUI = styled.div`
 
 `;
 
+const ScrollMessageUI = styled.div`
+position: absolute;
+top: 90vh;
+right: 12.5vw;
+color: white;
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 250px;
+animation: up 2s ease infinite;
+position: fixed;
+top: 85vh;
 
-export const SkillBar = ({ showPost, setShowPost,skillList, setSkillList, skillType, scrollTop }) => {
+
+`
+
+const ToTopUI = styled.a`
+position: fixed;
+top: 85vh;
+right: 12.5vw;
+color: white;
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 150px;
+cursor: pointer;
+
+
+
+`
+
+
+export const SkillBar = ({ showPost, setShowPost,skillList, setSkillList, skillType, scrollTop, skill, executeScroll }) => {
 
 
     const [skillArray, setSkillArray] = useState([])
@@ -173,7 +207,9 @@ setSkillArray(skillList)
         
         {skillArray.length > 0 ?skillArray.map(skill => <SkillTagUI key={skill} onClick={handleClick}>{skill}<SkillDeleteUI><X/></SkillDeleteUI></SkillTagUI>) : ''}
 
-        <ScrollIndicatorUI style={{display: skillType ? 'flex' : 'none'}}>{scrollTop > 200 ? 'back to top' : 'scroll down to see skills'}</ScrollIndicatorUI>
+       {/*  <ScrollIndicatorUI style={{display: skillType ? 'flex' : 'none', }}>{scrollTop > 200 ? 'back to top' : 'scroll down to see skills'}</ScrollIndicatorUI> */}
+       { skill.length > 0 && scrollTop < 1300 ? <ScrollMessageUI> Scroll down to see skills <ArrowDown/> </ScrollMessageUI> : skill.length > 0 && scrollTop > 1300 ? <ToTopUI onClick={executeScroll}> Back to Top <ArrowUp/> </ToTopUI> : ''}
+
 
       </SkillBarUI>
       </ContainerUI>

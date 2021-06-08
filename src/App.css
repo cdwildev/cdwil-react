@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+@import url("https://use.typekit.net/yqg0xhy.css");
 
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -363,11 +364,11 @@ body{
     
 }
 
-.section{
-    width: 75vw;
-
+.container{
+    width: 100vw;
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
 }
 
 @keyframes float {
@@ -380,6 +381,19 @@ body{
   }
   to{
     transform: translateY(10px) translateX(0px)
+  }
+}
+
+@keyframes up {
+  from{
+    transform: translateY(10px) 
+    
+  }
+  50%{
+    transform: translateY(0px)
+  }
+  to{
+    transform: translateY(10px) 
   }
 }
 

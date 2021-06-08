@@ -26,6 +26,7 @@ const SectionUI = styled.div`
   align-items: flex-start;
   position: relative;
   padding: 65px 0 0 0;
+  width: 75vw;
 `;
 
 const LeftColumn = styled.div``;
@@ -119,7 +120,7 @@ function Home() {
       >
         {/*      
 <div onClick={() => router.push('/skill-identifier')}>skill</div> */}
-        <SectionUI className="section">
+        <SectionUI>
           <LeftColumn>
             <TitleUI>
               Career <br></br> Development <br></br>+ Work Integrated <br></br>

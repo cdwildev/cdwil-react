@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import React from "react";
 import styled from "styled-components";
 
+import { ChevronUp, ArrowRight, X } from 'react-feather';
+
 const ContainerUI = styled.div`
 width: 75vw;
 position absolute; 
@@ -43,7 +45,7 @@ border-radius: 50px;
 border: 1px solid rgb(255, 255, 255);
 background: transparent;
 background: rgba( 0, 86, 149, 0.5 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  
   backdrop-filter: blur( 10.0px );
   -webkit-backdrop-filter: blur( 10.0px );
 
@@ -64,8 +66,8 @@ const SearchUI = styled.input`
   border-radius: 50px;
   border: 1px solid rgb(255, 255, 255);
   background: transparent;
-  background: rgba( 0, 86, 149, 0.5 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  background: rgba( 0, 86, 149, 0.8 );
+   
     backdrop-filter: blur( 10.0px );
     -webkit-backdrop-filter: blur( 10.0px );
 
@@ -95,8 +97,7 @@ color: white;
 
 border: 1px solid rgb(255, 255, 255);
 background: transparent;
-background: rgba( 0, 86, 149, 0.5 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+background: rgba( 0, 86, 149, 0.8 );
   backdrop-filter: blur( 10.0px );
   -webkit-backdrop-filter: blur( 10.0px );
 
@@ -127,9 +128,8 @@ overflow: hidden;
 }
 
 border: 1px solid rgb(255, 255, 255);
-background: transparent;
-background: rgba( 0, 86, 149, 0.5 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+
+background: rgba( 0, 86, 149, 0.8 );
   backdrop-filter: blur( 10.0px );
   -webkit-backdrop-filter: blur( 10.0px );
 

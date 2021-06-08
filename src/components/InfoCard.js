@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import logo from "../images/logo.svg";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { ArrowRight, X } from "react-feather";
 
 const CardUI = styled.div`
 height: 281px;
@@ -10,12 +11,15 @@ max-width: 600px;
 width: 70vw;
 border-radius: 25px;
 position: absolute;
-background: linear-gradient(128.63deg, rgba(255, 255, 255, 0.9) -3.22%, rgba(255, 255, 255, 0.9) 123.53%);
+top:30vh;
+background: rgba( 0, 86, 149, 0.8 );
 backdrop-filter: blur(25px);
+border-radius: 25px;
 display: flex; 
 align-items: center;
 justify-content: center;
 z-index: 1000;
+color: white;
 `;
 
 const ContainerUI = styled.div`
@@ -57,11 +61,12 @@ const ButtonUI = styled.div`
   width:20px;
   height:20px;
   position: absolute;
-  border: 1px solid black;
+  border: 1px solid white;
   right: 10px;
   top: 10px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
 `;
 
@@ -74,8 +79,9 @@ const CircleUI = styled.div`
 width: 8px;
 height: 8px;
 border-radius: 100%;
-border: 1px solid black;
+border: 1px solid white;
 margin 0 4px;
+cursor: pointer;
 `
 
 
@@ -87,13 +93,13 @@ export const InfoCard = ({}) => {
   return (
     <CardUI style={{ display: showCard ? 'flex' : 'none'}}>
       <ContainerUI>
-        <ButtonUI style={{ display: page == 'two' ? 'flex' : 'none'}} onClick={() => setShowCard(false)}>x</ButtonUI>
-        <ButtonUI style={{ display: page == 'one' ? 'flex' : 'none'}} onClick={() => setPage('two')}>-></ButtonUI>
+        <ButtonUI style={{ display: page == 'two' ? 'flex' : 'none'}} onClick={() => setShowCard(false)}><X/></ButtonUI>
+        <ButtonUI style={{ display: page == 'one' ? 'flex' : 'none'}} onClick={() => setPage('two')}><ArrowRight/></ButtonUI>
       <HeaderUI>IMPORTANT</HeaderUI>
       <TextUI>{ page == 'one' ? 'Once you exit this page, your skills will not be saved.' : 'Export your map as a PDF and print it out or save it to your computer so you can always have access to it.' }</TextUI>
       <PageUI>
-        <CircleUI onClick={() => setPage('one')} style={{background: page == 'one' ? 'black' : 'transparent'}}></CircleUI>
-        <CircleUI onClick={() => setPage('two')} style={{background: page == 'one' ? 'transparent' : 'black'}}></CircleUI>
+        <CircleUI onClick={() => setPage('one')} style={{background: page == 'one' ? 'white' : 'transparent'}}></CircleUI>
+        <CircleUI onClick={() => setPage('two')} style={{background: page == 'one' ? 'transparent' : 'white'}}></CircleUI>
       </PageUI>
       </ContainerUI>
     </CardUI>

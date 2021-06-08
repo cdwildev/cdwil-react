@@ -84,7 +84,7 @@ export const Header = ({  }) => {
     <HeaderUI>
 
         <ContainerUI>
-        <Link to="/Home"><img src={logo}></img></Link>
+        <Link to="/home"><img src={logo}></img></Link>
         
         <NavUI>
             <NavTopUI>
@@ -94,13 +94,12 @@ export const Header = ({  }) => {
 
             </NavTopUI>
             <NavBottomUI>
-                <NavLinkUI>Home</NavLinkUI>
-                <NavLinkUI>Tools</NavLinkUI>
-                <NavLinkUI>Resources</NavLinkUI>
-                <NavLinkUI>News + Events</NavLinkUI>
-                <NavLinkUI>Artswork</NavLinkUI>
-                <NavLinkUI>About</NavLinkUI>
-
+                <Link to="/home"><NavLinkUI>Home</NavLinkUI></Link>
+                <Link to="/tools"><NavLinkUI>Tools</NavLinkUI></Link>
+                <Link to="/resources"><NavLinkUI>Resources</NavLinkUI></Link>
+                <Link to="/news"><NavLinkUI>News + Events</NavLinkUI></Link>
+                <Link to="/artswork"><NavLinkUI>Artswork</NavLinkUI></Link>
+                <Link to="/about"><NavLinkUI>About</NavLinkUI></Link>
             </NavBottomUI>
 
 

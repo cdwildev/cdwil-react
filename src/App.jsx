@@ -11,6 +11,11 @@ import {
   Redirect,
 } from "react-router-dom";
 import SkillIdentifierTool from "./SkillIdentifierTool";
+import Tools from "./Tools";
+import Resources from './Resources'
+import News from './News'
+import Artswork from './Artswork'
+import About from './About'
 
 import ScrollToTop from './helpers/ScrollToTop'
 
@@ -25,12 +30,19 @@ function App() {
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
-          <Route path="/Home" component={Home} />
-          <Route path="/skill-identifier" component={SkillIdentifierTool} />
+          <Route path="/home" component={Home} />
+          <Route path="/tools" component={Tools} />
+            <Route path="/skill-identifier" component={SkillIdentifierTool} />
+          <Route path="/resources" component={Resources} />
+          <Route path="/news" component={News} />
+          <Route path="/artswork" component={Artswork} />
+          <Route path="/about" component={About} />
         </Switch>
 
         
       </div>
+
+      
     </Router>
   );
 }
