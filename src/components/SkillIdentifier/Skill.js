@@ -33,13 +33,13 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList }) 
   const [addSkill, setAddSkill] = useState(false);
 
   const handleSkillClick = (e) => {
-    console.log(e.target);
+ 
     setShowRelated(!showRelated);
     setAddSkill(!addSkill);
   };
 
   const handleRelatedClick = (e) => {
-    console.log(e.target);
+  
   };
 
   const [updateData, setUpdateData] = useState('')
@@ -49,7 +49,7 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList }) 
     setUpdateData(data)
     setUpdateSkillList(skillList)
 
-    console.log(data.related === null)
+  
   })
 
   useEffect(() => {

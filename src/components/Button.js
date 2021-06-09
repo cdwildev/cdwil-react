@@ -15,8 +15,7 @@ const ButtonUI = styled.div`
   font-style: normal;
   font-weight: bold;
   font-size: 19px;
-   position: relative;
-  top: -30px;
+
 `;
 
 

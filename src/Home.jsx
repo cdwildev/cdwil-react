@@ -23,13 +23,18 @@ const SectionUI = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
-  padding: 65px 0 0 0;
   width: 75vw;
+ 
 `;
 
-const LeftColumn = styled.div``;
+const LeftColumn = styled.div`
+
+display: flex;
+flex-direction: column;
+
+`;
 
 const RightColumn = styled.div`
   width: 100%;
@@ -52,8 +57,10 @@ const TitleUI = styled.h1`
   display: flex;
   justify-content: flex-start;
   text-align: left;
-  height: 300px;
+  height: 270px;
   font-weight: 900;
+  margin: 0;
+  
   font-size: 56px;
   background: -webkit-linear-gradient(
     113.03deg,
@@ -78,7 +85,7 @@ const SubTitleUI = styled.p`
   font-size: 19px;
   line-height: 32px;
   position: relative;
-  top: -55px;
+    margin: 0 0 5vh 0;;
 `;
 
 const TileUI = styled.div`
@@ -120,7 +127,7 @@ function Home() {
       >
         {/*      
 <div onClick={() => router.push('/skill-identifier')}>skill</div> */}
-        <SectionUI>
+        <SectionUI style={{ padding: '10vh 0 0 0 ', alignItems: 'flex-start', maxHeight: '75vh'}}>
           <LeftColumn>
             <TitleUI>
               Career <br></br> Development <br></br>+ Work Integrated <br></br>
@@ -145,7 +152,7 @@ function Home() {
                 style={{
                   position: "absolute",
                   top: "20px",
-                  right: "0px",
+                  right: "280px",
                   border: "4px solid black",
                   borderRadius: "8px",
                 }}
@@ -154,8 +161,8 @@ function Home() {
               <img
                 style={{
                   position: "absolute",
-                  top: "-25px",
-                  left: "35px",
+                  top: "20px",
+                  right: "00px",
                   border: "4px solid black",
                   borderRadius: "8px",
                 }}
@@ -165,52 +172,25 @@ function Home() {
           </RightColumn>
         </SectionUI>
 
+    
+
         <SectionUI className="section">
           <NavGrid />
         </SectionUI>
 
-        <SectionUI className="section">
-          <FlexUI>
-            <TileUI>
-              <img
-                style={{
-                  position: "absolute",
-                  left: "0",
-                  bottom: "0",
-                  zIndex: "-100",
-                }}
-                src={buttonBgOne}
-              />
-              Questions <br></br>
-              about Co-op?
-            </TileUI>
-            <TileUI>
-              <img
-                style={{
-                  position: "absolute",
-                  left: "0",
-                  bottom: "0",
-                  zIndex: "-100",
-                }}
-                src={buttonBgTwo}
-              />
-              Hire an <br></br>
-              Artist/Designer
-            </TileUI>
-          </FlexUI>
-        </SectionUI>
+        <SectionUI className="section"  style={{alignItems: 'center', height: '35vh'}}>
+
+          search
+          
+          </SectionUI>
+  
 
         <SectionUI className="section">
           <InspireGrid />
         </SectionUI>
 
-        <SectionUI className="section">
-          <img
-            style={{ position: "absolute", bottom: "0px", width: "100vw" }}
-            src={footerGradient}
-          />
-          <Footer/>
-        </SectionUI>
+      
+
         
       </div>
 

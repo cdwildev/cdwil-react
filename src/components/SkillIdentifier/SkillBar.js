@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import styled from "styled-components";
+import { PDFDownloadLink, Page, Text, View, Document, StyleSheet, ReactPDF } from '@react-pdf/renderer';
+import { MyDocument } from './SkillPdf'
 
 
-import { ChevronUp, ChevronDown, X, ArrowDown , ArrowUp} from 'react-feather';
+
+import { ChevronUp, ChevronDown, X, ArrowDown , ArrowUp, Download} from 'react-feather';
 
 
 const ContainerUI = styled.div`
@@ -34,10 +37,10 @@ const ExpandUI = styled.div`
 const SkillBarUI = styled.div`
   display: flex;
 
-  justify-content: center;
+  justify-content: flex-start;;
   position: fixed;
   bottom: 0;
-  flex-wrap: wrap;
+ 
   width: 90vw;
   height: 10vh;
   background: linear-gradient(128.63deg, rgba(255, 255, 255, 0.7) -3.22%, rgba(255, 255, 255, 0.5) 123.53%);
@@ -51,7 +54,11 @@ const SkillBarUI = styled.div`
  
   align-items: flex-start;
   
-  
+  flex-flow: row wrap;
+
+  @media (max-width: 800px) {
+    width: 100vw;
+  }
 
 
 
@@ -75,7 +82,7 @@ const SkillTagUI = styled.div`
   cursor: pointer;
 position: relative;
   @media (max-width: 800px) {
-    width: 100%;
+    width: 80%;
   }
 
 
@@ -109,7 +116,7 @@ const SkillDeleteUI = styled.div`
   border: 1px solid white;
   border-radius: 100%;
   position: absolute;
-  left:10px;
+  left: 10px;
   
   
   pointer-events:none;
@@ -178,9 +185,36 @@ transition: 0.5s ease;
 
 
 `
+const DownloadButtonUI = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+width: 5%;
+min-width: 6vh;
+height: 6vh;
 
 
-export const SkillBar = ({ showPost, setShowPost,skillList, setSkillList, skillType, scrollTop, skill, executeScroll }) => {
+background: rgba( 0, 86, 149, 0.8 );
+position: absolute;
+top: 2vh;
+right: 2vh;
+
+backdrop-filter: blur( 10.0px );
+-webkit-backdrop-filter: blur( 10.0px );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+border-radius: 50px;
+color: white;
+cursor: pointer;
+
+@media (max-width: 800px) {
+  display: none;
+}
+
+
+`
+
+
+export const SkillBar = ({ renderPdf, showPost, setShowPost,skillList, setSkillList, skillType, scrollTop, skill, executeScroll }) => {
 
 
     const [skillArray, setSkillArray] = useState([])
@@ -194,7 +228,7 @@ export const SkillBar = ({ showPost, setShowPost,skillList, setSkillList, skillT
     }
 
       useEffect(() => {
-setSkillArray(skillList)
+setSkillArray(skillList.reverse())
   }, [skillList]);
 
 
@@ -215,7 +249,8 @@ setSkillArray(skillList)
 
        {/*  <ScrollIndicatorUI style={{display: skillType ? 'flex' : 'none', }}>{scrollTop > 200 ? 'back to top' : 'scroll down to see skills'}</ScrollIndicatorUI> */}
  
-
+      <DownloadButtonUI>
+      {renderPdf ? <PDFDownloadLink document={<MyDocument skillList={skillList} />} fileName="somename.pdf"><Download/></PDFDownloadLink> : ''}</DownloadButtonUI>
       </SkillBarUI>
 
       { skill.length > 0 && scrollTop < 1300 ? <ScrollMessageUI style={{ bottom: expandMenu ? '55vh' : '15vh'}}> Scroll down to see skills <ArrowDown/> </ScrollMessageUI> : skill.length > 0 && scrollTop > 1300 ? <ToTopUI onClick={executeScroll} style={{ bottom: expandMenu ? '52.5vh' : '12.5vh'}}> Back to Top <ArrowUp/> </ToTopUI> : ''}

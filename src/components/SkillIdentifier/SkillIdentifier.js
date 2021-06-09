@@ -5,12 +5,20 @@ import { Skill } from "./Skill";
 import { SkillCompass } from "./SkillCompass";
 import { SkillBar } from "./SkillBar";
 import { SkillSearch } from "./SkillSearchBar";
-import { InfoCard } from '../InfoCard'
-import { SkillSelect } from './SkillSelect'
-import ReactPDF, { PDFDownloadLink } from '@react-pdf/renderer';
-import { MyDocument } from './SkillPdf'
+import { InfoCard } from "../InfoCard";
+import { SkillSelect } from "./SkillSelect";
+import {
+  PDFDownloadLink,
+  Page,
+  Text,
+  View,
+  Document,
+  StyleSheet,
+  ReactPDF,
+} from "@react-pdf/renderer";
+import { MyDocument } from "./SkillPdf";
 
-import { ChevronUp, ChevronDown, X, ArrowDown , ArrowUp} from 'react-feather';
+import { ChevronUp, ChevronDown, X, ArrowDown, ArrowUp } from "react-feather";
 
 const ContainerUI = styled.div`
   width: 100vw;
@@ -39,35 +47,42 @@ const GridUI = styled.div`
 `;
 
 const ScrollMessageUI = styled.div`
-position: absolute;
-top: 90vh;
-right: 12.5vw;
-color: white;
-display: flex;
-align-items: center;
-justify-content: space-between;
-width: 250px;
-animation: up 2s ease infinite;
-position: fixed;
-top: 85vh;
-
-
-`
+  position: absolute;
+  top: 90vh;
+  right: 12.5vw;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+  animation: up 2s ease infinite;
+  position: fixed;
+  top: 85vh;
+`;
 
 const ToTopUI = styled.a`
-position: fixed;
-top: 85vh;
-right: 12.5vw;
-color: white;
-display: flex;
-align-items: center;
-justify-content: space-between;
-width: 150px;
-cursor: pointer;
+  position: fixed;
+  top: 85vh;
+  right: 12.5vw;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+  cursor: pointer;
+`;
 
-
-
-`
+const styles = StyleSheet.create({
+  page: {
+    flexDirection: "row",
+    backgroundColor: "#E4E4E4",
+  },
+  section: {
+    margin: 10,
+    padding: 10,
+    flexGrow: 1,
+  },
+});
 
 export const SkillIdentifier = ({ allPostsData }) => {
   const [showPost, setShowPost] = useState(false);
@@ -82,6 +97,13 @@ export const SkillIdentifier = ({ allPostsData }) => {
   const [scrolling, setScrolling] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
 
+  const [renderPdf, setRenderPdf] = useState(true);
+
+  useEffect(() => {
+    setRenderPdf(false);
+    setRenderPdf(true);
+  }, [skillList]);
+
   useEffect(() => {
     const onScroll = (e) => {
       setScrollTop(e.target.documentElement.scrollTop);
@@ -89,14 +111,12 @@ export const SkillIdentifier = ({ allPostsData }) => {
     };
     window.addEventListener("scroll", onScroll);
 
-    console.log(scrollTop)
-
     return () => window.removeEventListener("scroll", onScroll);
   }, [scrollTop]);
 
   const handleInnerClick = (e) => {
     setShowPost(true);
-   /*  setFilterCategory(e.target.innerHTML); */
+    /*  setFilterCategory(e.target.innerHTML); */
   };
 
   const handleMiddleClick = (e) => {
@@ -108,9 +128,9 @@ export const SkillIdentifier = ({ allPostsData }) => {
   const [filterSkill, setFilterSkill] = useState("soft-skill");
   const [pageLoad, setPageLoad] = useState(false);
 
-  const myRef = useRef(null)
+  const myRef = useRef(null);
 
-  const executeScroll = () => myRef.current.scrollIntoView()   
+  const executeScroll = () => myRef.current.scrollIntoView();
 
   useEffect(() => {
     setPageLoad(true);
@@ -118,8 +138,7 @@ export const SkillIdentifier = ({ allPostsData }) => {
 
   return (
     <>
-      <ContainerUI >
-
+      <ContainerUI>
         <div ref={myRef}></div>
         <SkillSearch
           allPostsData={allPostsData}
@@ -127,7 +146,7 @@ export const SkillIdentifier = ({ allPostsData }) => {
           setSkillList={setSkillList}
         />
 
-       <InfoCard />
+{/*         <InfoCard /> */}
         <SkillCompass
           major={major}
           setMajor={setMajor}
@@ -138,12 +157,9 @@ export const SkillIdentifier = ({ allPostsData }) => {
           handleInnerClick={handleInnerClick}
           handleMiddleClick={handleMiddleClick}
           skillList={skillList}
-          
-          
         />
 
-        
-                <SkillSelect
+        <SkillSelect
           major={major}
           setMajor={setMajor}
           bachelor={bachelor}
@@ -202,12 +218,10 @@ export const SkillIdentifier = ({ allPostsData }) => {
           skill={skill}
           executeScroll={executeScroll}
           skill={skill}
+          renderPdf={renderPdf}
         />
-
       </ContainerUI>
-
-{/*       <PDFDownloadLink style={{position: 'fixed', top: '10px'}} document={<MyDocument skillList={skillList} />} fileName="somename.pdf">export</PDFDownloadLink>
- */}    </>
+    </>
   );
 };
 

@@ -12,7 +12,7 @@ import {
 
 const HeaderUI = styled.div`
   display: flex;
-  height: 140px;
+  height: 15vh;
   width: 100vw;
 
   border-bottom: 4px solid black;
