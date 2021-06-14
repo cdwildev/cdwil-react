@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import styled from "styled-components";
-import logo from "../images/logo.svg";
+import logo from "../../images/logo.svg";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { ArrowRight, X } from "react-feather";
 

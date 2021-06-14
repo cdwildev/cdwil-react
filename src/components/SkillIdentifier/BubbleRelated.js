@@ -57,9 +57,12 @@ export const BubbleRelated = ({
   showRelated,
   skillList, 
   setSkillList,
-  lineRotate = 'rotate(45deg)',
-  lineWidth = '150px',
-  linePosition = '0px'
+  lineRotate = 'rotate(0deg)',
+
+  lineHeight ='150px',
+  linePosition = '50%',
+  lineTop='-150px'
+  , softSkillList, hardSkillList, softwareList, setSoftSkillList, setSoftwareList, setHardSkillList, allPostsData
 
 }) => {
   const [addSkill, setAddSkill] = useState(false);
@@ -67,27 +70,65 @@ export const BubbleRelated = ({
   const [textColor, setTextColor] = useState("white");
 
   const handleSkillClick = (e) => {
-    console.log(e.target);
- 
-    setAddSkill(!addSkill);
+    console.log(addSkill)
+    
+
+    let item = allPostsData.filter(obj => {return obj.title == title})
+
+    console.log(item.length > 0)
+
+    
     if (!addSkill){
+    setAddSkill(!addSkill);
     setSkillList([...skillList, title])
-    } else{
-    setSkillList(skillList.filter(skill => skill !== title))
+
+
+    if(item.length > 0){
+    if (item[0].category[0] == 'software'){
+      setSoftwareList([...softwareList, item[0].title])
+    } else if (item[0].category[0] == 'soft-skill'){
+      setSoftSkillList([...softSkillList, item[0].title])
+    } else if (item[0].category[0] == 'hard-skill'){
+      setHardSkillList([...hardSkillList, item[0].title])
     }
-    console.log(skillList);
+  }
 
+
+    
+
+    } else{
+      setAddSkill(!addSkill);
+    setSkillList(skillList.filter(skill => skill !== title))
+
+    
+    if(item.length > 0){
+      if (item[0].category[0] == 'software'){
+        setSoftwareList(softwareList.filter((skill) => skill !== item[0].title))
+      } else if (item[0].category[0] == 'soft-skill'){
+        setSoftSkillList(softSkillList.filter((skill) => skill !== item[0].title))
+      } else if (item[0].category[0] == 'hard-skill'){
+        setHardSkillList(hardSkillList.filter((skill) => skill !== item[0].title))
+      }
+    }
+    }
+
+
+    console.log(softSkillList)
+    console.log(hardSkillList)
+    console.log(softwareList)
+ 
+    
   };
 
-  const handleRelatedClick = (e) => {
-    console.log(e.target);
-  };
+
   
   useEffect(() => {
     if(skillList.includes(title)){
+      setAddSkill(true);
       setBgColor('white')
       setTextColor('#005695')
     } else {
+      setAddSkill(false);
       setBgColor('transparent')
       setTextColor('white')
     }
@@ -102,7 +143,7 @@ export const BubbleRelated = ({
       onClick={handleSkillClick}
     >
     {title}
-    <div style={{ transition: '0.2s ease-in' , width: lineWidth, position: 'absolute', transform: lineRotate, borderBottom: '1px solid white', top: '-55px', left:linePosition, height: '0px'}}></div>
+    <div style={{ transition: '0.9s ease-in' , width: '1px', height: lineHeight, position: 'absolute', transform: lineRotate, borderRight: '1px solid white', top: lineTop, left:linePosition}}></div>
 
     </BubbleUI>
     

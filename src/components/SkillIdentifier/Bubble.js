@@ -60,6 +60,10 @@ export const Bubble = ({
   showRelated,
   skillList,
   setSkillList,
+  setSkillCategories,
+  skillCategories,
+  category, softSkillList, hardSkillList, softwareList, setSoftSkillList, setSoftwareList, setHardSkillList
+  
 }) => {
   const [addSkill, setAddSkill] = useState(false);
   const [bgColor, setBgColor] = useState("transparent")
@@ -68,25 +72,63 @@ export const Bubble = ({
   const handleSkillClick = (e) => {
     setShowRelated(!showRelated);
 
+ let item = allPostsData.filter(obj => {return obj.title === e.target.innerHTML})[0]
+
     if (!addSkill) {
       setAddSkill(true);
       setSkillList([...skillList, e.target.innerHTML]);
+
+
+ 
+      if (item.category[0] == 'software'){
+        setSoftwareList([...softwareList, item.title])
+      } else if (item.category[0] == 'soft-skill'){
+        setSoftSkillList([...softSkillList, item.title])
+      } else if (item.category[0] == 'hard-skill'){
+        setHardSkillList([...hardSkillList, item.title])
+      }
+
+      
+      
+  
+     
+    
     } else if (skillList.includes(data)) {
       setAddSkill(false);
       setSkillList(skillList.filter((skill) => skill !== e.target.innerHTML));
+
+      if (item.category[0] == 'software'){
+        setSoftwareList(softwareList.filter((skill) => skill !== item.title))
+      } else if (item.category[0] == 'soft-skill'){
+        setSoftSkillList(softSkillList.filter((skill) => skill !== item.title))
+      } else if (item.category[0] == 'hard-skill'){
+        setHardSkillList(hardSkillList.filter((skill) => skill !== item.title))
+      }
+      
+     
+
+      
     }
 
-    console.log(data.title);
+    console.log(softSkillList)
+    console.log(hardSkillList)
+    console.log(softwareList)
+ 
+     
   };
 
 
   useEffect(() => {
     if(skillList.includes(data)){
+      setAddSkill(true);
       setBgColor('white')
       setTextColor("#005695")
+
     } else {
+      setAddSkill(false);
       setBgColor('transparent')
       setTextColor("white")
+      
     }
   },[skillList])
 

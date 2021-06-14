@@ -137,7 +137,7 @@ export const Point = ({
       onClick={handleClick}
       style={{ transform: transform }}
     >
-      <div
+{/*       <div
         style={{
           transition: "0.5s ease-in",
           width: type == id ? "2.5vw" : "0vw",
@@ -147,17 +147,17 @@ export const Point = ({
           top: "2.5vw",
           height: "0px",
         }}
-      ></div>
+      ></div> */}
 
       <PointUI
         style={{
           borderRadius: type == id ? "10%" : "100%",
           background:
-            hover && ring == "outer"
+            hover && ring == "outer" || type == id && ring == "outer" 
               ? "#00B188"
-              : hover && ring == "middle"
-              ? "#EDE04A"
-              : hover && ring == "inner"
+              : hover && ring == "middle" || type == id && ring == "middle" 
+              ? "#EDE04A" 
+              : hover && ring == "inner" || type == id && ring == "inner" 
               ? "#E01583"
               : "white",
         }}
@@ -168,7 +168,7 @@ export const Point = ({
           transform: rotateTag,
           display: hover ? "flex" : "none",
           top:
-            ring == "outer" ? "-3.5vw" : ring == "middle" ? "-6vw" : "-8.5vw",
+            ring == "outer" ? "-3.5vw" : ring == "middle" ? "-6.5vw" : "5vw",
         }}
       >
         {id.split('-').map(function capitalize(part) {

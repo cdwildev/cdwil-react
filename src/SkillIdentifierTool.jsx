@@ -15,6 +15,10 @@ const ContainerUI = styled.div`
   min-height: 100vh;
   display: flex;
   padding: 15vh 0 0 0;
+
+  @media (max-width: 1400px) {
+    width: 90vw;
+  }
 `;
 
 const TitleUI = styled.div`
@@ -25,6 +29,10 @@ const TitleUI = styled.div`
   text-align: left;
   margin: 0 0 35px 0;
   width: 600px;
+
+  @media (max-width: 1200px) {
+    font-size: 10vw;
+  }
 `;
 
 const BodyTextUI = styled.div`
@@ -37,6 +45,10 @@ const BodyTextUI = styled.div`
   text-align: left;
   margin: 0 0 50px 0;
   width: 600px;
+
+  @media (max-width: 1200px) {
+    width: 90vw;
+  }
 `;
 
 const DetailTextUI = styled.div`
@@ -65,6 +77,10 @@ const InfoUI = styled.div`
 const ImageUI = styled.div`
   width: 40%;
   min-height: 100vh;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 export default function SkillIdentifierTool() {
@@ -126,7 +142,7 @@ export default function SkillIdentifierTool() {
             </DetailTextUI>
 
             <BodyTextUI>
-              Use the outter ring to select your degree, then the middle ring to
+              Use the outer ring to select your degree, then the middle ring to
               select your major. Once both are selected, use the inner ring to
               choose between hard skills, soft skills, and softwares.
             </BodyTextUI>

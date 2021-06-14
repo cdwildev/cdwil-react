@@ -28,7 +28,7 @@ const RowUI = styled.div`
 `;
 
 
-export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList }) => {
+export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList, setSkillCategories, skillCategories, allPostsData, softSkillList, hardSkillList, softwareList, setSoftSkillList, setSoftwareList, setHardSkillList}) => {
   const [showRelated, setShowRelated] = useState(false);
   const [addSkill, setAddSkill] = useState(false);
 
@@ -49,7 +49,9 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList }) 
     setUpdateData(data)
     setUpdateSkillList(skillList)
 
-  
+    
+
+
   })
 
   useEffect(() => {
@@ -71,7 +73,18 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList }) 
             setSkillList={setSkillList}
             showRelated={showRelated}
             setShowRelated={setShowRelated}
-            data={updateData.title}
+            data={data.title}
+            category={data.category[0]}
+            setSkillCategories={setSkillCategories}
+            skillCategories={skillCategories}
+            allPostsData={allPostsData}
+            softwareList={softwareList}
+            softSkillList={softSkillList}
+            hardSkillList={hardSkillList}
+            setSoftSkillList={setSoftSkillList}
+            setHardSkillList={setHardSkillList}
+            setSoftwareList={setSoftwareList}
+            
           />
           
         </RowUI>
@@ -82,32 +95,62 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList }) 
             showRelated={showRelated}
             setShowRelated={setShowRelated}
             title={ '' }
-            lineRotate={'rotate(130deg)'}
-            lineWidth={'155px'}
-            linePosition={'75px'}
-            title={data.related === null ? 'one' : data.related.one}
-          />
-          <BubbleRelated
-            skillList={skillList}
-            setSkillList={setSkillList}
-            showRelated={showRelated}
-            setShowRelated={setShowRelated}
-            title={ '' }
-            lineRotate={'rotate(90deg)'}
-            lineWidth={'108px'}
-            linePosition={'20px'}
-            title={data.related === null ? 'two' : data.related.two}
-          />
-          <BubbleRelated
-            skillList={skillList}
-            setSkillList={setSkillList}
-            showRelated={showRelated}
-            setShowRelated={setShowRelated}
-            title={ '' }
             lineRotate={'rotate(50deg)'}
-            lineWidth={'165px'}
-            linePosition={'-100px'}
+            lineTop={'-155px'}
+            lineHeight={'185px'}
+           
+            linePosition={'100%'}
+            title={data.related === null ? 'one' : data.related.one}
+            category={data.category}
+            softwareList={softwareList}
+            softSkillList={softSkillList}
+            hardSkillList={hardSkillList}
+            setSoftSkillList={setSoftSkillList}
+            setHardSkillList={setHardSkillList}
+            setSoftwareList={setSoftwareList}
+            allPostsData={allPostsData}
+
+          />
+          <BubbleRelated
+            skillList={skillList}
+            setSkillList={setSkillList}
+            showRelated={showRelated}
+            setShowRelated={setShowRelated}
+            title={ '' }
+            lineRotate={'rotate(0deg)'}
+         
+            lineHeight={'120px'}
+            lineTop={'-120px'}
+            title={data.related === null ? 'two' : data.related.two}
+            category={data.category}
+            softwareList={softwareList}
+            softSkillList={softSkillList}
+            hardSkillList={hardSkillList}
+            setSoftSkillList={setSoftSkillList}
+            setHardSkillList={setHardSkillList}
+            setSoftwareList={setSoftwareList}
+            allPostsData={allPostsData}
+          />
+          <BubbleRelated
+            skillList={skillList}
+            setSkillList={setSkillList}
+            showRelated={showRelated}
+            setShowRelated={setShowRelated}
+            title={ '' }
+
+            lineRotate={'rotate(130deg)'}
+            linePosition={'0%'}
+            lineTop={'-155px'}
+            lineHeight={'185px'}
             title={data.related === null ? 'three' : data.related.three}
+            category={data.category}
+            softwareList={softwareList}
+            softSkillList={softSkillList}
+            hardSkillList={hardSkillList}
+            setSoftSkillList={setSoftSkillList}
+            setHardSkillList={setHardSkillList}
+            setSoftwareList={setSoftwareList}
+            allPostsData={allPostsData}
           />
         </RowUI>
       </SkillContainerUI>

@@ -16,6 +16,7 @@ import Resources from './Resources'
 import News from './News'
 import Artswork from './Artswork'
 import About from './About'
+import Stories from './Stories'
 
 import ScrollToTop from './helpers/ScrollToTop'
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/news" component={News} />
           <Route path="/artswork" component={Artswork} />
           <Route path="/about" component={About} />
+          <Route path="/stories" component={Stories} />
         </Switch>
 
         

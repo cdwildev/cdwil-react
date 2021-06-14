@@ -32,6 +32,8 @@ const ExpandUI = styled.div`
   transition: 0.5s ease;
   color: white;
   margin:  0 0 2.5vh 0 ;
+  cursor: pointer;
+
 `;
 
 const SkillBarUI = styled.div`
@@ -214,7 +216,7 @@ cursor: pointer;
 `
 
 
-export const SkillBar = ({ renderPdf, showPost, setShowPost,skillList, setSkillList, skillType, scrollTop, skill, executeScroll }) => {
+export const SkillBar = ({ renderPdf, showPost, setShowPost,skillList, setSkillList, skillType, scrollTop, skill, executeScroll, softSkillList, hardSkillList, softwareList, }) => {
 
 
     const [skillArray, setSkillArray] = useState([])
@@ -249,11 +251,11 @@ setSkillArray(skillList.reverse())
 
        {/*  <ScrollIndicatorUI style={{display: skillType ? 'flex' : 'none', }}>{scrollTop > 200 ? 'back to top' : 'scroll down to see skills'}</ScrollIndicatorUI> */}
  
-      <DownloadButtonUI>
-      {renderPdf ? <PDFDownloadLink document={<MyDocument skillList={skillList} />} fileName="somename.pdf"><Download/></PDFDownloadLink> : ''}</DownloadButtonUI>
+      
+      {renderPdf ? <PDFDownloadLink document={<MyDocument skillList={skillList} softSkillList={softSkillList} softwareList={softwareList} hardSkillList={hardSkillList}/>} fileName="somename.pdf"><DownloadButtonUI><Download/></DownloadButtonUI></PDFDownloadLink> : ''}
       </SkillBarUI>
 
-      { skill.length > 0 && scrollTop < 1300 ? <ScrollMessageUI style={{ bottom: expandMenu ? '55vh' : '15vh'}}> Scroll down to see skills <ArrowDown/> </ScrollMessageUI> : skill.length > 0 && scrollTop > 1300 ? <ToTopUI onClick={executeScroll} style={{ bottom: expandMenu ? '52.5vh' : '12.5vh'}}> Back to Top <ArrowUp/> </ToTopUI> : ''}
+      { skill.length > 0 && scrollTop < 1300 ? '' : skill.length > 0 && scrollTop > 1300 ? <ToTopUI onClick={executeScroll} style={{ bottom: expandMenu ? '52.5vh' : '12.5vh'}}> Back to Top <ArrowUp/> </ToTopUI> : ''}
 
       </ContainerUI>
   );

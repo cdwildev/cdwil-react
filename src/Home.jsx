@@ -1,7 +1,7 @@
 import "./App.css";
-import { NavGrid } from "./components/NavGrid";
-import { InspireGrid } from "./components/InspireGrid";
-import { Button } from "./components/Button";
+import { NavGrid } from "./components/Home/NavGrid";
+import { InspireGrid } from "./components/Home/InspireGrid";
+import { Button } from "./components/Home/Button";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import heroOne from './images/hero-1.png';
@@ -26,6 +26,13 @@ const SectionUI = styled.div`
   align-items: center;
   position: relative;
   width: 75vw;
+
+
+  @media (max-width: 1400px) {
+    width: 90vw;
+
+  }
+  
  
 `;
 
@@ -34,16 +41,27 @@ const LeftColumn = styled.div`
 display: flex;
 flex-direction: column;
 
+@media (max-width: 1400px) {
+  width: 100%;
+}
+
 `;
 
 const RightColumn = styled.div`
   width: 100%;
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
+
 `;
 
 const HeroOneUI = styled.div`
   display: flex;
   justify-content: flex-end;
   position: relative;
+
+
 `;
 
 const HeroTwoUI = styled.div`
@@ -72,6 +90,13 @@ const TitleUI = styled.h1`
   text-overflow: ellipsis;
   white-space: nowrap;
   display: block;
+  
+  @media (max-width: 1100px) {
+
+  font-size: 36px;
+  height: 200px;
+  }
+
 `;
 
 const SubTitleUI = styled.p`
@@ -86,6 +111,12 @@ const SubTitleUI = styled.p`
   line-height: 32px;
   position: relative;
     margin: 0 0 5vh 0;;
+
+    @media (max-width: 1100px) {
+      height: 185px;
+    font-size: 18px;
+    width: 90vw;
+    }
 `;
 
 const TileUI = styled.div`
@@ -127,15 +158,15 @@ function Home() {
       >
         {/*      
 <div onClick={() => router.push('/skill-identifier')}>skill</div> */}
-        <SectionUI style={{ padding: '10vh 0 0 0 ', alignItems: 'flex-start', maxHeight: '75vh'}}>
+        <SectionUI style={{ padding: '10vh 0 0 0 ', alignItems: 'flex-start', height: '70vh'}}>
           <LeftColumn>
             <TitleUI>
               Career <br></br> Development <br></br>+ Work Integrated <br></br>
               Learning Office
             </TitleUI>
             <SubTitleUI>
-              Connecting students and alumni with local, <br></br> national and
-              international employers in the <br></br> creative industries and
+              Connecting students and alumni with local, national and
+              international employers in the  creative industries and
               beyond.
             </SubTitleUI>
             <Button></Button>

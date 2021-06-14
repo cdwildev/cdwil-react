@@ -4,6 +4,7 @@ import styled from "styled-components";
 import logo from "../images/logo.svg";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { ChevronUp, ChevronDown, X, Plus } from "react-feather";
+import { DropdownButton } from './DropdownButton'
 
 const ContainerUI = styled.div`
   width: 75vw;
@@ -11,6 +12,12 @@ const ContainerUI = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+
+  font-size: 30px;
+  @media (max-width: 1000px) {
+    width: 90vw;
+    font-size: 16px;
+  }
 `;
 
 const DropdownUI = styled.div`
@@ -27,31 +34,28 @@ const DropdownUI = styled.div`
   font-family: Noto Sans;
   font-style: normal;
   font-weight: bold;
-  font-size: 30px;
-  line-height: 20px;
+ 
+
   cursor: pointer;
+  text-align: left;
 
   &:hover{
     background: #00B188;
+    
   }
+
 `;
 
 export const Dropdown = ({}) => {
+
+  const [active, setActive] = useState(false)
+
   return (
     <ContainerUI>
-      <DropdownUI>
-        Portfolio and Professional Practise
-        <Plus></Plus>
-      </DropdownUI>
-      <DropdownUI>
-        CVs/Resumes, Cover Letters and Artist Statements <Plus></Plus>
-      </DropdownUI>
-      <DropdownUI>
-        Applications, Proposals and Grant Writing <Plus></Plus>
-      </DropdownUI>
-      <DropdownUI>
-        Entrepreneurship, Small Businesses and Collectives <Plus></Plus>
-      </DropdownUI>
+      <DropdownButton text = "Portfolio and Professional Practise"/>
+      <DropdownButton text = "CVs/Resumes, Cover Letters and Artist Statements"/>
+      <DropdownButton text = "Applications, Proposals and Grant Writing"/>
+      <DropdownButton text = "Entrepreneurship, Small Businesses and Collectives"/>
     </ContainerUI>
   );
 };

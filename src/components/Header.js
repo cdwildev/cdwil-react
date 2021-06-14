@@ -19,6 +19,7 @@ const HeaderUI = styled.div`
     justify-content:center;
     align-items: center;
 
+
 `
 
 const ContainerUI = styled.div`
@@ -27,7 +28,10 @@ const ContainerUI = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    @media (max-width: 1400px) {
+      width: 90vw
+    }
+
 
 `
 
@@ -40,6 +44,10 @@ align-items: space-between;
 height: 66px;
 justify-content: space-between;
 
+
+@media (max-width: 1200px) {
+  display: none;
+}
 `;
 
 const NavTopUI = styled.div`
@@ -53,6 +61,16 @@ const NavBottomUI = styled.div`
 
 display: flex;
 align-items: flex-end;
+
+`;
+
+const LogoUI = styled.img`
+
+@media (max-width: 1100px) {
+  width: 40vw
+}
+
+
 
 `;
 
@@ -85,7 +103,7 @@ export const Header = ({  }) => {
     <HeaderUI>
 
         <ContainerUI>
-        <Link to="/home"><img src={logo}></img></Link>
+        <Link to="/home"><LogoUI src={logo}></LogoUI></Link>
         
         <NavUI>
             <NavTopUI>
@@ -101,6 +119,8 @@ export const Header = ({  }) => {
                 <Link to="/news" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>News + Events</NavLinkUI></Link>
                 <Link to="/artswork" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>Artswork</NavLinkUI></Link>
                 <Link to="/about" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>About</NavLinkUI></Link>
+                <Link to="/stories" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>Stories</NavLinkUI></Link>
+                
             </NavBottomUI>
 
 

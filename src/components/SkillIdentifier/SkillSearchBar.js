@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import React from "react";
 import styled from "styled-components";
 
-import { ChevronUp, ArrowRight, X } from 'react-feather';
+import { ChevronUp, ArrowRight, X, PlusCircle } from 'react-feather';
 
 const ContainerUI = styled.div`
-width: 75vw;
-position absolute; 
+width: 90vw;
 top: 10vh;
 display: flex;
 justify-content: space-between;
+z-index: 2000;
 
 
 @media (max-width: 500px) {
@@ -26,7 +26,7 @@ cursor: pointer;
 right: 0;
 position: absolute;
 
-width: 200px; 
+width: 250px; 
 `;
 
 
@@ -35,7 +35,7 @@ const HelpUI = styled.div`
 position: absolute;
 display: flex;
 height: 50px;
-width: 50px;
+width: 100px;
 justify-content: center;
 align-items: center;
 color: white;
@@ -137,7 +137,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 `;
 
-export const SkillSearch = ({ allPostsData, setSkillList, skillList }) => {
+export const SkillSearch = ({ allPostsData, setSkillList, skillList, scrollTop }) => {
   const [showPost, setShowPost] = useState(false);
   const [showRelated, setShowRelated] = useState(false);
     const [inputText, setInputText] = useState('')
@@ -147,6 +147,20 @@ export const SkillSearch = ({ allPostsData, setSkillList, skillList }) => {
        setShowPost(true)
    }
 
+   const handleClick = (e) => {
+
+    console.log(e.target.innerHTML)
+
+    if (skillList.includes(e.target.innerHTML)){
+      return
+    } else{ 
+      setSkillList([...skillList, e.target.innerHTML])
+    }
+    
+
+   }
+
+ 
 
    const showSkills = allPostsData
        .filter(function (allSkills) {
@@ -154,21 +168,21 @@ export const SkillSearch = ({ allPostsData, setSkillList, skillList }) => {
        })
        .map((data) => {
          return (
-           <SearchCompleteUI onClick={(e) => setSkillList([...skillList, e.target.innerHTML])}>{data.title}</SearchCompleteUI>
+           <SearchCompleteUI onClick={handleClick}>{data.title}</SearchCompleteUI>
          );
        });
    
    
 
   return (
-    <ContainerUI>
+    <ContainerUI style={{ position: scrollTop < 1100 ? 'absolute' : 'fixed'}}>
 
         {/* <HelpUI>?</HelpUI> */}
 
         <SearchContainerUI>
-            <SearchUI style={{borderRadius: inputText.length > 1 ? '25px 25px 0 0' : '50px' }} onChange={handleInput} placeholder="Search Skills" value={inputText}/>
+            <SearchUI style={{borderRadius: inputText.length > 1 ? '25px 25px 0 0' : '50px' }} onChange={handleInput} placeholder="Search & Add Skills" value={inputText}/>
             {showPost && inputText.length > 1 ? showSkills : ''}
-            {showPost && inputText.length > 1 ? <AddSkillUI onClick={(e) => setSkillList([...skillList, inputText])}>Add New Skill</AddSkillUI> : ''}
+            {showPost && inputText.length > 1 ? <AddSkillUI onClick={(e) => setSkillList([...skillList, inputText])}><PlusCircle/></AddSkillUI> : ''}
         </SearchContainerUI>
     </ContainerUI>
   );

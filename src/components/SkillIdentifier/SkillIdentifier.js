@@ -5,7 +5,7 @@ import { Skill } from "./Skill";
 import { SkillCompass } from "./SkillCompass";
 import { SkillBar } from "./SkillBar";
 import { SkillSearch } from "./SkillSearchBar";
-import { InfoCard } from "../InfoCard";
+import { InfoCard } from "../Home/InfoCard";
 import { SkillSelect } from "./SkillSelect";
 import {
   PDFDownloadLink,
@@ -93,6 +93,10 @@ export const SkillIdentifier = ({ allPostsData }) => {
   const [skill, setSkill] = useState("");
 
   const [skillList, setSkillList] = useState([]);
+  const [skillCategories, setSkillCategories] = useState({"software":[], "soft-skill":[], "hard-skill":[]});
+  const [softwareList, setSoftwareList] = useState([])
+  const [softSkillList, setSoftSkillList] = useState([])
+  const [hardSkillList, setHardSkillList] = useState([])
 
   const [scrolling, setScrolling] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
@@ -144,6 +148,8 @@ export const SkillIdentifier = ({ allPostsData }) => {
           allPostsData={allPostsData}
           skillList={skillList}
           setSkillList={setSkillList}
+          scrollTop={scrollTop}
+
         />
 
 {/*         <InfoCard /> */}
@@ -207,6 +213,14 @@ export const SkillIdentifier = ({ allPostsData }) => {
                       allPostsData={allPostsData}
                       setShowRelated={setShowRelated}
                       setShowPost={setShowPost}
+                      setSkillCategories={setSkillCategories}
+                      skillCategories={skillCategories}
+                      softwareList={softwareList}
+                      softSkillList={softSkillList}
+                      hardSkillList={hardSkillList}
+                      setSoftSkillList={setSoftSkillList}
+                      setHardSkillList={setHardSkillList}
+                      setSoftwareList={setSoftwareList}
                     ></Skill>
                   );
                 })}
@@ -219,6 +233,9 @@ export const SkillIdentifier = ({ allPostsData }) => {
           executeScroll={executeScroll}
           skill={skill}
           renderPdf={renderPdf}
+          softwareList={softwareList}
+          softSkillList={softSkillList}
+          hardSkillList={hardSkillList}
         />
       </ContainerUI>
     </>

@@ -10,6 +10,11 @@ import gridThree from './images/grid-3.png';
 import gridFour from './images/grid-4.png';
 import gridFive from './images/grid-5.png'
 import Dropdown from './components/Dropdown.js'
+/* import "node_modules/video-react/dist/video-react.css"; // import css */
+
+
+import React from 'react';
+import { Player } from 'video-react';
 
 
 const SectionUI = styled.div`
@@ -17,12 +22,13 @@ const SectionUI = styled.div`
   display: flex;
   width: 75vw;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   padding: 10vh 0 0 0;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+ 
 
   @media (max-width: 1000px) {
     width: 90vw;
@@ -112,33 +118,6 @@ const TitleUI = styled.div`
   
 `;
 
-const HeaderUI = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  text-align: left;
-  height: 150px;
-  font-weight: 900;
-  margin: 200px 0 0 0 ;
-  
-  font-size: 56px;
-  background: linear-gradient(257.7deg, #21B592 47.29%, #005695 92.38%);
-
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
-  
-  @media (max-width: 1100px) {
-
-  font-size: 55px
-  height: 200px;
-  }
-
-`;
-
-
 const SubTitleUI = styled.p`
   display: flex;
   justify-content: flex-start;
@@ -170,11 +149,7 @@ const TileUI = styled.div`
   border-radius: 20px;
   position: relative;
   padding: 22px;
-  cursor: pointer;
 
-&:hover{
-  background: #B9D9EB;
-}
 
 `;
 
@@ -231,7 +206,7 @@ min-height: 100%
 
 `;
 
-export default function Resources() {
+export default function Stories() {
   const [allPostsData, setAllPosts] = useState([]);
 
   return (
@@ -239,51 +214,16 @@ export default function Resources() {
 
     <SectionUI>
 
-      <TitleUI>Resources</TitleUI>
+    <Player
+      playsInline
+      poster="/assets/poster.png"
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+    />
 
-      <InfoContainerUI>
-        <LeftColumn>The resources listed here are a complied list from a mix of sources. Half of the links contain downloadable PDF resources provided by the Career Development + WIL Office. The other half will link to other parts of the University including the Writing Centre, the Alumni</LeftColumn>
-        <RightColumn>Association, the Aboriginal Gathering Place, the Shumka Centre, and the Library. While a few others will redirect you to local organizations with great relevant resources.</RightColumn>
-      </InfoContainerUI>
 
-      <Dropdown></Dropdown>
 
     </SectionUI>
 
-
-
-
-    <SectionUI>
-
-      <HeaderUI>Alumni Stories <br></br>
-and Career Pathways</HeaderUI>
-
-      <GridUI>
-        <TileImageUI style={{gridColumn: '1 / span 4'}}><ImageUI style={{objectFit: 'contain'}} src={gridOne}/></TileImageUI>
-        <TileImageUI style={{gridColumn: '5 / span 2'}}><ImageUI src={gridTwo}/></TileImageUI>
-        <TileImageUI style={{gridColumn: '7 / span 3'}}><ImageUI src={gridThree}/></TileImageUI>
-        <TileImageUI style={{gridColumn: '1 / span 4'}}><ImageUI src={gridFour}/></TileImageUI>
-        <TileImageUI style={{gridColumn: '5 / span 3'}}><ImageUI src={gridFive}/></TileImageUI>
-        <TileUI style={{gridColumn: '8 / span 2', height: '30vh'}}>More</TileUI>
-      </GridUI>
-      
-    </SectionUI>
-
-
-    <SectionUI  style={{width: '90vw'}}>
-
-    <GridUI style={{width: '90vw', margin: '200px 0 0 0' }}>
-     
-      <TileUI style={{gridColumn: '1 / span 3', height: '20vh'}}>Aboriginal <br></br> Gathering Place</TileUI>
-      <TileUI style={{gridColumn: '4 / span 3', height: '20vh'}}>Emily Carr <br></br> University Library</TileUI>
-      <TileUI style={{gridColumn: '7 / span 3', height: '20vh'}}>Alumni <br></br> Association</TileUI>
-      <TileUI style={{gridColumn: '1 / span 4', height: '20vh'}}>Emily Carr <br></br> Writing Centre</TileUI>
-      <TileUI style={{gridColumn: '5 / span 5', height: '20vh'}}>Shumka Centre for <br></br> Creative Entrepreneurship</TileUI>
-    </GridUI>
-
-    </SectionUI>
-
-  
 
 
 
