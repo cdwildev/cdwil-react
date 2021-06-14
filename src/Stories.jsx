@@ -10,7 +10,7 @@ import gridThree from './images/grid-3.png';
 import gridFour from './images/grid-4.png';
 import gridFive from './images/grid-5.png'
 import Dropdown from './components/Dropdown.js'
-/* import "node_modules/video-react/dist/video-react.css"; // import css */
+import ReactPlayer from 'react-player'
 
 
 import React from 'react';
@@ -214,12 +214,9 @@ export default function Stories() {
 
     <SectionUI>
 
-    <Player
-      playsInline
-      poster="/assets/poster.png"
-      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-    />
-
+    <ReactPlayer controls="true" url='https://www.youtube.com/watch?v=cum3NQYesXs' />
+    
+    <ReactPlayer controls="true" url='https://vimeo.com/137787872' />
 
 
     </SectionUI>
