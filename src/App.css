@@ -416,6 +416,29 @@ body{
   }
 }
 
+
+@keyframes gradient {
+  from{
+
+    background-size: 100%;
+
+    
+
+  }
+
+  50%{
+    background-size: 200%;
+
+  }
+
+  to{
+
+    background-size: 100%;
+
+    
+  }
+}
+
 @media only screen and (max-width: 1180px) {
     .section{
         width: 90vw;

@@ -39,10 +39,7 @@ const DropdownUI = styled.div`
   cursor: pointer;
   text-align: left;
 
-  &:hover{
-    background: #00B188;
-    
-  }
+
 
 `;
 

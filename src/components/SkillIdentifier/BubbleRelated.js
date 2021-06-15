@@ -70,12 +70,11 @@ export const BubbleRelated = ({
   const [textColor, setTextColor] = useState("white");
 
   const handleSkillClick = (e) => {
-    console.log(addSkill)
-    
+
 
     let item = allPostsData.filter(obj => {return obj.title == title})
 
-    console.log(item.length > 0)
+
 
     
     if (!addSkill){
@@ -113,9 +112,7 @@ export const BubbleRelated = ({
     }
 
 
-    console.log(softSkillList)
-    console.log(hardSkillList)
-    console.log(softwareList)
+
  
     
   };

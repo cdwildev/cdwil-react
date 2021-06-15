@@ -110,9 +110,7 @@ export const Bubble = ({
       
     }
 
-    console.log(softSkillList)
-    console.log(hardSkillList)
-    console.log(softwareList)
+
  
      
   };

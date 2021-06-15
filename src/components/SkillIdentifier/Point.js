@@ -171,7 +171,7 @@ export const Point = ({
             ring == "outer" ? "-3.5vw" : ring == "middle" ? "-6.5vw" : "5vw",
         }}
       >
-        {id.split('-').map(function capitalize(part) {
+        {id == 'film-and-screen-art' ? 'Film + Screen Art' : id == 'fmsa' ? 'New Media + Sound Art' : id == 'crcp' ? 'Critical + Cultural Practise' : id.split('-').map(function capitalize(part) {
         return part.charAt(0).toUpperCase() + part.slice(1);
     }).join(' ')}
       </TagUI>

@@ -80,6 +80,8 @@ const TitleUI = styled.h1`
   margin: 0;
   
   font-size: 56px;
+  animation: gradient 5s ease infinite;
+
   background: -webkit-linear-gradient(
     113.03deg,
     #e01583 31.82%,

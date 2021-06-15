@@ -27,7 +27,7 @@ export const MyDocument = ({ skillList, softSkillList, softwareList, hardSkillLi
     }
   }
 
-  console.log(softSkillList)
+
   return (
     <Document>
       <Page wrap size={[1920, 1080]} style={styles.page}>

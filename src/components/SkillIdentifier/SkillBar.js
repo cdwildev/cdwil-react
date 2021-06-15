@@ -222,7 +222,7 @@ export const SkillBar = ({ renderPdf, showPost, setShowPost,skillList, setSkillL
     const [skillArray, setSkillArray] = useState([])
     const [expandMenu, setExpandMenu] = useState(false)
     const handleClick = (e) => {
-        console.log(e.target.innerHTML.split('<')[0])
+   
         setSkillList(skillArray.filter(skill => skill !== e.target.innerHTML.split('<')[0]))
         if(expandMenu &&skillArray.length == 1){
             setExpandMenu(false)

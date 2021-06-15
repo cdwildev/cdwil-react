@@ -25,10 +25,7 @@ const DropdownUI = styled.div`
   cursor: pointer;
   text-align: left;
 
-  &:hover{
-    background: #00B188;
-    
-  }
+
 
 `;
 
@@ -40,6 +37,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 
+
 `;
 
 const ContentUI = styled.div`
@@ -48,6 +46,15 @@ height: 100%;
 display: flex;
 align-items: center;
 justify-content: space-between;
+flex-direction: column;
+font-family: Noto Sans;
+font-size: 22px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px;
+letter-spacing: 0em;
+text-align: left;
+
 
 `;
 
@@ -57,6 +64,11 @@ height: 120px;
 display: flex;
 align-items: center;
 justify-content: space-between;
+border-bottom: 1px solid #252525;
+&:hover{
+  color: #00B188;
+
+}
 
 `;
 
@@ -66,11 +78,14 @@ export const DropdownButton = ({text}) => {
 
   return (
 <>
-      <DropdownUI onClick={() => setActive(!active)}>
-        <ButtonUI>{text} {active ? <Minus></Minus> : <Plus></Plus> }  </ButtonUI>
+      <DropdownUI >
+        <ButtonUI onClick={() => setActive(!active)}>{text} {active ? <Minus></Minus> : <Plus></Plus> }  </ButtonUI>
 
         {active ? <ContentUI>
             <LinkUI>links</LinkUI>
+            <LinkUI>links</LinkUI>
+            <LinkUI style={{borderBottom: 'none'}}>links</LinkUI>
+
         </ContentUI> : ''}
 
       </DropdownUI>

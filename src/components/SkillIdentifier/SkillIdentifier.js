@@ -221,6 +221,7 @@ export const SkillIdentifier = ({ allPostsData }) => {
                       setSoftSkillList={setSoftSkillList}
                       setHardSkillList={setHardSkillList}
                       setSoftwareList={setSoftwareList}
+                      skill={skill}
                     ></Skill>
                   );
                 })}

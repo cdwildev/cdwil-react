@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import styled from "styled-components";
 import { Bubble } from "./Bubble";
-import { BubbleRelated } from './BubbleRelated'
+import { BubbleRelated } from "./BubbleRelated";
 
 const ContainerUI = styled.div`
   width: 100vw;
@@ -27,46 +27,62 @@ const RowUI = styled.div`
   margin: 5vh 0;
 `;
 
-
-export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList, setSkillCategories, skillCategories, allPostsData, softSkillList, hardSkillList, softwareList, setSoftSkillList, setSoftwareList, setHardSkillList}) => {
+export const Skill = ({
+  showPost,
+  setShowPost,
+  data,
+  setSkillList,
+  skillList,
+  setSkillCategories,
+  skillCategories,
+  allPostsData,
+  softSkillList,
+  hardSkillList,
+  softwareList,
+  setSoftSkillList,
+  setSoftwareList,
+  setHardSkillList,
+  skill
+}) => {
   const [showRelated, setShowRelated] = useState(false);
   const [addSkill, setAddSkill] = useState(false);
 
   const handleSkillClick = (e) => {
- 
     setShowRelated(!showRelated);
     setAddSkill(!addSkill);
-  };
-
-  const handleRelatedClick = (e) => {
-  
-  };
-
-  const [updateData, setUpdateData] = useState('')
-  const [updateSkillList, setUpdateSkillList] = useState('')
-
-  useEffect(() => {
-    setUpdateData(data)
-    setUpdateSkillList(skillList)
 
     
+  };
 
 
-  })
+
+  const handleRelatedClick = (e) => {};
+
+  const [updateData, setUpdateData] = useState("");
+  const [updateSkillList, setUpdateSkillList] = useState("");
 
   useEffect(() => {
-    if(skillList.includes(updateData.title)){
-      setShowRelated(true)
-      setAddSkill(true)
+    setUpdateData(data);
+    setUpdateSkillList(skillList);
+
+    
+  });
+
+  useEffect(() => {
+    if (skillList.includes(updateData.title)) {
+      setShowRelated(true);
+      setAddSkill(true);
     } else {
-      setShowRelated(false)
-      setAddSkill(false)
+      setShowRelated(false);
+      setAddSkill(false);
     }
-  },[skillList])
+
+
+  }, [skillList]);
 
   return (
     <>
-      <SkillContainerUI >
+      <SkillContainerUI>
         <RowUI>
           <Bubble
             skillList={updateSkillList}
@@ -84,44 +100,22 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList, se
             setSoftSkillList={setSoftSkillList}
             setHardSkillList={setHardSkillList}
             setSoftwareList={setSoftwareList}
-            
           />
-          
         </RowUI>
+
+        {skill == 'soft-skill' ? '' : (
         <RowUI style={{ opacity: showRelated ? "100%" : "0%" }}>
           <BubbleRelated
             skillList={skillList}
             setSkillList={setSkillList}
             showRelated={showRelated}
             setShowRelated={setShowRelated}
-            title={ '' }
-            lineRotate={'rotate(50deg)'}
-            lineTop={'-155px'}
-            lineHeight={'185px'}
-           
-            linePosition={'100%'}
-            title={data.related === null ? 'one' : data.related.one}
-            category={data.category}
-            softwareList={softwareList}
-            softSkillList={softSkillList}
-            hardSkillList={hardSkillList}
-            setSoftSkillList={setSoftSkillList}
-            setHardSkillList={setHardSkillList}
-            setSoftwareList={setSoftwareList}
-            allPostsData={allPostsData}
-
-          />
-          <BubbleRelated
-            skillList={skillList}
-            setSkillList={setSkillList}
-            showRelated={showRelated}
-            setShowRelated={setShowRelated}
-            title={ '' }
-            lineRotate={'rotate(0deg)'}
-         
-            lineHeight={'120px'}
-            lineTop={'-120px'}
-            title={data.related === null ? 'two' : data.related.two}
+            title={""}
+            lineRotate={"rotate(50deg)"}
+            lineTop={"-155px"}
+            lineHeight={"185px"}
+            linePosition={"100%"}
+            title={data.related === null ? "one" : data.related.one}
             category={data.category}
             softwareList={softwareList}
             softSkillList={softSkillList}
@@ -136,13 +130,31 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList, se
             setSkillList={setSkillList}
             showRelated={showRelated}
             setShowRelated={setShowRelated}
-            title={ '' }
-
-            lineRotate={'rotate(130deg)'}
-            linePosition={'0%'}
-            lineTop={'-155px'}
-            lineHeight={'185px'}
-            title={data.related === null ? 'three' : data.related.three}
+            title={""}
+            lineRotate={"rotate(0deg)"}
+            lineHeight={"120px"}
+            lineTop={"-120px"}
+            title={data.related === null ? "two" : data.related.two}
+            category={data.category}
+            softwareList={softwareList}
+            softSkillList={softSkillList}
+            hardSkillList={hardSkillList}
+            setSoftSkillList={setSoftSkillList}
+            setHardSkillList={setHardSkillList}
+            setSoftwareList={setSoftwareList}
+            allPostsData={allPostsData}
+          />
+          <BubbleRelated
+            skillList={skillList}
+            setSkillList={setSkillList}
+            showRelated={showRelated}
+            setShowRelated={setShowRelated}
+            title={""}
+            lineRotate={"rotate(130deg)"}
+            linePosition={"0%"}
+            lineTop={"-155px"}
+            lineHeight={"185px"}
+            title={data.related === null ? "three" : data.related.three}
             category={data.category}
             softwareList={softwareList}
             softSkillList={softSkillList}
@@ -153,10 +165,11 @@ export const Skill = ({ showPost, setShowPost, data, setSkillList, skillList, se
             allPostsData={allPostsData}
           />
         </RowUI>
+        )
+        }
       </SkillContainerUI>
     </>
   );
 };
 
-
-export default Skill
+export default Skill;

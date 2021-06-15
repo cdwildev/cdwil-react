@@ -109,6 +109,9 @@ const TitleUI = styled.div`
     font-size: 10vw;
   }
 
+  animation: gradient 9s ease infinite;
+
+
   
 `;
 

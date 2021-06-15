@@ -149,7 +149,7 @@ export const SkillSearch = ({ allPostsData, setSkillList, skillList, scrollTop }
 
    const handleClick = (e) => {
 
-    console.log(e.target.innerHTML)
+
 
     if (skillList.includes(e.target.innerHTML)){
       return
