@@ -11,6 +11,7 @@ import footerGradient from './images/footer.svg'
 import buttonBgOne from './images/bg-1.png'
 import buttonBgTwo from './images/bg-2.png';
 import Footer from "./components/Footer";
+import sanityClient from "./client";
 
 import {
   BrowserRouter as Router,
@@ -91,7 +92,7 @@ const TitleUI = styled.h1`
   -webkit-text-fill-color: transparent;
   text-overflow: ellipsis;
   white-space: nowrap;
-  display: block;
+ 
   
   @media (max-width: 1100px) {
 
@@ -148,6 +149,34 @@ const FlexUI = styled.div`
 
 function Home() {
   const [allPostsData, setAllPosts] = useState([]);
+
+  useEffect(() => {
+
+    const videos = JSON.parse(localStorage.getItem("videos"));
+
+    if(videos){
+      setAllPosts(videos)
+    } else {
+    sanityClient
+      .fetch(
+        `*[_type == "videos"]{
+            title,
+            link,
+        }`
+      )
+      .then((data) => {
+        setAllPosts(data);
+        localStorage.setItem("videos", JSON.stringify(data));
+      })
+      .catch(console.error);
+
+    }
+  }, []);
+
+  console.log(allPostsData);
+
+
+  
   return (
     <div className="App">
       <div
@@ -160,7 +189,7 @@ function Home() {
       >
         {/*      
 <div onClick={() => router.push('/skill-identifier')}>skill</div> */}
-        <SectionUI style={{ padding: '10vh 0 0 0 ', alignItems: 'flex-start', height: '70vh'}}>
+        <SectionUI style={{ padding: '10vh 0 0 0 ', alignItems: 'flex-start', minHeight: '70vh'}}>
           <LeftColumn>
             <TitleUI>
               Career <br></br> Development <br></br>+ Work Integrated <br></br>
@@ -176,7 +205,7 @@ function Home() {
           <RightColumn>
             <HeroOneUI>
               <img
-                style={{ border: "4px solid black", borderRadius: "8px" }}
+                style={{ border: "4px solid black", boxSizing: 'border-box', borderRadius: "8px" }}
                 src={heroOne}
               />
             </HeroOneUI>
@@ -188,6 +217,7 @@ function Home() {
                   right: "280px",
                   border: "4px solid black",
                   borderRadius: "8px",
+                  boxSizing: 'border-box',
                 }}
                 src={heroTwo}
               />
@@ -198,6 +228,7 @@ function Home() {
                   right: "00px",
                   border: "4px solid black",
                   borderRadius: "8px",
+                  boxSizing: 'border-box',
                 }}
                 src={heroThree}
               />
@@ -211,15 +242,10 @@ function Home() {
           <NavGrid />
         </SectionUI>
 
-        <SectionUI className="section"  style={{alignItems: 'center', height: '35vh'}}>
-
-          search
-          
-          </SectionUI>
   
 
         <SectionUI className="section">
-          <InspireGrid />
+          <InspireGrid allPostsData={allPostsData}/>
         </SectionUI>
 
       

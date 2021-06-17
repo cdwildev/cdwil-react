@@ -58,13 +58,15 @@ text-align: left;
 
 `;
 
-const LinkUI = styled.div`
+const LinkUI = styled.a`
 width: 100%;
 height: 120px;
 display: flex;
 align-items: center;
 justify-content: space-between;
 border-bottom: 1px solid #252525;
+text-decoration: none;
+color: #252525;
 &:hover{
   color: #00B188;
 
@@ -72,9 +74,25 @@ border-bottom: 1px solid #252525;
 
 `;
 
-export const DropdownButton = ({text}) => {
+const SpaceUI = styled.div`
+width: 100%;
+height: 120px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+border-bottom: 1px solid #252525;
+text-decoration: none;
+color: #252525;
+cursor: auto;
+
+
+`;
+
+export const DropdownButton = ({text, data}) => {
 
   const [active, setActive] = useState(false)
+
+  console.log(data)
 
   return (
 <>
@@ -82,9 +100,8 @@ export const DropdownButton = ({text}) => {
         <ButtonUI onClick={() => setActive(!active)}>{text} {active ? <Minus></Minus> : <Plus></Plus> }  </ButtonUI>
 
         {active ? <ContentUI>
-            <LinkUI>links</LinkUI>
-            <LinkUI>links</LinkUI>
-            <LinkUI style={{borderBottom: 'none'}}>links</LinkUI>
+            {data.map(resource => <LinkUI target='_blank' href={resource.link}>{resource.title}</LinkUI>)}
+            <SpaceUI style={{borderBottom: 'none'}}></SpaceUI>
 
         </ContentUI> : ''}
 

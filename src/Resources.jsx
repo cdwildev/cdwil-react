@@ -17,14 +17,14 @@ const SectionUI = styled.div`
   display: flex;
   width: 75vw;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   padding: 10vh 0 0 0;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     width: 90vw;
   }
   
@@ -36,7 +36,7 @@ display: flex;
 justify-content: flex-start;
 align-items: flex-start;
 
-width: 75vw;
+min-width: 75vw;
 text-align: left;
 font-family: Noto Sans;
 font-style: normal;
@@ -44,7 +44,7 @@ font-weight: normal;
 font-size: 16px;
 margin: 64px 0 160px 0;
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   flex-direction: column;
   
 }
@@ -93,17 +93,14 @@ const TitleUI = styled.div`
   text-align: left;
   font-weight: 900;
   font-size: 120px;
-  background: -webkit-linear-gradient(
-    113.03deg,
-    #e01583 31.82%,
-    #1c878c 71.61%
-  );
+  background: linear-gradient(111.11deg, #03A27D 25.33%, #005695 75.02%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-overflow: ellipsis;
   white-space: nowrap;
   display: block;
   text-align: left;
+  width: 100%;
 
   @media (max-width: 1000px) {
     font-size: 10vw;
@@ -122,6 +119,8 @@ const HeaderUI = styled.div`
   height: 150px;
   font-weight: 900;
   margin: 200px 0 0 0 ;
+  text-align: left;
+  width: 100%;
   
   font-size: 56px;
   background: linear-gradient(257.7deg, #21B592 47.29%, #005695 92.38%);
@@ -133,7 +132,7 @@ const HeaderUI = styled.div`
   white-space: nowrap;
   display: block;
   
-  @media (max-width: 1100px) {
+  @media (max-width: 1200px) {
 
   font-size: 55px
   height: 200px;
@@ -202,7 +201,7 @@ const GridUI = styled.div`
 
   @media (max-width: 1000px) {
 
-    width: 100%;
+    grid-template-rows: repeat(9, 1fr);
     
   }
 
@@ -236,6 +235,57 @@ min-height: 100%
 
 export default function Resources() {
   const [allPostsData, setAllPosts] = useState([]);
+  const [allVideos, setAllVideos] = useState([]);
+  
+
+  useEffect(() => {
+
+    const resources = JSON.parse(localStorage.getItem("resources"));
+
+    if(resources){
+      setAllPosts(resources)
+    } else {
+    sanityClient
+      .fetch(
+        `*[_type == "resources"]{
+          title,
+          category,
+          link,
+      }`
+      )
+      .then((data) => {
+        setAllPosts(data);
+        localStorage.setItem("resources", JSON.stringify(data));
+      })
+      .catch(console.error);
+
+    }
+  }, []);
+
+  useEffect(() => {
+
+    const videos = JSON.parse(localStorage.getItem("videos"));
+
+    if(videos){
+      setAllVideos(videos)
+    } else {
+    sanityClient
+      .fetch(
+        `*[_type == "videos"]{
+            title,
+            link,
+        }`
+      )
+      .then((data) => {
+        setAllVideos(data);
+        localStorage.setItem("videos", JSON.stringify(data));
+      })
+      .catch(console.error);
+
+    }
+  }, []);
+
+
 
   return (
   <div className="container">
@@ -249,11 +299,9 @@ export default function Resources() {
         <RightColumn>Association, the Aboriginal Gathering Place, the Shumka Centre, and the Library. While a few others will redirect you to local organizations with great relevant resources.</RightColumn>
       </InfoContainerUI>
 
-      <Dropdown></Dropdown>
+      <Dropdown allPostsData={allPostsData}></Dropdown>
 
     </SectionUI>
-
-
 
 
     <SectionUI>
@@ -261,14 +309,7 @@ export default function Resources() {
       <HeaderUI>Alumni Stories <br></br>
 and Career Pathways</HeaderUI>
 
-      <GridUI>
-        <TileImageUI style={{gridColumn: '1 / span 4'}}><ImageUI style={{objectFit: 'contain'}} src={gridOne}/></TileImageUI>
-        <TileImageUI style={{gridColumn: '5 / span 2'}}><ImageUI src={gridTwo}/></TileImageUI>
-        <TileImageUI style={{gridColumn: '7 / span 3'}}><ImageUI src={gridThree}/></TileImageUI>
-        <TileImageUI style={{gridColumn: '1 / span 4'}}><ImageUI src={gridFour}/></TileImageUI>
-        <TileImageUI style={{gridColumn: '5 / span 3'}}><ImageUI src={gridFive}/></TileImageUI>
-        <TileUI style={{gridColumn: '8 / span 2', height: '30vh'}}>More</TileUI>
-      </GridUI>
+<InspireGrid allPostsData={allVideos}></InspireGrid>
       
     </SectionUI>
 

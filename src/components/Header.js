@@ -91,8 +91,9 @@ const NavLinkUI = styled.a`
 font-weight: 700;
 font-size: 18px;
 margin-left: 35px;
+text-decoration: none;
 
-
+color: black;
 `
 
 
@@ -117,7 +118,7 @@ export const Header = ({  }) => {
                 <Link to="/tools" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>Tools</NavLinkUI></Link>
                 <Link to="/resources" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>Resources</NavLinkUI></Link>
                 <Link to="/news" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>News + Events</NavLinkUI></Link>
-                <Link to="/artswork" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>Artswork</NavLinkUI></Link>
+                <NavLinkUI target="_blank" href="https://artswork.ecuad.ca/">Artswork</NavLinkUI>
                 <Link to="/about" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>About</NavLinkUI></Link>
                 <Link to="/stories" style={{textDecoration: 'none', color: 'black'}}><NavLinkUI>Stories</NavLinkUI></Link>
                 
