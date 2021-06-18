@@ -151,9 +151,15 @@ export const NavGrid = ({
         <TileUI style={{ background: "#C1D42F", gridColumn: "1 / span 2" }}>
           Explore Career Pathways
         </TileUI>
-        <TileUI style={{ background: "#F02091", gridColumn: "3 / span 2" }}>
+
+        <Link
+          style={{ gridColumn: "3 / span 2", textDecoration: "none" }}
+          to="/resume-builder"
+        >
+        <TileUI style={{ background: "#F02091" }}>
           Build a Resume
         </TileUI>
+        </Link>
 
         <Link style={{  gridColumn: "5 / span 2", textDecoration: 'none'}} to="/about">
         <TileUI style={{ background: "white"}}>

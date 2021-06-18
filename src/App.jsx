@@ -11,6 +11,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import SkillIdentifierTool from "./SkillIdentifierTool";
+import ResumeBuilder from "./ResumeBuilder";
 import Tools from "./Tools";
 import Resources from './Resources'
 import News from './News'
@@ -34,6 +35,7 @@ function App() {
           <Route path="/home" component={Home} />
           <Route path="/tools" component={Tools} />
             <Route path="/skill-identifier" component={SkillIdentifierTool} />
+            <Route path="/resume-builder" component={ResumeBuilder} />
           <Route path="/resources" component={Resources} />
           <Route path="/news" component={News} />
           <Route path="/artswork" component={Artswork} />
