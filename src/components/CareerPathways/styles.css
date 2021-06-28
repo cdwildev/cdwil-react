@@ -1,5 +1,5 @@
 .circle-filter{
-  position: relative;
+  position: absolute;
   width: 5vw;
  padding: 2.5vw;
   min-height: 5vw;
@@ -14,6 +14,7 @@
 
 
 
+
   
  
   cursor: grab;
@@ -25,7 +26,7 @@
   z-index: 100;
 
   font-family: Noto Sans;
-font-size: 16px;
+font-size: 14px;
 font-style: normal;
 font-weight: 800;
 line-height: 22px;
@@ -41,8 +42,8 @@ text-align: center;
 }
 
 .square-filter{
-  position: relative;
-  min-width: 10vw;
+  position: absolute;
+  
   padding: 0 20px;
   height: 2.5vw;
   background: white;
@@ -58,9 +59,9 @@ text-align: center;
   justify-content: center;
   align-items: center;
   z-index: 100;
-  margin: 5px;
+  margin: 0 5px;
   font-family: Noto Sans;
-font-size: 17px;
+font-size: 14px;
 font-style: normal;
 font-weight: 800;
 line-height: 22px;
@@ -76,11 +77,11 @@ text-align: center;
 }
 
 .semi-circle-filter{
-  position: relative;
+  position: absolute;
   width: 10vw;
   height: 5vw;
   margin: 5px;
-  padding: 10px 20px 0 20px ;
+  padding: 30px;
   background: white;
   border-radius: 10vw 10vw 10px 10px;
   box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);

@@ -7,8 +7,8 @@ import styled from "styled-components";
 import "./styles.css";
 
 export const FilterSemiCircle = ({
-  posX = -100,
-  posY = -100,
+  positionX = -100,
+  positionY = -100,
   industry = "Advertising + Marketing",
   industries,
   pool,
@@ -29,6 +29,9 @@ export const FilterSemiCircle = ({
       bottomBounds = window.innerHeight / 2;
     });
   });
+  
+  const [posX, setPosX] = useState(positionX);
+  const [posY, setPosY] = useState(positionY);
 
   const [mouseDown, setMouseDown] = useState(false);
   const [inside, setInside] = useState(false);

@@ -7,8 +7,8 @@ import styled from "styled-components";
 import "./styles.css";
 
 export const FilterCircle = ({
-  posX = -100,
-  posY = -100,
+  positionX = -100,
+  positionY = -100,
   industry = "Advertising + Marketing",
   pool,
   setSelectedIndustries,
@@ -29,6 +29,9 @@ export const FilterCircle = ({
       bottomBounds = window.innerHeight / 2;
     });
   });
+  const [posX, setPosX] = useState(positionX);
+  const [posY, setPosY] = useState(positionY);
+
 
   const [mouseDown, setMouseDown] = useState(false);
   const [inside, setInside] = useState(false);
@@ -77,6 +80,8 @@ export const FilterCircle = ({
       );
       }
     }
+
+
   }, [mouseDown]);
 
   const [{ x, y }, api] = useSpring(() => ({ x: posX, y: posY }));
@@ -86,10 +91,10 @@ export const FilterCircle = ({
       api.start({ x: ox + posX, y: oy + posY, immediate: down }),
     {
       bounds: {
-        left: leftBounds - posX,
-        right: rightBounds - posX,
-        top: topBounds - posY,
-        bottom: bottomBounds - posY,
+        left: leftBounds,
+        right: rightBounds,
+        top: topBounds,
+        bottom: bottomBounds,
       },
       rubberband: true,
     }

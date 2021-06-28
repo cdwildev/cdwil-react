@@ -154,7 +154,7 @@ export const Results = ({ selectedIndustries, selectedSkills, selectedValues, al
 
     console.log( values)
 
-    const filteredIndustries = allPostsData.filter(industry => industry.industry.some(r => industries.includes(r)))
+    const filteredIndustries = allPostsData.filter(industry => industry.industry.some(r => industries.includes(r)) || industry.skills.some(r => skills.includes(r)) || industry.values.some(r => values.includes(r)))
 
 
     console.log(filteredIndustries)

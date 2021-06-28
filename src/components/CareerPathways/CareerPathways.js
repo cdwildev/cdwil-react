@@ -40,24 +40,32 @@ const SelectionContainerUI = styled.div`
   min-height: 20vw;
   position: absolute;
   left: 10vw;
+  top: 10vh;
   z-index: 50;
 
 `;
 
 const PoolUI = styled.div`
-  width: 25vw;
+  width: 35vw;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: relative;
-  min-height: 25vw;
+  min-height: 35vw;
   position: absolute;
   right: 5vw;
-  top: 0;
+  top: 5vh;
   z-index: 0;
   border-radius: 100%;
   border: 3px solid white;
+
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 800;
+
+  color: white;
 `;
 
 const ButtonUI = styled.div`
@@ -339,9 +347,9 @@ export const CareerPathways = ({ allPostsData }) => {
     <>
       <ContainerUI>
         <SelectionContainerUI>
-                {industries.map(el => <FilterCircle screen={screen} pool={pool} setSelectedIndustries={setSelectedIndustries} selectedIndustries={selectedIndustries} industries={el} industry={el.title} />) } 
-                {skills.map(el => <FilterSquare screen={screen} pool={pool} setSelectedIndustries={setSelectedSkills} selectedIndustries={selectedSkills} industries={el} industry={el.title} />)  } 
-                {values.map(el => <FilterSemiCircle screen={screen} pool={pool} setSelectedIndustries={setSelectedValues} selectedIndustries={selectedValues} industries={el} industry={el.title} />)  } 
+                {industries.map(el => <FilterCircle screen={screen} pool={pool} setSelectedIndustries={setSelectedIndustries} selectedIndustries={selectedIndustries} industries={el} industry={el.title} positionX={Math.floor(Math.random() * 500) + 0} positionY={Math.floor(Math.random() * 500) + 0}/>) } 
+                {skills.map(el => <FilterSquare screen={screen} pool={pool} setSelectedIndustries={setSelectedSkills} selectedIndustries={selectedSkills} industries={el} industry={el.title} positionX={Math.floor(Math.random() * 500) + 0} positionY={Math.floor(Math.random() * 500) + 0}/>)  } 
+                {values.map(el => <FilterSemiCircle screen={screen} pool={pool} setSelectedIndustries={setSelectedValues} selectedIndustries={selectedValues} industries={el} industry={el.title} positionX={Math.floor(Math.random() * 500) + 0} positionY={Math.floor(Math.random() * 500) + 0}/>)  } 
         </SelectionContainerUI>
         <ButtonUI onClick={prevScreen} style={{position: 'absolute', bottom: '5vh', left: '5vw'}}>Back</ButtonUI>
  
@@ -351,7 +359,7 @@ export const CareerPathways = ({ allPostsData }) => {
 
         
         ) : ( <>
-        <PoolUI ref={pool}></PoolUI>
+        <PoolUI ref={pool}>Drop {screen == 1 ? 'industries' : screen == 2 ? 'interests' : screen == 3 ? 'values' : ''} here</PoolUI>
         <ButtonUI onClick={nextScreen} style={{position: 'absolute', bottom: '5vh', right: '5vw'}}>{screen == 3 ? 'Done' : 'Next'}</ButtonUI>
         <ProgressUI>
 
