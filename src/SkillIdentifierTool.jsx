@@ -154,7 +154,12 @@ export default function SkillIdentifierTool() {
         </ContainerUI>
       </SectionUI>
 
+      <SectionUI>
       <SkillIdentifier allPostsData={allPostsData} />
+
+      </SectionUI>
+
+ 
     </div>
   );
 }

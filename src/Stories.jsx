@@ -27,7 +27,8 @@ const SectionUI = styled.div`
   justify-content: flex-start;
   flex-direction: column;
 
-  @media (max-width: 1000px) {
+
+  @media (max-width: 1400px) {
     width: 90vw;
   }
 `;
@@ -61,15 +62,15 @@ const GridUI = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: space-between;
-  grid-template-columns: auto auto auto;
-
+  grid-template-columns: repeat( auto-fit, minmax(350px, 2fr) );
+  grid-gap: 50px;
   @media (max-width: 1200px) {
-    grid-template-columns: auto auto;
+
 
   }
 
   @media (max-width: 1000px) {
-    grid-template-columns: auto;
+ 
 
   }
 `;
@@ -135,9 +136,9 @@ export default function Stories() {
           {allPostsData.map((video) => (
             <VideoUI>
               <ReactPlayer
-                width="420px"
+                width="100%"
                 height="216px"
-                style={{ border: "5px solid #252525", borderRadius: "10px" }}
+                style={{ border: "5px solid #252525", borderRadius: "10px", boxSizing: "border-box", position: 'relative'}}
                 light={true}
                 controls={true}
                 url={video.link}

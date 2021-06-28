@@ -32,48 +32,48 @@ export const MyDocument = ({ skillList, softSkillList, softwareList, hardSkillLi
     <Document>
       <Page wrap size={[1920, 1080]} style={styles.page}>
         <Image style={styles.image} src={Starmap} />
-        <Text style={styles.oneOne}>{ skillList.length > 0 ? limitText(skillList[0]) : limitText('oneOne') }</Text>
-        <Text style={styles.oneTwo}>{ skillList.length > 1 ? limitText(skillList[1]) : limitText('oneTwo') }</Text>
-        <Text style={styles.oneThree}>{ skillList.length > 2 ? limitText(skillList[2]) : limitText('oneThree') }</Text>
+        <Text style={styles.oneOne}>{ skillList.length > 0 ? limitText(skillList[0]) : limitText('') }</Text>
+        <Text style={styles.oneTwo}>{ skillList.length > 1 ? limitText(skillList[1]) : limitText('') }</Text>
+        <Text style={styles.oneThree}>{ skillList.length > 2 ? limitText(skillList[2]) : limitText('') }</Text>
 
-        <Text style={styles.twoOne}>{ skillList.length > 3 ? limitText(skillList[3]) : limitText('twoOne') }</Text>
-        <Text style={styles.twoTwo}>{ skillList.length > 4 ? limitText(skillList[4]) : limitText('twoTwo') }</Text>
-        <Text style={styles.twoThree}>{ skillList.length > 5 ? limitText(skillList[5]) : limitText('twoThree') }</Text>
+        <Text style={styles.twoOne}>{ skillList.length > 3 ? limitText(skillList[3]) : limitText('') }</Text>
+        <Text style={styles.twoTwo}>{ skillList.length > 4 ? limitText(skillList[4]) : limitText('') }</Text>
+        <Text style={styles.twoThree}>{ skillList.length > 5 ? limitText(skillList[5]) : limitText('') }</Text>
 
-        <Text style={styles.threeOne}>{ skillList.length > 6 ? limitText(skillList[6]) : limitText('threeOne') }</Text>
-        <Text style={styles.threeTwo}>{ skillList.length > 7 ? limitText(skillList[7]) : limitText('threeTwo') }</Text>
-        <Text style={styles.threeThree}>{ skillList.length > 8 ? limitText(skillList[8]) : limitText('threeThree') }</Text>
+        <Text style={styles.threeOne}>{ skillList.length > 6 ? limitText(skillList[6]) : limitText('') }</Text>
+        <Text style={styles.threeTwo}>{ skillList.length > 7 ? limitText(skillList[7]) : limitText('') }</Text>
+        <Text style={styles.threeThree}>{ skillList.length > 8 ? limitText(skillList[8]) : limitText('') }</Text>
 
-        <Text style={styles.fourOne}>{ skillList.length > 9 ? limitText(skillList[9]) : limitText('fourOne') }</Text>
-        <Text style={styles.fourTwo}>{ skillList.length > 10 ? limitText(skillList[10]) : limitText('fourTwo') }</Text>
-        <Text style={styles.fourThree}>{ skillList.length > 11 ? limitText(skillList[11]) : limitText('fourThree') }</Text>
+        <Text style={styles.fourOne}>{ skillList.length > 9 ? limitText(skillList[9]) : limitText('') }</Text>
+        <Text style={styles.fourTwo}>{ skillList.length > 10 ? limitText(skillList[10]) : limitText('') }</Text>
+        <Text style={styles.fourThree}>{ skillList.length > 11 ? limitText(skillList[11]) : limitText('') }</Text>
 
-        <Text style={styles.fiveOne}>{ skillList.length > 12 ? limitText(skillList[12]) : limitText('fiveOne') }</Text>
-        <Text style={styles.fiveTwo}>{ skillList.length > 13 ? limitText(skillList[13]) : limitText('fiveTwo') }</Text>
-        <Text style={styles.fiveThree}>{ skillList.length > 14 ? limitText(skillList[14]) : limitText('fiveThree') }</Text>
+        <Text style={styles.fiveOne}>{ skillList.length > 12 ? limitText(skillList[12]) : limitText('') }</Text>
+        <Text style={styles.fiveTwo}>{ skillList.length > 13 ? limitText(skillList[13]) : limitText('') }</Text>
+        <Text style={styles.fiveThree}>{ skillList.length > 14 ? limitText(skillList[14]) : limitText('') }</Text>
 
-        <Text style={styles.sixOne}>{ skillList.length > 15 ? limitText(skillList[15]) : limitText('sixOne') }</Text>
-        <Text style={styles.sixTwo}>{ skillList.length > 16 ? limitText(skillList[16]) : limitText('sixTwo') }</Text>
-
-
-        <Text style={styles.sevenOne}>{ skillList.length > 17 ? limitText(skillList[17]) : limitText('sevenOne') }</Text>
-        <Text style={styles.sevenTwo}>{ skillList.length > 18 ? limitText(skillList[18]) : limitText('sevenTwo') }</Text>
-
-        <Text style={styles.eightOne}>{ skillList.length > 19 ? limitText(skillList[19]) : limitText('eightOne') }</Text>
-        <Text style={styles.eightTwo}>{ skillList.length > 20 ? limitText(skillList[20]) : limitText('eightTwo') }</Text>
+        <Text style={styles.sixOne}>{ skillList.length > 15 ? limitText(skillList[15]) : limitText('') }</Text>
+        <Text style={styles.sixTwo}>{ skillList.length > 16 ? limitText(skillList[16]) : limitText('') }</Text>
 
 
-        <Text style={styles.nineOne}>{ skillList.length > 21 ? limitText(skillList[21]) : limitText('nineOne') }</Text>
-        <Text style={styles.nineTwo}>{ skillList.length > 22 ? limitText(skillList[22]) : limitText('nineTwo') }</Text>
-        <Text style={styles.nineThree}>{ skillList.length > 23 ? limitText(skillList[23]) : limitText('nineThree') }</Text>
+        <Text style={styles.sevenOne}>{ skillList.length > 17 ? limitText(skillList[17]) : limitText('') }</Text>
+        <Text style={styles.sevenTwo}>{ skillList.length > 18 ? limitText(skillList[18]) : limitText('') }</Text>
 
-        <Text style={styles.tenOne}>{ skillList.length > 24 ? limitText(skillList[24]) : limitText('tenOne') }</Text>
-        <Text style={styles.tenTwo}>{ skillList.length > 25 ? limitText(skillList[25]) : limitText('tenTwo') }</Text>
-        <Text style={styles.tenThree}>{ skillList.length > 26 ? limitText(skillList[26]) : limitText('tenThree') }</Text>
+        <Text style={styles.eightOne}>{ skillList.length > 19 ? limitText(skillList[19]) : limitText('') }</Text>
+        <Text style={styles.eightTwo}>{ skillList.length > 20 ? limitText(skillList[20]) : limitText('') }</Text>
 
-        <Text style={styles.elevenOne}>{ skillList.length > 27 ? limitText(skillList[27]) : limitText('elevenOne') }</Text>
-        <Text style={styles.elevenTwo}>{ skillList.length > 28 ? limitText(skillList[28]) : limitText('elevenTwo') }</Text>
-        <Text style={styles.elevenThree}>{ skillList.length > 29 ? limitText(skillList[29]) : limitText('elevenThree') }</Text>
+
+        <Text style={styles.nineOne}>{ skillList.length > 21 ? limitText(skillList[21]) : limitText('') }</Text>
+        <Text style={styles.nineTwo}>{ skillList.length > 22 ? limitText(skillList[22]) : limitText('') }</Text>
+        <Text style={styles.nineThree}>{ skillList.length > 23 ? limitText(skillList[23]) : limitText('') }</Text>
+
+        <Text style={styles.tenOne}>{ skillList.length > 24 ? limitText(skillList[24]) : limitText('') }</Text>
+        <Text style={styles.tenTwo}>{ skillList.length > 25 ? limitText(skillList[25]) : limitText('') }</Text>
+        <Text style={styles.tenThree}>{ skillList.length > 26 ? limitText(skillList[26]) : limitText('') }</Text>
+
+        <Text style={styles.elevenOne}>{ skillList.length > 27 ? limitText(skillList[27]) : limitText('') }</Text>
+        <Text style={styles.elevenTwo}>{ skillList.length > 28 ? limitText(skillList[28]) : limitText('') }</Text>
+        <Text style={styles.elevenThree}>{ skillList.length > 29 ? limitText(skillList[29]) : limitText('') }</Text>
   
 
       </Page>

@@ -21,7 +21,7 @@ import {
 } from "react-router-dom";
 
 const SectionUI = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

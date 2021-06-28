@@ -18,7 +18,7 @@ const GridUI = styled.div`
   display: grid;
   
   text-align: left;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat( auto-fit, minmax(350px, 2fr) );
   grid-template-rows: auto auto;
   justify-content: space-between;
   grid-gap: 20px;
@@ -33,26 +33,31 @@ const GridUI = styled.div`
 
 
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1400px) {
 
-    grid-template-columns: auto auto ;
+
     width: 90vw;
   }
 
 
   @media (max-width: 800px) {
 
-    grid-template-columns: auto ;
+  
   }
 
 `
 const VideoUI = styled.div`
 
-width: 365px;
-height: 186px;
 
+height: 186px;
+position: relative;
+gridColumn: span 2;
+width: 100%;
+border: 5px solid #252525; 
+box-sizing: border-box;
+ border-radius: 10px;
 @media (max-width: 1200px) {
-  width: 365px;
+ 
 
 }
 
@@ -103,7 +108,7 @@ min-height: 100%
 `;
 
 const TileUI = styled.div`
-width: 365px;
+width: 100%;
  
   display: flex;
   align-items: flex-end;
@@ -151,7 +156,7 @@ export const InspireGrid = ({ allPostsData, showPost, setShowPost, data, color='
 
   return (
 
-    <div style={{position: 'relative'}}>
+ 
 
 
     <GridUI>
@@ -165,34 +170,21 @@ export const InspireGrid = ({ allPostsData, showPost, setShowPost, data, color='
               <ReactPlayer
               width="100%"
               height="100%"
-                style={{ border: "5px solid #252525", boxSizing: 'border-box', borderRadius: "10px" }}
+          /*       style={{ border: "5px solid #252525", boxSizing: 'border-box', borderRadius: "10px" }} */
                 light={true}
                 controls={true}
                 url={video.link}
               />
 
 </VideoUI>
+
     
           ))}
       <TileUI style={{ border: "5px solid #252525", borderRadius: "10px"}}>More</TileUI>
     </GridUI>
 
-{/*     <MobileGridUI>
-    {allPostsData.slice(0,5).map((video) => (
 
-<ReactPlayer
-    width="420px"
-    height="206px"
-  style={{ border: "5px solid #252525", boxSizing: 'border-box', borderRadius: "10px" }}
-  light={true}
-  controls={true}
-  url={video.link}
-/>
-
-))}
-<TileUI style={{width: '100%', height: '100%', border: "5px solid #252525", borderRadius: "10px"}}>More</TileUI>
-    </MobileGridUI> */}
-    </div>
+ 
   );
 };
 

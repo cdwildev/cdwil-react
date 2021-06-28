@@ -20,6 +20,50 @@ const ContainerUI = styled.div`
   }
 `;
 
+const ButtonUI = styled.button`
+background: #FFFFFF;
+border: 5px solid #252525;
+box-sizing: border-box;
+border-radius: 25px;
+width: 1300px;
+height: 248px;
+display: flex;
+justify-content: flex-start;
+padding: 0 0 0 111px;
+align-items: center;
+background: linear-gradient(92.92deg, #5E366E 23.05%, #FE2B9E 70.77%),
+linear-gradient(0deg, #252525, #252525);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-overflow: ellipsis;
+white-space: nowrap;
+cursor: pointer;
+text-align: left;
+font-family: Noto Sans;
+font-style: normal;
+font-weight: 800;
+font-size: 55px;
+line-height: 48px;
+
+  &:hover{
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    
+    color: white;
+  }
+
+
+  @media (max-width: 1400px) {
+    width: 90vw;
+    font-size: 30px;
+    padding: 0;
+    justify-content: center;
+  }
+
+
+`;
+
+
 const DropdownUI = styled.div`
 background: #FFFFFF;
 border: 5px solid #252525;
@@ -86,16 +130,17 @@ export const ContactForm = ({}) => {
 
   const [active, setActive] = useState(false)
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://paperform.co/__embed.min.js";
+    document.body.appendChild(script);
+  }, []);
+
   return (
-    <ContainerUI>
-        {!active ? <DropdownUI onClick={() => {setActive(true)}}>
-            Book an Appointment
-        </DropdownUI> : (
-        <FormUI onClick={() => {setActive(false)}}>
-            Book an Appointment
-        </FormUI>
-        )}
-    </ContainerUI>
+
+
+<ButtonUI  data-popup-button="1" prefill-inherit data-paperform-id="book-an-appointment">Book an Appointment</ButtonUI>
+
   );
 };
 

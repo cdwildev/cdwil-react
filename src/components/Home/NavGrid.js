@@ -148,10 +148,14 @@ export const NavGrid = ({
             </FlashUI>
           </TileUI>
         </Link>
-        <TileUI style={{ background: "#C1D42F", gridColumn: "1 / span 2" }}>
+        <Link
+          style={{textDecoration: "none", gridColumn: "1 / span 2" }}
+          to="/career-pathways"
+        >
+        <TileUI style={{ background: "#C1D42F" }}>
           Explore Career Pathways
         </TileUI>
-
+        </Link>
         <Link
           style={{ gridColumn: "3 / span 2", textDecoration: "none" }}
           to="/resume-builder"

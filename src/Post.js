@@ -1,9 +1,20 @@
 import { Children, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { SkillIdentifier } from "./components/SkillIdentifier/SkillIdentifier";
+
 import sanityClient from "./client";
 import styled from "styled-components";
-import skillIdentifierImage from "../src/images/skill-identifier.svg";
+
+import { useHistory, useParams } from "react-router-dom";
+import imageUrlBuilder from "@sanity/image-url";
+
+// Get a pre-configured url-builder from your sanity client
+const builder = imageUrlBuilder(sanityClient)
+
+// Then we like to make a simple function like this that gives the
+// builder an image and returns the builder for you to specify additional
+// parameters:
+function urlFor(source) {
+  return builder.image(source)
+}
 
 const SectionUI = styled.div`
   min-height: 100vh;
@@ -23,46 +34,30 @@ const TitleUI = styled.div`
   justify-content: flex-start;
   text-align: left;
   font-weight: 900;
-  font-size: 100px;
+  font-size: 48px;
+  width: 100%;
   margin: 72px 0;
+
   background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
-  height: 250px;
+
+  height: 100%;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
   text-overflow: ellipsis;
-  white-space: nowrap;
+
   display: block;
   text-align: left;
 
   @media (max-width: 1000px) {
-    font-size: 10vw;
   }
 
   animation: gradient 9s ease infinite;
 `;
 
-const GridUI = styled.div`
-  display: grid;
+const ImageUI = styled.img``;
 
-  text-align: left;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
-  grid-template-rows: auto auto;
-  justify-content: space-between;
-  grid-gap: 50px;
-  font-family: Noto Sans;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 32px;
-  line-height: 35px;
-  width: 75vw;
-  align-items: flex-start;
-
-  @media (max-width: 1400px) {
-    width: 90vw;
-  }
-
-  @media (max-width: 800px) {
-  }
+const BodyUI = styled.div`
+  margin: 72px 0;
 `;
 
 const PostUI = styled.div`
@@ -121,14 +116,14 @@ const DateUI = styled.div`
   }
 `;
 
-
-export default function News() {
-  const [allPostsData, setAllPosts] = useState([]);
+export default function Post(props) {
+  const [singlePost, setSinglePost] = useState(null);
+  const { slug } = useParams();
 
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "post"]{
+        `*[slug.current == "${slug}"]{
             title,
             body,
             publishedAt,
@@ -147,14 +142,34 @@ export default function News() {
         }`
       )
       .then((data) => {
-        setAllPosts(data);
+        setSinglePost(data[0]);
       })
       .catch(console.error);
-  }, []);
+  }, [slug]);
 
-    console.log(allPostsData)
+  console.log(singlePost);
 
-  console.log(allPostsData);
+  const styleText = (el) => {
+    if (el.style == "h2") {
+      return { color: "black", fontSize: "36px", margin: "0 0 48px 0", fontWeight: '800' };
+    } else if (el.style == "h3") {
+      return { color: "green", fontSize: "24px", margin: "24px 0 24px 0" };
+    } else if (el.style == "normal") {
+      return { color: "black", margin: "0 0 24px 0" };
+    }
+  };
+
+  const styleSpan = (el) => {
+    if (el.marks.includes('strong')) {
+      return { color: "black", fontWeight: '800' };
+    } else if (el.text.includes('https')) {
+      return { color: "blue", fontWeight: '800' };
+    } else if (el.marks.includes('em')) {
+      return {fontStyle : 'italic'};
+    } 
+
+
+  };
 
   return (
     <div
@@ -167,27 +182,20 @@ export default function News() {
       }}
     >
       <SectionUI>
-        <TitleUI>
-          News + <br></br>Events
-        </TitleUI>
+        <TitleUI>{singlePost && singlePost.title}</TitleUI>
 
-        <GridUI>
-          {allPostsData &&
-            allPostsData.map((post) => (
-              <Link
-                style={{ textDecoration: "none" }}
-                to={"/news/" + post.slug.current}
-                key={post.slug.current}
-              >
-                <PostUI>
-                  <img width="120%" src={post.mainImage.asset.url} />
-                </PostUI>
-                <DateUI>{Date(post.publishedAt).slice(0,15)}</DateUI>
-                <VideoTitleUI>{post.title}</VideoTitleUI>
-                
-              </Link>
+        <img width="100%" src={singlePost && singlePost.mainImage.asset.url} />
+
+        <DateUI>Posted on {singlePost && Date(singlePost.publishedAt).slice(0,15)}</DateUI>
+
+        <BodyUI>
+          {singlePost &&
+            singlePost.body.map((post) => (
+              <div style={styleText(post)}>
+                {post._type == "block" ? post.children.map((text) => <span style={styleSpan(text)}>{text.text}</span>) : post._type == "image" ? <img src={urlFor(post).url()} style={{width: '100%', margin: "48px 0"}}/> : post._type == "link" ? post.markDefs.map((text) => <span style={styleSpan(text)}>{text.text}</span>) : ''}
+              </div>
             ))}
-        </GridUI>
+        </BodyUI>
       </SectionUI>
     </div>
   );

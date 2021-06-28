@@ -10,7 +10,7 @@ export default function About() {
   const [allPostsData, setAllPosts] = useState([]);
 
   const SectionUI = styled.div`
-    height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,6 +19,7 @@ export default function About() {
     width: 75vw;
     @media (max-width: 1400px) {
       width: 90vw;
+      flex-direction: column;
     }
   `;
 
@@ -121,9 +122,7 @@ export default function About() {
     width: 100%;
     width: 75vw;
 
-    @media (max-width: 1000px) {
-      grid-template-rows: repeat(9, 1fr);
-    }
+ 
   `;
 
 
@@ -146,9 +145,11 @@ text-align: left;
 
 `;
 
+
+
   return (
     <div className="container">
-      <SectionUI>
+      <SectionUI style={{ minHeight: "60vh"}}>
         <LeftUI>
           <AboutUsUI>About Us</AboutUsUI>
           <HeaderUI>
@@ -161,7 +162,7 @@ text-align: left;
         </RightUI>
       </SectionUI>
 
-      <SectionUI>
+      <SectionUI  style={{ minHeight: "50vh"}}>
         <AboutUI>
           We offer career advising, clinics and strategy sessions, drop-in and
           individual advising, access to co-op learning opportunities,
@@ -172,8 +173,8 @@ text-align: left;
         </AboutUI>
       </SectionUI>
 
-      <SectionUI>
-        <GridUI style={{ width: "90vw", margin: "200px 0 0 0" }}>
+      <SectionUI  style={{ minHeight: "50vh"}}>
+        <GridUI style={{ width: "90vw"}}>
           <TileUI style={{ gridColumn: "1 / span 3", height: "20vh" }}>
             Career <br></br> Advising
           </TileUI>
@@ -195,11 +196,11 @@ text-align: left;
         </GridUI>
       </SectionUI>
 
-      <SectionUI>
+      <SectionUI  style={{ minHeight: "50vh"}}>
         <ContactForm />
       </SectionUI>
 
-      <SectionUI>
+      <SectionUI style={{ minHeight: "50vh"}}>
         <LeftUI>
           <AboutUsUI>Contact</AboutUsUI>
           <ContactInfoUI>604.844.3843 | coop@ecuad.ca</ContactInfoUI>

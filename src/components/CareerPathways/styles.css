@@ -1,0 +1,112 @@
+.circle-filter{
+  position: relative;
+  width: 5vw;
+ padding: 2.5vw;
+  min-height: 5vw;
+  margin: 5px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.5s, opacity 0.5s;
+  will-change: transform;
+  z-index: 500;
+  margin: 5px;
+
+
+
+  
+ 
+  cursor: grab;
+  overflow: hidden;
+  touch-action: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+
+  font-family: Noto Sans;
+font-size: 16px;
+font-style: normal;
+font-weight: 800;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: center;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.square-filter{
+  position: relative;
+  min-width: 10vw;
+  padding: 0 20px;
+  height: 2.5vw;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.5s, opacity 0.5s;
+  will-change: transform;
+  z-index: 500;
+  cursor: grab;
+  overflow: hidden;
+  touch-action: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  margin: 5px;
+  font-family: Noto Sans;
+font-size: 17px;
+font-style: normal;
+font-weight: 800;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: center;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.semi-circle-filter{
+  position: relative;
+  width: 10vw;
+  height: 5vw;
+  margin: 5px;
+  padding: 10px 20px 0 20px ;
+  background: white;
+  border-radius: 10vw 10vw 10px 10px;
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.5s, opacity 0.5s;
+  will-change: transform;
+  z-index: 500;
+  cursor: grab;
+  overflow: hidden;
+  touch-action: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+
+  font-family: Noto Sans;
+font-size: 14px;
+font-style: normal;
+font-weight: 800;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: center;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

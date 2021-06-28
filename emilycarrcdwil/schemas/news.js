@@ -1,6 +1,6 @@
 export default {
-  name: 'post',
-  title: 'Post',
+  name: 'news',
+  title: 'News',
   type: 'document',
   fields: [
     {
@@ -29,18 +29,6 @@ export default {
       type: 'image',
       options: {
         hotspot: true,
-      },
-    },
-    {
-      title: 'Category',
-      name: 'category',
-      type: 'array',
-      of: [{type: 'string'}],
-      options: {
-        list: [
-          { title: 'News', value: 'news' },
-          { title: 'Events', value: 'events' }
-        ],
       },
     },
     {
