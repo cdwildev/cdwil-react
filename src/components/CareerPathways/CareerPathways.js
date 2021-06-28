@@ -343,11 +343,15 @@ export const CareerPathways = ({ allPostsData }) => {
 
   const rndInt = Math.floor(Math.random() * 500) + 1;
 
+  function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
   return (
     <>
       <ContainerUI>
         <SelectionContainerUI>
-                {industries.map(el => <FilterCircle screen={screen} pool={pool} setSelectedIndustries={setSelectedIndustries} selectedIndustries={selectedIndustries} industries={el} industry={el.title} floatY={Math.floor(Math.random() * 5) + 0} positionX={Math.floor(Math.random() * 500) + 0} positionY={Math.floor(Math.random() * 500) + 0}/>) } 
+                {industries.map(el => <FilterCircle screen={screen} pool={pool} setSelectedIndustries={setSelectedIndustries} selectedIndustries={selectedIndustries} industries={el} industry={el.title} floatY={randomIntFromInterval(2, 5)} positionX={randomIntFromInterval(0, 600)} positionY={randomIntFromInterval(0, 400)}/>) } 
                 {skills.map(el => <FilterSquare screen={screen} pool={pool} setSelectedIndustries={setSelectedSkills} selectedIndustries={selectedSkills} industries={el} industry={el.title} positionX={Math.floor(Math.random() * 500) + 0} positionY={Math.floor(Math.random() * 500) + 0}/>)  } 
                 {values.map(el => <FilterSemiCircle screen={screen} pool={pool} setSelectedIndustries={setSelectedValues} selectedIndustries={selectedValues} industries={el} industry={el.title} positionX={Math.floor(Math.random() * 500) + 0} positionY={Math.floor(Math.random() * 500) + 0}/>)  } 
         </SelectionContainerUI>
