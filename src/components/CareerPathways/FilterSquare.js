@@ -89,10 +89,10 @@ export const FilterSquare = ({
       api.start({ x: ox + posX, y: oy + posY, immediate: down }),
     {
       bounds: {
-        left: leftBounds - posX,
-        right: rightBounds - posX,
-        top: topBounds - posY,
-        bottom: bottomBounds - posY,
+        left: leftBounds,
+        right: rightBounds,
+        top: topBounds,
+        bottom: bottomBounds,
       },
       rubberband: true,
     }

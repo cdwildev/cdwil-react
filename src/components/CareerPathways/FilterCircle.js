@@ -9,6 +9,7 @@ import "./styles.css";
 export const FilterCircle = ({
   positionX = -100,
   positionY = -100,
+  floatY,
   industry = "Advertising + Marketing",
   pool,
   setSelectedIndustries,
@@ -31,6 +32,8 @@ export const FilterCircle = ({
   });
   const [posX, setPosX] = useState(positionX);
   const [posY, setPosY] = useState(positionY);
+
+  const [floatingY, setFloatingY] = useState(floatY);
 
 
   const [mouseDown, setMouseDown] = useState(false);
@@ -103,7 +106,7 @@ export const FilterCircle = ({
     <animated.div
       className="circle-filter"
       {...bind()}
-      style={{ x, y, display: screen == 1 ? 'flex' : 'none' }}
+      style={{ x, y, display: screen == 1 ? 'flex' : 'none', animation: `float ${floatingY}s ease infinite` }}
       ref={circle}
       onMouseDown={() => setMouseDown(true)}
       onMouseUp={() => setMouseDown(false)}

@@ -13,8 +13,6 @@
   margin: 5px;
 
 
-
-
   
  
   cursor: grab;
@@ -110,4 +108,20 @@ text-align: center;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+@keyframes float {
+  from{
+    top: 0px;
+  }
+
+  50%{
+    top: 20px;
+
+  }
+
+  100%{
+
+    top: 0px;
+  }
 }
