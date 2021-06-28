@@ -352,8 +352,8 @@ export const CareerPathways = ({ allPostsData }) => {
       <ContainerUI>
         <SelectionContainerUI>
                 {industries.map(el => <FilterCircle screen={screen} pool={pool} setSelectedIndustries={setSelectedIndustries} selectedIndustries={selectedIndustries} industries={el} industry={el.title} floatY={randomIntFromInterval(2, 5)} positionX={randomIntFromInterval(0, 600)} positionY={randomIntFromInterval(0, 400)}/>) } 
-                {skills.map(el => <FilterSquare screen={screen} pool={pool} setSelectedIndustries={setSelectedSkills} selectedIndustries={selectedSkills} industries={el} industry={el.title} positionX={Math.floor(Math.random() * 500) + 0} positionY={Math.floor(Math.random() * 500) + 0}/>)  } 
-                {values.map(el => <FilterSemiCircle screen={screen} pool={pool} setSelectedIndustries={setSelectedValues} selectedIndustries={selectedValues} industries={el} industry={el.title} positionX={Math.floor(Math.random() * 500) + 0} positionY={Math.floor(Math.random() * 500) + 0}/>)  } 
+                {skills.map(el => <FilterSquare screen={screen} pool={pool} setSelectedIndustries={setSelectedSkills} selectedIndustries={selectedSkills} industries={el} industry={el.title} floatY={randomIntFromInterval(2, 5)} positionX={randomIntFromInterval(0, 600)} positionY={randomIntFromInterval(0, 400)}/>)  } 
+                {values.map(el => <FilterSemiCircle screen={screen} pool={pool} setSelectedIndustries={setSelectedValues} selectedIndustries={selectedValues} industries={el} industry={el.title} floatY={randomIntFromInterval(2, 5)} positionX={randomIntFromInterval(0, 600)} positionY={randomIntFromInterval(0, 400)}/>)  } 
         </SelectionContainerUI>
         <ButtonUI onClick={prevScreen} style={{position: 'absolute', bottom: '5vh', left: '5vw'}}>Back</ButtonUI>
  

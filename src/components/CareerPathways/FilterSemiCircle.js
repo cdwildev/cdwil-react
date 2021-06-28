@@ -9,6 +9,7 @@ import "./styles.css";
 export const FilterSemiCircle = ({
   positionX = -100,
   positionY = -100,
+  floatY,
   industry = "Advertising + Marketing",
   industries,
   pool,
@@ -32,6 +33,8 @@ export const FilterSemiCircle = ({
   
   const [posX, setPosX] = useState(positionX);
   const [posY, setPosY] = useState(positionY);
+
+  const [floatingY, setFloatingY] = useState(floatY);
 
   const [mouseDown, setMouseDown] = useState(false);
   const [inside, setInside] = useState(false);
@@ -101,7 +104,7 @@ export const FilterSemiCircle = ({
     <animated.div
       className="semi-circle-filter"
       {...bind()}
-      style={{ x, y, display: screen == 3 ? 'flex' : 'none' }}
+      style={{ x, y, display: screen == 3 ? 'flex' : 'none' , animation: `float ${floatingY}s ease infinite`}}
       ref={circle}
       onMouseDown={() => setMouseDown(true)}
       onMouseUp={() => setMouseDown(false)}
