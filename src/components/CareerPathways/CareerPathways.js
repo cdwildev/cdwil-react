@@ -33,7 +33,7 @@ const ContainerUI = styled.div`
 `;
 
 const SelectionContainerUI = styled.div`
-  width: 65vw;
+  width: 60vw;
   height: 90vh;
   display: flex;
   justify-content: flex-start;
@@ -42,7 +42,7 @@ const SelectionContainerUI = styled.div`
   position: relative;
   min-height: 20vw;
   position: absolute;
-  left: 0vw;
+  left: 2.5vw;
   top: 0;
   z-index: 50;
 
@@ -180,11 +180,11 @@ const ProgressLabelUI = styled.div`
 const InstructionUI = styled.div`
   width: 80%;
   font-size: 16px;
-  font-weight: 100;
+  font-weight: 800;
 `;
 
 const InstructionTopUI = styled.div`
-  width: 50%;
+  width: 60%;
   font-size: 16px;
   font-weight: 100;
   top: 5vw;

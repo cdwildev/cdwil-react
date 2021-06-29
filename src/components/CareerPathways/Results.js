@@ -239,10 +239,11 @@ export const Results = ({ selectedIndustries, selectedSkills, selectedValues, al
       <ContainerUI style={{transform: loading ? 'translateX(100vw)' : 'translateX(0vw)'}}>
           <BackButtonUI onClick={() => setScreen(1)}><ArrowLeft/><BackButtonTextUI>Explore More Careers</BackButtonTextUI></BackButtonUI>
           <TitleUI>Your Careers Pathways</TitleUI>
-        <IndustriesGridUI>{selectedIndustries.map(industry => <IndustryUI>{industry.title}</IndustryUI>)}</IndustriesGridUI>
-        <CareerGridUI>
+          <CareerGridUI>
             {filteredIndustries.map(industry => <CareerUI>{industry.title}</CareerUI>)}
         </CareerGridUI>
+        <IndustriesGridUI>{selectedIndustries.map(industry => <IndustryUI>{industry.title}</IndustryUI>)}</IndustriesGridUI>
+
         <SkillGridUI>{selectedSkills.map(industry => <SkillUI>{industry.title}</SkillUI>)}</SkillGridUI>
         <SkillGridUI>{selectedValues.map(industry => <SkillUI>{industry.title}</SkillUI>)}</SkillGridUI>
         <DownloadButtonUI><Download/></DownloadButtonUI>
