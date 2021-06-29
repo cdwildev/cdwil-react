@@ -30,7 +30,6 @@ const ContainerUI = styled.div`
   flex-direction: column;
   position: relative;
   min-height: 100vh;
-
 `;
 
 const SelectionContainerUI = styled.div`
@@ -46,7 +45,6 @@ const SelectionContainerUI = styled.div`
   left: 10vw;
   top: 10vh;
   z-index: 50;
-
 `;
 
 const PoolUI = styled.div`
@@ -73,126 +71,114 @@ const PoolUI = styled.div`
 `;
 
 const ButtonUI = styled.div`
-width: 153px;
-height: 57px;
+  width: 153px;
+  height: 57px;
 
+  border: 3px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
 
-border: 3px solid #FFFFFF;
-box-sizing: border-box;
-border-radius: 10px;
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
 
-font-family: Noto Sans;
-font-size: 20px;
-font-style: normal;
-font-weight: 800;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-text-align: center;
-color: white;
-display: flex;
-justify-content: center;
-align-items: center;
-
-cursor: pointer;
-z-index: 1000;
-
+  cursor: pointer;
+  z-index: 1000;
 `;
 
 const ProgressUI = styled.div`
-width: 153px;
-height: 57px;
+  width: 153px;
+  height: 57px;
 
-width: 744px;
-height: 160px;
+  width: 744px;
+  height: 160px;
 
-box-sizing: border-box;
+  box-sizing: border-box;
 
+  border-radius: 40px 40px 0 0;
 
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-border-radius: 40px 40px 0 0;
-
-font-family: Noto Sans;
-font-size: 20px;
-font-style: normal;
-font-weight: 800;
-position: absolute;
-bottom: 0;
-text-align: center;
-color: white;
-display: flex;
-justify-content: center;
-align-items: center;
-
-cursor: pointer;
-z-index: 1000;
+  cursor: pointer;
+  z-index: 1000;
 `;
 
 const CircleUI = styled.div`
+  width: 27px;
+  height: 27px;
 
-width: 27px;
-height: 27px;
-
-border-radius: 50px;
-border: 3px solid white;
-background: #0D3858;
-position: relative;
-left: 10px;
-
+  border-radius: 50px;
+  border: 3px solid white;
+  background: #0d3858;
+  position: relative;
+  left: 10px;
 `;
 
-
 const SquareUI = styled.div`
+  width: 48px;
+  height: 27px;
 
-width: 48px;
-height: 27px;
+  border: 3px solid white;
+  border-radius: 3px;
 
-border: 3px solid white;
-border-radius: 3px;
-
-background: #0D3858;
+  background: #0d3858;
 `;
 
 const SemiUI = styled.div`
-
-
-width: 48px;
-height: 27px;
-border: 3px solid white;
-position: relative;
-right: 10px;
-border-radius: 48px 48px 0 0 ;
-background: #0D3858;
-
+  width: 48px;
+  height: 27px;
+  border: 3px solid white;
+  position: relative;
+  right: 10px;
+  border-radius: 48px 48px 0 0;
+  background: #0d3858;
 `;
 
 const LineUI = styled.div`
-
-
-border-bottom: 3px solid white;
-width: 128px;
-
-
+  border-bottom: 3px solid white;
+  width: 128px;
 `;
-
 
 const ProgressLabelUI = styled.div`
+  transform: translateY(48px);
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  display: flex;
 
-
-transform: translateY(48px);
-font-family: Noto Sans;
-font-style: normal;
-font-weight: 800;
-font-size: 16px;
-display: flex;
-
-justify-content: center;
-
+  justify-content: center;
 `;
-
 
 const InstructionUI = styled.div`
   width: 80%;
   font-size: 16px;
   font-weight: 100;
+`;
+
+const InstructionTopUI = styled.div`
+  width: 50%;
+  font-size: 16px;
+  font-weight: 100;
+  top: 5vw;
+  position: absolute;
 `;
 
 const LoadingScreenUI = styled.div`
@@ -203,218 +189,347 @@ const LoadingScreenUI = styled.div`
   overflow: hidden;
 `;
 
-
 const industries = [
-  { title: 'Advertising + Marketing', value: 'advertising' },
-  { title: 'Amusement + Recreation ', value: 'amusement' },
-  { title: 'Animation + VFX', value: 'animation' },
-  { title: 'Architecture', value: 'architecture' },
-  { title: 'Arts + Culture', value: 'arts' },
-  { title: 'Craft + Antiques', value: 'craft' },
-  { title: 'Education + Research', value: 'education' },
-  { title: 'Fashion + Textiles', value: 'fashion' },
-  { title: 'Film / Photo / TV / Video / Radio', value: 'film' },
-  { title: 'Food', value: 'food' },
-  { title: 'Gaming + Interactive Media', value: 'gaming' },
-  { title: 'Government + Civic + Social Services', value: 'government' },
-  { title: 'Healthcare', value: 'healthcare' },
-  { title: 'Manufacturing + Engineering', value: 'manufacturing' },
-  { title: 'Museums + Galleries', value: 'museums' },
-  { title: 'Performing Arts', value: 'performing-arts' },
-  { title: 'Music', value: 'music' },
-  { title: 'Publishing + Print', value: 'publishing' },
-  { title: 'Technology', value: 'technology' },
-/*   { title: 'All', value: 'all' }, */
-]
+  { title: "Advertising + Marketing", value: "advertising" },
+  { title: "Amusement + Recreation ", value: "amusement" },
+  { title: "Animation + VFX", value: "animation" },
+  { title: "Architecture", value: "architecture" },
+  { title: "Arts + Culture", value: "arts" },
+  { title: "Craft + Antiques", value: "craft" },
+  { title: "Education + Research", value: "education" },
+  { title: "Fashion + Textiles", value: "fashion" },
+  { title: "Film / Photo / TV / Video / Radio", value: "film" },
+  { title: "Food", value: "food" },
+  { title: "Gaming + Interactive Media", value: "gaming" },
+  { title: "Government + Civic + Social Services", value: "government" },
+  { title: "Healthcare", value: "healthcare" },
+  { title: "Manufacturing + Engineering", value: "manufacturing" },
+  { title: "Museums + Galleries", value: "museums" },
+  { title: "Performing Arts", value: "performing-arts" },
+  { title: "Music", value: "music" },
+  { title: "Publishing + Print", value: "publishing" },
+  { title: "Technology", value: "technology" },
+  /*   { title: 'All', value: 'all' }, */
+];
 
 const skills = [
-  { title: 'Animate', value: 'animate' },
-  { title: 'Build', value: 'build' },
-  { title: 'Carve', value: 'carve' },
-  { title: 'Capture', value: 'capture' },
-  { title: 'Curate', value: 'curate' },
-  { title: 'Critique', value: 'critique' },
-  { title: 'Code', value: 'code' },
-  { title: 'Composite', value: 'composite' },
-  { title: 'Compose', value: 'compose' },
-  { title: 'Conceptualize', value: 'conceptualize' },
-  { title: 'Colour', value: 'colour' },
-  { title: 'Cut', value: 'cut' },
-  { title: 'Doodle', value: 'coodle' },
-  { title: 'Draw or Sketch', value: 'draw' },
-  { title: 'Design', value: 'design' },
-  { title: 'Direct', value: 'direct' },
-  { title: 'Document or Record (sound or images)', value: 'document' },
-  { title: 'Edit (images and/or audio)', value: 'edit' },
-  { title: 'Etch or Engrave', value: 'etch' },
-  { title: 'Exhibit', value: 'exhibit' },
-  { title: 'Experiment', value: 'experiment' },
-  { title: 'Engage Communities', value: 'engage' },
-  { title: 'Entertain', value: 'entertain' },
-  { title: 'Fabricate', value: 'fabricate' },
-  { title: 'Facilitate and/or Teach', value: 'facilitate' },
-  { title: 'Film or Cinematize', value: 'film' },
-  { title: 'Hack and/or Repair', value: 'hack' },
-  { title: 'Imagine', value: 'imagine' },
-  { title: 'Illustrate', value: 'illustrate' },
-  { title: 'Ink', value: 'ink' },
-  { title: 'Inform', value: 'inform' },
-  { title: 'Light', value: 'light' },
-  { title: 'Mold and Cast', value: 'mold' },
-  { title: 'Narrative / World Build', value: 'narrative' },
-  { title: 'Paint', value: 'paint' },
-  { title: 'Perform', value: 'perform' },
-  { title: 'Photograph', value: 'photograph' },
-  { title: 'Pitch or Present', value: 'pitch' },
-  { title: 'Print', value: 'print' },
-  { title: 'Predict', value: 'predict' },
-  { title: 'Prototype', value: 'prototype' },
-  { title: 'Produce', value: 'produce' },
-  { title: 'Publish', value: 'publish' },
-  { title: 'Research', value: 'research' },
-  { title: 'Sew', value: 'sew' },
-  { title: 'Solve', value: 'solve' },
-  { title: 'Strategize', value: 'strategize' },
-  { title: 'Test', value: 'test' },
-  { title: 'Tinker (with electronics)', value: 'tinker' },
-  { title: 'Theorize', value: 'theorize' },
-  { title: 'Visualize', value: 'visualize' },
-  { title: 'Vectorize', value: 'vectorize' },
-  { title: 'Weld', value: 'weld' },
-  { title: 'Wheelthrow or Handbuild', value: 'wheelthrow' },
-  { title: 'Woodwork', value: 'woodwork' },
-  { title: 'Write', value: 'write' },
-  { title: 'Question', value: 'question' },
-  { title: '3D Model/Print', value: '3d' },
-/*   { title: 'All', value: 'all' } */
-
-]
+  { title: "Animate", value: "animate" },
+  { title: "Build", value: "build" },
+  { title: "Carve", value: "carve" },
+  { title: "Capture", value: "capture" },
+  { title: "Curate", value: "curate" },
+  { title: "Critique", value: "critique" },
+  { title: "Code", value: "code" },
+  { title: "Composite", value: "composite" },
+  { title: "Compose", value: "compose" },
+  { title: "Conceptualize", value: "conceptualize" },
+  { title: "Colour", value: "colour" },
+  { title: "Cut", value: "cut" },
+  { title: "Doodle", value: "coodle" },
+  { title: "Draw or Sketch", value: "draw" },
+  { title: "Design", value: "design" },
+  { title: "Direct", value: "direct" },
+  { title: "Document or Record (sound or images)", value: "document" },
+  { title: "Edit (images and/or audio)", value: "edit" },
+  { title: "Etch or Engrave", value: "etch" },
+  { title: "Exhibit", value: "exhibit" },
+  { title: "Experiment", value: "experiment" },
+  { title: "Engage Communities", value: "engage" },
+  { title: "Entertain", value: "entertain" },
+  { title: "Fabricate", value: "fabricate" },
+  { title: "Facilitate and/or Teach", value: "facilitate" },
+  { title: "Film or Cinematize", value: "film" },
+  { title: "Hack and/or Repair", value: "hack" },
+  { title: "Imagine", value: "imagine" },
+  { title: "Illustrate", value: "illustrate" },
+  { title: "Ink", value: "ink" },
+  { title: "Inform", value: "inform" },
+  { title: "Light", value: "light" },
+  { title: "Mold and Cast", value: "mold" },
+  { title: "Narrative / World Build", value: "narrative" },
+  { title: "Paint", value: "paint" },
+  { title: "Perform", value: "perform" },
+  { title: "Photograph", value: "photograph" },
+  { title: "Pitch or Present", value: "pitch" },
+  { title: "Print", value: "print" },
+  { title: "Predict", value: "predict" },
+  { title: "Prototype", value: "prototype" },
+  { title: "Produce", value: "produce" },
+  { title: "Publish", value: "publish" },
+  { title: "Research", value: "research" },
+  { title: "Sew", value: "sew" },
+  { title: "Solve", value: "solve" },
+  { title: "Strategize", value: "strategize" },
+  { title: "Test", value: "test" },
+  { title: "Tinker (with electronics)", value: "tinker" },
+  { title: "Theorize", value: "theorize" },
+  { title: "Visualize", value: "visualize" },
+  { title: "Vectorize", value: "vectorize" },
+  { title: "Weld", value: "weld" },
+  { title: "Wheelthrow or Handbuild", value: "wheelthrow" },
+  { title: "Woodwork", value: "woodwork" },
+  { title: "Write", value: "write" },
+  { title: "Question", value: "question" },
+  { title: "3D Model/Print", value: "3d" },
+  /*   { title: 'All', value: 'all' } */
+];
 
 const values = [
-  { title: 'Flexibility', value: 'flexibility' },
-  { title: 'Learning', value: 'learning' },
-  { title: 'Beauty', value: 'beauty' },
-  { title: 'Humor', value: 'humor' },
-  { title: 'Justice', value: 'justice' },
-  { title: 'Community', value: 'community' },
-  { title: 'Social Responsibility', value: 'social-responsibility' },
-  { title: 'Generosity', value: 'generosity' },
-  { title: 'Innovation', value: 'innovation' },
-  { title: 'Leadership', value: 'leadership' },
-  { title: 'Financial Security', value: 'financial-security' },
-  { title: 'High-Pay', value: 'high-pay' },
-  { title: 'Teamwork', value: 'teamwork' },
-  { title: 'Fast-Paced', value: 'fast-paced' },
-  { title: 'Freedom', value: 'freedom' },
-  { title: 'Unpredictable', value: 'unpredictable' },
-  { title: 'Structure/Routine', value: 'structure' },
-  { title: 'Helping Others', value: 'helping-others' },
-  { title: 'Results Oriented', value: 'results-oriented' },
-  { title: 'Process Driven', value: 'process-driven' },
-  { title: 'Being Reflective', value: 'being-reflective' },
-  { title: 'Being Involved in Decision-Making', value: 'decision-making' },
-  { title: 'Each Day is Different', value: 'day-different' },
-  { title: 'Each Day is Structured the Same', value: 'day-structured' },
-  { title: 'Working Indoors', value: 'working-indoors' },
-  { title: 'Working Outdoors', value: 'working-outdoors' },
-  { title: 'Working with People', value: 'working-with-people' },
-  { title: 'Working with Nature/Animals', value: 'working-with-nature' },
-  { title: 'Working with Data (ex, ideas, words, numbers)', value: 'working-with-data' },
-  { title: 'Working with Things (ex. materials, equipment, etc.)', value: 'working-with-things'},
-/*   { title: 'All', value: 'all' }, */
-
-]
+  { title: "Flexibility", value: "flexibility" },
+  { title: "Learning", value: "learning" },
+  { title: "Beauty", value: "beauty" },
+  { title: "Humor", value: "humor" },
+  { title: "Justice", value: "justice" },
+  { title: "Community", value: "community" },
+  { title: "Social Responsibility", value: "social-responsibility" },
+  { title: "Generosity", value: "generosity" },
+  { title: "Innovation", value: "innovation" },
+  { title: "Leadership", value: "leadership" },
+  { title: "Financial Security", value: "financial-security" },
+  { title: "High-Pay", value: "high-pay" },
+  { title: "Teamwork", value: "teamwork" },
+  { title: "Fast-Paced", value: "fast-paced" },
+  { title: "Freedom", value: "freedom" },
+  { title: "Unpredictable", value: "unpredictable" },
+  { title: "Structure/Routine", value: "structure" },
+  { title: "Helping Others", value: "helping-others" },
+  { title: "Results Oriented", value: "results-oriented" },
+  { title: "Process Driven", value: "process-driven" },
+  { title: "Being Reflective", value: "being-reflective" },
+  { title: "Being Involved in Decision-Making", value: "decision-making" },
+  { title: "Each Day is Different", value: "day-different" },
+  { title: "Each Day is Structured the Same", value: "day-structured" },
+  { title: "Working Indoors", value: "working-indoors" },
+  { title: "Working Outdoors", value: "working-outdoors" },
+  { title: "Working with People", value: "working-with-people" },
+  { title: "Working with Nature/Animals", value: "working-with-nature" },
+  {
+    title: "Working with Data (ex, ideas, words, numbers)",
+    value: "working-with-data",
+  },
+  {
+    title: "Working with Things (ex. materials, equipment, etc.)",
+    value: "working-with-things",
+  },
+  /*   { title: 'All', value: 'all' }, */
+];
 
 export const CareerPathways = ({ allPostsData }) => {
-
-  console.log(allPostsData)
+  console.log(allPostsData);
   const pool = useRef(null);
 
-  const [screen, setScreen] = useState(1)
+  const [screen, setScreen] = useState(1);
 
   const [selectedIndustries, setSelectedIndustries] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [selectedValues, setSelectedValues] = useState([]);
   const [loading, setLoading] = useState(false);
-  
+
   const nextScreen = () => {
-    if (screen == 1){
-      setScreen(2)
-    } else if(screen == 2){
-      setScreen(3)
-    } else if(screen == 3){
-      setScreen(4)
-      setLoading(true)
+    if (screen == 1) {
+      setScreen(2);
+    } else if (screen == 2) {
+      setScreen(3);
+    } else if (screen == 3) {
+      setScreen(4);
+      setLoading(true);
     }
-  }
+  };
 
   const prevScreen = () => {
-    if (screen == 3){
-      setScreen(2)
-    } else if(screen == 2){
-      setScreen(1)
-    } else if(screen == 4){
-      setScreen(3)
+    if (screen == 3) {
+      setScreen(2);
+    } else if (screen == 2) {
+      setScreen(1);
+    } else if (screen == 4) {
+      setScreen(3);
     }
-  }
+  };
 
   useEffect(() => {
-   if (loading){
-     setTimeout(() => {
-setLoading(false)
-     }, 500)
-   }
-  }, [loading])
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    }
+  }, [loading]);
 
-/*   useEffect(() => {
+  /*   useEffect(() => {
     if(selectedIndustries.length > 2){
       setScreen(2)
     }
    }, [selectedIndustries]) */
 
-
   const rndInt = Math.floor(Math.random() * 500) + 1;
 
-  function randomIntFromInterval(min, max) { // min and max included 
-    return Math.floor(Math.random() * (max - min + 1) + min)
+  function randomIntFromInterval(min, max) {
+    // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   return (
     <>
       <ContainerUI>
         <SelectionContainerUI>
-                {industries.map(el => <FilterCircle screen={screen} pool={pool} setSelectedIndustries={setSelectedIndustries} selectedIndustries={selectedIndustries} industries={el} industry={el.title} floatY={randomIntFromInterval(2, 5)} positionX={randomIntFromInterval(0, 600)} positionY={randomIntFromInterval(0, 400)}/>) } 
-                {skills.map(el => <FilterSquare screen={screen} pool={pool} setSelectedIndustries={setSelectedSkills} selectedIndustries={selectedSkills} industries={el} industry={el.title} floatY={randomIntFromInterval(2, 5)} positionX={randomIntFromInterval(0, 600)} positionY={randomIntFromInterval(0, 400)}/>)  } 
-                {values.map(el => <FilterSemiCircle screen={screen} pool={pool} setSelectedIndustries={setSelectedValues} selectedIndustries={selectedValues} industries={el} industry={el.title} floatY={randomIntFromInterval(2, 5)} positionX={randomIntFromInterval(0, 600)} positionY={randomIntFromInterval(0, 400)}/>)  } 
+          {industries.map((el) => (
+            <FilterCircle
+              screen={screen}
+              pool={pool}
+              setSelectedIndustries={setSelectedIndustries}
+              selectedIndustries={selectedIndustries}
+              industries={el}
+              industry={el.title}
+              floatY={randomIntFromInterval(2, 5)}
+              positionX={randomIntFromInterval(0, 600)}
+              positionY={randomIntFromInterval(0, 400)}
+            />
+          ))}
+          {skills.map((el) => (
+            <FilterSquare
+              screen={screen}
+              pool={pool}
+              setSelectedIndustries={setSelectedSkills}
+              selectedIndustries={selectedSkills}
+              industries={el}
+              industry={el.title}
+              floatY={randomIntFromInterval(2, 5)}
+              positionX={randomIntFromInterval(0, 600)}
+              positionY={randomIntFromInterval(0, 400)}
+            />
+          ))}
+          {values.map((el) => (
+            <FilterSemiCircle
+              screen={screen}
+              pool={pool}
+              setSelectedIndustries={setSelectedValues}
+              selectedIndustries={selectedValues}
+              industries={el}
+              industry={el.title}
+              floatY={randomIntFromInterval(2, 5)}
+              positionX={randomIntFromInterval(0, 600)}
+              positionY={randomIntFromInterval(0, 400)}
+            />
+          ))}
         </SelectionContainerUI>
-        
- 
-        { screen == 4 ? (
 
-<>
-        <LoadingScreenUI style={{transform: loading ? 'translateX(0)' : 'translateX(-100vw)'}}>
-          <img style={{width: '100vw', animation: '2s scroll linear' }} src={Loader}/>
-        </LoadingScreenUI>
-        <Results loading={loading} selectedIndustries={selectedIndustries} selectedSkills={selectedSkills} selectedValues={selectedValues} allPostsData={allPostsData} setScreen={setScreen}> </Results>
-</>
-        
-        ) : ( <>
-
-<ButtonUI onClick={prevScreen} style={{position: 'absolute', bottom: '5vh', left: '5vw', display: screen == 1 ? 'none' : 'flex'}}>Back</ButtonUI>
-        <PoolUI /* style={{border: selectedIndustries.length > 2 && screen == 1 ? '3px solid #1D4766' : selectedSkills.length > 9 && screen == 2 ? '3px solid #067A8A' : selectedValues.length > 4 && screen == 3 ? '3px solid #285F4A' : '3px solid white'}} */ ref={pool}><InstructionUI>{screen == 1 ? 'Which industries are you curious or passionate about? Where can you see yourself working?  Select up to 3 Drag and Drop here' : screen == 2 ? 'What are you really good at or interested in getting better at?  Select up to 10 Drag and Drop here' : screen == 3 ? 'Values reflect who we are and indicate what is most important to us. Select up to 5 values that resonate with you for the workplace.' : ''}</InstructionUI></PoolUI>
-        <ButtonUI onClick={nextScreen} style={{position: 'absolute', bottom: '5vh', right: '5vw'}}>{screen == 3 ? 'Done' : 'Next'}</ButtonUI>
-        <ProgressUI>
-
-          <CircleUI onClick={() => setScreen(1)} style={{ backgroundColor: screen == 1 ? '#0D3858' : 'white'}}><ProgressLabelUI style={{color: screen == 1 ? '#0D3858' : 'white' }}>Industry</ProgressLabelUI></CircleUI>
-          <LineUI  style={{borderBottom: screen >= 2 ? '3px solid white' : '3px solid white' }}/>
-          <SquareUI  onClick={() => setScreen(2)} style={{backgroundColor: screen == 2 ? '#0D3858' : 'white'}}><ProgressLabelUI style={{color: screen == 2 ? '#0D3858' : 'white' }}>Interests</ProgressLabelUI></SquareUI>
-          <LineUI style={{borderBottom: screen >= 3 ? '3px solid white' : '3px solid white' }}/>
-          <SemiUI  onClick={() => setScreen(3)} style={{backgroundColor: screen == 3 ? '#0D3858' : 'white' }}><ProgressLabelUI style={{color: screen == 3 ? '#0D3858' : 'white' }}>Values</ProgressLabelUI></SemiUI>
-
-        </ProgressUI>
-        </> )
-        } 
-
+        {screen == 4 ? (
+          <>
+            <LoadingScreenUI
+              style={{
+                transform: loading ? "translateX(0)" : "translateX(-100vw)",
+              }}
+            >
+              <img
+                style={{ width: "100vw", animation: "2s scroll linear" }}
+                src={Loader}
+              />
+            </LoadingScreenUI>
+            <Results
+              loading={loading}
+              selectedIndustries={selectedIndustries}
+              selectedSkills={selectedSkills}
+              selectedValues={selectedValues}
+              allPostsData={allPostsData}
+              setScreen={setScreen}
+            >
+              {" "}
+            </Results>
+          </>
+        ) : (
+          <>
+            <ButtonUI
+              onClick={prevScreen}
+              style={{
+                position: "absolute",
+                bottom: "5vh",
+                left: "5vw",
+                display: screen == 1 ? "none" : "flex",
+              }}
+            >
+              Back
+            </ButtonUI>
+            <PoolUI ref={pool}>
+              {screen == 1 ? (
+                <>
+                  <InstructionTopUI>
+                    Which industries are you curious or passionate about? Where
+                    can you see yourself working? <br></br>
+                    <br></br> Select up to 3
+                  </InstructionTopUI>{" "}
+                  <InstructionUI>Drag and Drop here</InstructionUI>
+                </>
+              ) : screen == 2 ? (
+                <>
+                  <InstructionTopUI>
+                  What are you really good at or interested in getting better at? <br></br>
+                    <br></br> Select up to 10
+                  </InstructionTopUI>{" "}
+                  <InstructionUI>Drag and Drop here</InstructionUI>
+                </>
+              ) : screen == 3 ? (
+                <>
+                  <InstructionTopUI>
+                  Values reflect who we are and indicate what is most important to us. <br></br>
+                    <br></br> Select up to 5 values that resonate with you for the workplace.
+                  </InstructionTopUI>{" "}
+                  <InstructionUI>Drag and Drop here</InstructionUI>
+                </>
+              ) : (
+                ""
+              )}
+            </PoolUI>
+            <ButtonUI
+              onClick={nextScreen}
+              style={{ position: "absolute", bottom: "5vh", right: "5vw" }}
+            >
+              {screen == 3 ? "BOOM!" : "Next"}
+            </ButtonUI>
+            <ProgressUI>
+              <CircleUI
+                onClick={() => setScreen(1)}
+                style={{ backgroundColor: screen == 1 ? "#0D3858" : "white" }}
+              >
+                <ProgressLabelUI
+                  style={{ color: screen == 1 ? "#0D3858" : "white" }}
+                >
+                  Industry
+                </ProgressLabelUI>
+              </CircleUI>
+              <LineUI
+                style={{
+                  borderBottom:
+                    screen >= 2 ? "3px solid white" : "3px solid white",
+                }}
+              />
+              <SquareUI
+                onClick={() => setScreen(2)}
+                style={{ backgroundColor: screen == 2 ? "#0D3858" : "white" }}
+              >
+                <ProgressLabelUI
+                  style={{ color: screen == 2 ? "#0D3858" : "white" }}
+                >
+                  Interests
+                </ProgressLabelUI>
+              </SquareUI>
+              <LineUI
+                style={{
+                  borderBottom:
+                    screen >= 3 ? "3px solid white" : "3px solid white",
+                }}
+              />
+              <SemiUI
+                onClick={() => setScreen(3)}
+                style={{ backgroundColor: screen == 3 ? "#0D3858" : "white" }}
+              >
+                <ProgressLabelUI
+                  style={{ color: screen == 3 ? "#0D3858" : "white" }}
+                >
+                  Values
+                </ProgressLabelUI>
+              </SemiUI>
+            </ProgressUI>
+          </>
+        )}
       </ContainerUI>
     </>
   );
