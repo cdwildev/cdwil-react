@@ -104,7 +104,7 @@ export const FilterSquare = ({
     <animated.div
       className="square-filter"
       {...bind()}
-      style={{ x, y, display: screen == 2 ? 'flex' : 'none' , animation: `float ${floatingY}s ease infinite`}}
+      style={{ x, y, display: screen == 2 ? 'flex' : 'none' }}
       ref={circle}
       onMouseDown={() => setMouseDown(true)}
       onMouseUp={() => setMouseDown(false)}

@@ -11,7 +11,7 @@ import {
   ReactPDF,
 } from "@react-pdf/renderer";
 
-import { ChevronUp, ChevronDown, X, ArrowDown, ArrowUp } from "react-feather";
+import { ChevronUp, ChevronDown, X, ArrowDown, ArrowUp, ArrowLeft } from "react-feather";
 import { FilterCircle } from "./FilterCircle";
 import { FilterSquare } from "./FilterSquare";
 import { FilterSemiCircle } from "./FilterSemiCircle";
@@ -27,7 +27,7 @@ const ContainerUI = styled.div`
   flex-direction: column;
   position: relative;
 
-
+  transition: 1s ease;
 `;
 
 const IndustriesGridUI = styled.div`
@@ -141,7 +141,42 @@ color: #1D4766;
 margin: 6px;
 `
 
-export const Results = ({ selectedIndustries, selectedSkills, selectedValues, allPostsData }) => {
+const BackButtonUI = styled.div`
+display: flex;
+
+justify-content: center;
+align-items: center;
+
+border-radius: 50%;
+
+border: 3px solid white;
+width: 50px;
+height: 50px;
+border-radius: 50px;
+
+font-family: Noto Sans;
+font-size: 18px;
+font-style: normal;
+font-weight: 800;
+line-height: 14px;
+letter-spacing: 0em;
+text-align: center;
+position: absolute;
+left: 5vw;
+top: 5vh;
+color: white;
+cursor: pointer;
+
+`
+
+const BackButtonTextUI = styled.div`
+width: 200px ;
+position: absolute;
+left: 100px;
+
+`
+
+export const Results = ({ selectedIndustries, selectedSkills, selectedValues, allPostsData, loading, setScreen }) => {
     const industries = selectedIndustries.map(industry => industry.value).map(array => array)
 
     const skills = selectedSkills.map(industry => industry.value).map(array => array)
@@ -169,8 +204,9 @@ export const Results = ({ selectedIndustries, selectedSkills, selectedValues, al
   }, [])
 
   return (
-    <>
-      <ContainerUI>
+    <> 
+      <ContainerUI style={{transform: loading ? 'translateX(100vw)' : 'translateX(0vw)'}}>
+          <BackButtonUI onClick={() => setScreen(1)}><ArrowLeft/><BackButtonTextUI>Explore More Careers</BackButtonTextUI></BackButtonUI>
           <TitleUI>Your Careers Pathways</TitleUI>
         <IndustriesGridUI>{selectedIndustries.map(industry => <IndustryUI>{industry.title}</IndustryUI>)}</IndustriesGridUI>
         <CareerGridUI>

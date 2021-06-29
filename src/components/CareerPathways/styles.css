@@ -24,7 +24,7 @@
   z-index: 100;
 
   font-family: Noto Sans;
-font-size: 14px;
+font-size: 16px;
 font-style: normal;
 font-weight: 800;
 line-height: 22px;
@@ -59,7 +59,7 @@ text-align: center;
   z-index: 100;
   margin: 0 5px;
   font-family: Noto Sans;
-font-size: 14px;
+  font-size: 16px;
 font-style: normal;
 font-weight: 800;
 line-height: 22px;
@@ -95,7 +95,7 @@ text-align: center;
   z-index: 100;
 
   font-family: Noto Sans;
-font-size: 14px;
+  font-size: 16px;
 font-style: normal;
 font-weight: 800;
 line-height: 22px;
@@ -123,5 +123,17 @@ text-align: center;
   100%{
 
     top: 0px;
+  }
+}
+
+@keyframes scroll {
+  from{
+    transform: translateY(-200vh)
+  }
+
+
+  100%{
+
+    transform: translateY(0)
   }
 }

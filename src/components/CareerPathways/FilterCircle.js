@@ -106,7 +106,7 @@ export const FilterCircle = ({
     <animated.div
       className="circle-filter"
       {...bind()}
-      style={{ x, y, display: screen == 1 ? 'flex' : 'none', animation: `float ${floatingY}s ease infinite` }}
+      style={{ x, y, display: screen == 1 ? 'flex' : 'none'}}
       ref={circle}
       onMouseDown={() => setMouseDown(true)}
       onMouseUp={() => setMouseDown(false)}

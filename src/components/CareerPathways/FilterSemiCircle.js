@@ -104,7 +104,7 @@ export const FilterSemiCircle = ({
     <animated.div
       className="semi-circle-filter"
       {...bind()}
-      style={{ x, y, display: screen == 3 ? 'flex' : 'none' , animation: `float ${floatingY}s ease infinite`}}
+      style={{ x, y, display: screen == 3 ? 'flex' : 'none' }}
       ref={circle}
       onMouseDown={() => setMouseDown(true)}
       onMouseUp={() => setMouseDown(false)}

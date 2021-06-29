@@ -11,6 +11,10 @@ import {
   ReactPDF,
 } from "@react-pdf/renderer";
 
+import "./styles.css";
+
+import Loader from "../../images/career-pathway-loader.svg";
+
 import { ChevronUp, ChevronDown, X, ArrowDown, ArrowUp } from "react-feather";
 import { FilterCircle } from "./FilterCircle";
 import { FilterSquare } from "./FilterSquare";
@@ -71,9 +75,9 @@ const PoolUI = styled.div`
 const ButtonUI = styled.div`
 width: 153px;
 height: 57px;
-background: #00B188;
 
-border: 5px solid #FFFFFF;
+
+border: 3px solid #FFFFFF;
 box-sizing: border-box;
 border-radius: 10px;
 
@@ -90,18 +94,19 @@ align-items: center;
 
 cursor: pointer;
 z-index: 1000;
+
 `;
 
 const ProgressUI = styled.div`
 width: 153px;
 height: 57px;
-background: #00B188;
+
 width: 744px;
 height: 160px;
 
 box-sizing: border-box;
 
-background: #0D3858;
+
 
 border-radius: 40px 40px 0 0;
 
@@ -175,7 +180,7 @@ const ProgressLabelUI = styled.div`
 transform: translateY(48px);
 font-family: Noto Sans;
 font-style: normal;
-font-weight: 500;
+font-weight: 800;
 font-size: 16px;
 display: flex;
 
@@ -183,6 +188,20 @@ justify-content: center;
 
 `;
 
+
+const InstructionUI = styled.div`
+  width: 80%;
+  font-size: 16px;
+  font-weight: 100;
+`;
+
+const LoadingScreenUI = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  transition: 1s ease;
+  overflow: hidden;
+`;
 
 
 const industries = [
@@ -316,6 +335,7 @@ export const CareerPathways = ({ allPostsData }) => {
   const [selectedIndustries, setSelectedIndustries] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [selectedValues, setSelectedValues] = useState([]);
+  const [loading, setLoading] = useState(false);
   
   const nextScreen = () => {
     if (screen == 1){
@@ -324,6 +344,7 @@ export const CareerPathways = ({ allPostsData }) => {
       setScreen(3)
     } else if(screen == 3){
       setScreen(4)
+      setLoading(true)
     }
   }
 
@@ -338,8 +359,13 @@ export const CareerPathways = ({ allPostsData }) => {
   }
 
   useEffect(() => {
-   console.log(selectedIndustries)
-  }, [selectedIndustries])
+   if (loading){
+     setTimeout(() => {
+setLoading(false)
+     }, 500)
+   }
+  }, [loading])
+
 
   const rndInt = Math.floor(Math.random() * 500) + 1;
 
@@ -355,23 +381,29 @@ export const CareerPathways = ({ allPostsData }) => {
                 {skills.map(el => <FilterSquare screen={screen} pool={pool} setSelectedIndustries={setSelectedSkills} selectedIndustries={selectedSkills} industries={el} industry={el.title} floatY={randomIntFromInterval(2, 5)} positionX={randomIntFromInterval(0, 600)} positionY={randomIntFromInterval(0, 400)}/>)  } 
                 {values.map(el => <FilterSemiCircle screen={screen} pool={pool} setSelectedIndustries={setSelectedValues} selectedIndustries={selectedValues} industries={el} industry={el.title} floatY={randomIntFromInterval(2, 5)} positionX={randomIntFromInterval(0, 600)} positionY={randomIntFromInterval(0, 400)}/>)  } 
         </SelectionContainerUI>
-        <ButtonUI onClick={prevScreen} style={{position: 'absolute', bottom: '5vh', left: '5vw'}}>Back</ButtonUI>
+        
  
         { screen == 4 ? (
 
-        <Results selectedIndustries={selectedIndustries} selectedSkills={selectedSkills} selectedValues={selectedValues} allPostsData={allPostsData}> </Results>
-
+<>
+        <LoadingScreenUI style={{transform: loading ? 'translateX(0)' : 'translateX(-100vw)'}}>
+          <img style={{width: '100vw', animation: '2s scroll linear' }} src={Loader}/>
+        </LoadingScreenUI>
+        <Results loading={loading} selectedIndustries={selectedIndustries} selectedSkills={selectedSkills} selectedValues={selectedValues} allPostsData={allPostsData} setScreen={setScreen}> </Results>
+</>
         
         ) : ( <>
-        <PoolUI ref={pool}>Drop {screen == 1 ? 'industries' : screen == 2 ? 'interests' : screen == 3 ? 'values' : ''} here</PoolUI>
+
+<ButtonUI onClick={prevScreen} style={{position: 'absolute', bottom: '5vh', left: '5vw'}}>Back</ButtonUI>
+        <PoolUI ref={pool}><InstructionUI>{screen == 1 && selectedIndustries.length < 1 ? 'Which industries are you curious or passionate about? Where can you see yourself working?  Select up to 3 Drag and Drop here' : screen == 2 && selectedSkills.length < 1 ? 'What are you really good at or interested in getting better at?  Select up to 10 Drag and Drop here' : screen == 3 && selectedValues.length < 1 ? 'Values reflect who we are and indicate what is most important to us. Select up to 5 values that resonate with you for the workplace.' : ''}</InstructionUI></PoolUI>
         <ButtonUI onClick={nextScreen} style={{position: 'absolute', bottom: '5vh', right: '5vw'}}>{screen == 3 ? 'Done' : 'Next'}</ButtonUI>
         <ProgressUI>
 
-          <CircleUI style={{border: screen >= 1 ? '3px solid #00B188' : '3px solid white' }}><ProgressLabelUI style={{color: screen == 1 ? '#00B188' : 'white' }}>Industry</ProgressLabelUI></CircleUI>
-          <LineUI style={{borderBottom: screen >= 2 ? '3px solid #00B188' : '3px solid white' }}/>
-          <SquareUI style={{border: screen >= 2 ? '3px solid #00B188' : '3px solid white' }}><ProgressLabelUI style={{color: screen == 2 ? '#00B188' : 'white' }}>Interests</ProgressLabelUI></SquareUI>
-          <LineUI style={{borderBottom: screen >= 3 ? '3px solid #00B188' : '3px solid white' }}/>
-          <SemiUI style={{border: screen >= 3 ? '3px solid #00B188' : '3px solid white' }}><ProgressLabelUI style={{color: screen == 3 ? '#00B188' : 'white' }}>Values</ProgressLabelUI></SemiUI>
+          <CircleUI onClick={() => setScreen(1)} style={{ backgroundColor: screen == 1 ? '#0D3858' : 'white'}}><ProgressLabelUI style={{color: screen == 1 ? '#0D3858' : 'white' }}>Industry</ProgressLabelUI></CircleUI>
+          <LineUI  style={{borderBottom: screen >= 2 ? '3px solid white' : '3px solid white' }}/>
+          <SquareUI  onClick={() => setScreen(2)} style={{backgroundColor: screen == 2 ? '#0D3858' : 'white'}}><ProgressLabelUI style={{color: screen == 2 ? '#0D3858' : 'white' }}>Interests</ProgressLabelUI></SquareUI>
+          <LineUI style={{borderBottom: screen >= 3 ? '3px solid white' : '3px solid white' }}/>
+          <SemiUI  onClick={() => setScreen(3)} style={{backgroundColor: screen == 3 ? '#0D3858' : 'white' }}><ProgressLabelUI style={{color: screen == 3 ? '#0D3858' : 'white' }}>Values</ProgressLabelUI></SemiUI>
 
         </ProgressUI>
         </> )
