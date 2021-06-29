@@ -1,5 +1,5 @@
 .circle-filter{
-  position: absolute;
+  position: relative;
   width: 5vw;
  padding: 2.5vw;
   min-height: 5vw;
@@ -40,7 +40,7 @@ text-align: center;
 }
 
 .square-filter{
-  position: absolute;
+  position: relative;
   
   padding: 0 20px;
   height: 2.5vw;
@@ -75,13 +75,13 @@ text-align: center;
 }
 
 .semi-circle-filter{
-  position: absolute;
-  width: 10vw;
-  height: 5vw;
+  position: relative;
+  min-width: 10vw;
+  height: 2vw;
   margin: 5px;
-  padding: 30px;
+  padding: 20px;
   background: white;
-  border-radius: 10vw 10vw 10px 10px;
+  border-radius: 50px 50px 0 0 ;
   box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.5s, opacity 0.5s;
   will-change: transform;

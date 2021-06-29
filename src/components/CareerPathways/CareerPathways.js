@@ -42,9 +42,12 @@ const SelectionContainerUI = styled.div`
   position: relative;
   min-height: 20vw;
   position: absolute;
-  left: 10vw;
-  top: 10vh;
+  left: 0vw;
+  top: 0;
   z-index: 50;
+
+  
+
 `;
 
 const PoolUI = styled.div`
@@ -88,17 +91,14 @@ const ButtonUI = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
   cursor: pointer;
   z-index: 1000;
 `;
 
 const ProgressUI = styled.div`
-  width: 153px;
-  height: 57px;
 
-  width: 744px;
-  height: 160px;
+
 
   box-sizing: border-box;
 
@@ -109,7 +109,7 @@ const ProgressUI = styled.div`
   font-style: normal;
   font-weight: 800;
   position: absolute;
-  bottom: 0;
+  bottom: 7.5vh;
   text-align: center;
   color: white;
   display: flex;
@@ -149,6 +149,16 @@ const SemiUI = styled.div`
   right: 10px;
   border-radius: 48px 48px 0 0;
   background: #0d3858;
+`;
+
+const GridUI = styled.div`
+ display: flex;
+ flex-wrap: wrap;
+`;
+
+const GridRowUI = styled.div`
+ display: flex;
+ flex-wrap: wrap;
 `;
 
 const LineUI = styled.div`
@@ -371,7 +381,9 @@ export const CareerPathways = ({ allPostsData }) => {
     <>
       <ContainerUI>
         <SelectionContainerUI>
-          {industries.map((el) => (
+          
+          <GridUI>
+            <GridRowUI style={{transform: 'translateX(5.5vw)'}}>{industries.slice(0, 5).map((el) => (
             <FilterCircle
               screen={screen}
               pool={pool}
@@ -380,10 +392,58 @@ export const CareerPathways = ({ allPostsData }) => {
               industries={el}
               industry={el.title}
               floatY={randomIntFromInterval(2, 5)}
-              positionX={randomIntFromInterval(0, 600)}
-              positionY={randomIntFromInterval(0, 400)}
+              rotateShape={randomIntFromInterval(0, 0)}
+              positionX={randomIntFromInterval(0, 800)}
+              positionY={randomIntFromInterval(0, 500)}
             />
-          ))}
+          ))}</GridRowUI>
+                      <GridRowUI >{industries.slice(5, 10).map((el) => (
+            <FilterCircle
+              screen={screen}
+              pool={pool}
+              setSelectedIndustries={setSelectedIndustries}
+              selectedIndustries={selectedIndustries}
+              industries={el}
+              industry={el.title}
+              floatY={randomIntFromInterval(2, 5)}
+              rotateShape={randomIntFromInterval(0, 0)}
+              positionX={randomIntFromInterval(0, 800)}
+              positionY={randomIntFromInterval(0, 500)}
+            />
+          ))}</GridRowUI>
+
+<GridRowUI style={{transform: 'translateX(5.5vw)'}}>{industries.slice(10, 14).map((el) => (
+            <FilterCircle
+              screen={screen}
+              pool={pool}
+              setSelectedIndustries={setSelectedIndustries}
+              selectedIndustries={selectedIndustries}
+              industries={el}
+              industry={el.title}
+              floatY={randomIntFromInterval(2, 5)}
+              rotateShape={randomIntFromInterval(0, 0)}
+              positionX={randomIntFromInterval(0, 800)}
+              positionY={randomIntFromInterval(0, 500)}
+            />
+          ))}</GridRowUI>
+
+<GridRowUI>{industries.slice(14, 20).map((el) => (
+            <FilterCircle
+              screen={screen}
+              pool={pool}
+              setSelectedIndustries={setSelectedIndustries}
+              selectedIndustries={selectedIndustries}
+              industries={el}
+              industry={el.title}
+              floatY={randomIntFromInterval(2, 5)}
+              rotateShape={randomIntFromInterval(0, 0)}
+              positionX={randomIntFromInterval(0, 800)}
+              positionY={randomIntFromInterval(0, 500)}
+            />
+          ))}</GridRowUI>
+          
+
+</GridUI>
           {skills.map((el) => (
             <FilterSquare
               screen={screen}
@@ -393,8 +453,9 @@ export const CareerPathways = ({ allPostsData }) => {
               industries={el}
               industry={el.title}
               floatY={randomIntFromInterval(2, 5)}
-              positionX={randomIntFromInterval(0, 600)}
-              positionY={randomIntFromInterval(0, 400)}
+              rotateShape={randomIntFromInterval(-50, 50)}
+              positionX={randomIntFromInterval(0, 800)}
+              positionY={randomIntFromInterval(0, 500)}
             />
           ))}
           {values.map((el) => (
@@ -406,8 +467,9 @@ export const CareerPathways = ({ allPostsData }) => {
               industries={el}
               industry={el.title}
               floatY={randomIntFromInterval(2, 5)}
-              positionX={randomIntFromInterval(0, 600)}
-              positionY={randomIntFromInterval(0, 400)}
+              rotateShape={randomIntFromInterval(-20, 20)}
+              positionX={randomIntFromInterval(0, 800)}
+              positionY={randomIntFromInterval(0, 500)}
             />
           ))}
         </SelectionContainerUI>

@@ -10,6 +10,7 @@ export const FilterSquare = ({
   positionX = -100,
   positionY = -100,
   floatY,
+  rotateShape,
   industry = "Advertising + Marketing",
   industries,
   pool,
@@ -35,6 +36,7 @@ export const FilterSquare = ({
   const [posY, setPosY] = useState(positionY);
 
   const [floatingY, setFloatingY] = useState(floatY);
+  const [rotate, setRotate] = useState(rotateShape);
 
   const [mouseDown, setMouseDown] = useState(false);
   const [inside, setInside] = useState(false);
@@ -85,12 +87,12 @@ export const FilterSquare = ({
     }
   }, [mouseDown]);
 
-  const [{ x, y }, api] = useSpring(() => ({ x: posX, y: posY }));
+  const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }));
 
   const bind = useDrag(
     ({ down, offset: [ox, oy] }) =>
-      api.start({ x: ox + posX, y: oy + posY, immediate: down }),
-    {
+      api.start({ x: ox , y: oy , immediate: down }),
+/*     {
       bounds: {
         left: leftBounds,
         right: rightBounds,
@@ -98,13 +100,13 @@ export const FilterSquare = ({
         bottom: bottomBounds,
       },
       rubberband: true,
-    }
+    } */
   );
   return (
     <animated.div
       className="square-filter"
       {...bind()}
-      style={{ x, y, display: screen == 2 ? 'flex' : 'none' }}
+      style={{ x, y, display: screen == 2 ? 'flex' : 'none', transform: `rotate(${rotate}deg)` }}
       ref={circle}
       onMouseDown={() => setMouseDown(true)}
       onMouseUp={() => setMouseDown(false)}

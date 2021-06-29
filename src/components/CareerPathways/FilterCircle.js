@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
+import { RotateCcw } from "react-feather";
 import { useSpring, animated, to } from "react-spring";
 import { useGesture, useDrag } from "react-use-gesture";
 import styled from "styled-components";
@@ -10,6 +11,7 @@ export const FilterCircle = ({
   positionX = -100,
   positionY = -100,
   floatY,
+  rotateShape,
   industry = "Advertising + Marketing",
   pool,
   setSelectedIndustries,
@@ -35,7 +37,7 @@ export const FilterCircle = ({
 
   const [floatingY, setFloatingY] = useState(floatY);
 
-
+  const [rotate, setRotate] = useState(rotateShape);
   const [mouseDown, setMouseDown] = useState(false);
   const [inside, setInside] = useState(false);
   const circle = useRef(null);
@@ -87,12 +89,12 @@ export const FilterCircle = ({
 
   }, [mouseDown]);
 
-  const [{ x, y }, api] = useSpring(() => ({ x: posX, y: posY }));
+  const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }));
 
   const bind = useDrag(
     ({ down, offset: [ox, oy] }) =>
-      api.start({ x: ox + posX, y: oy + posY, immediate: down }),
-    {
+      api.start({ x: ox, y: oy, immediate: down }),
+/*     {
       bounds: {
         left: leftBounds,
         right: rightBounds,
@@ -100,13 +102,13 @@ export const FilterCircle = ({
         bottom: bottomBounds,
       },
       rubberband: true,
-    }
+    } */
   );
   return (
     <animated.div
       className="circle-filter"
       {...bind()}
-      style={{ x, y, display: screen == 1 ? 'flex' : 'none'}}
+      style={{ x, y, display: screen == 1 ? 'flex' : 'none', transform: `rotate(${rotate}deg)`}}
       ref={circle}
       onMouseDown={() => setMouseDown(true)}
       onMouseUp={() => setMouseDown(false)}

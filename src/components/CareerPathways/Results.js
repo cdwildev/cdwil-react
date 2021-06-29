@@ -28,6 +28,7 @@ const ContainerUI = styled.div`
   position: relative;
 
   transition: 1s ease;
+  z-index: 1000;
 `;
 
 const IndustriesGridUI = styled.div`
@@ -202,6 +203,7 @@ const BackButtonTextUI = styled.div`
 width: 200px ;
 position: absolute;
 left: 100px;
+z-index: 1000;
 
 `
 
