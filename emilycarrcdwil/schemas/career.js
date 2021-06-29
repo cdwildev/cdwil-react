@@ -34,7 +34,7 @@ export default {
             { title: 'Music', value: 'music' },
             { title: 'Publishing + Print', value: 'publishing' },
             { title: 'Technology', value: 'technology' },
-            { title: 'All', value: 'all' },
+/*             { title: 'All', value: 'all' }, */
           ],
         },
       },
@@ -104,7 +104,7 @@ export default {
             { title: 'Write', value: 'write' },
             { title: 'Question', value: 'question' },
             { title: '3D Model/Print', value: '3d' },
-            { title: 'All', value: 'all' }
+/*             { title: 'All', value: 'all' } */
   
           ],
         },
@@ -147,8 +147,8 @@ export default {
             { title: 'Working with Nature/Animals', value: 'working-with-nature' },
             { title: 'Working with Data (ex, ideas, words, numbers)', value: 'working-with-data' },
             { title: 'Working with Things (ex. materials, equipment, etc.)', value: 'working-with-things'},
-            { title: 'All', value: 'all' },
-  
+  /*           { title: 'All', value: 'all' },
+   */
           ],
         },
       },

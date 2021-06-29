@@ -224,7 +224,7 @@ const industries = [
   { title: 'Music', value: 'music' },
   { title: 'Publishing + Print', value: 'publishing' },
   { title: 'Technology', value: 'technology' },
-  { title: 'All', value: 'all' },
+/*   { title: 'All', value: 'all' }, */
 ]
 
 const skills = [
@@ -286,7 +286,7 @@ const skills = [
   { title: 'Write', value: 'write' },
   { title: 'Question', value: 'question' },
   { title: '3D Model/Print', value: '3d' },
-  { title: 'All', value: 'all' }
+/*   { title: 'All', value: 'all' } */
 
 ]
 
@@ -321,7 +321,7 @@ const values = [
   { title: 'Working with Nature/Animals', value: 'working-with-nature' },
   { title: 'Working with Data (ex, ideas, words, numbers)', value: 'working-with-data' },
   { title: 'Working with Things (ex. materials, equipment, etc.)', value: 'working-with-things'},
-  { title: 'All', value: 'all' },
+/*   { title: 'All', value: 'all' }, */
 
 ]
 
@@ -395,7 +395,7 @@ setLoading(false)
         ) : ( <>
 
 <ButtonUI onClick={prevScreen} style={{position: 'absolute', bottom: '5vh', left: '5vw'}}>Back</ButtonUI>
-        <PoolUI ref={pool}><InstructionUI>{screen == 1 && selectedIndustries.length < 1 ? 'Which industries are you curious or passionate about? Where can you see yourself working?  Select up to 3 Drag and Drop here' : screen == 2 && selectedSkills.length < 1 ? 'What are you really good at or interested in getting better at?  Select up to 10 Drag and Drop here' : screen == 3 && selectedValues.length < 1 ? 'Values reflect who we are and indicate what is most important to us. Select up to 5 values that resonate with you for the workplace.' : ''}</InstructionUI></PoolUI>
+        <PoolUI ref={pool}><InstructionUI>{screen == 1 ? 'Which industries are you curious or passionate about? Where can you see yourself working?  Select up to 3 Drag and Drop here' : screen == 2 ? 'What are you really good at or interested in getting better at?  Select up to 10 Drag and Drop here' : screen == 3 ? 'Values reflect who we are and indicate what is most important to us. Select up to 5 values that resonate with you for the workplace.' : ''}</InstructionUI></PoolUI>
         <ButtonUI onClick={nextScreen} style={{position: 'absolute', bottom: '5vh', right: '5vw'}}>{screen == 3 ? 'Done' : 'Next'}</ButtonUI>
         <ProgressUI>
 

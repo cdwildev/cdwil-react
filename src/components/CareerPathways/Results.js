@@ -104,6 +104,7 @@ font-style: normal;
 font-weight: 800;
 font-size: 48px;
 color: white;
+margin: 0 0 48px 0;
 `
 
 const CareerGridUI = styled.div`
