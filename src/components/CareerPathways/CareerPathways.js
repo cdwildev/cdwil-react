@@ -366,6 +366,12 @@ setLoading(false)
    }
   }, [loading])
 
+/*   useEffect(() => {
+    if(selectedIndustries.length > 2){
+      setScreen(2)
+    }
+   }, [selectedIndustries]) */
+
 
   const rndInt = Math.floor(Math.random() * 500) + 1;
 
@@ -394,8 +400,8 @@ setLoading(false)
         
         ) : ( <>
 
-<ButtonUI onClick={prevScreen} style={{position: 'absolute', bottom: '5vh', left: '5vw'}}>Back</ButtonUI>
-        <PoolUI ref={pool}><InstructionUI>{screen == 1 ? 'Which industries are you curious or passionate about? Where can you see yourself working?  Select up to 3 Drag and Drop here' : screen == 2 ? 'What are you really good at or interested in getting better at?  Select up to 10 Drag and Drop here' : screen == 3 ? 'Values reflect who we are and indicate what is most important to us. Select up to 5 values that resonate with you for the workplace.' : ''}</InstructionUI></PoolUI>
+<ButtonUI onClick={prevScreen} style={{position: 'absolute', bottom: '5vh', left: '5vw', display: screen == 1 ? 'none' : 'flex'}}>Back</ButtonUI>
+        <PoolUI /* style={{border: selectedIndustries.length > 2 && screen == 1 ? '3px solid #1D4766' : selectedSkills.length > 9 && screen == 2 ? '3px solid #067A8A' : selectedValues.length > 4 && screen == 3 ? '3px solid #285F4A' : '3px solid white'}} */ ref={pool}><InstructionUI>{screen == 1 ? 'Which industries are you curious or passionate about? Where can you see yourself working?  Select up to 3 Drag and Drop here' : screen == 2 ? 'What are you really good at or interested in getting better at?  Select up to 10 Drag and Drop here' : screen == 3 ? 'Values reflect who we are and indicate what is most important to us. Select up to 5 values that resonate with you for the workplace.' : ''}</InstructionUI></PoolUI>
         <ButtonUI onClick={nextScreen} style={{position: 'absolute', bottom: '5vh', right: '5vw'}}>{screen == 3 ? 'Done' : 'Next'}</ButtonUI>
         <ProgressUI>
 
