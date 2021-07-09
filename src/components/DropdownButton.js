@@ -27,6 +27,10 @@ const DropdownUI = styled.div`
 
 
 
+
+
+
+
 `;
 
 
@@ -54,6 +58,11 @@ font-weight: 500;
 line-height: 18px;
 letter-spacing: 0em;
 text-align: left;
+
+@media (max-width: 1000px) {
+
+  font-size: 16px;
+}
 
 
 `;
@@ -91,13 +100,39 @@ cursor: auto;
 export const DropdownButton = ({text, data}) => {
 
   const [active, setActive] = useState(false)
+  const [hover, setHover] = useState(false)
 
+
+  const handleClick = () => {
+
+    setActive(!active)
+    setHover(!hover)
+  }
+
+  const handleHover = () => {
+
+    if(!active) {
+    setHover(true)
+    } else{
+      setHover(false)
+    }
+  }
+
+  const handleUnhover = () => {
+
+    if(active) {
+      setHover(false)
+      } else{
+        setHover(false)
+      }
+    
+  }
   console.log(data)
 
   return (
 <>
-      <DropdownUI >
-        <ButtonUI onClick={() => setActive(!active)}>{text} {active ? <Minus></Minus> : <Plus></Plus> }  </ButtonUI>
+      <DropdownUI onMouseEnter={handleHover} onMouseLeave={handleUnhover} style={{background: hover ? '#00B188' : 'white'}}>
+        <ButtonUI onClick={handleClick}>{text} {active ? <Minus></Minus> : <Plus></Plus> }  </ButtonUI>
 
         {active ? <ContentUI>
             {data.map(resource => <LinkUI target='_blank' href={resource.link}>{resource.title}</LinkUI>)}

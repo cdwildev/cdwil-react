@@ -1,15 +1,7 @@
 import { useEffect, useState } from "react";
-import { SkillIdentifier } from "./components/SkillIdentifier/SkillIdentifier";
-import sanityClient from "./client";
+import sanityClient from "../client";
 import styled from "styled-components";
-import skillIdentifierImage from "../src/images/skill-identifier.svg";
-import InspireGrid from "./components/Home/InspireGrid";
-import gridOne from './images/grid-1.png';
-import gridTwo from './images/grid-2.png';
-import gridThree from './images/grid-3.png';
-import gridFour from './images/grid-4.png';
-import gridFive from './images/grid-5.png'
-import Dropdown from './components/Dropdown.js'
+
 
 
 const SectionUI = styled.div`
@@ -24,7 +16,7 @@ const SectionUI = styled.div`
   justify-content: flex-start;
   flex-direction: column;
 
-  @media (max-width: 1400px) {
+  @media (max-width: 1200px) {
     width: 90vw;
   }
   
@@ -36,7 +28,7 @@ display: flex;
 justify-content: flex-start;
 align-items: flex-start;
 
-min-width: 100%;
+min-width: 75vw;
 text-align: left;
 font-family: Noto Sans;
 font-style: normal;
@@ -44,7 +36,7 @@ font-weight: normal;
 font-size: 16px;
 margin: 64px 0 160px 0;
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   flex-direction: column;
   
 }
@@ -116,22 +108,26 @@ const HeaderUI = styled.div`
   display: flex;
   justify-content: flex-start;
   text-align: left;
-  padding: 0 0 24px 0;
+  height: 150px;
   font-weight: 900;
-
+  margin: 200px 0 0 0 ;
   text-align: left;
   width: 100%;
+  
+  font-size: 56px;
   background: linear-gradient(257.7deg, #21B592 47.29%, #005695 92.38%);
+
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-overflow: ellipsis;
   white-space: nowrap;
   display: block;
   
-  font-size: 56px;
-  @media (max-width: 1000px) {
-      
-  font-size: 32px;
+  @media (max-width: 1200px) {
+
+  font-size: 55px
+  height: 200px;
   }
 
 `;
@@ -197,11 +193,9 @@ const GridUI = styled.div`
 
   @media (max-width: 1000px) {
 
-    grid-template-rows: repeat(9, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     
   }
-
-
 
 
 `
@@ -231,36 +225,12 @@ min-height: 100%
 
 `;
 
-export default function Resources() {
+export default function StoryGrid() {
   const [allPostsData, setAllPosts] = useState([]);
   const [allVideos, setAllVideos] = useState([]);
   
 
   useEffect(() => {
-
-    const resources = JSON.parse(localStorage.getItem("resources"));
-
-    if(resources){
-      setAllPosts(resources)
-    } else {
-    sanityClient
-      .fetch(
-        `*[_type == "resources"]{
-          title,
-          category,
-          link,
-      }`
-      )
-      .then((data) => {
-        setAllPosts(data);
-        localStorage.setItem("resources", JSON.stringify(data));
-      })
-      .catch(console.error);
-
-    }
-  }, []);
-
-/*   useEffect(() => {
 
     const videos = JSON.parse(localStorage.getItem("videos"));
 
@@ -282,37 +252,13 @@ export default function Resources() {
 
     }
   }, []);
- */
+
 
 
   return (
   <div className="container">
 
-    <SectionUI style={{margin: '100px 0 0 0'}}>
 
-      <TitleUI>Resources</TitleUI>
-
-      <InfoContainerUI>
-        <LeftColumn>The resources listed here are a complied list from a mix of sources. Half of the links contain downloadable PDF resources provided by the Career Development + WIL Office. The other half will link to other parts of the University including the Writing Centre, the Alumni</LeftColumn>
-        <RightColumn>Association, the Aboriginal Gathering Place, the Shumka Centre, and the Library. While a few others will redirect you to local organizations with great relevant resources.</RightColumn>
-      </InfoContainerUI>
-
-      <Dropdown allPostsData={allPostsData}></Dropdown>
-
-    </SectionUI>
-
-
-    <SectionUI style={{margin: '200px 0 0 0'}}>
-
-      <HeaderUI>Alumni Stories <br></br>
-and Career Pathways</HeaderUI>
-
-<InspireGrid></InspireGrid>
-      
-    </SectionUI>
-
-
-    <SectionUI  style={{width: '90vw'}}>
 
     <GridUI style={{width: '90vw', margin: '200px 0 0 0' }}>
      
@@ -322,8 +268,6 @@ and Career Pathways</HeaderUI>
       <TileUI style={{gridColumn: '1 / span 4', height: '20vh'}}>Emily Carr <br></br> Writing Centre</TileUI>
       <TileUI style={{gridColumn: '5 / span 5', height: '20vh'}}>Shumka Centre for <br></br> Creative Entrepreneurship</TileUI>
     </GridUI>
-
-    </SectionUI>
 
   
 

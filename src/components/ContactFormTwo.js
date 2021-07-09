@@ -26,12 +26,13 @@ border: 4px solid #252525;
 box-sizing: border-box;
 border-radius: 25px;
 width: 75vw;
-height: 248px;
+height: 20vh;
 display: flex;
 justify-content: flex-start;
 padding: 0 0 0 111px;
 align-items: center;
-background: linear-gradient(92.92deg, #5E366E 23.05%, #FE2B9E 70.77%),
+background: linear-gradient(257.7deg, #21B592 47.29%, #005695 92.38%);
+
 linear-gradient(0deg, #252525, #252525);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
@@ -105,13 +106,13 @@ border: 5px solid #252525;
 box-sizing: border-box;
 border-radius: 25px;
 width: 1300px;
-height: 832px;
+height: 20vh;
 display: flex;
 justify-content: flex-start;
 padding: 75px 0 0 111px;
 align-items: flex-start;
 background: linear-gradient(92.92deg, #5E366E 23.05%, #FE2B9E 70.77%),
-
+linear-gradient(0deg, #252525, #252525);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 text-overflow: ellipsis;
@@ -126,7 +127,7 @@ line-height: 48px;
 
 
 
-export const ContactForm = ({gradient='linear-gradient(0deg, #252525, #252525);'}) => {
+export const ContactFormTwo = ({gradient='linear-gradient(0deg, #252525, #252525);'}) => {
 
   const [active, setActive] = useState(false)
 
@@ -134,14 +135,14 @@ export const ContactForm = ({gradient='linear-gradient(0deg, #252525, #252525);'
     const script = document.createElement("script");
     script.src = "https://paperform.co/__embed.min.js";
     document.body.appendChild(script);
-  }, []); */
-
+  }, []);
+ */
   return (
 
 
-<ButtonUI data-popup-button="1" prefill-inherit data-paperform-id="book-an-appointment">Book an Appointment</ButtonUI>
+<ButtonUI /* data-popup-button="1" prefill-inherit data-paperform-id="book-an-appointment" */>Book an Appointment</ButtonUI>
 
   );
 };
 
-export default ContactForm;
+export default ContactFormTwo;

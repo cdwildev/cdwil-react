@@ -26,7 +26,7 @@ const TitleUI = styled.div`
   font-size: 100px;
   margin: 72px 0;
   background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
-  height: 250px;
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-overflow: ellipsis;
@@ -166,7 +166,7 @@ export default function News() {
         textAlign: "left",
       }}
     >
-      <SectionUI>
+      <SectionUI style={{margin: '100px 0 0 0'}}>
         <TitleUI>
           News + <br></br>Events
         </TitleUI>

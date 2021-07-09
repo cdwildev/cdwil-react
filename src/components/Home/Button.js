@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import styled from "styled-components";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
 const ButtonUI = styled.div`
@@ -22,9 +22,12 @@ const ButtonUI = styled.div`
 export const Button = ({text='Learn More'}) => {
 
   return (
-    <ButtonUI>{text}</ButtonUI>
 
-    
+    <>
+    <Link to="/about">
+    <ButtonUI>{text}</ButtonUI>
+    </Link>
+    </>
   );
 };
 

@@ -12,7 +12,6 @@ const ContainerUI = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-
   font-size: 30px;
   @media (max-width: 1000px) {
     width: 90vw;

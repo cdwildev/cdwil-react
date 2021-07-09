@@ -25,6 +25,7 @@ const BubbleUI = styled.div`
   transition: 0.5s ease;
   padding: 25px;
   cursor: pointer;
+  
 `;
 
 const SkillContainerUI = styled.div`

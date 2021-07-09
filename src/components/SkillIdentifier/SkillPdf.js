@@ -30,6 +30,7 @@ export const MyDocument = ({ skillList, softSkillList, softwareList, hardSkillLi
 
   return (
     <Document>
+      
       <Page wrap size={[1920, 1080]} style={styles.page}>
         <Image style={styles.image} src={Starmap} />
         <Text style={styles.oneOne}>{ skillList.length > 0 ? limitText(skillList[0]) : limitText('') }</Text>

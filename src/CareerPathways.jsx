@@ -4,6 +4,7 @@ import sanityClient from './client';
 import styled from "styled-components";
 import skillIdentifierImage from '../src/images/career-pathways.svg'
 import CareerPathways from "./components/CareerPathways/CareerPathways";
+import useWindowDimensions from "./helpers/Window";
 
 const SectionUI = styled.div`
   min-height: 100vh;
@@ -17,7 +18,7 @@ const ContainerUI = styled.div`
   width: 75vw;
   min-height: 100vh;
   display: flex;
-  padding: 15vh 0 0 0;
+  padding: 200px 0 0 0;
 
   @media (max-width: 1400px) {
     width: 90vw;
@@ -121,7 +122,7 @@ align-items: center;
 
 export default function SkillIdentifierTool() {
   
-  
+
   const [allPostsData, setAllPosts] = useState([]);
 
   useEffect(() => {

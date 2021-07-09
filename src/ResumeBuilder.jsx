@@ -14,7 +14,7 @@ const ContainerUI = styled.div`
   width: 75vw;
   min-height: 100vh;
   display: flex;
-  padding: 15vh 0 0 0;
+  padding: 200px 0 0 0;
 
   @media (max-width: 1400px) {
     width: 90vw;

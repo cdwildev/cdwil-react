@@ -17,6 +17,7 @@ function urlFor(source) {
 }
 
 const SectionUI = styled.div`
+margin: 100px 0 0 0 ;
   min-height: 100vh;
   display: flex;
   justify-content: flex-start;

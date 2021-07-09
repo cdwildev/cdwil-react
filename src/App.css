@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Noto+Sans:wght@400;700&display=swap');
 @import url("https://use.typekit.net/yqg0xhy.css");
 
 
@@ -410,18 +410,12 @@ iframe{
 
 @keyframes flash {
   from{
-    opacity: 100%
+    visibility: hidden;
     
   }
-  10%{
-    opacity: 100%
-  }
 
-  30%{
-    opacity: 00%
-  }
   to{
-    opacity: 0%
+    visibility: visible;
   }
 }
 

@@ -19,7 +19,15 @@ export default function About() {
     width: 75vw;
     @media (max-width: 1400px) {
       width: 90vw;
+
+    }
+
+    @media (max-width: 800px) {
+      padding: 10vh 0 0 0;
+      justify-content: flex-start;
+      align-items: flex-star;
       flex-direction: column;
+
     }
   `;
 
@@ -27,8 +35,13 @@ export default function About() {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 100%;
-    flex-direction: column;
+        flex-direction: column;
+
+        @media (max-width: 800px) {
+          width: 90vw;
+    
+        }
+
   `;
 
   const AboutUsUI = styled.div`
@@ -39,34 +52,61 @@ export default function About() {
     line-height: 20px;
     color: #e01583;
     margin: 0 0 24px 0;
+
+    
+   
   `;
 
   const HeaderUI = styled.div`
     font-family: Noto Sans;
+    position: relative;
     font-style: normal;
     font-weight: bold;
     font-size: 40px;
     line-height: 42px;
     color: #000000;
     width: 640px;
-    height: 163px;
+
     text-align: left;
+
+    @media (max-width: 1200px) {
+      font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 28px;
+width: 343px;
+
+    }
   `;
 
   const RightUI = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     width: 100%;
+
+    @media (max-width: 800px) {
+      justify-content: center;
+      margin: 100px 0;
+    }
   `;
 
   const HeroUI = styled.img`
-    width: 40vw;
-    max-width: 594px;
+    width: 30vw;
+    min-width: 394px;
 
-    border: 5px solid #252525;
-    box-sizing: border-box;
+  border: 4px solid black;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
     border-radius: 10px;
+
+    @media (max-width: 800px) {
+      width: 90vw;
+      min-width: 90vw;
+
+    }
   `;
 
   const AboutUI = styled.div`
@@ -74,14 +114,27 @@ export default function About() {
     height: 174px;
     font-family: Noto Sans;
 
-    font-weight: 800;
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
     font-size: 22px;
     line-height: 30px;
-    /* or 136% */
 
     text-align: center;
 
     color: #000000;
+
+    @media (max-width: 800px) {
+      width: 90vw;
+ 
+      
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 26px;
+
+    }
   `;
 
   const TileUI = styled.div`
@@ -102,9 +155,15 @@ export default function About() {
     position: relative;
     padding: 22px;
     cursor: pointer;
+ 
 
     &:hover {
       background: #b9d9eb;
+    }
+
+    @media (max-width: 800px) {
+      font-size: 16px;
+      line-height: 20px;
     }
   `;
 
@@ -112,7 +171,7 @@ export default function About() {
     display: grid;
 
     text-align: left;
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 9px;
     font-family: Noto Sans;
     font-style: normal;
@@ -121,6 +180,10 @@ export default function About() {
     line-height: 35px;
     width: 100%;
     width: 75vw;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
  
   `;
@@ -146,15 +209,40 @@ text-align: left;
 `;
 
 
+const GradientUI = styled.div`
+position: absolute;
+width: 785.08px;
+height: 216.22px;
+left: -200px;
+z-index: -100;
+
+background: linear-gradient(90deg, #9A57B4 33.37%, #FE2B9E 68.26%);
+filter: blur(100px);
+transform: rotate(11.2deg);
+`
+
+
+const HighlightUI = styled.div`
+position: absolute;
+width: 78%;
+height: 8px;
+bottom:0px;
+z-index: -100;
+background: #EDE04A;
+opacity: 0.7;
+filter: blur(5px);
+transform: rotate(-0.21deg);
+`
 
   return (
     <div className="container">
-      <SectionUI style={{ minHeight: "60vh"}}>
+      <SectionUI style={{ minHeight: "60vh", margin: '100px 0 0 0'}}>
         <LeftUI>
           <AboutUsUI>About Us</AboutUsUI>
           <HeaderUI>
             The Career Development + Work Integrated Learning Office helps you
             to see and seize your opportunities
+            <HighlightUI></HighlightUI>
           </HeaderUI>
         </LeftUI>
         <RightUI>
@@ -162,7 +250,9 @@ text-align: left;
         </RightUI>
       </SectionUI>
 
-      <SectionUI  style={{ minHeight: "50vh"}}>
+      <SectionUI  style={{ minHeight: "400px"}}>
+
+        <GradientUI></GradientUI>
         <AboutUI>
           We offer career advising, clinics and strategy sessions, drop-in and
           individual advising, access to co-op learning opportunities,
@@ -175,32 +265,32 @@ text-align: left;
 
       <SectionUI  style={{ minHeight: "50vh"}}>
         <GridUI style={{ width: "90vw"}}>
-          <TileUI style={{ gridColumn: "1 / span 3", height: "20vh" }}>
+          <TileUI>
             Career <br></br> Advising
           </TileUI>
-          <TileUI style={{ gridColumn: "4 / span 3", height: "20vh" }}>
+          <TileUI>
             Programming
           </TileUI>
-          <TileUI style={{ gridColumn: "7 / span 3", height: "20vh" }}>
+          <TileUI>
             Resources
           </TileUI>
-          <TileUI style={{ gridColumn: "1 / span 3", height: "20vh" }}>
+          <TileUI>
             Co-op/WIL
           </TileUI>
-          <TileUI style={{ gridColumn: "4 / span 3", height: "20vh" }}>
+          <TileUI>
             Artswork
           </TileUI>
-          <TileUI style={{ gridColumn: "7 / span 3", height: "20vh" }}>
+          <TileUI>
             The Leeway
           </TileUI>
         </GridUI>
       </SectionUI>
 
-      <SectionUI  style={{ minHeight: "50vh"}}>
+      <SectionUI  style={{ minHeight: "600px"}}>
         <ContactForm />
       </SectionUI>
 
-      <SectionUI style={{ minHeight: "50vh"}}>
+      <SectionUI style={{ minHeight: "700px"}}>
         <LeftUI>
           <AboutUsUI>Contact</AboutUsUI>
           <ContactInfoUI>604.844.3843 | coop@ecuad.ca</ContactInfoUI>
@@ -215,7 +305,7 @@ text-align: left;
           </ContactInfoUI>
         </LeftUI>
         <RightUI>
-          <img src={Map}></img>
+          <img style={{width: '90%'}} src={Map}></img>
         </RightUI>
       </SectionUI>
     </div>

@@ -22,6 +22,8 @@ import Stories from './Stories'
 
 import ScrollToTop from './helpers/ScrollToTop'
 import Post from "./Post";
+import Employers from "./Employers";
+import Students from "./Students";
 
 function App() {
   return (
@@ -45,6 +47,9 @@ function App() {
           <Route path="/artswork" component={Artswork} />
           <Route path="/about" component={About} />
           <Route path="/stories" component={Stories} />
+
+          <Route path="/employers" component={Employers} />
+          <Route path="/students" component={Students} />
         </Switch>
 
         

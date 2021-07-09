@@ -11,6 +11,8 @@ import {
   ReactPDF,
 } from "@react-pdf/renderer";
 
+import { MyDocument } from "./CareerPdf";
+
 import { ChevronUp, ChevronDown, X, ArrowDown, ArrowUp, ArrowLeft, Download } from "react-feather";
 import { FilterCircle } from "./FilterCircle";
 import { FilterSquare } from "./FilterSquare";
@@ -39,6 +41,7 @@ display: flex;
 
 justify-content: center;
 align-items: center;
+flex-wrap: wrap;
 
 `
 
@@ -74,6 +77,8 @@ display: flex;
 
 justify-content: center;
 align-items: center;
+flex-wrap: wrap;
+
 
 `
 
@@ -115,6 +120,8 @@ display: flex;
 
 justify-content: center;
 align-items: center;
+flex-wrap: wrap;
+
 
 `
 
@@ -246,7 +253,10 @@ export const Results = ({ selectedIndustries, selectedSkills, selectedValues, al
 
         <SkillGridUI>{selectedSkills.map(industry => <SkillUI>{industry.title}</SkillUI>)}</SkillGridUI>
         <SkillGridUI>{selectedValues.map(industry => <SkillUI>{industry.title}</SkillUI>)}</SkillGridUI>
-        <DownloadButtonUI><Download/></DownloadButtonUI>
+
+         
+      {!loading ? <PDFDownloadLink document={<MyDocument selectedIndustries={selectedIndustries} selectedSkills={selectedSkills} selectedValues={selectedValues} filteredIndustries={filteredIndustries}/>} fileName="somename.pdf"><DownloadButtonUI><Download/></DownloadButtonUI></PDFDownloadLink> : '' }
+        
       </ContainerUI>
     </>
   );

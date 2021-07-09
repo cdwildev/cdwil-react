@@ -5,14 +5,14 @@ import { Point } from './Point'
 
 const ContainerUI = styled.div`
   width: 100vw;
-  height: 100vh;
+ 
   display: none;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  margin: 25vh 0 0 0;
   @media (max-width: 1000px) {
     display: flex;
-    align-items: center;
-    justify-content: center;
+
     flex-direction: column;
   }
   font-size: 14px;
@@ -25,7 +25,10 @@ const SelectionContainerUI = styled.div`
   display: flex;
   flex-direction: column;
   margin: 25px 0;
-
+  border: 2px solid #FFFFFF;
+box-sizing: border-box;
+border-radius: 20px;
+overflow: hidden;
 
 
 `
@@ -34,11 +37,12 @@ const SelectionUI = styled.div`
   display: flex;
   flex-direction: row;
   color: white;
-  border: 1px solid white;
+ 
   width: 50vw;
+ 
   align-items: center;
   justify-content: center;
-  height: 25px;
+  height: 64px;
   cursor: pointer;
 
 `

@@ -20,6 +20,9 @@ import { FilterCircle } from "./FilterCircle";
 import { FilterSquare } from "./FilterSquare";
 import { FilterSemiCircle } from "./FilterSemiCircle";
 import { Results } from "./Results";
+import { MobileSelection } from "./MobileSelection";
+import useWindowDimensions from "../../helpers/Window";
+
 
 const ContainerUI = styled.div`
   width: 100vw;
@@ -45,9 +48,6 @@ const SelectionContainerUI = styled.div`
   left: 2.5vw;
   top: 0;
   z-index: 50;
-
-  
-
 `;
 
 const PoolUI = styled.div`
@@ -91,15 +91,12 @@ const ButtonUI = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   cursor: pointer;
   z-index: 1000;
 `;
 
 const ProgressUI = styled.div`
-
-
-
   box-sizing: border-box;
 
   border-radius: 40px 40px 0 0;
@@ -118,6 +115,9 @@ const ProgressUI = styled.div`
 
   cursor: pointer;
   z-index: 1000;
+  display: flex;
+
+
 `;
 
 const CircleUI = styled.div`
@@ -152,13 +152,13 @@ const SemiUI = styled.div`
 `;
 
 const GridUI = styled.div`
- display: flex;
- flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const GridRowUI = styled.div`
- display: flex;
- flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const LineUI = styled.div`
@@ -334,6 +334,8 @@ export const CareerPathways = ({ allPostsData }) => {
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [selectedValues, setSelectedValues] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const { height, width } = useWindowDimensions();
 
   const nextScreen = () => {
     if (screen == 1) {
@@ -364,11 +366,12 @@ export const CareerPathways = ({ allPostsData }) => {
     }
   }, [loading]);
 
-  /*   useEffect(() => {
-    if(selectedIndustries.length > 2){
-      setScreen(2)
-    }
-   }, [selectedIndustries]) */
+  
+  useEffect(() => {
+    if (width < 1200) {
+      setIsMobile(true)
+    } else{setIsMobile(false)}
+  }, [width]);
 
   const rndInt = Math.floor(Math.random() * 500) + 1;
 
@@ -377,102 +380,125 @@ export const CareerPathways = ({ allPostsData }) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
+
+
   return (
     <>
       <ContainerUI>
-        <SelectionContainerUI>
-          
-          <GridUI>
-            <GridRowUI style={{transform: 'translateX(5.5vw)'}}>{industries.slice(0, 5).map((el) => (
-            <FilterCircle
-              screen={screen}
-              pool={pool}
-              setSelectedIndustries={setSelectedIndustries}
-              selectedIndustries={selectedIndustries}
-              industries={el}
-              industry={el.title}
-              floatY={randomIntFromInterval(2, 5)}
-              rotateShape={randomIntFromInterval(0, 0)}
-              positionX={randomIntFromInterval(0, 800)}
-              positionY={randomIntFromInterval(0, 500)}
-            />
-          ))}</GridRowUI>
-                      <GridRowUI >{industries.slice(5, 10).map((el) => (
-            <FilterCircle
-              screen={screen}
-              pool={pool}
-              setSelectedIndustries={setSelectedIndustries}
-              selectedIndustries={selectedIndustries}
-              industries={el}
-              industry={el.title}
-              floatY={randomIntFromInterval(2, 5)}
-              rotateShape={randomIntFromInterval(0, 0)}
-              positionX={randomIntFromInterval(0, 800)}
-              positionY={randomIntFromInterval(0, 500)}
-            />
-          ))}</GridRowUI>
 
-<GridRowUI style={{transform: 'translateX(5.5vw)'}}>{industries.slice(10, 14).map((el) => (
-            <FilterCircle
-              screen={screen}
-              pool={pool}
-              setSelectedIndustries={setSelectedIndustries}
-              selectedIndustries={selectedIndustries}
-              industries={el}
-              industry={el.title}
-              floatY={randomIntFromInterval(2, 5)}
-              rotateShape={randomIntFromInterval(0, 0)}
-              positionX={randomIntFromInterval(0, 800)}
-              positionY={randomIntFromInterval(0, 500)}
-            />
-          ))}</GridRowUI>
+        {!isMobile ? (
+          <SelectionContainerUI>
+            <GridUI>
+              <GridRowUI style={{ transform: "translateX(5.5vw)" }}>
+                {industries.slice(0, 5).map((el) => (
+                  <FilterCircle
+                    screen={screen}
+                    pool={pool}
+                    setSelectedIndustries={setSelectedIndustries}
+                    selectedIndustries={selectedIndustries}
+                    industries={el}
+                    industry={el.title}
+                    floatY={randomIntFromInterval(2, 5)}
+                    rotateShape={randomIntFromInterval(0, 0)}
+                    positionX={randomIntFromInterval(0, 800)}
+                    positionY={randomIntFromInterval(0, 500)}
+                  />
+                ))}
+              </GridRowUI>
+              <GridRowUI>
+                {industries.slice(5, 10).map((el) => (
+                  <FilterCircle
+                    screen={screen}
+                    pool={pool}
+                    setSelectedIndustries={setSelectedIndustries}
+                    selectedIndustries={selectedIndustries}
+                    industries={el}
+                    industry={el.title}
+                    floatY={randomIntFromInterval(2, 5)}
+                    rotateShape={randomIntFromInterval(0, 0)}
+                    positionX={randomIntFromInterval(0, 800)}
+                    positionY={randomIntFromInterval(0, 500)}
+                  />
+                ))}
+              </GridRowUI>
 
-<GridRowUI>{industries.slice(14, 20).map((el) => (
-            <FilterCircle
-              screen={screen}
-              pool={pool}
-              setSelectedIndustries={setSelectedIndustries}
-              selectedIndustries={selectedIndustries}
-              industries={el}
-              industry={el.title}
-              floatY={randomIntFromInterval(2, 5)}
-              rotateShape={randomIntFromInterval(0, 0)}
-              positionX={randomIntFromInterval(0, 800)}
-              positionY={randomIntFromInterval(0, 500)}
-            />
-          ))}</GridRowUI>
-          
+              <GridRowUI style={{ transform: "translateX(5.5vw)" }}>
+                {industries.slice(10, 14).map((el) => (
+                  <FilterCircle
+                    screen={screen}
+                    pool={pool}
+                    setSelectedIndustries={setSelectedIndustries}
+                    selectedIndustries={selectedIndustries}
+                    industries={el}
+                    industry={el.title}
+                    floatY={randomIntFromInterval(2, 5)}
+                    rotateShape={randomIntFromInterval(0, 0)}
+                    positionX={randomIntFromInterval(0, 800)}
+                    positionY={randomIntFromInterval(0, 500)}
+                  />
+                ))}
+              </GridRowUI>
 
-</GridUI>
-          {skills.map((el) => (
-            <FilterSquare
-              screen={screen}
-              pool={pool}
-              setSelectedIndustries={setSelectedSkills}
-              selectedIndustries={selectedSkills}
-              industries={el}
-              industry={el.title}
-              floatY={randomIntFromInterval(2, 5)}
-              rotateShape={randomIntFromInterval(-50, 50)}
-              positionX={randomIntFromInterval(0, 800)}
-              positionY={randomIntFromInterval(0, 500)}
-            />
-          ))}
-          {values.map((el) => (
-            <FilterSemiCircle
-              screen={screen}
-              pool={pool}
-              setSelectedIndustries={setSelectedValues}
-              selectedIndustries={selectedValues}
-              industries={el}
-              industry={el.title}
-              floatY={randomIntFromInterval(2, 5)}
-              rotateShape={randomIntFromInterval(-20, 20)}
-              positionX={randomIntFromInterval(0, 800)}
-              positionY={randomIntFromInterval(0, 500)}
-            />
-          ))}
-        </SelectionContainerUI>
+              <GridRowUI>
+                {industries.slice(14, 20).map((el) => (
+                  <FilterCircle
+                    screen={screen}
+                    pool={pool}
+                    setSelectedIndustries={setSelectedIndustries}
+                    selectedIndustries={selectedIndustries}
+                    industries={el}
+                    industry={el.title}
+                    floatY={randomIntFromInterval(2, 5)}
+                    rotateShape={randomIntFromInterval(0, 0)}
+                    positionX={randomIntFromInterval(0, 800)}
+                    positionY={randomIntFromInterval(0, 500)}
+                  />
+                ))}
+              </GridRowUI>
+            </GridUI>
+            {skills.map((el) => (
+              <FilterSquare
+                screen={screen}
+                pool={pool}
+                setSelectedIndustries={setSelectedSkills}
+                selectedIndustries={selectedSkills}
+                industries={el}
+                industry={el.title}
+                floatY={randomIntFromInterval(2, 5)}
+                rotateShape={randomIntFromInterval(-50, 50)}
+                positionX={randomIntFromInterval(0, 800)}
+                positionY={randomIntFromInterval(0, 500)}
+              />
+            ))}
+            {values.map((el) => (
+              <FilterSemiCircle
+                screen={screen}
+                pool={pool}
+                setSelectedIndustries={setSelectedValues}
+                selectedIndustries={selectedValues}
+                industries={el}
+                industry={el.title}
+                floatY={randomIntFromInterval(2, 5)}
+                rotateShape={randomIntFromInterval(-20, 20)}
+                positionX={randomIntFromInterval(0, 800)}
+                positionY={randomIntFromInterval(0, 500)}
+              />
+            ))}
+          </SelectionContainerUI>
+        ) : (
+          <MobileSelection
+            screen={screen}
+            skills={skills}
+            values={values}
+            industries={industries}
+            selectedIndustries={selectedIndustries}
+            selectedValues={selectedValues}
+            selectedSkills={selectedSkills}
+            setSelectedIndustries={setSelectedIndustries}
+            setSelectedSkills={setSelectedSkills}
+            setSelectedValues={setSelectedValues}
+          ></MobileSelection>
+        )}
 
         {screen == 4 ? (
           <>
@@ -487,6 +513,7 @@ export const CareerPathways = ({ allPostsData }) => {
               />
             </LoadingScreenUI>
             <Results
+         
               loading={loading}
               selectedIndustries={selectedIndustries}
               selectedSkills={selectedSkills}
@@ -510,86 +537,100 @@ export const CareerPathways = ({ allPostsData }) => {
             >
               Back
             </ButtonUI>
-            <PoolUI ref={pool}>
-              {screen == 1 ? (
-                <>
-                  <InstructionTopUI>
-                    Which industries are you curious or passionate about? Where
-                    can you see yourself working? <br></br>
-                    <br></br> Select up to 3
-                  </InstructionTopUI>{" "}
-                  <InstructionUI>Drag and Drop here</InstructionUI>
-                </>
-              ) : screen == 2 ? (
-                <>
-                  <InstructionTopUI>
-                  What are you really good at or interested in getting better at? <br></br>
-                    <br></br> Select up to 10
-                  </InstructionTopUI>{" "}
-                  <InstructionUI>Drag and Drop here</InstructionUI>
-                </>
-              ) : screen == 3 ? (
-                <>
-                  <InstructionTopUI>
-                  Values reflect who we are and indicate what is most important to us. <br></br>
-                    <br></br> Select up to 5 values that resonate with you for the workplace.
-                  </InstructionTopUI>{" "}
-                  <InstructionUI>Drag and Drop here</InstructionUI>
-                </>
-              ) : (
-                ""
-              )}
-            </PoolUI>
+
+            {/* mobile screen */}
+            {!isMobile ? (
+              <PoolUI ref={pool}>
+                {screen == 1 ? (
+                  <>
+                    <InstructionTopUI>
+                      Which industries are you curious or passionate about?
+                      Where can you see yourself working? <br></br>
+                      <br></br> Select up to 3
+                    </InstructionTopUI>{" "}
+                    <InstructionUI>Drag and Drop here</InstructionUI>
+                  </>
+                ) : screen == 2 ? (
+                  <>
+                    <InstructionTopUI>
+                      What are you really good at or interested in getting
+                      better at? <br></br>
+                      <br></br> Select up to 10
+                    </InstructionTopUI>{" "}
+                    <InstructionUI>Drag and Drop here</InstructionUI>
+                  </>
+                ) : screen == 3 ? (
+                  <>
+                    <InstructionTopUI>
+                      Values reflect who we are and indicate what is most
+                      important to us. <br></br>
+                      <br></br> Select up to 5 values that resonate with you for
+                      the workplace.
+                    </InstructionTopUI>{" "}
+                    <InstructionUI>Drag and Drop here</InstructionUI>
+                  </>
+                ) : (
+                  ""
+                )}
+              </PoolUI>
+            ) : (
+              ""
+            )}
             <ButtonUI
               onClick={nextScreen}
               style={{ position: "absolute", bottom: "5vh", right: "5vw" }}
             >
               {screen == 3 ? "BOOM!" : "Next"}
             </ButtonUI>
-            <ProgressUI>
-              <CircleUI
-                onClick={() => setScreen(1)}
-                style={{ backgroundColor: screen == 1 ? "#0D3858" : "white" }}
-              >
-                <ProgressLabelUI
-                  style={{ color: screen == 1 ? "#0D3858" : "white" }}
+
+            {!isMobile ? (
+              <ProgressUI>
+                <CircleUI
+                  onClick={() => setScreen(1)}
+                  style={{ backgroundColor: screen == 1 ? "#0D3858" : "white" }}
                 >
-                  Industry
-                </ProgressLabelUI>
-              </CircleUI>
-              <LineUI
-                style={{
-                  borderBottom:
-                    screen >= 2 ? "3px solid white" : "3px solid white",
-                }}
-              />
-              <SquareUI
-                onClick={() => setScreen(2)}
-                style={{ backgroundColor: screen == 2 ? "#0D3858" : "white" }}
-              >
-                <ProgressLabelUI
-                  style={{ color: screen == 2 ? "#0D3858" : "white" }}
+                  <ProgressLabelUI
+                    style={{ color: screen == 1 ? "#0D3858" : "white" }}
+                  >
+                    Industry
+                  </ProgressLabelUI>
+                </CircleUI>
+                <LineUI
+                  style={{
+                    borderBottom:
+                      screen >= 2 ? "3px solid white" : "3px solid white",
+                  }}
+                />
+                <SquareUI
+                  onClick={() => setScreen(2)}
+                  style={{ backgroundColor: screen == 2 ? "#0D3858" : "white" }}
                 >
-                  Interests
-                </ProgressLabelUI>
-              </SquareUI>
-              <LineUI
-                style={{
-                  borderBottom:
-                    screen >= 3 ? "3px solid white" : "3px solid white",
-                }}
-              />
-              <SemiUI
-                onClick={() => setScreen(3)}
-                style={{ backgroundColor: screen == 3 ? "#0D3858" : "white" }}
-              >
-                <ProgressLabelUI
-                  style={{ color: screen == 3 ? "#0D3858" : "white" }}
+                  <ProgressLabelUI
+                    style={{ color: screen == 2 ? "#0D3858" : "white" }}
+                  >
+                    Interests
+                  </ProgressLabelUI>
+                </SquareUI>
+                <LineUI
+                  style={{
+                    borderBottom:
+                      screen >= 3 ? "3px solid white" : "3px solid white",
+                  }}
+                />
+                <SemiUI
+                  onClick={() => setScreen(3)}
+                  style={{ backgroundColor: screen == 3 ? "#0D3858" : "white" }}
                 >
-                  Values
-                </ProgressLabelUI>
-              </SemiUI>
-            </ProgressUI>
+                  <ProgressLabelUI
+                    style={{ color: screen == 3 ? "#0D3858" : "white" }}
+                  >
+                    Values
+                  </ProgressLabelUI>
+                </SemiUI>
+              </ProgressUI>
+            ) : (
+              ""
+            )}
           </>
         )}
       </ContainerUI>
