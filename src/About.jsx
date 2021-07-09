@@ -17,6 +17,7 @@ export default function About() {
     position: relative;
     flex-direction: row;
     width: 75vw;
+    overflow-x: hidden;
     @media (max-width: 1400px) {
       width: 90vw;
 
@@ -236,7 +237,7 @@ transform: rotate(-0.21deg);
 
   return (
     <div className="container">
-      <SectionUI style={{ minHeight: "60vh", margin: '100px 0 0 0'}}>
+      <SectionUI style={{ minHeight: "60vh", margin: '150px 0 0 0'}}>
         <LeftUI>
           <AboutUsUI>About Us</AboutUsUI>
           <HeaderUI>

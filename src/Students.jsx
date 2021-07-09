@@ -301,7 +301,7 @@ left: -300px;
 
   return (
     <div className="container">
-      <SectionUI style={{ minHeight: "60vh", margin: '200px 0 0 0'}}>
+      <SectionUI style={{ minHeight: "60vh", margin: '150px 0 0 0'}}>
         <LeftUI>
           <AboutUsUI>For Alumni</AboutUsUI>
           <HeaderUI>
