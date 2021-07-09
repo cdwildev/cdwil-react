@@ -17,7 +17,7 @@ export default function About() {
     position: relative;
     flex-direction: row;
     width: 75vw;
-    overflow-x: hidden;
+ 
     @media (max-width: 1400px) {
       width: 90vw;
 
