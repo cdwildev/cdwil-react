@@ -70,8 +70,10 @@ const MobileMenuUI = styled.div`
   height: calc(100vh);
   position: fixed;
   top: 120px;
+  left: 0;
   z-index: 10000;
   flex-direction: column;
+
 `;
 
 const MobileLinkUI = styled.div`
@@ -122,16 +124,16 @@ const NavLinkUI = styled.a`
   color: black;
 `;
 
-export const Header = ({}) => {
+export const Header = ({width}) => {
 
-  const { height, width } = useWindowDimensions();
+ 
   const [active, setActive] = useState(false);
 
   useEffect(() => {
     if(active){
       document.body.style.overflow = "hidden"
     } else {
-      document.body.style.overflow = "scroll"
+      document.body.style.overflow = "auto"
     }
     
   }, [active])
@@ -253,6 +255,7 @@ export const Header = ({}) => {
 
       <HeaderUI
         style={{
+      
           transform: visible ? "translateY(0px)" : "translateY(-150px)",
         }}
       >

@@ -41,8 +41,9 @@ function App() {
 
   return (
     <Router>
+     
       <div className="App" style={{width: windowWidth }}>
-        <Header />
+      <Header width={width}/>
         
         <ScrollToTop />
         <Switch>

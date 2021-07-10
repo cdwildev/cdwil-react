@@ -17,7 +17,7 @@ const FooterUI = styled.div`
   left: 0;
   justify-content: center;
   overflow: hidden;
-  padding: 0 0 100px 0;
+  padding: 0 0 200px 0;
   margin: 200px 0 0 0;
 
 `;
