@@ -13,6 +13,8 @@ const HeaderUI = styled.div`
   width: 100vw;
   min-height: 100px;
   position: fixed;
+  top: 0;
+  left: 0;
   border-bottom: 3px solid black;
   justify-content: center;
   align-items: center;

@@ -1,4 +1,5 @@
 import "./App.css";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Home from "./Home";
 import Header from "./components/Header";
@@ -24,11 +25,23 @@ import ScrollToTop from './helpers/ScrollToTop'
 import Post from "./Post";
 import Employers from "./Employers";
 import Students from "./Students";
+import useWindowDimensions from "./helpers/Window";
+import { hidden } from "chalk";
 
 function App() {
+
+  const [windowWidth, setWindowWidth] = useState(document.body.clientWidth)
+  const { height, width } = useWindowDimensions();
+
+  useEffect(() => {
+
+    setWindowWidth(document.body.clientWidth)
+
+  }, [width])
+
   return (
     <Router>
-      <div className="App">
+      <div className="App" style={{width: windowWidth }}>
         <Header />
         
         <ScrollToTop />
@@ -52,10 +65,8 @@ function App() {
           <Route path="/students" component={Students} />
         </Switch>
 
-        
+        <Footer />
       </div>
-      <Footer />
-      
     </Router>
 
   );

@@ -10,9 +10,11 @@ const FooterUI = styled.div`
   display: flex;
   height: 25vh;
   min-height: 600px;
-  width: 100vw;
+  width: 100%;
+  
   position: relative;
   bottom: 0;
+  left: 0;
   justify-content: center;
   overflow: hidden;
   padding: 0 0 100px 0;
@@ -217,10 +219,7 @@ export const Footer = ({}) => {
       </ContainerUI>
 
       <GradientUI/>
-{/*       <img
-        style={{ position: "absolute", width: '100vw', bottom: '0px', zIndex: -100 }}
-        src={FooterImage}
-      /> */}
+
     </FooterUI>
   );
 };

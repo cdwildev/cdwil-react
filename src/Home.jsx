@@ -228,7 +228,7 @@ function Home() {
   console.log(allPostsData);
 
   return (
-    <div className="App">
+
       <div
         style={{
           display: "flex",
@@ -301,9 +301,11 @@ function Home() {
 <InspireTitleMobileUI>GET INSPIRED</InspireTitleMobileUI>
           <InspireGrid allPostsData={allPostsData} />
           <InspireTitleUI style={{textAlign: 'right'}}>INSPIRED</InspireTitleUI>
+          
         </SectionUI>
+        
       </div>
-    </div>
+
   );
 }
 
