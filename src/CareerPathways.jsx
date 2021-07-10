@@ -16,17 +16,17 @@ const SectionUI = styled.div`
 
 const ContainerUI = styled.div`
   width: 75vw;
-  min-height: 100vh;
-  display: flex;
-  padding: 200px 0 0 0;
 
+  display: flex;
+
+  margin: 200px 0;
   @media (max-width: 1400px) {
     width: 90vw;
   }
 `;
 
 const TitleUI = styled.div`
-  font-family: Noto Sans;
+font-family: "Noto Sans JP", sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 120px;

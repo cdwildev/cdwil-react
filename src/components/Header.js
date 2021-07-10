@@ -79,7 +79,7 @@ const MobileMenuUI = styled.div`
 const MobileLinkUI = styled.div`
   border-bottom: 3px solid black;
   width: 100%;
-  height: 8vh;
+  height: 10vh;
   display: flex;
   align-items: center;
   padding: 0 0 0 5vw;

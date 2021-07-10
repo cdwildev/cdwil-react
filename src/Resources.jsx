@@ -101,6 +101,7 @@ const TitleUI = styled.div`
   display: block;
   text-align: left;
   width: 100%;
+  font-family: "Noto Sans JP", sans-serif;
 
   @media (max-width: 1000px) {
     font-size: 10vw;

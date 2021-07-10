@@ -26,7 +26,7 @@ const TitleUI = styled.div`
   font-size: 100px;
   margin: 72px 0;
   background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
-
+  font-family: "Noto Sans JP", sans-serif;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-overflow: ellipsis;

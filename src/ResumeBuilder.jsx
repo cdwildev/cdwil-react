@@ -22,7 +22,7 @@ const ContainerUI = styled.div`
 `;
 
 const TitleUI = styled.div`
-  font-family: Noto Sans;
+font-family: "Noto Sans JP", sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 120px;

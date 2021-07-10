@@ -55,12 +55,11 @@ const MobileGridUI = styled.div`
   font-family: Noto Sans;
   font-style: normal;
   font-weight: bold;
-  font-size: 32px;
-
   width: 100%;
+  font-size: 22px;
   @media (max-width: 1000px) {
     display: grid;
-    font-size: 16px;
+    font-size: 22px;
   }
 `;
 
@@ -77,8 +76,8 @@ const TileUI = styled.div`
   padding: 22px;
   color: #252525;
   cursor: pointer;
-  @media (max-width: 1000px) {
-    padding: 22px;
+  @media (max-width: 500px) {
+    
   }
 
   &:hover {
@@ -192,9 +191,23 @@ export const NavGrid = ({
       </GridUI>
 
       <MobileGridUI>
-        <TileUI style={{ gridColumn: "1 / span 1" }}>Find Work</TileUI>
-        <TileUI style={{}}>Meet with a Career Advisor</TileUI>
-        <TileUI style={{ width: "auto", gridColumn: "1 / span 2" }}>
+        <LinkUI target="_blank" href="https://artswork.ecuad.ca/">
+          <TileUI style={{ }}>Find Work</TileUI>
+        </LinkUI>
+
+        <Link
+          style={{ textDecoration: "none" }}
+          to="/about"
+        >
+          <TileUI style={{}}>Meet with a Career Advisor</TileUI>
+        </Link>
+
+
+        <Link
+          style={{ textDecoration: "none", gridColumn: "1 / span 2"  }}
+          to="/resources"
+        >
+        <TileUI style={{ width: "auto"}}>
           Read How To{" "}
           <span style={{ animation: "flash 6s linear infinite" }}>
             Price Work
@@ -206,6 +219,9 @@ export const NavGrid = ({
             Apply For Grad School
           </FlashUI>
         </TileUI>
+
+        </Link>
+
         <Link
           style={{ textDecoration: "none", gridColumn: "1 / span 2" }}
           to="/skill-identifier"
@@ -216,21 +232,49 @@ export const NavGrid = ({
           </TileUI>
         </Link>
 
+        <Link
+          style={{ textDecoration: "none" }}
+          to="/career-pathways"
+        >
+
         <TileUI style={{ background: "#C1D42F", color: "#252525" }}>
           Explore Career Pathways
         </TileUI>
+
+        </Link>
+
+        <Link
+          style={{textDecoration: "none" }}
+          to="/resume-builder"
+        >
         <TileUI style={{ background: "#F02091", color: "#252525" }}>
           Build a Resume
         </TileUI>
+
+        </Link>
+
+        <Link
+          style={{textDecoration: "none" }}
+          to="/about"
+        >
 
         <TileUI style={{}}>
           Questions <br></br>
           about Co-op?
         </TileUI>
-        <TileUI style={{}}>
-          Hire an <br></br>
-          Artist/Designer
-        </TileUI>
+
+        </Link>
+
+
+        <Link
+          style={{ textDecoration: "none" }}
+          to="/news"
+        >
+          <TileUI style={{}}>
+            Attend<br></br>
+            an Event
+          </TileUI>
+        </Link>
       </MobileGridUI>
     </ContainerUI>
   );
