@@ -54,7 +54,7 @@ const ButtonUI = styled.div`
   cursor: pointer;
 `;
 
-const TitleUI = styled.h1`
+/* const TitleUI = styled.h1`
   display: flex;
   justify-content: flex-start;
   text-align: left;
@@ -67,11 +67,7 @@ const TitleUI = styled.h1`
   font-size: 56px;
   
 
-  background: linear-gradient(
-    113.03deg,
-    #e01583 31.82%,
-    #1c878c 71.61%
-  );
+  background: linear-gradient( 113.03deg, #e01583 31.82%, #1c878c 71.61%);
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -89,6 +85,34 @@ const TitleUI = styled.h1`
   @media (max-width: 800px) {
     font-size: 10vw;
   }
+`; */
+
+const TitleUI = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  font-weight: 900;
+  font-size: 48px;
+  padding: 0 0 10px 0;
+  background: linear-gradient( 113.03deg, #e01583 31.82%, #1c878c 71.61%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  text-align: left;
+  width: 100%;
+  font-family: "Noto Sans JP", sans-serif;
+  animation: gradient 5s ease infinite;
+
+  @media (max-width: 800px) {
+    font-size: 10vw;
+  }
+
+
+
+
+  
 `;
 
 const SubTitleUI = styled.p`
