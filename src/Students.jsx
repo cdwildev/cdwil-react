@@ -99,31 +99,30 @@ width: 343px;
   }
 `;
 
-  const GradientHeaderUI = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  text-align: left;
-  height: 150px;
-  font-weight: 900;
-  margin: 200px 0 0 0 ;
-  text-align: left;
-  width: 100%;
-  
-  font-size: 56px;
-  background: linear-gradient(257.7deg, #21B592 47.29%, #005695 92.38%);
+const GradientHeaderUI = styled.div`
+display: flex;
+justify-content: flex-start;
+text-align: left;
+font-weight: 900;
+font-size: 55px;
+background: linear-gradient(111.11deg, #03A27D 25.33%, #005695 75.02%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-overflow: ellipsis;
+white-space: nowrap;
+display: block;
+text-align: left;
+padding: 0 0 50px 0;
+width: 100%;
+font-family: "Noto Sans JP", sans-serif;
+@media (min-width: 1200px) {
+  animation: gradient 5s ease infinite;
+}
 
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
-  
-  @media (max-width: 1200px) {
+@media (max-width: 1000px) {
+  font-size: 8vw;
+}
 
-  font-size: 55px
-  height: 200px;
-  }
 
 `;
 
@@ -183,9 +182,15 @@ width: 343px;
     position: relative;
     padding: 22px;
     cursor: pointer;
+    background: white;
 
     &:hover {
       background: #b9d9eb;
+    }
+
+    @media (max-width: 800px) {
+      font-size: 22px;
+      line-height: 20px;
     }
   `;
 
@@ -203,14 +208,20 @@ width: 343px;
     line-height: 35px;
 
     width: 100%;
+
+        @media (max-width: 1000px) {
+      font-size: 22px;
+      line-height: 20px;
+      grid-template-columns: repeat(1, 1fr);
+    }
   `;
 
   const GridTwoUI = styled.div`
   display: grid;
 
   text-align: left;
-  grid-template-columns: repeat(8, 1fr);
-  grid-gap: 9px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
   font-family: Noto Sans;
   font-style: normal;
   font-weight: bold;
@@ -218,6 +229,13 @@ width: 343px;
   line-height: 35px;
 
   width: 50vw;
+  @media (max-width: 1000px) {
+    font-size: 22px;
+    line-height: 20px;
+    grid-template-columns: repeat(1, 1fr);
+
+    width: 90vw;
+  }
 `;
 
   const ContactInfoUI = styled.div`
@@ -301,7 +319,7 @@ left: -300px;
 
   return (
     <div className="container">
-      <SectionUI style={{ minHeight: "60vh", margin: '150px 0 0 0'}}>
+      <SectionUI style={{ margin: '150px 0 150px 0'}}>
         <LeftUI>
           <AboutUsUI>For Alumni</AboutUsUI>
           <HeaderUI>
@@ -341,7 +359,7 @@ left: -300px;
         <GradientOneUI/>
       </SectionUI>
 
-      <SectionUI style={{ minHeight: "50vh", flexDirection: "column" }}>
+      <SectionUI style={{ margin: '0 0 150px 0', flexDirection: "column" }}>
         <GridUI style={{ margin: "0 0 10px 0" }}>
           <TileUI>
             Career <br></br> Advising
@@ -377,24 +395,24 @@ left: -300px;
         </LeftUI>
       </SectionUI>
 
-      <SectionUI style={{ minHeight: "50vh", flexDirection: "column" }}>
+      <SectionUI style={{  margin: '0 0 200px 0', flexDirection: "column" }}>
 
       <GradientTwoUI/>
         <GridTwoUI style={{ margin: "0 0 30px 0"  }}>
-          <TileUI style={{ gridColumn: "1 / span 4", height: "20vh" }}>
+          <TileUI style={{ gridColumn: "1 / span 2", height: "20vh" }}>
             Emix <br></br> Newsletter
           </TileUI>
-          <TileUI style={{ gridColumn: "5 / span 4", height: "20vh" }}>
+          <TileUI style={{ gridColumn: "3 / span 2", height: "20vh" }}>
           Emily Carr <br></br> Website
           </TileUI>
-          <TileUI style={{ gridColumn: "1 / span 8", height: "20vh" }}>
+          <TileUI style={{ gridColumn: "1 / span 4", height: "20vh" }}>
             Emily Carr Student Art Sale
           </TileUI>
         </GridTwoUI>
 
       </SectionUI>
 
-      <SectionUI style={{ minHeight: "50vh", flexDirection: "column" }}>
+      <SectionUI style={{ margin: '0 0 0 0', flexDirection: "column" }}>
         <GradientHeaderUI>
           Alumni Stories <br></br>
           and Career Pathways

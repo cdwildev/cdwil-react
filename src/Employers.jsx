@@ -38,10 +38,9 @@ export default function About() {
     font-weight: 500;
     font-size: 20px;
     line-height: 20px;
-    color: #00B188;
+    color: #00b188;
 
     margin: 0 0 24px 0;
-    
   `;
 
   const HeaderUI = styled.div`
@@ -58,84 +57,72 @@ export default function About() {
 
     @media (max-width: 1200px) {
       font-family: Noto Sans;
-font-style: normal;
-font-weight: bold;
-font-size: 24px;
-line-height: 28px;
-width: 343px;
-
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 28px;
+      width: 343px;
     }
   `;
 
   const InfoContainerUI = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 
-  width: 620px;
-  text-align: left;
-  font-family: Noto Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 28px;
-  margin: 0 0 26px 0;
-
-  
-  @media (max-width: 800px) {
-    width: 90vw;
-
-    
+    width: 620px;
+    text-align: left;
     font-family: Noto Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 20px;
+    line-height: 28px;
+    margin: 0 0 26px 0;
 
-  }
-`;
+    @media (max-width: 800px) {
+      width: 90vw;
+
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 26px;
+    }
+  `;
 
   const GradientHeaderUI = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  text-align: left;
-  height: 150px;
-  font-weight: 900;
-  margin: 200px 0 0 0 ;
-  text-align: left;
-  width: 100%;
-  
-  font-size: 56px;
-  background: linear-gradient(257.7deg, #21B592 47.29%, #005695 92.38%);
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    font-weight: 900;
+    font-size: 55px;
+    background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    text-align: left;
+    padding: 0 0 50px 0;
+    width: 100%;
+    font-family: "Noto Sans JP", sans-serif;
+    animation: gradient 5s ease infinite;
 
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
-  
-  @media (max-width: 1200px) {
+    @media (max-width: 1000px) {
+      font-size: 8vw;
+    }
+  `;
 
-  font-size: 55px
-  height: 200px;
-  }
+  const RightUI = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
 
-`;
-
-
-
-const RightUI = styled.div`
-display: flex;
-justify-content: flex-end;
-align-items: center;
-width: 100%;
-
-@media (max-width: 1000px) {
-
-  display: none;
-}
-`;
+    @media (max-width: 1000px) {
+      display: none;
+    }
+  `;
 
   const HeroUI = styled.img`
     width: 40vw;
@@ -183,6 +170,11 @@ width: 100%;
     &:hover {
       background: #b9d9eb;
     }
+
+    @media (max-width: 800px) {
+      font-size: 22px;
+      line-height: 20px;
+    }
   `;
 
   const GridUI = styled.div`
@@ -198,25 +190,22 @@ width: 100%;
     line-height: 35px;
 
     width: 100%;
- 
-
-
   `;
 
   const GridTwoUI = styled.div`
-  display: grid;
+    display: grid;
 
-  text-align: left;
-  grid-template-columns: repeat(8, 1fr);
-  grid-gap: 9px;
-  font-family: Noto Sans;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 32px;
-  line-height: 35px;
+    text-align: left;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 9px;
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 35px;
 
-  width: 50vw;
-`;
+    width: 50vw;
+  `;
 
   const ContactInfoUI = styled.div`
     font-family: Noto Sans;
@@ -236,134 +225,130 @@ width: 100%;
   `;
 
   const HighlightUI = styled.div`
-position: absolute;
-width: 55%;
-height: 8px;
-bottom:0px;
-z-index: -100;
-background: #EDE04A;
-opacity: 0.7;
-filter: blur(5px);
-transform: rotate(-0.21deg);
-`
+    position: absolute;
+    width: 55%;
+    height: 8px;
+    bottom: 0px;
+    z-index: -100;
+    background: #ede04a;
+    opacity: 0.7;
+    filter: blur(5px);
+    transform: rotate(-0.21deg);
+  `;
 
-const GradientOneUI = styled.div`
-position: absolute;
-width: 785.08px;
-height: 291.77px;
-background: linear-gradient(111.11deg, #00D1A1 25.33%, #0069B6 75.02%), linear-gradient(90deg, #C1D42F 0%, #00A8E0 100%);
-filter: blur(150px);
-transform: rotate(11.2deg);
-z-index: -100;
-right: -300px;
+  const GradientOneUI = styled.div`
+    position: absolute;
+    width: 785.08px;
+    height: 291.77px;
+    background: linear-gradient(111.11deg, #00d1a1 25.33%, #0069b6 75.02%),
+      linear-gradient(90deg, #c1d42f 0%, #00a8e0 100%);
+    filter: blur(150px);
+    transform: rotate(11.2deg);
+    z-index: -100;
+    right: -300px;
 
-@media (max-width: 800px) {
+    @media (max-width: 800px) {
+      width: 100%;
+    }
+  `;
 
-  width: 100%;
-}
-`
+  const GradientTwoUI = styled.div`
+    position: absolute;
+    width: 505.37px;
+    height: 177.41px;
+    background: linear-gradient(111.11deg, #00d1a1 25.33%, #0069b6 75.02%),
+      linear-gradient(90deg, #c1d42f 0%, #00a8e0 100%);
+    filter: blur(150px);
+    transform: rotate(158.09deg);
+    z-index: -1000;
+    left: -300px;
+  `;
 
-const GradientTwoUI = styled.div`
-position: absolute;
-width: 505.37px;
-height: 177.41px;
-background: linear-gradient(111.11deg, #00D1A1 25.33%, #0069B6 75.02%), linear-gradient(90deg, #C1D42F 0%, #00A8E0 100%);
-filter: blur(150px);
-transform: rotate(158.09deg);
-z-index: -1000;
-left: -300px;
-`
+  const ImageGrid = styled.div`
+    width: 90%;
+    min-width: 250px;
+    display: grid;
+    grid-template-columns: repeat(8, auto);
+    justify-items: end;
+    grid-column-gap: 5px;
+    grid-row-gap: 10px;
+  `;
 
-const ImageGrid = styled.div`
-width: 90%;
-min-width: 250px;
-display: grid;
-grid-template-columns: repeat(8, auto);
-justify-items: end;
-grid-column-gap: 5px;
-grid-row-gap: 10px;
-`;
+  const ImageUI = styled.img`
+    border: 4px solid black;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 
-const ImageUI = styled.img`
-border: 4px solid black;
-box-sizing: border-box;
--moz-box-sizing: border-box;
--webkit-box-sizing: border-box;
+    max-width: 533px;
 
-max-width: 533px;
-
-max-height: 339px;
-border-radius: 10px;
-`;
+    max-height: 339px;
+    border-radius: 10px;
+  `;
 
   return (
     <div className="container">
-      <SectionUI style={{ minHeight: "60vh", margin: '150px 0 0 0'}}>
+      <SectionUI style={{ margin: "150px 0 100px 0" }}>
         <LeftUI>
           <AboutUsUI>For Employers</AboutUsUI>
           <HeaderUI>
-          Interested in <br>
-          </br>hiring a student?
-          <HighlightUI/>
+            Interested in <br></br>hiring a student?
+            <HighlightUI />
           </HeaderUI>
 
           <InfoContainerUI>
-          Contact us at coop@ecuad.ca or visit Artswork to either post your opportunity or view student and alumni portfolios.
+            Contact us at coop@ecuad.ca or visit Artswork to either post your
+            opportunity or view student and alumni portfolios.
           </InfoContainerUI>
-
         </LeftUI>
         <RightUI>
-        <ImageGrid>
-  
-
-<ImageUI
-                src={Hero2}
-                style={{ gridColumn: "1 / span 4", width: "100%" }}
-              />
-                          <ImageUI
-                src={Hero1}
-                style={{ gridColumn: " 3 / span 4", width: "100%" }}
-              />
- 
-            </ImageGrid>
-          
+          <ImageGrid>
+            <ImageUI
+              src={Hero2}
+              style={{ gridColumn: "1 / span 4", width: "100%" }}
+            />
+            <ImageUI
+              src={Hero1}
+              style={{ gridColumn: " 3 / span 4", width: "100%" }}
+            />
+          </ImageGrid>
         </RightUI>
-        <GradientOneUI/>
+        <GradientOneUI />
       </SectionUI>
 
-      <SectionUI style={{ minHeight: "50vh", flexDirection: "column" }}>
-        <GridUI style={{ margin: "0 0 30px 0"}}>
- 
-          <TileUI style={{ gridColumn: "4 / span 3", height: "20vh" }}>
-            Programming
+      <SectionUI style={{ margin: "0px 0 50px 0", flexDirection: "column" }}>
+        <div style={{ margin: "0 0 30px 0", display: 'grid' }}>
+          <TileUI style={{  height: "20vh" }}>
+          Employer
+Info Package
           </TileUI>
-
-        </GridUI>
-
+        </div>
       </SectionUI>
 
-
-
-      <SectionUI style={{ minHeight: "50vh", flexDirection: "column" }}>
-        <GridUI style={{ margin: "0 0 30px 0"  , gridTemplateColumns: 'repeat(10, 1fr)' }}>
+      <SectionUI style={{ margin: "50px 0 200px 0", flexDirection: "column" }}>
+        <GridUI
+          style={{
+            margin: "0 0 30px 0",
+            gridTemplateColumns: "repeat(10, 1fr)",
+          }}
+        >
           <TileUI style={{ gridColumn: "1 / span 3", height: "20vh" }}>
-          Design <br></br>
-for Startups
+            Design <br></br>
+            for Startups
           </TileUI>
           <TileUI style={{ gridColumn: "4 / span 7", height: "20vh" }}>
-          Artist Apprenticeship Network
+            Artist Apprenticeship Network
           </TileUI>
           <TileUI style={{ gridColumn: "1 / span 5", height: "20vh" }}>
             Health Design Lab
           </TileUI>
           <TileUI style={{ gridColumn: "6 / span 5", height: "20vh" }}>
-          Basically Good Media Lab
+            Basically Good Media Lab
           </TileUI>
         </GridUI>
-
       </SectionUI>
 
-      <SectionUI style={{ minHeight: "50vh", flexDirection: "column" }}>
+      <SectionUI style={{ flexDirection: "column" }}>
         <GradientHeaderUI>
           Alumni Stories <br></br>
           and Career Pathways

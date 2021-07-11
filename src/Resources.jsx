@@ -13,13 +13,12 @@ import Dropdown from './components/Dropdown.js'
 
 
 const SectionUI = styled.div`
-  min-height: 100vh;
+
   display: flex;
   width: 75vw;
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 10vh 0 0 0;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -102,39 +101,39 @@ const TitleUI = styled.div`
   text-align: left;
   width: 100%;
   font-family: "Noto Sans JP", sans-serif;
+  animation: gradient 5s ease infinite;
 
   @media (max-width: 1000px) {
     font-size: 10vw;
   }
 
-  animation: gradient 9s ease infinite;
+
 
 
   
 `;
 
 const HeaderUI = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  text-align: left;
-  padding: 0 0 24px 0;
-  font-weight: 900;
+display: flex;
+justify-content: flex-start;
+text-align: left;
+font-weight: 900;
+font-size: 55px;
+background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-overflow: ellipsis;
+white-space: nowrap;
+display: block;
+text-align: left;
+padding: 0 0 50px 0;
+width: 100%;
+font-family: "Noto Sans JP", sans-serif;
+animation: gradient 5s ease infinite;
 
-  text-align: left;
-  width: 100%;
-  background: linear-gradient(257.7deg, #21B592 47.29%, #005695 92.38%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
-  
-  font-size: 56px;
-  @media (max-width: 1000px) {
-      
-  font-size: 32px;
-  }
-
+@media (max-width: 1000px) {
+  font-size: 8vw;
+}
 `;
 
 
@@ -174,6 +173,12 @@ const TileUI = styled.div`
 &:hover{
   background: #B9D9EB;
 }
+@media (max-width: 1000px) {
+  font-size: 22px;
+  line-height: 20px;
+
+  
+}
 
 `;
 
@@ -197,8 +202,9 @@ const GridUI = styled.div`
   width: 75vw;
 
   @media (max-width: 1000px) {
-
-    grid-template-rows: repeat(9, 1fr);
+    font-size: 22px;
+    line-height: 20px;
+    grid-template-rows: repeat(1, 1fr);
     
   }
 
@@ -289,7 +295,7 @@ export default function Resources() {
   return (
   <div className="container">
 
-    <SectionUI style={{margin: '100px 0 0 0'}}>
+    <SectionUI style={{margin: '200px 0 0 0'}}>
 
       <TitleUI>Resources</TitleUI>
 
@@ -303,7 +309,7 @@ export default function Resources() {
     </SectionUI>
 
 
-    <SectionUI style={{margin: '200px 0 0 0'}}>
+    <SectionUI style={{margin: '150px 0 0 0'}}>
 
       <HeaderUI>Alumni Stories <br></br>
 and Career Pathways</HeaderUI>
@@ -313,9 +319,9 @@ and Career Pathways</HeaderUI>
     </SectionUI>
 
 
-    <SectionUI  style={{width: '90vw'}}>
+    <SectionUI  style={{width: '90vw', margin: '200px 0 0 0'}}>
 
-    <GridUI style={{width: '90vw', margin: '200px 0 0 0' }}>
+    <GridUI style={{width: '90vw' }}>
      
       <TileUI style={{gridColumn: '1 / span 3', height: '20vh'}}>Aboriginal <br></br> Gathering Place</TileUI>
       <TileUI style={{gridColumn: '4 / span 3', height: '20vh'}}>Emily Carr <br></br> University Library</TileUI>

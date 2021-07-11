@@ -65,9 +65,9 @@ const TitleUI = styled.h1`
   font-family: "Noto Sans JP", sans-serif;
 
   font-size: 56px;
-  animation: gradient 5s ease infinite;
+  
 
-  background: -webkit-linear-gradient(
+  background: linear-gradient(
     113.03deg,
     #e01583 31.82%,
     #1c878c 71.61%
@@ -77,11 +77,16 @@ const TitleUI = styled.h1`
   -webkit-text-fill-color: transparent;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @media (min-width: 1200px) {
+    animation: gradient 5s ease infinite;
+  }
+  
   @media (max-width: 1100px) {
     font-size: 48px;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 800px) {
     font-size: 10vw;
   }
 `;

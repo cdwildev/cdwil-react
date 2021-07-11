@@ -132,7 +132,7 @@ export const DropdownButton = ({text, data}) => {
   return (
 <>
       <DropdownUI onMouseEnter={handleHover} onMouseLeave={handleUnhover} style={{background: hover ? '#00B188' : 'white'}}>
-        <ButtonUI onClick={handleClick}>{text} {active ? <Minus></Minus> : <Plus></Plus> }  </ButtonUI>
+        <ButtonUI onClick={handleClick}><div style={{width: '50%'}}>{text}</div> {active ? <Minus></Minus> : <Plus></Plus> }  </ButtonUI>
 
         {active ? <ContentUI>
             {data.map(resource => <LinkUI target='_blank' href={resource.link}>{resource.title}</LinkUI>)}

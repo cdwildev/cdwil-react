@@ -163,7 +163,7 @@ width: 343px;
     }
 
     @media (max-width: 800px) {
-      font-size: 16px;
+      font-size: 22px;
       line-height: 20px;
     }
   `;
@@ -237,7 +237,7 @@ transform: rotate(-0.21deg);
 
   return (
     <div className="container">
-      <SectionUI style={{ minHeight: "60vh", margin: '150px 0 0 0'}}>
+      <SectionUI style={{ margin: '200px 0 0 0'}}>
         <LeftUI>
           <AboutUsUI>About Us</AboutUsUI>
           <HeaderUI>
@@ -251,7 +251,7 @@ transform: rotate(-0.21deg);
         </RightUI>
       </SectionUI>
 
-      <SectionUI  style={{ minHeight: "400px"}}>
+      <SectionUI  style={{ margin: '150px 0 150px 0'}}>
 
         <GradientUI></GradientUI>
         <AboutUI>
@@ -264,7 +264,7 @@ transform: rotate(-0.21deg);
         </AboutUI>
       </SectionUI>
 
-      <SectionUI  style={{ minHeight: "50vh"}}>
+      <SectionUI  style={{ margin: '0 0 0 0'}}>
         <GridUI style={{ width: "90vw"}}>
           <TileUI>
             Career <br></br> Advising
@@ -287,11 +287,11 @@ transform: rotate(-0.21deg);
         </GridUI>
       </SectionUI>
 
-      <SectionUI  style={{ minHeight: "600px"}}>
+      <SectionUI  style={{ margin: ' 150px 0 150px 0'}}>
         <ContactForm />
       </SectionUI>
 
-      <SectionUI style={{ minHeight: "700px"}}>
+      <SectionUI style={{  margin: '100px 0 0 0'}}>
         <LeftUI>
           <AboutUsUI>Contact</AboutUsUI>
           <ContactInfoUI>604.844.3843 | coop@ecuad.ca</ContactInfoUI>

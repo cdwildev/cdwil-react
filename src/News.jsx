@@ -33,12 +33,12 @@ const TitleUI = styled.div`
   white-space: nowrap;
   display: block;
   text-align: left;
+  animation: gradient 5s ease infinite;
 
   @media (max-width: 1000px) {
     font-size: 10vw;
   }
 
-  animation: gradient 9s ease infinite;
 `;
 
 const GridUI = styled.div`
