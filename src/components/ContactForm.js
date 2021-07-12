@@ -62,7 +62,6 @@ width:100vw;
 top: 0;
 display: flex;
 justify-content: center;
-
 align-items: center;
 border-radius: 10px;
 z-index: 100000;
@@ -73,10 +72,9 @@ z-index: 100000;
 
 const IframeSectionUI = styled.div`
 margin: 50px;
-position: fixed;
 height: 80vh;
 width:85vw;
-top: 5vh;
+position: relative;
 display: flex;
 justify-content: center;
 background: white;
@@ -89,6 +87,7 @@ width: 100vw;
 height: 100vh;
 background: black;
 opacity: 50%;
+position: absolute;
 `;
 
 export const ContactForm = ({gradient='linear-gradient(0deg, #252525, #252525);'}) => {
@@ -107,9 +106,9 @@ export const ContactForm = ({gradient='linear-gradient(0deg, #252525, #252525);'
 
 <PopupUI style={{visibility: active ? 'visible' : 'hidden'}}>
   <BackgroundUI onClick={() => setActive(!active)}></BackgroundUI>
-<IframeSectionUI >
-<JotformEmbed src= "https://form.jotform.com/211880701828255"/>
-</IframeSectionUI>
+  <IframeSectionUI >
+  <JotformEmbed src= "https://form.jotform.com/211880701828255"/>
+  </IframeSectionUI>
 </PopupUI>
 </>
 
