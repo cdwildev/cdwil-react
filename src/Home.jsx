@@ -242,7 +242,7 @@ const LoadingGradientTwoUI = styled.div`
   transition: 1s ease;
 
   @media (max-width: 1100px) {
-    width: 250vw;
+    width: 150vw;
     height: 250vh;
   }
 
@@ -262,8 +262,8 @@ const LoadingGradientThreeUI = styled.div`
   transition: 1s ease;
 
   @media (max-width: 1100px) {
-    width: 250vw;
-    height: 250vh;
+    width: 150vw;
+    height: 150vh;
   }
 `;
 
