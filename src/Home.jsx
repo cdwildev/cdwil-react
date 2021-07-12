@@ -12,7 +12,7 @@ import buttonBgOne from "./images/bg-1.png";
 import buttonBgTwo from "./images/bg-2.png";
 import Footer from "./components/Footer";
 import sanityClient from "./client";
-import LazyLoad from "react-lazyload";
+
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -69,7 +69,7 @@ const TitleUI = styled.div`
   width: 100%;
   font-family: "Noto Sans JP", sans-serif;
   animation: gradient 5s ease infinite;
-  z-index: 1000000;
+  z-index: 1000;
   @media (max-width: 800px) {
     font-size: 10vw;
   }
@@ -197,15 +197,19 @@ left: 0;
 z-index: 10000;
 overflow: hidden;
 transition: 1s ease;
+display: flex;
+justify-content: flex-start;
+align-items: flex-start;
 `
 
 const LoadingContainerUI = styled.div`
-width: 200vw;
-height: 200vh;
+width: 100vw;
+height: 100vh;
 position: fixed;
-top: -50vh;
+top: 0vh;
 left: 0;
-z-index: 10000;
+
+
 
 
 `
@@ -264,6 +268,8 @@ const LoadingGradientThreeUI = styled.div`
 `;
 
 
+
+
 function Home() {
   const [allPostsData, setAllPosts] = useState([]);
 
@@ -316,11 +322,12 @@ function Home() {
       <LoadingUI style={{display: isLoading ? 'flex' : 'none'}}>
    
    <LoadingContainerUI>
+     
         <LoadingGradientUI style={{top: isAnimate ? '-100vh' : '300vh'}}/>
         <LoadingGradientTwoUI style={{left: isAnimate ? '0vw' : '300vw'}}/>
         <LoadingGradientThreeUI style={{left: isAnimate ? '-100vw' : '-300vw'}}/>
+       
       </LoadingContainerUI>
-
       </LoadingUI>
       <SectionUI
         style={{
