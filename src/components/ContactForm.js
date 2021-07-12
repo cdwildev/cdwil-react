@@ -9,33 +9,44 @@ import JotformEmbed from 'react-jotform-embed';
 
 
 
+const ContainerUI = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 75vw;
+  @media (max-width: 1400px) {
+    width: 90vw;
+    font-size: 5vw;
+    justify-content: center;
+  }
+`
+
 
 const ButtonUI = styled.button`
 background: #FFFFFF;
 border: 4px solid #252525;
 box-sizing: border-box;
 border-radius: 25px;
-width: 75vw;
-min-height: 248px;
-display: flex;
-justify-content: center;
+padding: 50px 0; 
 
-align-items: center;
-background: linear-gradient(92.92deg, #5E366E 23.05%, #FE2B9E 70.77%),
-linear-gradient(0deg, #252525, #252525);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-text-overflow: ellipsis;
-white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  font-weight: 900;
+  font-size: 48px;
+
+  background: linear-gradient(113.03deg, #e01583 31.82%, #1c878c 71.61%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  text-align: center;
+  width: 100%;
+
+  animation: gradient 5s ease infinite;
+  z-index: 1000;
+
 cursor: pointer;
-text-align: left;
-font-family: Noto Sans;
-font-style: normal;
-font-weight: 800;
-font-size: 55px;
-line-height: 48px;
-flex-direction: column;
-
   &:hover{
     -webkit-background-clip: unset;
     -webkit-text-fill-color: unset;
@@ -45,9 +56,8 @@ flex-direction: column;
 
 
   @media (max-width: 1400px) {
-    width: 90vw;
-    font-size: 30px;
-    padding: 0;
+
+    font-size: 5vw;
     justify-content: center;
   }
 
@@ -56,15 +66,18 @@ flex-direction: column;
 
 const PopupUI = styled.div`
 
-position: fixed;
+position: relative;
 height: 100vh;
-width:100vw;
+
 top: 0;
 display: flex;
 justify-content: center;
 align-items: center;
 border-radius: 10px;
 z-index: 100000;
+flex-direction: column;
+color: white;
+
 `
 
 
@@ -73,7 +86,7 @@ z-index: 100000;
 const IframeSectionUI = styled.div`
 margin: 50px;
 height: 80vh;
-width:85vw;
+width:70vw;
 position: relative;
 display: flex;
 justify-content: center;
@@ -81,6 +94,12 @@ background: white;
 align-items: center;
 overflow-y: scroll;
 border-radius: 10px;
+
+@media (max-width: 1400px) {
+  width:85vw;
+}
+
+
 `
 const BackgroundUI = styled.div`
 width: 100vw;
@@ -88,6 +107,7 @@ height: 100vh;
 background: black;
 opacity: 50%;
 position: absolute;
+cursor: pointer;
 `;
 
 export const ContactForm = ({gradient='linear-gradient(0deg, #252525, #252525);'}) => {
@@ -97,20 +117,22 @@ export const ContactForm = ({gradient='linear-gradient(0deg, #252525, #252525);'
 
   return (
 
-<>
+<ContainerUI style={{display: 'flex', flexDirection: 'column'}}>
 <ButtonUI onClick={() => setActive(!active)}>Book an Appointment
 
 
+<PopupUI style={{visibility: active ? 'visible' : 'hidden', height: active ? '100%' : '0px'}}>
+  
 
-</ButtonUI>
-
-<PopupUI style={{visibility: active ? 'visible' : 'hidden'}}>
-  <BackgroundUI onClick={() => setActive(!active)}></BackgroundUI>
   <IframeSectionUI >
   <JotformEmbed src= "https://form.jotform.com/211880701828255"/>
   </IframeSectionUI>
+
 </PopupUI>
-</>
+</ButtonUI>
+
+
+</ContainerUI>
 
   );
 };

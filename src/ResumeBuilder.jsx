@@ -102,6 +102,7 @@ background: white;
 align-items: center;
 overflow-y: scroll;
 border-radius: 10px;
+margin:0 0 100px 0;
 
 `;
 
@@ -114,6 +115,7 @@ display: flex;
 justify-content: center;
 background: white;
 align-items: center;
+
 
 `;
 
