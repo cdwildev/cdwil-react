@@ -4,10 +4,8 @@ import styled from "styled-components";
 import logo from "../images/logo.svg";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { ChevronUp, ChevronDown, X, Plus } from "react-feather";
-import { DropdownButton } from './DropdownButton'
-import JotformEmbed from 'react-jotform-embed';
-
-
+import { DropdownButton } from "./DropdownButton";
+import JotformEmbed from "react-jotform-embed";
 
 const ContainerUI = styled.div`
   display: flex;
@@ -18,15 +16,14 @@ const ContainerUI = styled.div`
     font-size: 5vw;
     justify-content: center;
   }
-`
-
+`;
 
 const ButtonUI = styled.button`
-background: #FFFFFF;
-border: 4px solid #252525;
-box-sizing: border-box;
-border-radius: 25px;
-padding: 50px 0; 
+  background: #ffffff;
+  border: 4px solid #252525;
+  box-sizing: border-box;
+  border-radius: 25px;
+  padding: 50px 0;
 
   display: flex;
   justify-content: center;
@@ -46,94 +43,80 @@ padding: 50px 0;
   animation: gradient 5s ease infinite;
   z-index: 1000;
 
-cursor: pointer;
-  &:hover{
+  cursor: pointer;
+  &:hover {
     -webkit-background-clip: unset;
     -webkit-text-fill-color: unset;
-    
+
     color: white;
   }
 
-
-  @media (max-width: 1400px) {
-
+  @media (max-width: 1000px) {
     font-size: 5vw;
-    justify-content: center;
   }
-
-
 `;
 
 const PopupUI = styled.div`
+  position: relative;
+  height: 100vh;
 
-position: relative;
-height: 100vh;
-
-top: 0;
-display: flex;
-justify-content: center;
-align-items: center;
-border-radius: 10px;
-z-index: 100000;
-flex-direction: column;
-color: white;
-
-`
-
-
-
-
-const IframeSectionUI = styled.div`
-margin: 50px;
-height: 80vh;
-width:70vw;
-position: relative;
-display: flex;
-justify-content: center;
-background: white;
-align-items: center;
-overflow-y: scroll;
-border-radius: 10px;
-
-@media (max-width: 1400px) {
-  width:85vw;
-}
-
-
-`
-const BackgroundUI = styled.div`
-width: 100vw;
-height: 100vh;
-background: black;
-opacity: 50%;
-position: absolute;
-cursor: pointer;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  z-index: 100000;
+  flex-direction: column;
+  color: white;
 `;
 
-export const ContactForm = ({gradient='linear-gradient(0deg, #252525, #252525);'}) => {
+const IframeSectionUI = styled.div`
+  position: relative;
+  height: 50vh;
 
-  const [active, setActive] = useState(false)
+  display: flex;
+  justify-content: center;
+  background: white;
+  align-items: center;
+  overflow-y: scroll;
+  border-radius: 10px;
+  margin: 100px 0 100px 0;
+  border: 4px solid #252525;
+  box-sizing: border-box;
+  width: 75vw;
+  @media (max-width: 1400px) {
+    width: 90vw;
+  }
+`;
+const BackgroundUI = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  opacity: 50%;
+  position: absolute;
+  cursor: pointer;
+`;
 
+export const ContactForm = ({
+  gradient = "linear-gradient(0deg, #252525, #252525);",
+}) => {
+  const [active, setActive] = useState(false);
 
   return (
+    <ContainerUI style={{ display: "flex", flexDirection: "column" }}>
+      <ButtonUI onClick={() => setActive(!active)}>
+        Book an Appointment
+      </ButtonUI>
 
-<ContainerUI style={{display: 'flex', flexDirection: 'column'}}>
-<ButtonUI onClick={() => setActive(!active)}>Book an Appointment
-
-
-<PopupUI style={{visibility: active ? 'visible' : 'hidden', height: active ? '100%' : '0px'}}>
-  
-
-  <IframeSectionUI >
-  <JotformEmbed src= "https://form.jotform.com/211880701828255"/>
-  </IframeSectionUI>
-
-</PopupUI>
-</ButtonUI>
-
-
-</ContainerUI>
-
+      <IframeSectionUI
+        style={{
+          opacity: active ? "100%" : "0%",
+          height: active ? "100vh" : "0px",
+        }}
+      >
+        <JotformEmbed src="https://form.jotform.com/211880701828255" />
+      </IframeSectionUI>
+    </ContainerUI>
   );
 };
 
