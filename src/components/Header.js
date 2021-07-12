@@ -103,6 +103,7 @@ const NavBottomUI = styled.div`
 `;
 
 const LogoUI = styled.img`
+
   @media (max-width: 1100px) {
     width: 20vw;
     min-width: 150px;

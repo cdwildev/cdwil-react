@@ -12,21 +12,19 @@ import buttonBgOne from "./images/bg-1.png";
 import buttonBgTwo from "./images/bg-2.png";
 import Footer from "./components/Footer";
 import sanityClient from "./client";
+import LazyLoad from "react-lazyload";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const SectionUI = styled.div`
-
   display: flex;
   justify-content: center;
   align-items: flex-start;
   position: relative;
   width: 75vw;
-  
 
   @media (max-width: 1400px) {
     width: 90vw;
-   
   }
 `;
 
@@ -54,39 +52,6 @@ const ButtonUI = styled.div`
   cursor: pointer;
 `;
 
-/* const TitleUI = styled.h1`
-  display: flex;
-  justify-content: flex-start;
-  text-align: left;
-  align-items: flex-end;
-  padding: 0 0 10px 0;
-  font-weight: 900;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-
-  font-size: 56px;
-  
-
-  background: linear-gradient( 113.03deg, #e01583 31.82%, #1c878c 71.61%);
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-
-  @media (min-width: 1200px) {
-    animation: gradient 5s ease infinite;
-  }
-  
-  @media (max-width: 1100px) {
-    font-size: 48px;
-  }
-
-  @media (max-width: 800px) {
-    font-size: 10vw;
-  }
-`; */
-
 const TitleUI = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -94,7 +59,7 @@ const TitleUI = styled.div`
   font-weight: 900;
   font-size: 48px;
   padding: 0 0 10px 0;
-  background: linear-gradient( 113.03deg, #e01583 31.82%, #1c878c 71.61%);
+  background: linear-gradient(113.03deg, #e01583 31.82%, #1c878c 71.61%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-overflow: ellipsis;
@@ -104,15 +69,10 @@ const TitleUI = styled.div`
   width: 100%;
   font-family: "Noto Sans JP", sans-serif;
   animation: gradient 5s ease infinite;
-
+  z-index: 1000000;
   @media (max-width: 800px) {
     font-size: 10vw;
   }
-
-
-
-
-  
 `;
 
 const SubTitleUI = styled.p`
@@ -170,47 +130,45 @@ const ImageUI = styled.img`
 `;
 
 const GradientMobileUI = styled.div`
-position: absolute;
-width: 100vw;
-height: 50vw;
-top: -50px;
-left: -10vh;
-background: #C1D42F;
-filter: blur(100px);
-display: none;
-@media (max-width: 1100px) {
-  display: flex;
-}
-
+  position: absolute;
+  width: 100vw;
+  height: 50vw;
+  top: -50px;
+  left: -10vh;
+  background: #c1d42f;
+  filter: blur(100px);
+  display: none;
+  @media (max-width: 1100px) {
+    display: flex;
+  }
 `;
 
 const GradientUI = styled.div`
-position: absolute;
-width: 40vw;
-height: 20vw;
+  position: absolute;
+  width: 40vw;
+  height: 20vw;
 
-background: #C1D42F;
-filter: blur(100px);
-display: flex;
-@media (max-width: 1100px) {
-  display: none;
-}
+  background: #c1d42f;
+  filter: blur(100px);
+  display: flex;
+  @media (max-width: 1100px) {
+    display: none;
+  }
 `;
 
 const InspireTitleUI = styled.div`
-font-family: "Noto Sans JP", sans-serif;
-font-size: 150px;
-font-style: normal;
-font-weight: 900;
-z-index: 1000;
-text-align: left;
-color: white;
-width: 100%;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 150px;
+  font-style: normal;
+  font-weight: 900;
+  z-index: 1000;
+  text-align: left;
+  color: white;
+  width: 100%;
 
-@media (max-width: 1100px) {
-  display: none;
-}
-
+  @media (max-width: 1100px) {
+    display: none;
+  }
 `;
 
 const InspireTitleMobileUI = styled.div`
@@ -227,6 +185,82 @@ display: none;
   display: flex;
 }
 
+`;
+
+const LoadingUI = styled.div`
+width: 100vw;
+height: 100vh;
+position: fixed;
+
+top: 0;
+left: 0;
+z-index: 10000;
+overflow: hidden;
+transition: 1s ease;
+`
+
+const LoadingContainerUI = styled.div`
+width: 200vw;
+height: 200vh;
+position: fixed;
+top: -50vh;
+left: 0;
+z-index: 10000;
+
+
+`
+
+const LoadingGradientUI = styled.div`
+  position: absolute;
+  width: 300vw;
+  height: 300vh;
+  left: -100vw;
+  top: 0vh;
+  border-radius: 100%;
+  background: #c1d42f;
+  filter: blur(50px);
+  display: flex;
+  transition: 1s ease;
+  
+
+`;
+const LoadingGradientTwoUI = styled.div`
+  position: absolute;
+  width: 200vw;
+  height: 200vh;
+
+  top: -100vh;
+  border-radius: 100%;
+  background: #E01583;
+  filter: blur(50px);
+  display: flex;
+  animation: rotate 4s ease infinite;
+  transition: 1s ease;
+
+  @media (max-width: 1100px) {
+    width: 250vw;
+    height: 250vh;
+  }
+
+`;
+
+const LoadingGradientThreeUI = styled.div`
+  position: absolute;
+  width: 200vw;
+  height: 200vh;
+  border-radius: 100%;
+  background: #00B188;
+  top: -100vh;
+  left: -100vw;
+  filter: blur(50px);
+  display: flex;
+  animation: rotate 4s ease infinite;
+  transition: 1s ease;
+
+  @media (max-width: 1100px) {
+    width: 250vw;
+    height: 250vh;
+  }
 `;
 
 
@@ -254,87 +288,110 @@ function Home() {
     }
   }, []);
 
-  console.log(allPostsData);
+  const [isAnimate, setIsAnimate] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    
+    setTimeout(() => {
+      setIsAnimate(false)
+    }, 1000)
+
+
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1500)
+
+  }, []);
 
   return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "flex-start",
+      }}
+    >
+      <LoadingUI style={{display: isLoading ? 'flex' : 'none'}}>
+   
+   <LoadingContainerUI>
+        <LoadingGradientUI style={{top: isAnimate ? '-100vh' : '300vh'}}/>
+        <LoadingGradientTwoUI style={{left: isAnimate ? '0vw' : '300vw'}}/>
+        <LoadingGradientThreeUI style={{left: isAnimate ? '-100vw' : '-300vw'}}/>
+      </LoadingContainerUI>
 
-      <div
+      </LoadingUI>
+      <SectionUI
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "flex-start",
+          margin: "200px 0 200px 0 ",
+          alignItems: "flex-start",
         }}
       >
-        <SectionUI
-          style={{
-            margin: "200px 0 200px 0 ",
-            alignItems: "flex-start",
-        
-          }}
-        >
-          <LeftColumn>
-            <TitleUI>
-              Career <br></br> Development <br></br>+ Work Integrated <br></br>
-              Learning Office
-            </TitleUI>
-            <SubTitleUI>
-              Connecting students and alumni with local, national and
-              international employers in the creative industries and beyond.
-            </SubTitleUI>
-            <Link to="/about" style={{textDecoration: 'none', color: 'black'}}>
+        <LeftColumn>
+          <TitleUI>
+            Career <br></br> Development <br></br>+ Work Integrated <br></br>
+            Learning Office
+          </TitleUI>
+          <SubTitleUI>
+            Connecting students and alumni with local, national and
+            international employers in the creative industries and beyond.
+          </SubTitleUI>
+          <Link to="/about" style={{ textDecoration: "none", color: "black" }}>
             <ButtonUI>Learn More</ButtonUI>
-            </Link>
-          </LeftColumn>
-          <RightColumn>
-            <ImageGrid>
-              <ImageUI
-                src={heroOne}
-                style={{ gridColumn: "2 / span 8", width: "100%" }}
-              />
-              <ImageUI
-                src={heroTwo}
-                style={{ gridColumn: "1 / span 3", width: "100%" }}
-              />
-              <ImageUI
-                src={heroThree}
-                style={{ gridColumn: "5 / span 4", width: "100%" }}
-              />
-            </ImageGrid>
-          </RightColumn>
-        </SectionUI>
+          </Link>
+        </LeftColumn>
+        <RightColumn>
+          <ImageGrid>
+            <ImageUI
+              style={{ width: "100%", gridColumn: "2 / span 8" }}
+              src={heroOne}
+            />
 
-        <SectionUI className="section"
-                  style={{
-                    margin: "0vh 0 200px 0 ",
-                    alignItems: "flex-start",
-                
-                  }}
-        >
-          <NavGrid />
-        </SectionUI>
+            <ImageUI
+              style={{ width: "100%", gridColumn: "1 / span 3" }}
+              src={heroTwo}
+            />
 
-        <SectionUI className="section"
-                          style={{
-                            margin: "00px 0 0 0 ",
-                            alignItems: "flex-start",
-                            flexDirection: 'column'
-                        
-                          }}>
-                                  <GradientUI></GradientUI>
-      <GradientMobileUI></GradientMobileUI>
-      <GradientUI style={{left: '0', top: '0', width: '40vw'}}></GradientUI>
-      <GradientUI style={{right: '0', bottom: '0', width: '60vw'}}></GradientUI>
-<InspireTitleUI>GET</InspireTitleUI>
+            <ImageUI
+              style={{ width: "100%", gridColumn: "5 / span 4" }}
+              src={heroThree}
+            />
+          </ImageGrid>
+        </RightColumn>
+      </SectionUI>
 
-<InspireTitleMobileUI>GET INSPIRED</InspireTitleMobileUI>
-          <InspireGrid allPostsData={allPostsData} />
-          <InspireTitleUI style={{textAlign: 'right'}}>INSPIRED</InspireTitleUI>
-          
-        </SectionUI>
-        
-      </div>
+      <SectionUI
+        className="section"
+        style={{
+          margin: "0vh 0 200px 0 ",
+          alignItems: "flex-start",
+        }}
+      >
+        <NavGrid />
+      </SectionUI>
 
+      <SectionUI
+        className="section"
+        style={{
+          margin: "00px 0 0 0 ",
+          alignItems: "flex-start",
+          flexDirection: "column",
+        }}
+      >
+        <GradientUI></GradientUI>
+        <GradientMobileUI></GradientMobileUI>
+        <GradientUI style={{ left: "0", top: "0", width: "40vw" }}></GradientUI>
+        <GradientUI
+          style={{ right: "0", bottom: "0", width: "60vw" }}
+        ></GradientUI>
+        <InspireTitleUI>GET</InspireTitleUI>
+
+        <InspireTitleMobileUI>GET INSPIRED</InspireTitleMobileUI>
+        <InspireGrid allPostsData={allPostsData} />
+        <InspireTitleUI style={{ textAlign: "right" }}>INSPIRED</InspireTitleUI>
+      </SectionUI>
+    </div>
   );
 }
 

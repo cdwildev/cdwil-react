@@ -456,6 +456,25 @@ iframe{
   }
 }
 
+@keyframes rotate {
+  from{
+
+    transform: rotate(0deg)
+
+    
+
+  }
+
+
+  to{
+
+    transform: rotate(360deg)
+
+    
+    
+  }
+}
+
 @media only screen and (max-width: 1180px) {
     .section{
         width: 90vw;
