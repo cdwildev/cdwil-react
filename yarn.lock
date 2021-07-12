@@ -3941,7 +3941,7 @@ core-js@^2.4.0:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
-core-js@^3.6.5:
+core-js@^3.0.0, core-js@^3.6.5:
   version "3.15.2"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.15.2.tgz#740660d2ff55ef34ce664d7e2455119c5bdd3d61"
   integrity sha512-tKs41J7NJVuaya8DxIOCnl8QuPHx5/ZVbFo1oKgVl1qHFBBrDctzQGtuLjPpRdNTWmKPH6oEvgN/MUID+l485Q==
@@ -9679,6 +9679,13 @@ react-is@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+
+react-jotform-embed@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-jotform-embed/-/react-jotform-embed-1.1.1.tgz#14d052f6c67fd77debea4e0e3e06ebc1e56f0aa9"
+  integrity sha512-Qw+G/lTglbLRU0m54Mzk9C9Sb7O/5ALzstYyYw/H2hE4K3BFxDTsauP6jHD97pSVlsrS1Vpu0OCpyPhufrMjlA==
+  dependencies:
+    core-js "^3.0.0"
 
 react-player@^2.9.0:
   version "2.9.0"

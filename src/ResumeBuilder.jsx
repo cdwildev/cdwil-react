@@ -3,6 +3,7 @@ import {SkillIdentifier} from './components/SkillIdentifier/SkillIdentifier';
 import sanityClient from './client';
 import styled from "styled-components";
 import skillIdentifierImage from '../src/images/resume-builder.svg'
+import JotformEmbed from 'react-jotform-embed';
 
 const SectionUI = styled.div`
   min-height: 100vh;
@@ -94,18 +95,20 @@ const FormSectionUI = styled.div`
 const IframeSectionUI = styled.div`
 position: relative;
 height: 100vh;
-width: 100vw;
+width: 90vw;
 display: flex;
 justify-content: center;
 background: white;
 align-items: center;
+overflow-y: scroll;
+border-radius: 10px;
 
 `;
 
 
 const IframeContainerUI = styled.div`
 position: relative;
-height: 10vh;
+height: 100vh;
 width: 100vw;
 display: flex;
 justify-content: center;
@@ -119,11 +122,11 @@ align-items: center;
 export default function SkillIdentifierTool() {
   const [allPostsData, setAllPosts] = useState([]);
 
+  const jotForm = document.getElementById('jotform')
+ 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://paperform.co/__embed.min.js";
-    document.body.appendChild(script);
-  }, []);
+    console.log('hi')
+  }, [jotForm])
 
   return (
     <div
@@ -155,11 +158,13 @@ export default function SkillIdentifierTool() {
         </ContainerUI>
       </SectionUI>
 {/*       <button  data-popup-button="1" prefill-inherit data-paperform-id="resume-builder" /> */}
-
 <IframeSectionUI>
-<iframe frameborder="0" height="100%" width="100%" src="https://resume-builder.paperform.co/" ></iframe>
-{/* <div style={{width: '100vw', height: '1000px', position: 'absolute'}}  data-takeover="1" data-paperform-id="resume-builder"></div> */}
+<JotformEmbed src="https://form.jotform.com/211809145619054"/>
 </IframeSectionUI>
+
+
+
+
 
 
 {/* <iframe frameborder="0" height="100%" width="100%" src="https://resume-builder.paperform.co/" ></iframe> */}
