@@ -287,11 +287,11 @@ transform: rotate(-0.21deg);
         </GridUI>
       </SectionUI>
 
-      <SectionUI  style={{ margin: ' 150px 0 150px 0'}}>
+      <SectionUI  style={{ margin: ' 150px 0 0px 0'}}>
         <ContactForm />
       </SectionUI>
 
-      <SectionUI style={{  margin: '100px 0 0 0'}}>
+      <SectionUI style={{  margin: '150px 0 0 0'}}>
         <LeftUI>
           <AboutUsUI>Contact</AboutUsUI>
           <ContactInfoUI>604.844.3843 | coop@ecuad.ca</ContactInfoUI>
@@ -309,6 +309,8 @@ transform: rotate(-0.21deg);
           <img style={{width: '90%'}} src={Map}></img>
         </RightUI>
       </SectionUI>
+
+
     </div>
   );
 }

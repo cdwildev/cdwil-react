@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { ChevronUp, ChevronDown, X, Plus } from "react-feather";
 import { DropdownButton } from "./DropdownButton";
 import JotformEmbed from "react-jotform-embed";
+import useWindowDimensions from "../helpers/Window";
 
 const ContainerUI = styled.div`
   display: flex;
@@ -30,7 +31,7 @@ const ButtonUI = styled.button`
   text-align: left;
   font-weight: 900;
   font-size: 48px;
-
+overflow: hidden;
   background: linear-gradient(113.03deg, #e01583 31.82%, #1c878c 71.61%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -80,9 +81,6 @@ const IframeSectionUI = styled.div`
   align-items: center;
   overflow-y: scroll;
   border-radius: 10px;
-  margin: 100px 0 100px 0;
-  border: 4px solid #252525;
-  box-sizing: border-box;
   width: 75vw;
   @media (max-width: 1400px) {
     width: 90vw;
@@ -100,22 +98,27 @@ const BackgroundUI = styled.div`
 export const ContactForm = ({
   gradient = "linear-gradient(0deg, #252525, #252525);",
 }) => {
+
+  const { height, width } = useWindowDimensions();
   const [active, setActive] = useState(false);
 
   return (
     <ContainerUI style={{ display: "flex", flexDirection: "column" }}>
       <ButtonUI onClick={() => setActive(!active)}>
         Book an Appointment
-      </ButtonUI>
 
-      <IframeSectionUI
+        <IframeSectionUI
         style={{
-          opacity: active ? "100%" : "0%",
-          height: active ? "100vh" : "0px",
+          visibility: active || width < 1000 ? "100%" : "0%",
+          height: active || width < 1000 ? "50vh" : "0px",
+          margin: active || width < 1000 ? "100px 0 0 0" : "0px",
         }}
       >
         <JotformEmbed src="https://form.jotform.com/211880701828255" />
       </IframeSectionUI>
+      </ButtonUI>
+
+
     </ContainerUI>
   );
 };
