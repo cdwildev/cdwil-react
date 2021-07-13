@@ -27,11 +27,10 @@ const ButtonUI = styled.button`
   padding: 50px 0;
 
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: left;
   font-weight: 900;
   font-size: 48px;
-overflow: hidden;
   background: linear-gradient(113.03deg, #e01583 31.82%, #1c878c 71.61%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -40,6 +39,9 @@ overflow: hidden;
   display: block;
   text-align: center;
   width: 100%;
+  font-family: "Noto Sans JP", sans-serif;
+  animation: gradient 5s ease infinite;
+  z-index: 1000;
 
   animation: gradient 5s ease infinite;
   z-index: 1000;
@@ -58,7 +60,7 @@ overflow: hidden;
 `;
 
 const PopupUI = styled.div`
-  position: relative;
+  position: fixed;
   height: 100vh;
 
   top: 0;
@@ -73,7 +75,7 @@ const PopupUI = styled.div`
 
 const IframeSectionUI = styled.div`
   position: relative;
-  height: 50vh;
+  height: 70vh;
 
   display: flex;
   justify-content: center;
@@ -103,21 +105,25 @@ export const ContactForm = ({
   const [active, setActive] = useState(false);
 
   return (
-
+<>
       <ButtonUI onClick={() => setActive(!active)}>
         Book an Appointment
-
-        <IframeSectionUI
-        style={{
-          visibility: active ? "100%" : "0%",
-          height: active ? "50vh" : "0px",
-          margin: active ? "100px 0 0 0" : "0px",
-        }}
-      >
-        <JotformEmbed src="https://form.jotform.com/211880701828255" />
-      </IframeSectionUI>
       </ButtonUI>
+<PopupUI style={{
+  visibility: active ? "visible" : "hidden",
 
+}}>
+
+  <BackgroundUI onClick={() => setActive(!active)}></BackgroundUI>
+<IframeSectionUI
+
+>
+<JotformEmbed src="https://form.jotform.com/211880701828255" />
+</IframeSectionUI>
+<X onClick={() => setActive(!active)} style={{position:'absolute', right: '0', top: '5vw'}}></X>
+
+</PopupUI>
+</>
 
   );
 };
