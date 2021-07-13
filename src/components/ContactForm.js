@@ -103,11 +103,11 @@ export const ContactForm = ({
   const [active, setActive] = useState(false);
 
   return (
-    <ContainerUI style={{ display: "flex", flexDirection: "column" }}>
+
       <ButtonUI onClick={() => setActive(!active)}>
         Book an Appointment
 
-        <IframeSectionUI
+{/*         <IframeSectionUI
         style={{
           visibility: active || width < 1000 ? "100%" : "0%",
           height: active || width < 1000 ? "50vh" : "0px",
@@ -115,11 +115,10 @@ export const ContactForm = ({
         }}
       >
         <JotformEmbed src="https://form.jotform.com/211880701828255" />
-      </IframeSectionUI>
+      </IframeSectionUI> */}
       </ButtonUI>
 
 
-    </ContainerUI>
   );
 };
 

@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Office from "../src/images/office.png";
 import { ContactForm } from "./components/ContactForm";
 import Map from "../src/images/map.svg";
+import JotformEmbed from "react-jotform-embed";
 
 export default function About() {
   const [allPostsData, setAllPosts] = useState([]);
@@ -235,6 +236,22 @@ filter: blur(5px);
 transform: rotate(-0.21deg);
 `
 
+const IframeSectionUI = styled.div`
+  position: relative;
+  height: 50vh;
+
+  display: flex;
+  justify-content: center;
+  background: white;
+  align-items: center;
+  overflow-y: scroll;
+  border-radius: 10px;
+  width: 75vw;
+  @media (max-width: 1400px) {
+    width: 90vw;
+  }
+`
+
   return (
     <div className="container">
       <SectionUI style={{ margin: '200px 0 0 0'}}>
@@ -287,8 +304,14 @@ transform: rotate(-0.21deg);
         </GridUI>
       </SectionUI>
 
-      <SectionUI  style={{ margin: ' 150px 0 0px 0'}}>
+      <SectionUI  style={{ margin: ' 150px 0 0px 0', flexDirection:'column'}}>
         <ContactForm />
+
+        <IframeSectionUI
+
+      >
+        <JotformEmbed src="https://form.jotform.com/211880701828255" />
+      </IframeSectionUI> 
       </SectionUI>
 
       <SectionUI style={{  margin: '150px 0 0 0'}}>
