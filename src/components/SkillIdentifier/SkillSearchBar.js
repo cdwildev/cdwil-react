@@ -6,7 +6,7 @@ import { ChevronUp, ArrowRight, X, PlusCircle } from 'react-feather';
 
 const ContainerUI = styled.div`
 width: 90vw;
-top: 10vh;
+top: 150px;
 display: flex;
 justify-content: space-between;
 z-index: 2000;
@@ -15,6 +15,7 @@ z-index: 2000;
 @media (max-width: 500px) {
     width: 90vw;
     justify-content: flex-start;
+    display: none;
   }
 `;
 

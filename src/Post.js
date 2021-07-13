@@ -5,6 +5,8 @@ import styled from "styled-components";
 
 import { useHistory, useParams } from "react-router-dom";
 import imageUrlBuilder from "@sanity/image-url";
+import Footer from "./components/Footer";
+
 
 // Get a pre-configured url-builder from your sanity client
 const builder = imageUrlBuilder(sanityClient)
@@ -198,6 +200,8 @@ export default function Post(props) {
             ))}
         </BodyUI>
       </SectionUI>
+
+      <Footer/>
     </div>
   );
 }

@@ -17,14 +17,34 @@ const SkillContainerUI = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+
 `;
 
 const RowUI = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.5s ease;
+
   margin: 5vh 0;
+
+`;
+
+const RowRelatedUI = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  
+ 
+
+  @media (max-width: 500px) {
+    opacity: 0%;
+    height: 0px;
+    visibility: hidden;
+    margin: 0;
+    
+  }
 `;
 
 export const Skill = ({
@@ -104,7 +124,7 @@ export const Skill = ({
         </RowUI>
 
         {skill == 'soft-skill' ? '' : (
-        <RowUI style={{ opacity: showRelated ? "100%" : "0%" }}>
+        <RowRelatedUI style={{ opacity: showRelated ? "100%" : "0%" }}>
           <BubbleRelated
             skillList={skillList}
             setSkillList={setSkillList}
@@ -164,7 +184,7 @@ export const Skill = ({
             setSoftwareList={setSoftwareList}
             allPostsData={allPostsData}
           />
-        </RowUI>
+        </RowRelatedUI>
         )
         }
       </SkillContainerUI>

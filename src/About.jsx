@@ -6,7 +6,7 @@ import Office from "../src/images/office.png";
 import { ContactForm } from "./components/ContactForm";
 import Map from "../src/images/map.svg";
 import JotformEmbed from "react-jotform-embed";
-
+import Footer from './components/Footer'
 const SectionUI = styled.div`
 
 display: flex;
@@ -115,9 +115,11 @@ font-family: Noto Sans;
 
 font-family: Noto Sans;
 font-style: normal;
+font-family: Noto Sans;
+font-style: normal;
 font-weight: normal;
-font-size: 22px;
-line-height: 30px;
+font-size: 20px;
+line-height: 28px;
 
 text-align: center;
 
@@ -327,9 +329,11 @@ export default function About() {
         <RightUI>
           <img style={{width: '90%'}} src={Map}></img>
         </RightUI>
+
+        
       </SectionUI>
 
-
+      <Footer/>
     </div>
   );
 }

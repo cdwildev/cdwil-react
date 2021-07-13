@@ -6,6 +6,7 @@ import FooterImage from "../images/footer.svg";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Twitter, Instagram } from "react-feather";
 
+
 const FooterUI = styled.div`
   display: flex;
  
@@ -17,9 +18,10 @@ const FooterUI = styled.div`
   left: 0;
   justify-content: center;
   overflow: hidden;
-  margin: 200px 0 0 0;
+  
   padding: 200px 0 200px 0;
-
+  position:relative;
+z-index:1;
 
 
 `;
@@ -162,10 +164,14 @@ const GradientUI = styled.div`
 position: absolute;
 width: 150%;
 height: 100%;
-top: 150px;
+top: 200px;
+
 background: linear-gradient(211.55deg, #00B189 23.15%, #C040BF 43.88%, #FF279C 59%);
-filter: blur(50px);
 animation: 5s ease gradient infinite;
+filter: blur(50px);
+-webkit-filter: blur(50px);
+-webkit-backface-visibility: hidden;
+-webkit-perspective: 1000;
 `
 
 
@@ -221,7 +227,7 @@ export const Footer = ({}) => {
         </SectionFour>
       </ContainerUI>
 
-      <GradientUI/>
+      <GradientUI />
 
     </FooterUI>
   );

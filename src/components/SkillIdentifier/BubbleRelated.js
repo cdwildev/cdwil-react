@@ -11,8 +11,8 @@ const ContainerUI = styled.div`
 `;
 
 const BubbleUI = styled.div`
-  width: 150px;
-  height: 150px;
+  min-width: 150px;
+  min-height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,6 +25,10 @@ const BubbleUI = styled.div`
   transition: 0.5s ease;
   cursor: pointer;
   position: relative;
+  padding: 10px;
+  word-break: break-word; 
+  
+
 
 `;
 
@@ -41,12 +45,12 @@ const RowUI = styled.div`
   justify-content: center;
 `;
 
-const GridUI = styled.div`
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  grid-template-columns: 2fr 2fr 2fr;
-  grid-template-columns: suto;
+const LineUI = styled.div`
+
+@media (max-width: 500px) {
+  display: none;
+  
+}
 `;
 
 export const BubbleRelated = ({
@@ -141,7 +145,7 @@ export const BubbleRelated = ({
       onClick={handleSkillClick}
     >
     {title}
-    <div style={{ transition: '0.9s ease-in' , width: '1px', height: lineHeight, position: 'absolute', transform: lineRotate, borderRight: '1px solid white', top: lineTop, left:linePosition}}></div>
+    <LineUI style={{ transition: '0.9s ease-in' , width: '1px', height: lineHeight, position: 'absolute', transform: lineRotate, borderRight: '1px solid white', top: lineTop, left:linePosition}}></LineUI>
 
     </BubbleUI>
     

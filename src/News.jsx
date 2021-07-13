@@ -4,6 +4,8 @@ import { SkillIdentifier } from "./components/SkillIdentifier/SkillIdentifier";
 import sanityClient from "./client";
 import styled from "styled-components";
 import skillIdentifierImage from "../src/images/skill-identifier.svg";
+import Footer from "./components/Footer";
+
 
 const SectionUI = styled.div`
   min-height: 100vh;
@@ -189,6 +191,8 @@ export default function News() {
             ))}
         </GridUI>
       </SectionUI>
+
+      <Footer/>
     </div>
   );
 }

@@ -28,10 +28,12 @@ import Students from "./Students";
 import useWindowDimensions from "./helpers/Window";
 import { hidden } from "chalk";
 
-function App() {
+function App(props) {
 
   const [windowWidth, setWindowWidth] = useState(document.body.clientWidth)
   const { height, width } = useWindowDimensions();
+
+  console.log(props.location)
 
   useEffect(() => {
 
@@ -64,10 +66,14 @@ function App() {
 
           <Route path="/employers" component={Employers} />
           <Route path="/students" component={Students} />
+
         </Switch>
 
-        <Footer />
+
+        
       </div>
+
+      
     </Router>
 
   );

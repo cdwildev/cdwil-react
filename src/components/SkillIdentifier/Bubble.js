@@ -22,10 +22,16 @@ const BubbleUI = styled.div`
   border: 1px solid white;
   margin: 12px;
   animation: float 3s linear infinite;
-  transition: 0.5s ease;
+  word-break: break-word; 
+  
   padding: 25px;
   cursor: pointer;
-  
+  position: relative;
+
+  @media (max-width: 800px) {
+    width: 75vw;
+    height: 75vw;
+  }
 `;
 
 const SkillContainerUI = styled.div`

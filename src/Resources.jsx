@@ -10,6 +10,7 @@ import gridThree from './images/grid-3.png';
 import gridFour from './images/grid-4.png';
 import gridFive from './images/grid-5.png'
 import Dropdown from './components/Dropdown.js'
+import Footer from "./components/Footer";
 
 
 const SectionUI = styled.div`
@@ -250,7 +251,7 @@ export default function Resources() {
 
   useEffect(() => {
 
-    const resources = JSON.parse(localStorage.getItem("resources"));
+    const resources = JSON.parse(sessionStorage.getItem("resources"));
 
     if(resources){
       setAllPosts(resources)
@@ -265,7 +266,7 @@ export default function Resources() {
       )
       .then((data) => {
         setAllPosts(data);
-        localStorage.setItem("resources", JSON.stringify(data));
+        sessionStorage.setItem("resources", JSON.stringify(data));
       })
       .catch(console.error);
 
@@ -337,11 +338,8 @@ and Career Pathways</HeaderUI>
 
     </SectionUI>
 
-  
 
-
-
-
+  <Footer/>
   </div>
   )
 }

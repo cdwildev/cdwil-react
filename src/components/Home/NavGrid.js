@@ -87,7 +87,9 @@ const TileUI = styled.div`
 `;
 
 const FlashUI = styled.span`
-  animation: flash 6s ease infinite;
+position: absolute;
+  opacity: 0%;
+  width: 600px;
 `;
 
 const LinkUI = styled.a`
@@ -141,9 +143,18 @@ export const NavGrid = ({
           style={{ gridColumn: "4 / span 3", textDecoration: "none" }}
           to="/resources"
         >
-          <TileUI style={{}}>
-            Read How To <span>Price Work</span>
-          </TileUI>
+        <TileUI style={{ width: "auto"}}>
+          Read How To{" "}
+          <span style={{ animation: "flash 6s linear infinite" }}>
+            Price Work
+          </span>{" "}
+          <FlashUI style={{ animation: "flash 6s linear 2s infinite" }}>
+            Budget
+          </FlashUI>{" "}
+          <FlashUI style={{ animation: "flash 6s linear 4s infinite" }}>
+            Apply For Grad School
+          </FlashUI>
+        </TileUI>
         </Link>
         <Link
           style={{ textDecoration: "none", gridColumn: "1 / span 2" }}

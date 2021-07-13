@@ -37,6 +37,7 @@ const GridUI = styled.div`
   grid-template-columns: 2fr 2fr 2fr;
   grid-template-row: auto;
   width: 80vw;
+
   margin: 0 0 20vh 0;
   @media (max-width: 1500px) {
     grid-template-columns: 2fr 2fr;

@@ -15,7 +15,6 @@ import sanityClient from "./client";
 
 import useWindowDimensions from "./helpers/Window";
 
-
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const SectionUI = styled.div`
@@ -139,6 +138,10 @@ const GradientMobileUI = styled.div`
   left: -10vh;
   background: #c1d42f;
   filter: blur(50px);
+  -webkit-filter: blur(50px);
+
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
   display: none;
   @media (max-width: 1100px) {
     display: flex;
@@ -151,7 +154,11 @@ const GradientUI = styled.div`
   height: 20vw;
 
   background: #c1d42f;
-  filter: blur(100px);
+  filter: blur(50px);
+  -webkit-filter: blur(100px);
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  border-radius: 50px;
   display: flex;
   @media (max-width: 1100px) {
     display: none;
@@ -190,31 +197,27 @@ display: none;
 `;
 
 const LoadingUI = styled.div`
-width: 100vw;
-height: 100vh;
-position: fixed;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
 
-top: 0;
-left: 0;
-z-index: 10000;
-overflow: hidden;
-transition: 1s ease;
-display: flex;
-justify-content: flex-start;
-align-items: flex-start;
-`
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  overflow: hidden;
+  transition: 1s ease;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+`;
 
 const LoadingContainerUI = styled.div`
-width: 100vw;
-height: 100vh;
-position: fixed;
-top: 0vh;
-left: 0;
-
-
-
-
-`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0vh;
+  left: 0;
+`;
 
 const LoadingGradientUI = styled.div`
   position: absolute;
@@ -224,11 +227,11 @@ const LoadingGradientUI = styled.div`
   top: 0vh;
   border-radius: 100%;
   background: #c1d42f;
-  filter: blur(50px);
+  -webkit-filter: blur(50px);
   display: flex;
   transition: 1s ease;
-  
-
+  -webkit-backface-visibility: hidden;
+-webkit-perspective: 1000;
 `;
 const LoadingGradientTwoUI = styled.div`
   position: absolute;
@@ -237,17 +240,19 @@ const LoadingGradientTwoUI = styled.div`
 
   top: -100vh;
   border-radius: 100%;
-  background: #E01583;
-  filter: blur(50px);
+  background: #e01583;
+  -webkit-filter: blur(50px);
   display: flex;
   animation: rotate 4s ease infinite;
   transition: 1s ease;
+
+  -webkit-backface-visibility: hidden;
+-webkit-perspective: 1000;
 
   @media (max-width: 1100px) {
     width: 150vw;
     height: 250vh;
   }
-
 `;
 
 const LoadingGradientThreeUI = styled.div`
@@ -255,13 +260,16 @@ const LoadingGradientThreeUI = styled.div`
   width: 200vw;
   height: 200vh;
   border-radius: 100%;
-  background: #00B188;
+  background: #00b188;
   top: -100vh;
   left: -100vw;
-  filter: blur(50px);
+  -webkit-filter: blur(50px);
   display: flex;
   animation: rotate 4s ease infinite;
   transition: 1s ease;
+
+  -webkit-backface-visibility: hidden;
+-webkit-perspective: 1000;
 
   @media (max-width: 1100px) {
     width: 150vw;
@@ -269,14 +277,11 @@ const LoadingGradientThreeUI = styled.div`
   }
 `;
 
-
-
-
 function Home() {
   const [allPostsData, setAllPosts] = useState([]);
 
   useEffect(() => {
-    const videos = JSON.parse(localStorage.getItem("videos"));
+    const videos = JSON.parse(sessionStorage.getItem("videos"));
 
     if (videos) {
       setAllPosts(videos);
@@ -290,42 +295,35 @@ function Home() {
         )
         .then((data) => {
           setAllPosts(data);
-          localStorage.setItem("videos", JSON.stringify(data));
+          sessionStorage.setItem("videos", JSON.stringify(data));
         })
         .catch(console.error);
     }
   }, []);
 
-  const [isAnimate, setIsAnimate] = useState(true)
-  const [isLoading, setIsLoading] = useState(true)
+  const [isAnimate, setIsAnimate] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [imagesloaded, setImagesLoaded] = useState(0)
+  const [imagesloaded, setImagesLoaded] = useState(0);
 
   const { height, width } = useWindowDimensions();
 
+  if (imagesloaded > 2) {
+    setTimeout(() => {
+      setIsAnimate(false);
+    }, 500);
 
-  if(imagesloaded > 2){
-
-      setTimeout(() => {
-        setIsAnimate(false)
-      }, 1000)
-
-
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 1500)
-
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   }
-  
 
   useEffect(() => {
-    if(width < 800){
-      setIsAnimate(false)
-      setIsLoading(false)
+    if (width < 800) {
+      setIsAnimate(false);
+      setIsLoading(false);
     }
-  }, [])
-
-
+  }, []);
 
   return (
     <div
@@ -336,15 +334,14 @@ function Home() {
         justifyContent: "flex-start",
       }}
     >
-      <LoadingUI style={{display: isLoading ? 'flex' : 'none'}}>
-   
-   <LoadingContainerUI>
-     
-        <LoadingGradientUI style={{top: isAnimate ? '-100vh' : '300vh'}}/>
-        <LoadingGradientTwoUI style={{left: isAnimate ? '0vw' : '300vw'}}/>
-        <LoadingGradientThreeUI style={{left: isAnimate ? '-100vw' : '-300vw'}}/>
-       
-      </LoadingContainerUI>
+      <LoadingUI style={{ display: isLoading ? "flex" : "none" }}>
+        <LoadingContainerUI>
+          <LoadingGradientUI style={{ top: isAnimate ? "-100vh" : "300vh" }} />
+          <LoadingGradientTwoUI style={{ left: isAnimate ? "0vw" : "300vw" }} />
+          <LoadingGradientThreeUI
+            style={{ left: isAnimate ? "-100vw" : "-300vw" }}
+          />
+        </LoadingContainerUI>
       </LoadingUI>
       <SectionUI
         style={{
@@ -418,6 +415,8 @@ function Home() {
         <InspireGrid allPostsData={allPostsData} />
         <InspireTitleUI style={{ textAlign: "right" }}>INSPIRED</InspireTitleUI>
       </SectionUI>
+
+      <Footer/>
     </div>
   );
 }

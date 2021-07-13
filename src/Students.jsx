@@ -8,6 +8,9 @@ import { ContactFormTwo } from "./components/ContactFormTwo";
 import Map from "../src/images/map.svg";
 import InspireGrid from "./components/Home/InspireGrid";
 
+import Footer from "./components/Footer";
+
+
 
 const SectionUI = styled.div`
 display: flex;
@@ -421,6 +424,9 @@ export default function About() {
 
         <InspireGrid />
       </SectionUI>
+      
+
+      <Footer/>
     </div>
   );
 }

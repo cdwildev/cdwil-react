@@ -424,14 +424,24 @@ iframe{
 
 @keyframes flash {
   from{
-    visibility: hidden;
+    opacity: 100%;
     
   }
 
+  30%{
+    opacity: 100%;
+  }
+
+  31%{
+    opacity: 0%;
+  }
+
   to{
-    visibility: visible;
+    opacity: 0%;
   }
 }
+
+
 
 
 @keyframes gradient {

@@ -11,6 +11,8 @@ import gridFour from "./images/grid-4.png";
 import gridFive from "./images/grid-5.png";
 import Dropdown from "./components/Dropdown.js";
 import ReactPlayer from "react-player";
+import Footer from "./components/Footer";
+
 
 import React from "react";
 import { Player } from "video-react";
@@ -148,6 +150,7 @@ export default function Stories() {
           ))}
         </GridUI>
       </SectionUI>
+      <Footer/>
     </div>
   );
 }

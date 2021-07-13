@@ -159,7 +159,7 @@ export const InspireGrid = ({
   const [allPostsData, setAllPosts] = useState([]);
 
   useEffect(() => {
-    const videos = JSON.parse(localStorage.getItem("videos"));
+    const videos = JSON.parse(sessionStorage.getItem("videos"));
 
     if (videos) {
       setAllPosts(videos);
@@ -173,7 +173,7 @@ export const InspireGrid = ({
         )
         .then((data) => {
           setAllPosts(data);
-          localStorage.setItem("videos", JSON.stringify(data));
+          sessionStorage.setItem("videos", JSON.stringify(data));
         })
         .catch(console.error);
     }

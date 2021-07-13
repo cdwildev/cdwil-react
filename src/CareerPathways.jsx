@@ -6,6 +6,7 @@ import skillIdentifierImage from '../src/images/career-pathways.svg'
 import CareerPathways from "./components/CareerPathways/CareerPathways";
 import useWindowDimensions from "./helpers/Window";
 
+
 const SectionUI = styled.div`
   min-height: 100vh;
   display: flex;

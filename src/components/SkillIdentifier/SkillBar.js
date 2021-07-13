@@ -70,9 +70,9 @@ const SkillTagUI = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20%;
-  height: 6vh;
-  padding: 0 50px;
+  width: auto;
+
+  padding: 25px 50px;
   margin: 2vh;
   background: rgba( 0, 86, 149, 0.8 );
  
@@ -191,15 +191,11 @@ const DownloadButtonUI = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-width: 5%;
-min-width: 6vh;
-height: 6vh;
+width: auto;
 
-
+padding: 25px 50px;
+margin: 2vh;
 background: rgba( 0, 86, 149, 0.8 );
-position: absolute;
-top: 2vh;
-right: 2vh;
 
 backdrop-filter: blur( 10.0px );
 -webkit-backdrop-filter: blur( 10.0px );
@@ -207,9 +203,14 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 border-radius: 50px;
 color: white;
 cursor: pointer;
+position: relative;
+@media (max-width: 800px) {
+  width: 80%;
+}
+
 
 @media (max-width: 800px) {
-  display: none;
+ display: none;
 }
 
 
@@ -221,6 +222,7 @@ export const SkillBar = ({ renderPdf, showPost, setShowPost,skillList, setSkillL
 
     const [skillArray, setSkillArray] = useState([])
     const [expandMenu, setExpandMenu] = useState(false)
+    const [exportPDF, setExportPDF] = useState(false)
     const handleClick = (e) => {
    
         setSkillList(skillArray.filter(skill => skill !== e.target.innerHTML.split('<')[0]))
@@ -234,28 +236,37 @@ setSkillArray(skillList.reverse())
   }, [skillList]);
 
 
+  useEffect(() => {
+    setTimeout(() => {
+      setExportPDF(false)
+    }, 5000);
+      }, [exportPDF]);
+
 
   return (
 
       <ContainerUI>
 
-      <ExpandUI style={{ display:skillArray.length > 0 ? 'flex' : 'none', bottom: expandMenu ? '50vh' : '10vh'}} onClick={() => setExpandMenu(!expandMenu)}>
+      <ExpandUI style={{ display:skillArray.length > 0 ? 'flex' : 'none', bottom: expandMenu ? '50vh' : '15vh'}} onClick={() => setExpandMenu(!expandMenu)}>
           {expandMenu ? <ChevronDown /> : <ChevronUp/>  }
           <ExpandTextUI>{expandMenu &&skillArray.length > 0 ? 'see less skills':skillArray.length == 0 ? '' : 'see all skills'}</ExpandTextUI>
           <SkillCountUI>{expandMenu &&skillArray.length > 0 ?skillArray.length :skillArray.length == 0 ? '' :skillArray.length }</SkillCountUI>
               
       </ExpandUI>
-      <SkillBarUI style={{overflowY: expandMenu ? 'scroll' : 'hidden', display: skillArray.length > 0 ? 'flex' : 'none', height: expandMenu ? '50vh' : '10vh'}}>
+
+   
+      <SkillBarUI style={{overflowY: expandMenu ? 'scroll' : 'hidden', display: skillArray.length > 0 ? 'flex' : 'none', height: expandMenu ? '50vh' : '15vh'}}>
+      {!exportPDF ? <DownloadButtonUI onClick={() => setExportPDF(true)}>Export as PDF</DownloadButtonUI> : ''}
+      {exportPDF ? <PDFDownloadLink document={<MyDocument skillList={skillList} softSkillList={softSkillList} softwareList={softwareList} hardSkillList={hardSkillList}/>} fileName="somename.pdf"><DownloadButtonUI onClick={() => setExportPDF(false)}><Download/></DownloadButtonUI></PDFDownloadLink> : ''}
+
         
         {skillArray.length > 0 ?skillArray.map(skill => <SkillTagUI key={skill} onClick={handleClick}>{skill}<SkillDeleteUI><X/></SkillDeleteUI></SkillTagUI>) : ''}
 
        {/*  <ScrollIndicatorUI style={{display: skillType ? 'flex' : 'none', }}>{scrollTop > 200 ? 'back to top' : 'scroll down to see skills'}</ScrollIndicatorUI> */}
  
-      
-      {renderPdf ? <PDFDownloadLink document={<MyDocument skillList={skillList} softSkillList={softSkillList} softwareList={softwareList} hardSkillList={hardSkillList}/>} fileName="somename.pdf"><DownloadButtonUI><Download/></DownloadButtonUI></PDFDownloadLink> : ''}
-      </SkillBarUI>
+            </SkillBarUI>
 
-      { skill.length > 0 && scrollTop < 1300 ? '' : skill.length > 0 && scrollTop > 1300 ? <ToTopUI onClick={executeScroll} style={{ bottom: expandMenu ? '52.5vh' : '12.5vh'}}> Back to Top <ArrowUp/> </ToTopUI> : ''}
+      { skill.length > 0 && scrollTop < 1300 ? '' : skill.length > 0 && scrollTop > 1300 ? <ToTopUI onClick={executeScroll} style={{ bottom: expandMenu ? '52.5vh' : '16.5vh'}}> Back to Top <ArrowUp/> </ToTopUI> : ''}
 
       </ContainerUI>
   );

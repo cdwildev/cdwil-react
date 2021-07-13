@@ -8,6 +8,8 @@ import Map from "../src/images/map.svg";
 import Hero1 from "../src/images/employer-hero-1.png";
 import Hero2 from "../src/images/employer-hero-2.png";
 import InspireGrid from "./components/Home/InspireGrid";
+import Footer from "./components/Footer";
+
 
 
 const SectionUI = styled.div`
@@ -356,7 +358,11 @@ Info Package
         </GradientHeaderUI>
 
         <InspireGrid />
+       
       </SectionUI>
+
+
+      <Footer/>
     </div>
   );
 }
