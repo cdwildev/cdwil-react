@@ -107,15 +107,15 @@ export const ContactForm = ({
       <ButtonUI onClick={() => setActive(!active)}>
         Book an Appointment
 
-{/*         <IframeSectionUI
+        <IframeSectionUI
         style={{
-          visibility: active || width < 1000 ? "100%" : "0%",
-          height: active || width < 1000 ? "50vh" : "0px",
-          margin: active || width < 1000 ? "100px 0 0 0" : "0px",
+          visibility: active ? "100%" : "0%",
+          height: active ? "50vh" : "0px",
+          margin: active ? "100px 0 0 0" : "0px",
         }}
       >
         <JotformEmbed src="https://form.jotform.com/211880701828255" />
-      </IframeSectionUI> */}
+      </IframeSectionUI>
       </ButtonUI>
 
 

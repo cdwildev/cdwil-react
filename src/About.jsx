@@ -7,198 +7,195 @@ import { ContactForm } from "./components/ContactForm";
 import Map from "../src/images/map.svg";
 import JotformEmbed from "react-jotform-embed";
 
-export default function About() {
-  const [allPostsData, setAllPosts] = useState([]);
+const SectionUI = styled.div`
 
-  const SectionUI = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+flex-direction: row;
+width: 75vw;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    flex-direction: row;
-    width: 75vw;
- 
-    @media (max-width: 1400px) {
+@media (max-width: 1400px) {
+  width: 90vw;
+
+}
+
+@media (max-width: 800px) {
+  padding: 10vh 0 0 0;
+  justify-content: flex-start;
+  align-items: flex-star;
+  flex-direction: column;
+
+}
+`;
+
+const LeftUI = styled.div`
+display: flex;
+justify-content: flex-start;
+align-items: flex-start;
+    flex-direction: column;
+
+    @media (max-width: 800px) {
       width: 90vw;
 
     }
 
-    @media (max-width: 800px) {
-      padding: 10vh 0 0 0;
-      justify-content: flex-start;
-      align-items: flex-star;
-      flex-direction: column;
+`;
 
-    }
-  `;
+const AboutUsUI = styled.div`
+font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 20px;
+color: #e01583;
+margin: 0 0 24px 0;
 
-  const LeftUI = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-        flex-direction: column;
 
-        @media (max-width: 800px) {
-          width: 90vw;
-    
-        }
 
-  `;
+`;
 
-  const AboutUsUI = styled.div`
-    font-family: Noto Sans;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 20px;
-    color: #e01583;
-    margin: 0 0 24px 0;
+const HeaderUI = styled.div`
+font-family: Noto Sans;
+position: relative;
+font-style: normal;
+font-weight: bold;
+font-size: 40px;
+line-height: 42px;
+color: #000000;
+width: 640px;
 
-    
-   
-  `;
+text-align: left;
 
-  const HeaderUI = styled.div`
-    font-family: Noto Sans;
-    position: relative;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 40px;
-    line-height: 42px;
-    color: #000000;
-    width: 640px;
-
-    text-align: left;
-
-    @media (max-width: 1200px) {
-      font-family: Noto Sans;
+@media (max-width: 1200px) {
+  font-family: Noto Sans;
 font-style: normal;
 font-weight: bold;
 font-size: 24px;
 line-height: 28px;
 width: 343px;
 
-    }
-  `;
+}
+`;
 
-  const RightUI = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
+const RightUI = styled.div`
+display: flex;
+justify-content: flex-end;
+align-items: center;
+width: 100%;
 
-    @media (max-width: 800px) {
-      justify-content: center;
-      margin: 100px 0;
-    }
-  `;
+@media (max-width: 800px) {
+  justify-content: center;
+  margin: 100px 0;
+}
+`;
 
-  const HeroUI = styled.img`
-    width: 30vw;
-    min-width: 394px;
+const HeroUI = styled.img`
+width: 30vw;
+min-width: 394px;
 
-  border: 4px solid black;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-    border-radius: 10px;
+border: 4px solid black;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+border-radius: 10px;
 
-    @media (max-width: 800px) {
-      width: 90vw;
-      min-width: 90vw;
+@media (max-width: 800px) {
+  width: 90vw;
+  min-width: 90vw;
 
-    }
-  `;
+}
+`;
 
-  const AboutUI = styled.div`
-    width: 640px;
-    height: 174px;
-    font-family: Noto Sans;
+const AboutUI = styled.div`
+width: 640px;
+height: 174px;
+font-family: Noto Sans;
 
-    font-family: Noto Sans;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 22px;
-    line-height: 30px;
+font-family: Noto Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 22px;
+line-height: 30px;
 
-    text-align: center;
+text-align: center;
 
-    color: #000000;
+color: #000000;
 
-    @media (max-width: 800px) {
-      width: 90vw;
- 
-      
-      font-family: Noto Sans;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 16px;
-      line-height: 26px;
+@media (max-width: 800px) {
+  width: 90vw;
 
-    }
-  `;
-
-  const TileUI = styled.div`
-    font-family: Noto Sans;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 35px;
-    text-align: left;
-    height: 168px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    overflow: hidden;
-    border: 4px solid #252525;
-    box-sizing: border-box;
-    border-radius: 20px;
-    position: relative;
-    padding: 22px;
-    cursor: pointer;
- 
-
-    &:hover {
-      background: #b9d9eb;
-    }
-
-    @media (max-width: 800px) {
-      font-size: 22px;
-      line-height: 20px;
-    }
-  `;
-
-  const GridUI = styled.div`
-    display: grid;
-
-    text-align: left;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 9px;
-    font-family: Noto Sans;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 35px;
-    width: 100%;
-    width: 75vw;
-
-    @media (max-width: 1200px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
- 
-  `;
-
-
-  const ContactInfoUI = styled.div`
+  
   font-family: Noto Sans;
   font-style: normal;
   font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+
+}
+`;
+
+const TileUI = styled.div`
+font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 32px;
+line-height: 35px;
+text-align: left;
+height: 168px;
+display: flex;
+align-items: flex-end;
+justify-content: flex-start;
+overflow: hidden;
+border: 4px solid #252525;
+box-sizing: border-box;
+border-radius: 20px;
+position: relative;
+padding: 22px;
+cursor: pointer;
+
+
+&:hover {
+  background: #b9d9eb;
+}
+
+@media (max-width: 800px) {
   font-size: 22px;
-  line-height: 30px;
-  margin: 0 0 40px 0;
-  text-align: left;
+  line-height: 20px;
+}
+`;
+
+const GridUI = styled.div`
+display: grid;
+
+text-align: left;
+grid-template-columns: repeat(3, 1fr);
+grid-gap: 9px;
+font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 32px;
+line-height: 35px;
+width: 100%;
+width: 75vw;
+
+@media (max-width: 1200px) {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+
+`;
+
+
+const ContactInfoUI = styled.div`
+font-family: Noto Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 22px;
+line-height: 30px;
+margin: 0 0 40px 0;
+text-align: left;
 
 `;
 
@@ -237,21 +234,24 @@ transform: rotate(-0.21deg);
 `
 
 const IframeSectionUI = styled.div`
-  position: relative;
-  height: 50vh;
+position: relative;
+height: 50vh;
 
-  display: flex;
-  justify-content: center;
-  background: white;
-  align-items: center;
-  overflow-y: scroll;
-  border-radius: 10px;
-  width: 75vw;
-  @media (max-width: 1400px) {
-    width: 90vw;
-  }
+display: flex;
+justify-content: center;
+background: white;
+align-items: center;
+overflow-y: scroll;
+border-radius: 10px;
+width: 75vw;
+@media (max-width: 1400px) {
+width: 90vw;
+}
 `
 
+
+export default function About() {
+  const [allPostsData, setAllPosts] = useState([]);
   return (
     <div className="container">
       <SectionUI style={{ margin: '200px 0 0 0'}}>
@@ -309,12 +309,6 @@ const IframeSectionUI = styled.div`
 
 
       </SectionUI>
-
-      <IframeSectionUI
-
->
-  <JotformEmbed src="https://form.jotform.com/211809145619054" />
-</IframeSectionUI> 
 
       <SectionUI style={{  margin: '150px 0 0 0'}}>
         <LeftUI>
