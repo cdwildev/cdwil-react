@@ -124,11 +124,6 @@ align-items: center;
 export default function SkillIdentifierTool() {
   const [allPostsData, setAllPosts] = useState([]);
 
-  const jotForm = document.getElementById('jotform')
- 
-  useEffect(() => {
-    console.log('hi')
-  }, [jotForm])
 
   return (
     <div

@@ -13,6 +13,8 @@ import buttonBgTwo from "./images/bg-2.png";
 import Footer from "./components/Footer";
 import sanityClient from "./client";
 
+import useWindowDimensions from "./helpers/Window";
+
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -136,7 +138,7 @@ const GradientMobileUI = styled.div`
   top: -50px;
   left: -10vh;
   background: #c1d42f;
-  filter: blur(100px);
+  filter: blur(50px);
   display: none;
   @media (max-width: 1100px) {
     display: flex;
@@ -297,18 +299,33 @@ function Home() {
   const [isAnimate, setIsAnimate] = useState(true)
   const [isLoading, setIsLoading] = useState(true)
 
+  const [imagesloaded, setImagesLoaded] = useState(0)
+
+  const { height, width } = useWindowDimensions();
+
+
+  if(imagesloaded > 2){
+
+      setTimeout(() => {
+        setIsAnimate(false)
+      }, 1000)
+
+
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 1500)
+
+  }
+  
+
   useEffect(() => {
-    
-    setTimeout(() => {
+    if(width < 800){
       setIsAnimate(false)
-    }, 1000)
-
-
-    setTimeout(() => {
       setIsLoading(false)
-    }, 1500)
+    }
+  }, [])
 
-  }, []);
+
 
   return (
     <div
@@ -353,16 +370,19 @@ function Home() {
             <ImageUI
               style={{ width: "100%", gridColumn: "2 / span 8" }}
               src={heroOne}
+              onLoad={() => setImagesLoaded(imagesloaded + 1)}
             />
 
             <ImageUI
               style={{ width: "100%", gridColumn: "1 / span 3" }}
               src={heroTwo}
+              onLoad={() => setImagesLoaded(imagesloaded + 1)}
             />
 
             <ImageUI
               style={{ width: "100%", gridColumn: "5 / span 4" }}
               src={heroThree}
+              onLoad={() => setImagesLoaded(imagesloaded + 1)}
             />
           </ImageGrid>
         </RightColumn>

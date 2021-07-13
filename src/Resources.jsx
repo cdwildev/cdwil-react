@@ -34,18 +34,23 @@ const InfoContainerUI = styled.div`
 display: flex;
 justify-content: flex-start;
 align-items: flex-start;
+max-width: 846px;
 
-min-width: 100%;
 text-align: left;
 font-family: Noto Sans;
 font-style: normal;
 font-weight: normal;
-font-size: 16px;
+font-size: 20px;
 margin: 64px 0 160px 0;
 
-@media (max-width: 1000px) {
-  flex-direction: column;
-  
+@media (max-width: 800px) {
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+
 }
 
 
@@ -295,13 +300,13 @@ export default function Resources() {
   return (
   <div className="container">
 
-    <SectionUI style={{margin: '200px 0 0 0'}}>
+    <SectionUI style={{margin: '200px 0 0 0', alignItems: 'flex-start'}}>
 
       <TitleUI>Resources</TitleUI>
 
       <InfoContainerUI>
-        <LeftColumn>The resources listed here are a complied list from a mix of sources. Half of the links contain downloadable PDF resources provided by the Career Development + WIL Office. The other half will link to other parts of the University including the Writing Centre, the Alumni</LeftColumn>
-        <RightColumn>Association, the Aboriginal Gathering Place, the Shumka Centre, and the Library. While a few others will redirect you to local organizations with great relevant resources.</RightColumn>
+      The resources listed here are a complied list from a mix of sources. Half of the links contain downloadable PDF resources provided by the Career Development + WIL Office. The other half will link to other parts of the University including the Writing Centre, the Alumni
+        Association, the Aboriginal Gathering Place, the Shumka Centre, and the Library. While a few others will redirect you to local organizations with great relevant resources.
       </InfoContainerUI>
 
       <Dropdown allPostsData={allPostsData}></Dropdown>

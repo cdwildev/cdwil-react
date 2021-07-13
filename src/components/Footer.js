@@ -8,8 +8,8 @@ import { Twitter, Instagram } from "react-feather";
 
 const FooterUI = styled.div`
   display: flex;
-  height: 25vh;
-  min-height: 600px;
+ 
+
   width: 100%;
   
   position: relative;
@@ -17,8 +17,10 @@ const FooterUI = styled.div`
   left: 0;
   justify-content: center;
   overflow: hidden;
-  padding: 0 0 200px 0;
   margin: 200px 0 0 0;
+  padding: 200px 0 200px 0;
+
+
 
 `;
 
@@ -160,9 +162,10 @@ const GradientUI = styled.div`
 position: absolute;
 width: 150%;
 height: 100%;
-top: 300px;
+top: 150px;
 background: linear-gradient(211.55deg, #00B189 23.15%, #C040BF 43.88%, #FF279C 59%);
-filter: blur(100px);
+filter: blur(50px);
+animation: 5s ease gradient infinite;
 `
 
 
