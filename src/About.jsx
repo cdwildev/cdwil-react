@@ -307,12 +307,14 @@ const IframeSectionUI = styled.div`
       <SectionUI  style={{ margin: ' 150px 0 0px 0', flexDirection:'column'}}>
         <ContactForm />
 
-        <IframeSectionUI
 
-      >
-        <JotformEmbed src="https://form.jotform.com/211880701828255" />
-      </IframeSectionUI> 
       </SectionUI>
+
+      <IframeSectionUI
+
+>
+  <JotformEmbed src="https://form.jotform.com/211880701828255" />
+</IframeSectionUI> 
 
       <SectionUI style={{  margin: '150px 0 0 0'}}>
         <LeftUI>
