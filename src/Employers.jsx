@@ -148,7 +148,7 @@ text-align: center;
 color: #000000;
 `;
 
-const TileUI = styled.div`
+const TileUI = styled.a`
 font-family: Noto Sans;
 font-style: normal;
 font-weight: bold;
@@ -166,13 +166,16 @@ border-radius: 20px;
 position: relative;
 padding: 22px;
 cursor: pointer;
+color: #252525;
+
+text-decoration: none;
 
 &:hover {
   background: #b9d9eb;
 }
 
 @media (max-width: 800px) {
-  font-size: 22px;
+  font-size: 18px;
   line-height: 20px;
 }
 `;
@@ -321,7 +324,7 @@ export default function About() {
 
       <SectionUI style={{ margin: "0px 0 50px 0", flexDirection: "column" }}>
         <div style={{ margin: "0 0 30px 0", display: 'grid' }}>
-          <TileUI style={{  height: "20vh" }}>
+          <TileUI style={{  width: "50vw" }}>
           Employer
 Info Package
           </TileUI>
@@ -335,17 +338,17 @@ Info Package
             gridTemplateColumns: "repeat(10, 1fr)",
           }}
         >
-          <TileUI style={{ gridColumn: "1 / span 3", height: "20vh" }}>
+          <TileUI style={{ gridColumn: "1 / span 4"}} target="_blank" href="https://shumka.ecuad.ca/program/design-for-startups/">
             Design <br></br>
             for Startups
           </TileUI>
-          <TileUI style={{ gridColumn: "4 / span 7", height: "20vh" }}>
+          <TileUI style={{ gridColumn: "5 / span 6"}} target="_blank" href="https://research.ecuad.ca/livinglabs/the-shumka-centre/art-apprenticeship-network/">
             Artist Apprenticeship Network
           </TileUI>
-          <TileUI style={{ gridColumn: "1 / span 5", height: "20vh" }}>
+          <TileUI style={{ gridColumn: "1 / span 5"}} target="_blank" href="https://research.ecuad.ca/healthdesignlab/about/">
             Health Design Lab
           </TileUI>
-          <TileUI style={{ gridColumn: "6 / span 5", height: "20vh" }}>
+          <TileUI style={{ gridColumn: "6 / span 5" }} target="_blank" href="https://www.ecuad.ca/academics/research-area/research-centres/ecugoodmedia">
             Basically Good Media Lab
           </TileUI>
         </GridUI>

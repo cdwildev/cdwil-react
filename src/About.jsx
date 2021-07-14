@@ -287,6 +287,7 @@ export default function About() {
         <GridUI style={{ width: "90vw"}}>
           <TileUI>
             Career <br></br> Advising
+
           </TileUI>
           <TileUI>
             Programming
@@ -312,7 +313,7 @@ export default function About() {
 
       </SectionUI>
 
-      <SectionUI style={{  margin: '150px 0 0 0'}}>
+      <SectionUI style={{  margin: '200px 0 200px 0'}}>
         <LeftUI>
           <AboutUsUI>Contact</AboutUsUI>
           <ContactInfoUI>604.844.3843 | coop@ecuad.ca</ContactInfoUI>

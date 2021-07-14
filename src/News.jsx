@@ -128,6 +128,14 @@ export default function News() {
   const [allPostsData, setAllPosts] = useState([]);
 
   useEffect(() => {
+
+    const news = JSON.parse(sessionStorage.getItem("news"));
+
+
+    if (news) {
+      setAllPosts(news)
+
+    } else{
     sanityClient
       .fetch(
         `*[_type == "post"]{
@@ -152,12 +160,34 @@ export default function News() {
         setAllPosts(data);
       })
       .catch(console.error);
+
+    }
   }, []);
 
     console.log(allPostsData)
 
-  console.log(allPostsData);
-
+/*     useEffect(() => {
+      const news = JSON.parse(sessionStorage.getItem("news"));
+  
+      if (news) {
+        setAllPosts(news);
+      } else {
+        sanityClient
+          .fetch(
+            `*[_type == "post"]{
+              title,
+              link,
+          }`
+          )
+          .then((data) => {
+        
+            sessionStorage.setItem("news", JSON.stringify(data));
+            setAllPosts(data);
+          })
+          .catch(console.error);
+      }
+    }, []);
+ */
   return (
     <div
       className="container"

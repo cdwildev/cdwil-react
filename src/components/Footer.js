@@ -137,12 +137,15 @@ const IconContainerUI = styled.div`
 `;
 
 
-const IconUI = styled.div`
+const IconUI = styled.a`
 width: 39px;
 height: 39px;
 display: flex;
 justify-content: center;
 align-items: center;
+cursor: pointer;
+color: #252525;
+text-decoration: none;
 
 border: 3px solid #252525;
 box-sizing: border-box;
@@ -170,8 +173,7 @@ background: linear-gradient(211.55deg, #00B189 23.15%, #C040BF 43.88%, #FF279C 5
 animation: 5s ease gradient infinite;
 filter: blur(50px);
 -webkit-filter: blur(50px);
--webkit-backface-visibility: hidden;
--webkit-perspective: 1000;
+
 `
 
 

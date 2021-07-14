@@ -139,6 +139,7 @@ const TileUI = styled.div`
 
   @media (max-width: 800px) {
     width: 90vw;
+    font-size: 18px;
   }
 
   &:hover {
@@ -202,9 +203,16 @@ export const InspireGrid = ({
           />
         </VideoUI>
       ))}
+
+<Link
+          style={{ textDecoration: "none", color: '#252525', zIndex: '100'}}
+          to="/stories"
+        >
       <TileUI style={{ border: "5px solid #252525", borderRadius: "10px" }}>
-        More
+        More Videos
       </TileUI>
+
+      </Link>
     </GridUI>
     
 

@@ -189,13 +189,13 @@ export const Header = ({width}) => {
   return (
     <>
       <MobileMenuUI style={{ display: active ? "flex" : "none" }}>
-        <Link
+{/*         <Link
           onClick={() => setActive(!active)}
           to="/home"
           style={{ textDecoration: "none", color: "black" }}
         >
           <MobileLinkUI>Home</MobileLinkUI>
-        </Link>
+        </Link> */}
 
         <Link
           onClick={() => setActive(!active)}
@@ -289,12 +289,12 @@ export const Header = ({width}) => {
               </Link>
             </NavTopUI>
             <NavBottomUI>
-              <Link
+{/*               <Link
                 to="/home"
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <NavLinkUI>Home</NavLinkUI>
-              </Link>
+              </Link> */}
               <Link
                 to="/tools"
                 style={{ textDecoration: "none", color: "black" }}

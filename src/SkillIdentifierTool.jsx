@@ -156,6 +156,7 @@ export default function SkillIdentifierTool() {
       </SectionUI>
 
       <SectionUI>
+        
       <SkillIdentifier allPostsData={allPostsData} />
 
       </SectionUI>

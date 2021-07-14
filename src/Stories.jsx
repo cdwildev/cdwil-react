@@ -18,7 +18,7 @@ import React from "react";
 import { Player } from "video-react";
 
 const SectionUI = styled.div`
-  min-height: 100vh;
+
   display: flex;
   width: 75vw;
   justify-content: flex-start;
@@ -36,26 +36,27 @@ const SectionUI = styled.div`
 `;
 
 const TitleUI = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  text-align: left;
-  font-weight: 900;
-  font-size: 100px;
-  margin: 72px 0;
-  background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
-  height: 250px;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
-  text-align: left;
+display: flex;
+justify-content: flex-start;
+text-align: left;
+font-weight: 900;
+font-size: 100px;
+margin: 72px 0;
+padding: 0 0 10px 0;
+background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
+font-family: "Noto Sans JP", sans-serif;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-overflow: ellipsis;
+white-space: nowrap;
+display: block;
+text-align: left;
+animation: gradient 5s ease infinite;
 
-  @media (max-width: 1000px) {
-    font-size: 10vw;
-  }
+@media (max-width: 1000px) {
+  font-size: 10vw;
+}
 
-  animation: gradient 9s ease infinite;
 `;
 
 const GridUI = styled.div`
@@ -129,7 +130,7 @@ export default function Stories() {
 
   return (
     <div className="container">
-      <SectionUI>
+      <SectionUI style={{ margin: '100px 0 0 0'}}>
         <TitleUI>
           Alumni Stories + <br></br>Career Pathways
         </TitleUI>

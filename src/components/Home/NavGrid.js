@@ -59,7 +59,7 @@ const MobileGridUI = styled.div`
   font-size: 22px;
   @media (max-width: 1000px) {
     display: grid;
-    font-size: 22px;
+    font-size: 18px;
   }
 `;
 

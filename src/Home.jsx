@@ -58,7 +58,7 @@ const TitleUI = styled.div`
   justify-content: flex-start;
   text-align: left;
   font-weight: 900;
-  font-size: 48px;
+  font-size: 70px;
   padding: 0 0 10px 0;
   background: linear-gradient(113.03deg, #e01583 31.82%, #1c878c 71.61%);
   -webkit-background-clip: text;
@@ -71,6 +71,11 @@ const TitleUI = styled.div`
   font-family: "Noto Sans JP", sans-serif;
   animation: gradient 5s ease infinite;
   z-index: 1000;
+
+  @media (max-width: 1200px) {
+    font-size: 48px;
+  }
+
   @media (max-width: 800px) {
     font-size: 10vw;
   }
@@ -296,6 +301,40 @@ function Home() {
         .then((data) => {
           setAllPosts(data);
           sessionStorage.setItem("videos", JSON.stringify(data));
+        })
+        .catch(console.error);
+    }
+  }, []);
+
+  useEffect(() => {
+    const news = JSON.parse(sessionStorage.getItem("news"));
+
+    if (news) {
+
+    } else {
+      sanityClient
+        .fetch(
+          `*[_type == "post"]{
+            title,
+            body,
+            publishedAt,
+            categories,
+            mainImage{
+              asset->{
+                _id, 
+                url
+              },
+              alt
+            },
+            author,
+            slug,
+    
+            
+        }`
+        )
+        .then((data) => {
+      
+          sessionStorage.setItem("news", JSON.stringify(data));
         })
         .catch(console.error);
     }

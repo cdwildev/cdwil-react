@@ -8,6 +8,8 @@ import { ContactFormTwo } from "./components/ContactFormTwo";
 import Map from "../src/images/map.svg";
 import InspireGrid from "./components/Home/InspireGrid";
 
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import Footer from "./components/Footer";
 
 
@@ -165,7 +167,7 @@ text-align: center;
 color: #000000;
 `;
 
-const TileUI = styled.div`
+const TileUI = styled.a`
 font-family: Noto Sans;
 font-style: normal;
 font-weight: bold;
@@ -184,13 +186,15 @@ position: relative;
 padding: 22px;
 cursor: pointer;
 background: white;
+color:  #252525;
+text-decoration: none;
 
 &:hover {
   background: #b9d9eb;
 }
 
 @media (max-width: 800px) {
-  font-size: 22px;
+  font-size: 18px;
   line-height: 20px;
 }
 `;
@@ -317,6 +321,10 @@ transform: rotate(158.09deg);
 z-index: -1000;
 left: -300px;
 `
+const LinkUI = styled.a`
+  text-decoration: none;
+`;
+
 
 export default function About() {
   const [allPostsData, setAllPosts] = useState([]);
@@ -365,14 +373,14 @@ export default function About() {
 
       <SectionUI style={{ margin: '0 0 150px 0', flexDirection: "column" }}>
         <GridUI style={{ margin: "0 0 10px 0" }}>
-          <TileUI>
-            Career <br></br> Advising
+          <TileUI target="_blank" href="https://artswork.ecuad.ca/">
+          Artswork
           </TileUI>
-          <TileUI>
-            Programming
+          <TileUI target="_blank" href="https://theleeway.ca/">
+            The Leeway
           </TileUI>
-          <TileUI>
-            Resources
+          <TileUI target="_blank" href="https://www.ecuaa.ca/">
+            Alumni <br></br> Association
           </TileUI>
         </GridUI>
         <ContactFormTwo />
@@ -403,13 +411,13 @@ export default function About() {
 
       <GradientTwoUI/>
         <GridTwoUI style={{ margin: "0 0 30px 0"  }}>
-          <TileUI style={{ gridColumn: "1 / span 2", height: "20vh" }}>
+          <TileUI target="_blank" href="https://mailchi.mp/ecuad.ca/emix-subscribe" style={{ gridColumn: "1 / span 2"}}>
             Emix <br></br> Newsletter
           </TileUI>
-          <TileUI style={{ gridColumn: "3 / span 2", height: "20vh" }}>
+          <TileUI target="_blank" href="https://www.ecuad.ca/" style={{ gridColumn: "3 / span 2"}}>
           Emily Carr <br></br> Website
           </TileUI>
-          <TileUI style={{ gridColumn: "1 / span 4", height: "20vh" }}>
+          <TileUI target="_blank" href="https://www.instagram.com/emilycarr_sas/?hl=en" style={{ gridColumn: "1 / span 4"}}>
             Emily Carr Student Art Sale
           </TileUI>
         </GridTwoUI>
