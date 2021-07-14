@@ -396,7 +396,7 @@ export default function About() {
             Not a problem!
           </HeaderUI>
 
-          <InfoContainerUI style={{width: '812px'}}>
+          <InfoContainerUI >
             Feel free to enjoy and share these resources! If you are interested
             in studying at Emily Carr University or would like information on
             teen programs, Indigenous youth programs, continuing studies or grad

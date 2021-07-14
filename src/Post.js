@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { useHistory, useParams } from "react-router-dom";
 import imageUrlBuilder from "@sanity/image-url";
 import Footer from "./components/Footer";
+import moment from "moment";
 
 
 // Get a pre-configured url-builder from your sanity client
@@ -189,7 +190,7 @@ export default function Post(props) {
 
         <img width="100%" src={singlePost && singlePost.mainImage.asset.url} />
 
-        <DateUI>Posted on {singlePost && Date(singlePost.publishedAt).slice(0,15)}</DateUI>
+        <DateUI>Posted on {singlePost && moment(singlePost.publishedAt).format("MMMM Do YYYY")}</DateUI>
 
         <BodyUI>
           {singlePost &&

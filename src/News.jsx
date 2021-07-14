@@ -5,6 +5,7 @@ import sanityClient from "./client";
 import styled from "styled-components";
 import skillIdentifierImage from "../src/images/skill-identifier.svg";
 import Footer from "./components/Footer";
+import moment from "moment";
 
 
 const SectionUI = styled.div`
@@ -206,6 +207,8 @@ export default function News() {
         <GridUI>
           {allPostsData &&
             allPostsData.map((post) => (
+
+            
               <Link
                 style={{ textDecoration: "none" }}
                 to={"/news/" + post.slug.current}
@@ -214,7 +217,7 @@ export default function News() {
                 <PostUI>
                   <img width="120%" src={post.mainImage.asset.url} />
                 </PostUI>
-                <DateUI>{Date(post.publishedAt).slice(0,15)}</DateUI>
+                <DateUI>{moment(post.publishedAt).format("MMMM Do YYYY")}</DateUI>
                 <VideoTitleUI>{post.title}</VideoTitleUI>
                 
               </Link>
