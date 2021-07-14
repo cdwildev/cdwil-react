@@ -8,6 +8,11 @@ export default {
         title: 'Title',
         type: 'string',
       },
+      {
+        name: 'description',
+        title: 'Description',
+        type: 'string',
+      },
       
       {
         title: 'Category',
@@ -20,6 +25,9 @@ export default {
             { title: 'CVs/Resumes, Cover Letters and Artist Statements', value: 'resume' },
             { title: 'Applications, Proposals and Grant Writing', value: 'applications' },
             { title: 'Entrepreneurship, Small Businesses and Collectives', value: 'entrepreneurship' },
+            { title: 'Funding Resources to Hire Students', value: 'funding' },
+            { title: 'Resume Builder Resources', value: 'resume-builder' },
+            { title: 'Career Pathfinder Resources', value: 'career-pathfinder' },
   
           ],
         },

@@ -190,7 +190,42 @@ color:  #252525;
 text-decoration: none;
 
 &:hover {
-  background: #b9d9eb;
+  background: #00B188;
+
+}
+
+@media (max-width: 800px) {
+  font-size: 18px;
+  line-height: 20px;
+}
+`;
+
+const TileBlueUI = styled.a`
+font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 32px;
+line-height: 35px;
+text-align: left;
+height: 168px;
+display: flex;
+align-items: flex-end;
+justify-content: flex-start;
+overflow: hidden;
+border: 4px solid #252525;
+box-sizing: border-box;
+border-radius: 20px;
+position: relative;
+padding: 22px;
+cursor: pointer;
+background: white;
+color:  #252525;
+text-decoration: none;
+
+&:hover {
+  background: #00A8E0;
+
+
 }
 
 @media (max-width: 800px) {
@@ -411,15 +446,15 @@ export default function About() {
 
       <GradientTwoUI/>
         <GridTwoUI style={{ margin: "0 0 30px 0"  }}>
-          <TileUI target="_blank" href="https://mailchi.mp/ecuad.ca/emix-subscribe" style={{ gridColumn: "1 / span 2"}}>
+          <TileBlueUI target="_blank" href="https://mailchi.mp/ecuad.ca/emix-subscribe" style={{ gridColumn: "1 / span 2"}}>
             Emix <br></br> Newsletter
-          </TileUI>
-          <TileUI target="_blank" href="https://www.ecuad.ca/" style={{ gridColumn: "3 / span 2"}}>
+          </TileBlueUI>
+          <TileBlueUI target="_blank" href="https://www.ecuad.ca/" style={{ gridColumn: "3 / span 2"}}>
           Emily Carr <br></br> Website
-          </TileUI>
-          <TileUI target="_blank" href="https://www.instagram.com/emilycarr_sas/?hl=en" style={{ gridColumn: "1 / span 4"}}>
+          </TileBlueUI>
+          <TileBlueUI target="_blank" href="https://www.instagram.com/emilycarr_sas/?hl=en" style={{ gridColumn: "1 / span 4"}}>
             Emily Carr Student Art Sale
-          </TileUI>
+          </TileBlueUI>
         </GridTwoUI>
 
       </SectionUI>

@@ -12,10 +12,9 @@ const ContainerUI = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  font-size: 30px;
-  @media (max-width: 1000px) {
+
+  @media (max-width: 1400px) {
     width: 90vw;
-    font-size: 16px;
   }
 `;
 
@@ -52,6 +51,7 @@ export const Dropdown = ({allPostsData}) => {
       <DropdownButton data = {allPostsData.filter(resource => resource.category.includes('resume'))} text = "CVs/Resumes, Cover Letters and Artist Statements"/>
       <DropdownButton data = {allPostsData.filter(resource => resource.category.includes('applications'))} text = "Applications, Proposals and Grant Writing"/>
       <DropdownButton data = {allPostsData.filter(resource => resource.category.includes('entrepreneurship'))} text = "Entrepreneurship, Small Businesses and Collectives"/>
+      
     </ContainerUI>
   );
 };

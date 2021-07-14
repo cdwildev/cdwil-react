@@ -9,6 +9,7 @@ import Hero1 from "../src/images/employer-hero-1.png";
 import Hero2 from "../src/images/employer-hero-2.png";
 import InspireGrid from "./components/Home/InspireGrid";
 import Footer from "./components/Footer";
+import DropdownButton from "./components/DropdownButton";
 
 
 
@@ -148,6 +149,39 @@ text-align: center;
 color: #000000;
 `;
 
+const InfoPackageUI = styled.a`
+font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 32px;
+line-height: 35px;
+text-align: left;
+height: 168px;
+display: flex;
+align-items: flex-end;
+justify-content: flex-start;
+overflow: hidden;
+border: 4px solid #252525;
+box-sizing: border-box;
+border-radius: 20px;
+position: relative;
+padding: 22px;
+cursor: pointer;
+color: #252525;
+
+text-decoration: none;
+
+&:hover {
+ background: #00A8E0;
+
+}
+
+@media (max-width: 800px) {
+  font-size: 18px;
+  line-height: 20px;
+}
+`;
+
 const TileUI = styled.a`
 font-family: Noto Sans;
 font-style: normal;
@@ -171,7 +205,7 @@ color: #252525;
 text-decoration: none;
 
 &:hover {
-  background: #b9d9eb;
+  background: #00B188;
 }
 
 @media (max-width: 800px) {
@@ -185,7 +219,7 @@ display: grid;
 
 text-align: left;
 grid-template-columns: repeat(9, 1fr);
-grid-gap: 9px;
+grid-gap: 10px;
 font-family: Noto Sans;
 font-style: normal;
 font-weight: bold;
@@ -291,7 +325,35 @@ border-radius: 10px;
 
 
 export default function About() {
+
   const [allPostsData, setAllPosts] = useState([]);
+  useEffect(() => {
+
+    const resources = JSON.parse(sessionStorage.getItem("resources"));
+
+    if(resources){
+      setAllPosts(resources)
+    } else {
+    sanityClient
+      .fetch(
+        `*[_type == "resources"]{
+          title,
+          description,
+          category,
+          link,
+      }`
+      )
+      .then((data) => {
+        setAllPosts(data);
+        sessionStorage.setItem("resources", JSON.stringify(data));
+      })
+      .catch(console.error);
+
+    }
+  }, []);
+
+
+
   return (
     <div className="container">
       <SectionUI style={{ margin: "150px 0 100px 0" }}>
@@ -324,17 +386,17 @@ export default function About() {
 
       <SectionUI style={{ margin: "0px 0 50px 0", flexDirection: "column" }}>
         <div style={{ margin: "0 0 30px 0", display: 'grid' }}>
-          <TileUI style={{  width: "50vw" }}>
+          <InfoPackageUI style={{  width: "50vw" }}>
           Employer
 Info Package
-          </TileUI>
+          </InfoPackageUI>
         </div>
       </SectionUI>
 
       <SectionUI style={{ margin: "50px 0 200px 0", flexDirection: "column" }}>
         <GridUI
           style={{
-            margin: "0 0 30px 0",
+            margin: "0 0 10px 0",
             gridTemplateColumns: "repeat(10, 1fr)",
           }}
         >
@@ -352,6 +414,8 @@ Info Package
             Basically Good Media Lab
           </TileUI>
         </GridUI>
+
+        <DropdownButton data = {allPostsData.filter(resource => resource.category.includes('funding'))} text = "Funding Resources to Hire Students"/>
       </SectionUI>
 
       <SectionUI style={{ flexDirection: "column" }}>

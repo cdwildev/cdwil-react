@@ -4,17 +4,16 @@ import sanityClient from "./client";
 import styled from "styled-components";
 import skillIdentifierImage from "../src/images/skill-identifier.svg";
 import InspireGrid from "./components/Home/InspireGrid";
-import gridOne from './images/grid-1.png';
-import gridTwo from './images/grid-2.png';
-import gridThree from './images/grid-3.png';
-import gridFour from './images/grid-4.png';
-import gridFive from './images/grid-5.png'
-import Dropdown from './components/Dropdown.js'
+import gridOne from "./images/grid-1.png";
+import gridTwo from "./images/grid-2.png";
+import gridThree from "./images/grid-3.png";
+import gridFour from "./images/grid-4.png";
+import gridFive from "./images/grid-5.png";
+import Dropdown from "./components/Dropdown.js";
 import Footer from "./components/Footer";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const SectionUI = styled.div`
-
   display: flex;
   width: 75vw;
   justify-content: center;
@@ -27,54 +26,44 @@ const SectionUI = styled.div`
   @media (max-width: 1400px) {
     width: 90vw;
   }
-  
 `;
 
 const InfoContainerUI = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 846px;
 
-display: flex;
-justify-content: flex-start;
-align-items: flex-start;
-max-width: 846px;
-
-text-align: left;
-font-family: Noto Sans;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
-margin: 64px 0 160px 0;
-
-@media (max-width: 800px) {
-
+  text-align: left;
   font-family: Noto Sans;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 20px;
+  margin: 64px 0 160px 0;
 
-}
-
-
-`
+  @media (max-width: 800px) {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+  }
+`;
 
 const LeftColumn = styled.div`
-width: 420px;
-margin: 0 64px 0 0;
-@media (max-width: 1000px) {
+  width: 420px;
+  margin: 0 64px 0 0;
+  @media (max-width: 1000px) {
+    margin: 0 0 64px 0;
 
-  margin: 0 0 64px 0;
-
-  width: 100%;
-}
-
+    width: 100%;
+  }
 `;
 
 const RightColumn = styled.div`
   width: 318px;
 
   @media (max-width: 1000px) {
- 
-  
     width: 100%;
   }
 `;
@@ -98,7 +87,7 @@ const TitleUI = styled.div`
   text-align: left;
   font-weight: 900;
   font-size: 120px;
-  background: linear-gradient(111.11deg, #03A27D 25.33%, #005695 75.02%);
+  background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-overflow: ellipsis;
@@ -112,36 +101,30 @@ const TitleUI = styled.div`
   @media (max-width: 1000px) {
     font-size: 10vw;
   }
-
-
-
-
-  
 `;
 
 const HeaderUI = styled.div`
-display: flex;
-justify-content: flex-start;
-text-align: left;
-font-weight: 900;
-font-size: 55px;
-background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-text-overflow: ellipsis;
-white-space: nowrap;
-display: block;
-text-align: left;
-padding: 0 0 50px 0;
-width: 100%;
-font-family: "Noto Sans JP", sans-serif;
-animation: gradient 5s ease infinite;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  font-weight: 900;
+  font-size: 55px;
+  background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  text-align: left;
+  padding: 0 0 50px 0;
+  width: 100%;
+  font-family: "Noto Sans JP", sans-serif;
+  animation: gradient 5s ease infinite;
 
-@media (max-width: 1000px) {
-  font-size: 8vw;
-}
+  @media (max-width: 1000px) {
+    font-size: 8vw;
+  }
 `;
-
 
 const SubTitleUI = styled.p`
   display: flex;
@@ -176,26 +159,22 @@ const TileUI = styled.div`
   padding: 22px;
   cursor: pointer;
 
-&:hover{
-  background: #B9D9EB;
-}
-@media (max-width: 1000px) {
-  font-size: 22px;
-  line-height: 20px;
-
-  
-}
-
+  &:hover {
+    background: #b9d9eb;
+  }
+  @media (max-width: 1000px) {
+    font-size: 22px;
+    line-height: 20px;
+  }
 `;
 
 const FlexUI = styled.div`
   display: flex;
 `;
 
-
 const GridUI = styled.div`
   display: grid;
-  
+
   text-align: left;
   grid-template-columns: repeat(9, 1fr);
   grid-gap: 9px;
@@ -211,69 +190,80 @@ const GridUI = styled.div`
     font-size: 22px;
     line-height: 20px;
     grid-template-rows: repeat(1, 1fr);
-    
+    display: none;
   }
+`;
 
+const MobileGridUI = styled.div`
+  display: none;
 
-
-
-`
+  text-align: left;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 9px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  width: 100%;
+  font-size: 22px;
+  @media (max-width: 1000px) {
+    display: grid;
+    font-size: 18px;
+  }
+`;
 
 const TileImageUI = styled.div`
-
   height: 30vh;
 
   background: white;
-    border: 4px solid #252525;
-    box-sizing: border-box;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden
-  
-
+  border: 4px solid #252525;
+  box-sizing: border-box;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 `;
 
-
 const ImageUI = styled.img`
+  flex-shrink: 0;
 
-flex-shrink: 0;
+  min-height: 100%;
+`;
 
-min-height: 100%
-
+const LinkUI = styled.a`
+  text-decoration: none;
+  color: #252525;
 `;
 
 export default function Resources() {
   const [allPostsData, setAllPosts] = useState([]);
   const [allVideos, setAllVideos] = useState([]);
-  
 
   useEffect(() => {
-
     const resources = JSON.parse(sessionStorage.getItem("resources"));
 
-    if(resources){
-      setAllPosts(resources)
+    if (resources) {
+      setAllPosts(resources);
     } else {
-    sanityClient
-      .fetch(
-        `*[_type == "resources"]{
+      sanityClient
+        .fetch(
+          `*[_type == "resources"]{
           title,
+          description,
           category,
           link,
       }`
-      )
-      .then((data) => {
-        setAllPosts(data);
-        sessionStorage.setItem("resources", JSON.stringify(data));
-      })
-      .catch(console.error);
-
+        )
+        .then((data) => {
+          setAllPosts(data);
+          sessionStorage.setItem("resources", JSON.stringify(data));
+        })
+        .catch(console.error);
     }
   }, []);
 
-/*   useEffect(() => {
+  /*   useEffect(() => {
 
     const videos = JSON.parse(localStorage.getItem("videos"));
 
@@ -297,52 +287,91 @@ export default function Resources() {
   }, []);
  */
 
-
   return (
-  <div className="container">
+    <div className="container">
+      <SectionUI style={{ margin: "200px 0 0 0", alignItems: "flex-start" }}>
+        <TitleUI>Resources</TitleUI>
 
-    <SectionUI style={{margin: '200px 0 0 0', alignItems: 'flex-start'}}>
+        <InfoContainerUI>
+          The resources listed here are a complied list from a mix of sources.
+          Half of the links contain downloadable PDF resources provided by the
+          Career Development + WIL Office. The other half will link to other
+          parts of the University including the Writing Centre, the Alumni
+          Association, the Aboriginal Gathering Place, the Shumka Centre, and
+          the Library. While a few others will redirect you to local
+          organizations with great relevant resources.
+        </InfoContainerUI>
 
-      <TitleUI>Resources</TitleUI>
+        <Dropdown allPostsData={allPostsData}></Dropdown>
+      </SectionUI>
 
-      <InfoContainerUI>
-      The resources listed here are a complied list from a mix of sources. Half of the links contain downloadable PDF resources provided by the Career Development + WIL Office. The other half will link to other parts of the University including the Writing Centre, the Alumni
-        Association, the Aboriginal Gathering Place, the Shumka Centre, and the Library. While a few others will redirect you to local organizations with great relevant resources.
-      </InfoContainerUI>
+      <SectionUI style={{ margin: "150px 0 0 0" }}>
+        <HeaderUI>
+          Alumni Stories <br></br>
+          and Career Pathways
+        </HeaderUI>
 
-      <Dropdown allPostsData={allPostsData}></Dropdown>
+        <InspireGrid></InspireGrid>
+      </SectionUI>
 
-    </SectionUI>
+      <SectionUI style={{ width: "90vw", margin: "200px 0 0 0" }}>
+        <GridUI style={{ width: "90vw" }}>
+          <LinkUI style={{ gridColumn: "1 / span 3"}} target="_blank" href="https://www.ecuad.ca/on-campus/agp">
+            <TileUI>
+            Aboriginal <br></br> Gathering Place
+            </TileUI>
+          </LinkUI>
+          <LinkUI style={{ gridColumn: "4 / span 3" }} target="_blank" href="https://www.ecuad.ca/library">
+          <TileUI>
+            Emily Carr <br></br> University Library
+            </TileUI>
+          </LinkUI>
+          <LinkUI style={{ gridColumn: "7 / span 3" }} target="_blank" href="https://www.alumni.ubc.ca/">
+          <TileUI>
+            Alumni <br></br> Association
+            </TileUI>
+          </LinkUI>
+          <LinkUI style={{ gridColumn: "1 / span 4"}} target="_blank" href="https://writingcentre.ecuad.ca/">
+          <TileUI>
+            Emily Carr <br></br> Writing Centre
+            </TileUI>
+          </LinkUI>
+          <LinkUI style={{ gridColumn: "5 / span 5" }} target="_blank" href="https://shumka.ecuad.ca/">
+          <TileUI>
+            Shumka Centre for <br></br> Creative Entrepreneurship
+            </TileUI>
+          </LinkUI>
+        </GridUI>
+
+        <MobileGridUI>
+        <LinkUI target="_blank" href="https://www.ecuad.ca/on-campus/agp">
+            <TileUI style={{}}>Aboriginal Gathering Place</TileUI>
+          </LinkUI>
+
+          <LinkUI target="_blank" href="https://www.ecuad.ca/library">
+            <TileUI style={{}}>Emily Carr University Library</TileUI>
+          </LinkUI>
+
+          <LinkUI target="_blank" href="https://www.alumni.ubc.ca/">
+            <TileUI style={{}}>Alumni Association</TileUI>
+          </LinkUI>
+
+          <LinkUI target="_blank" href="https://writingcentre.ecuad.ca/">
+            <TileUI style={{}}>Emily Carr Writing Centre</TileUI>
+          </LinkUI>
+
+          <LinkUI
+            style={{ textDecoration: "none", gridColumn: "1 / span 2" }}
+            target="_blank" href="https://shumka.ecuad.ca/"
+          >
+            <TileUI style={{ }}>Shumka Centre for Creative Entrepreneurship</TileUI>
+          </LinkUI>
 
 
-    <SectionUI style={{margin: '150px 0 0 0'}}>
+        </MobileGridUI>
+      </SectionUI>
 
-      <HeaderUI>Alumni Stories <br></br>
-and Career Pathways</HeaderUI>
-
-<InspireGrid></InspireGrid>
-      
-    </SectionUI>
-
-
-    <SectionUI  style={{width: '90vw', margin: '200px 0 0 0'}}>
-
-    <GridUI style={{width: '90vw' }}>
-     
-      <TileUI style={{gridColumn: '1 / span 3', height: '20vh'}}>Aboriginal <br></br> Gathering Place</TileUI>
-      <TileUI style={{gridColumn: '4 / span 3', height: '20vh'}}>Emily Carr <br></br> University Library</TileUI>
-      <TileUI style={{gridColumn: '7 / span 3', height: '20vh'}}>Alumni <br></br> Association</TileUI>
-      <TileUI style={{gridColumn: '1 / span 4', height: '20vh'}}>Emily Carr <br></br> Writing Centre</TileUI>
-      <TileUI style={{gridColumn: '5 / span 5', height: '20vh'}}>Shumka Centre for <br></br> Creative Entrepreneurship</TileUI>
-    </GridUI>
-
-    </SectionUI>
-
-  <Footer/>
-
-
-
-  <Footer/>
-  </div>
-  )
+      <Footer />
+    </div>
+  );
 }

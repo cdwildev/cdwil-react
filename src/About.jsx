@@ -147,7 +147,8 @@ const TileUI = styled.div`
   cursor: pointer;
 
   &:hover {
-    background: #b9d9eb;
+    background: #252525;
+    color: white;
   }
 
   @media (max-width: 800px) {
