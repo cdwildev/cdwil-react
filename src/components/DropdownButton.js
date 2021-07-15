@@ -20,10 +20,10 @@ const DropdownUI = styled.div`
   font-style: normal;
   font-weight: bold;
   flex-direction: column;
-  font-size: 30px;
-  @media (max-width: 1000px) {
+  font-size: 32px;
+  @media (max-width: 1200px) {
     width: 90vw;
-    font-size: 16px;
+    font-size: 22px;
   }
 
   cursor: pointer;
@@ -114,7 +114,7 @@ const SpaceUI = styled.div`
   cursor: auto;
 `;
 
-export const DropdownButton = ({ text, data, background="#00B188" , border="4px solid #252525", color="#252525" }) => {
+export const DropdownButton = ({ text, data, background="#00B188" , backgroundActive="white" , border="4px solid #252525", borderActive="4px solid #252525", color="#252525", colorActive="#252525"  }) => {
   const [active, setActive] = useState(false);
   const [hover, setHover] = useState(false);
 
@@ -145,7 +145,7 @@ export const DropdownButton = ({ text, data, background="#00B188" , border="4px 
       <DropdownUI
         onMouseEnter={handleHover}
         onMouseLeave={handleUnhover}
-        style={{ background: hover ? background : "white", border: border }}
+        style={{ background: hover ? background : active ? backgroundActive : 'transparent', border: active || hover ? borderActive : border, color: active || hover ? colorActive : color }}
       >
         <ButtonUI onClick={handleClick}>
           <div style={{ width: "auto", position: "relative" }}>

@@ -22,26 +22,25 @@ const SectionUI = styled.div`
 `;
 
 const TitleUI = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  text-align: left;
-  font-weight: 900;
-  font-size: 100px;
-  margin: 72px 0;
-  background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
-  font-family: "Noto Sans JP", sans-serif;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
-  text-align: left;
-  animation: gradient 5s ease infinite;
+display: flex;
+justify-content: flex-start;
+text-align: left;
+font-weight: 900;
+font-size: 120px;
+background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-overflow: ellipsis;
+white-space: nowrap;
+display: block;
+text-align: left;
+width: 100%;
+font-family: "Noto Sans JP", sans-serif;
+animation: gradient 5s ease infinite;
 
-  @media (max-width: 1000px) {
-    font-size: 10vw;
-  }
-
+@media (max-width: 1000px) {
+  font-size: 10vw;
+}
 `;
 
 const GridUI = styled.div`
@@ -199,8 +198,8 @@ export default function News() {
         textAlign: "left",
       }}
     >
-      <SectionUI style={{margin: '100px 0 0 0'}}>
-        <TitleUI>
+      <SectionUI style={{margin: '200px 0 0 0'}}>
+        <TitleUI style={{margin: '0 0 50px 0'}}> 
           News + <br></br>Events
         </TitleUI>
 
