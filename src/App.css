@@ -422,7 +422,7 @@ iframe{
   }
 }
 
-@keyframes flash {
+/* @keyframes flash {
   from{
     opacity: 100%;
     
@@ -438,6 +438,25 @@ iframe{
 
   to{
     opacity: 0%;
+  }
+}
+ */
+@keyframes flash {
+  from{
+    visibility: visible;
+    
+  }
+
+  30%{
+    visibility: visible;
+  }
+
+  31%{
+    visibility: hidden;
+  }
+
+  to{
+    visibility: hidden;
   }
 }
 

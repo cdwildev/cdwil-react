@@ -51,6 +51,11 @@ const ButtonUI = styled.div`
   font-size: 19px;
   margin: 20px 0 0 0;
   cursor: pointer;
+
+  &:hover{
+    background: #252525;
+    color: white;
+  }
 `;
 
 const TitleUI = styled.div`

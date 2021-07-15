@@ -88,7 +88,7 @@ const TileUI = styled.div`
 
 const FlashUI = styled.span`
 position: absolute;
-  opacity: 0%;
+  visibility: hidden;
   width: 600px;
 `;
 
