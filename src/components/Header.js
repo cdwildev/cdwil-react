@@ -242,7 +242,7 @@ export const Header = ({width}) => {
           to="/employers"
           style={{ textDecoration: "none", color: "black" }}
         >
-          <MobileLinkUI>Employers/Alumni/Prospective </MobileLinkUI>
+          <MobileLinkUI>For Alumni / Non-ECU Students </MobileLinkUI>
         </Link>
 
         <Link
@@ -250,7 +250,7 @@ export const Header = ({width}) => {
           to="/students"
           style={{ textDecoration: "none", color: "black" }}
         >
-          <MobileLinkUI>Non-ECU students / Alumni</MobileLinkUI>
+          <MobileLinkUI>For Employers</MobileLinkUI>
         </Link>
       </MobileMenuUI>
 
@@ -272,20 +272,21 @@ export const Header = ({width}) => {
 
           <NavUI>
             <NavTopUI>
-              <Link
-                to="/employers"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <NavLinkTopUI>For Employers</NavLinkTopUI>
-              </Link>
-
-              <NavLinkTopUI>|</NavLinkTopUI>
 
               <Link
                 to="/students"
                 style={{ textDecoration: "none", color: "black" }}
               >
-                <NavLinkTopUI>For Alumni</NavLinkTopUI>
+                <NavLinkTopUI>For Alumni / Non-ECU Students</NavLinkTopUI>
+              </Link>
+
+              <NavLinkTopUI>|</NavLinkTopUI>
+
+              <Link
+                to="/employers"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <NavLinkTopUI>For Employers</NavLinkTopUI>
               </Link>
             </NavTopUI>
             <NavBottomUI>
