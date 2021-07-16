@@ -219,6 +219,10 @@ const LoadingUI = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 const LoadingContainerUI = styled.div`

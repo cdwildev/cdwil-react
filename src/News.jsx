@@ -123,9 +123,31 @@ const DateUI = styled.div`
   }
 `;
 
+const ShowMoreButtonUI = styled.div`
+width: 160px;
+height: 51px;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 4px solid black;
+border-radius: 15px;
+font-style: normal;
+font-weight: bold;
+font-size: 19px;
+margin: 20px 0 0 0;
+cursor: pointer;
+
+&:hover{
+  background: #252525;
+  color: white;
+}
+`;
+
 
 export default function News() {
   const [allPostsData, setAllPosts] = useState([]);
+
+  const [showAllPosts, setShowAllPosts] = useState(1)
 
   useEffect(() => {
 
@@ -164,30 +186,9 @@ export default function News() {
     }
   }, []);
 
-    console.log(allPostsData)
+    var postsShown = allPostsData.sort((a, b) => b.publishedAt < a.publishedAt ? -1: 1).slice(0, showAllPosts * 9)
 
-/*     useEffect(() => {
-      const news = JSON.parse(sessionStorage.getItem("news"));
-  
-      if (news) {
-        setAllPosts(news);
-      } else {
-        sanityClient
-          .fetch(
-            `*[_type == "post"]{
-              title,
-              link,
-          }`
-          )
-          .then((data) => {
-        
-            sessionStorage.setItem("news", JSON.stringify(data));
-            setAllPosts(data);
-          })
-          .catch(console.error);
-      }
-    }, []);
- */
+
   return (
     <div
       className="container"
@@ -205,9 +206,7 @@ export default function News() {
 
         <GridUI>
           {allPostsData &&
-            allPostsData.map((post) => (
-
-            
+            postsShown.map((post) => (
               <Link
                 style={{ textDecoration: "none" }}
                 to={"/news/" + post.slug.current}
@@ -222,7 +221,14 @@ export default function News() {
               </Link>
             ))}
         </GridUI>
+
+
+
+
+      
       </SectionUI>
+
+      <ShowMoreButtonUI style={{display: postsShown.length >= allPostsData.length ? 'none' : 'flex', margin: '50px 0 0 0'}} onClick={() => setShowAllPosts(showAllPosts + 1)}>Show More</ShowMoreButtonUI>
 
       <Footer/>
     </div>

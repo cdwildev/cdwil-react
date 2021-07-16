@@ -169,11 +169,12 @@ export const InspireGrid = ({
         .fetch(
           `*[_type == "videos"]{
             title,
+            publishedAt,
             link,
         }`
         )
         .then((data) => {
-          setAllPosts(data);
+          setAllPosts(data.sort((a, b) => b.publishedAt < a.publishedAt ? -1: 1));
           sessionStorage.setItem("videos", JSON.stringify(data));
         })
         .catch(console.error);

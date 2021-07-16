@@ -100,12 +100,32 @@ const VideoTitleUI = styled.div`
   }
 `;
 
+const ShowMoreButtonUI = styled.div`
+width: 160px;
+height: 51px;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 4px solid black;
+border-radius: 15px;
+font-style: normal;
+font-weight: bold;
+font-size: 19px;
+margin: 20px 0 0 0;
+cursor: pointer;
+
+&:hover{
+  background: #252525;
+  color: white;
+}
+`;
+
 export default function Stories() {
   const [allPostsData, setAllPosts] = useState([]);
 
   useEffect(() => {
 
-    const videos = JSON.parse(localStorage.getItem("videos"));
+    const videos = JSON.parse(sessionStorage.getItem("videos"));
 
     if(videos){
       setAllPosts(videos)
@@ -115,11 +135,12 @@ export default function Stories() {
         `*[_type == "videos"]{
             title,
             link,
+            publishedAt,
         }`
       )
       .then((data) => {
-        setAllPosts(data);
-        localStorage.setItem("videos", JSON.stringify(data));
+        setAllPosts(data.sort((a, b) => b.publishedAt < a.publishedAt ? -1: 1));
+        sessionStorage.setItem("videos", JSON.stringify(data));
       })
       .catch(console.error);
 
@@ -127,6 +148,10 @@ export default function Stories() {
   }, []);
 
   console.log(allPostsData);
+
+  const [showAllPosts, setShowAllPosts] = useState(1)
+
+  var postsShown = allPostsData.slice(0, showAllPosts * 9)
 
   return (
     <div className="container">
@@ -136,7 +161,7 @@ export default function Stories() {
         </TitleUI>
 
         <GridUI>
-          {allPostsData.map((video) => (
+          { allPostsData &&  postsShown.map((video) => (
             <VideoUI>
               <ReactPlayer
                 width="100%"
@@ -151,6 +176,9 @@ export default function Stories() {
           ))}
         </GridUI>
       </SectionUI>
+
+      <ShowMoreButtonUI style={{display: postsShown.length >= allPostsData.length ? 'none' : 'flex', margin: '50px 0 0 0'}} onClick={() => setShowAllPosts(showAllPosts + 1)}>Show More</ShowMoreButtonUI>
+
       <Footer/>
     </div>
   );
