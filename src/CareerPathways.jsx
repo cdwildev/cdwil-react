@@ -158,7 +158,7 @@ export default function SkillIdentifierTool() {
     const resources = JSON.parse(sessionStorage.getItem("resources"));
 
     if (resources) {
-      setAllPosts(resources);
+      setResourceData(resources);
     } else {
       sanityClient
         .fetch(
@@ -259,7 +259,7 @@ Creative Careers Infographic
             data={resourceData.filter((resource) =>
               resource.category.includes("career-pathfinder")
             )}
-            text="Entrepreneurship, Small Businesses and Collectives"
+            text="Helpful Links"
           />
         </ContainerUI>
 

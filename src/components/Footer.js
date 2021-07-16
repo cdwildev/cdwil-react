@@ -215,11 +215,11 @@ export const Footer = ({}) => {
 
           <IconContainerUI>
 
-            <IconUI>
+            <IconUI href="https://www.instagram.com/ecucareerswil/" target="_blank">
           <Instagram/>
           </IconUI>
           
-          <IconUI>
+          <IconUI href="https://twitter.com/emilycarrcareer?lang=en" target="_blank">
           <Twitter/>
           </IconUI>
 

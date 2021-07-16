@@ -13,6 +13,9 @@ import puzzleTwo from "../src/images/resume-2.svg";
 import puzzleThree from "../src/images/resume-3.svg";
 import resumeInterview from "../src/images/resume-interview.svg";
 
+import resume101 from './videos/resumes-101.mp4'
+import ReactPlayer from "react-player";
+
 const ContainerUI = styled.div`
   width: 75vw;
   position: relative;
@@ -204,16 +207,16 @@ export default function SkillIdentifierTool() {
     const resources = JSON.parse(sessionStorage.getItem("resources"));
 
     if (resources) {
-      setAllPosts(resources);
+      setResourceData(resources);
     } else {
       sanityClient
         .fetch(
           `*[_type == "resources"]{
-        title,
-        description,
-        category,
-        link,
-    }`
+          title,
+          description,
+          category,
+          link,
+      }`
         )
         .then((data) => {
           setResourceData(data);
@@ -222,6 +225,9 @@ export default function SkillIdentifierTool() {
         .catch(console.error);
     }
   }, []);
+
+
+  console.log(allPostsData)
 
   return (
     <div
@@ -314,9 +320,9 @@ export default function SkillIdentifierTool() {
           borderActive="4px solid #252525"
           background="white"
           data={resourceData.filter((resource) =>
-            resource.category.includes("career-pathfinder")
+            resource.category.includes("resume-builder")
           )}
-          text="Entrepreneurship, Small Businesses and Collectives"
+          text="Helpful Links"
         />
       </ContainerUI>
 
@@ -336,6 +342,15 @@ export default function SkillIdentifierTool() {
         >
           Resumes 101 | Video Presentation
         </BodyTextUI>
+
+        <ReactPlayer
+                     width='100%'
+                     height='100%'
+                style={{ borderRadius: "10px", boxSizing: "border-box", position: 'relative'}}
+                light={false}
+                controls={true}
+                url={resume101}
+              />
       </ContainerUI>
 
       <ContainerUI
