@@ -90,7 +90,7 @@ const ToolContainerUI = styled.div`
 const ImageUI = styled.div`
   border: 4px solid #000000;
   box-sizing: border-box;
-  border-radius: 25px;
+  border-radius: 20px;
   width: 305px;
   height: 197px;
   cursor: pointer;
@@ -162,7 +162,7 @@ export default function Tools() {
           <Link to="/skill-identifier" style={{color: '#252525', textDecoration: 'none' }}> 
           <ToolContainerUI>
             <ImageUI>
-              <img style={{width: '105%', position: 'relative', left: '1px'}}src={skillIdentifier}/>
+              <img style={{width: '105%', position: 'relative', left: '4px'}}src={skillIdentifier}/>
             </ImageUI>
             <TitleUI>Skill Identifier</TitleUI>
             <BodyTextUI>

@@ -149,7 +149,7 @@ export const NavGrid = ({
             Price Work
           </span>{" "}
           <FlashUI style={{ animation: "flash 6s linear 2s infinite" }}>
-            Budget
+          Apply For Grants
           </FlashUI>{" "}
           <FlashUI style={{ animation: "flash 6s linear 4s infinite" }}>
             Apply For Grad School
@@ -185,7 +185,7 @@ export const NavGrid = ({
           to="/about"
         >
           <TileUI style={{}}>
-            Questions <br></br>
+          Learn <br></br>
             about Co-op?
           </TileUI>
         </Link>
@@ -224,7 +224,7 @@ export const NavGrid = ({
             Price Work
           </span>{" "}
           <FlashUI style={{ animation: "flash 6s linear 2s infinite" }}>
-            Budget
+          Apply For Grants
           </FlashUI>{" "}
           <FlashUI style={{ animation: "flash 6s linear 4s infinite" }}>
             Apply For Grad School
@@ -270,7 +270,7 @@ export const NavGrid = ({
         >
 
         <TileUI style={{}}>
-          Questions <br></br>
+        Learn <br></br>
           about Co-op?
         </TileUI>
 

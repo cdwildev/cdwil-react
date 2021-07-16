@@ -198,8 +198,8 @@ export const Footer = ({}) => {
           <TextUI style={{ maxWidth: "600px", margin: "0 0 24px 0" }}>
             The Career Development + Work Integrated learning Office located at
             Emily Carr University of Art + Design. We are situated on the
-            unceded, traditional and ancestral territories of thexʷməθkʷəy̓əm
-            (Musqueam), Sḵwx̱wú7mesh Úxwumixw (Squamish) and səl̓ilw̓ətaʔɬ
+            unceded, traditional and ancestral territories of thexʷməθkʷəy̓əm 
+            (Musqueam), <br></br>Sḵwx̱wú7mesh Úxwumixw (Squamish) and səl̓ilw̓ətaʔɬ
             (Tsleil-Waututh) peoples.{" "}
           </TextUI>
           <LineUI/>
