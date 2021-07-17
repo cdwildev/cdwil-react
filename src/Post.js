@@ -8,6 +8,10 @@ import imageUrlBuilder from "@sanity/image-url";
 import Footer from "./components/Footer";
 import moment from "moment";
 
+import useWindowDimensions from "./helpers/Window";
+
+import BlockContent from '@sanity/block-content-to-react'
+
 
 // Get a pre-configured url-builder from your sanity client
 const builder = imageUrlBuilder(sanityClient)
@@ -40,7 +44,7 @@ const TitleUI = styled.div`
   font-weight: 900;
   font-size: 48px;
   width: 100%;
-  margin: 72px 0;
+  margin: 100px 0 50px 0;
 
   background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
 
@@ -61,7 +65,16 @@ const TitleUI = styled.div`
 const ImageUI = styled.img``;
 
 const BodyUI = styled.div`
-  margin: 72px 0;
+font-family: Noto Sans;
+line-height: 20px;
+object-fit: contain;
+text-decoration: none;
+
+width: 75vw;
+
+@media (max-width:1400px) {
+  width: 90vw;
+}
 `;
 
 const PostUI = styled.div`
@@ -123,6 +136,18 @@ const DateUI = styled.div`
 export default function Post(props) {
   const [singlePost, setSinglePost] = useState(null);
   const { slug } = useParams();
+
+  const { height, width } = useWindowDimensions();
+
+  const serializers = {
+    types: {
+      code: (props) => (
+        <pre data-language={props.node.language}>
+          <code>{props.node.code}</code>
+        </pre>
+      ),
+    },
+  }
 
   useEffect(() => {
     sanityClient
@@ -193,12 +218,14 @@ export default function Post(props) {
         <DateUI>Posted on {singlePost && moment(singlePost.publishedAt).format("MMMM Do YYYY")}</DateUI>
 
         <BodyUI>
-          {singlePost &&
+{/*           {singlePost &&
             singlePost.body.map((post) => (
               <div style={styleText(post)}>
                 {post._type == "block" ? post.children.map((text) => <span style={styleSpan(text)}>{text.text}</span>) : post._type == "image" ? <img src={urlFor(post).url()} style={{width: '100%', margin: "48px 0"}}/> : post._type == "link" ? post.markDefs.map((text) => <span style={styleSpan(text)}>{text.text}</span>) : ''}
               </div>
-            ))}
+            ))} */}
+
+        {singlePost && <BlockContent  imageOptions={{ w: width < 1000 ? 400 : 1000, fit: 'max'}} projectId="5e3iqbhv" dataset="production" blocks={singlePost.body} serializers={serializers} />}
         </BodyUI>
       </SectionUI>
 
