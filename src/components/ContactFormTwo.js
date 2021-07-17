@@ -20,7 +20,7 @@ const ContainerUI = styled.div`
 `;
 
 const ButtonUI = styled.button`
-  background: #ffffff;
+
   border: 4px solid #252525;
   box-sizing: border-box;
   border-radius: 25px;

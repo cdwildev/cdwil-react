@@ -20,7 +20,7 @@ const ContainerUI = styled.div`
 `;
 
 const ButtonUI = styled.button`
-  background: #ffffff;
+
   border: 4px solid #252525;
   box-sizing: border-box;
   border-radius: 25px;
@@ -47,12 +47,12 @@ const ButtonUI = styled.button`
   &:hover {
     -webkit-background-clip: unset;
     -webkit-text-fill-color: unset;
-
     color: white;
   }
 
   @media (max-width: 1000px) {
     font-size: 5vw;
+
   }
 `;
 
