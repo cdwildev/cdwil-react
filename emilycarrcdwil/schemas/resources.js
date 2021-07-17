@@ -27,6 +27,7 @@ export default {
             { title: 'Entrepreneurship, Small Businesses and Collectives', value: 'entrepreneurship' },
             { title: 'Funding Resources to Hire Students', value: 'funding' },
             { title: 'Resume Builder Resources', value: 'resume-builder' },
+            { title: 'Resume Examples', value: 'resume-examples' },
             { title: 'Career Pathfinder Resources', value: 'career-pathfinder' },
   
           ],
@@ -39,6 +40,21 @@ export default {
         title: 'Link',
         type: 'string',
       },
+
+      
+      {
+        title: 'Pdf',
+        name: 'pdf',
+        type: 'file',
+        fields: [
+          {
+            name: 'description',
+            type: 'string',
+            title: 'Description'
+          },
+
+        ]
+      }
 
     ],
   
