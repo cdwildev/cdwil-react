@@ -39,7 +39,7 @@ const InfoContainerUI = styled.div`
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
-  margin: 64px 0 160px 0;
+  margin: 50px 0 100px 0;
 
   @media (max-width: 800px) {
     font-family: Noto Sans;

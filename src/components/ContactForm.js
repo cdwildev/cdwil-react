@@ -43,9 +43,6 @@ const ButtonUI = styled.button`
   animation: gradient 5s ease infinite;
   z-index: 1000;
 
-  animation: gradient 5s ease infinite;
-  z-index: 1000;
-
   cursor: pointer;
   &:hover {
     -webkit-background-clip: unset;
