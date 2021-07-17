@@ -16,6 +16,14 @@ import resumeInterview from "../src/images/resume-interview.svg";
 import resume101 from './videos/resumes-101.mp4'
 import ReactPlayer from "react-player";
 
+import actionWords from "./pdf/action-words.pdf"
+import coverLetters from "./pdf/cover-letters.pdf"
+import interviewBasics from "./pdf/interview-basics.pdf"
+import linkedinChecklist from "./pdf/linkedin-checklist.pdf"
+import resumes from "./pdf/resumes.pdf"
+import resumes101 from "./pdf/resumes-101.pdf"
+import Footer from "./components/Footer";
+
 const ContainerUI = styled.div`
   width: 75vw;
   position: relative;
@@ -77,6 +85,23 @@ const InfoUI = styled.div`
 
   justify-content: flex-start;
   color: white;
+`;
+
+const HeadingUI = styled.div`
+font-family: "Noto Sans JP", sans-serif;
+font-family: Noto Sans;
+font-style: normal;
+font-weight: 800;
+font-size: 54px;
+
+/* or 89% */
+margin: 50px 0;
+width: 100%;
+color: white;
+
+@media (max-width: 1000px) {
+  font-size: 10vw;
+}
 `;
 
 const ImageUI = styled.div`
@@ -150,7 +175,7 @@ const ImageContainerUI = styled.div`
   margin: 50px 0;
 `;
 
-const TileUI = styled.div`
+const TileUI = styled.a`
   font-family: Noto Sans;
   font-style: normal;
   font-weight: bold;
@@ -169,6 +194,7 @@ const TileUI = styled.div`
   padding: 0 50px;
   cursor: pointer;
   color: white;
+  text-decoration: none;
 
   &:hover {
     background: white;
@@ -215,6 +241,9 @@ export default function SkillIdentifierTool() {
           title,
           description,
           category,
+          pdf,
+          "pdfURL": pdf.asset->url,
+          
           link,
       }`
         )
@@ -290,7 +319,7 @@ export default function SkillIdentifierTool() {
         style={{
           flexDirection: "column",
           alignItems: "flex-start",
-          margin: "100px 0 200px 0",
+          margin: "100px 0 100px 0",
         }}
       >
         <BodyTextUI
@@ -304,13 +333,13 @@ export default function SkillIdentifierTool() {
         </BodyTextUI>
 
         <GridUI style={{ margin: "0px 0 10px 0" }}>
-          <TileUI>Action Words</TileUI>
+          <TileUI target="_blank" href={actionWords + '?dl='}>Action Words</TileUI>
 
-          <TileUI>Resumes 101 Presentation Slides</TileUI>
+          <TileUI target="_blank" href={interviewBasics + '?dl='}>Interview Basics</TileUI>
 
-          <TileUI>How to Write a Cover Letter</TileUI>
+          <TileUI target="_blank" href={coverLetters + '?dl='}>How to Write a Cover Letter</TileUI>
 
-          <TileUI>How to Write a Resume/CV</TileUI>
+          <TileUI target="_blank" href={resumes + '?dl='}>How to Write a Resume/CV</TileUI>
         </GridUI>
 
         <DropdownButton
@@ -330,7 +359,7 @@ export default function SkillIdentifierTool() {
         style={{
           flexDirection: "column",
           alignItems: "flex-start",
-          margin: "100px 0 200px 0",
+          margin: "100px 0 100px 0",
         }}
       >
         <BodyTextUI
@@ -350,14 +379,17 @@ export default function SkillIdentifierTool() {
                 light={false}
                 controls={true}
                 url={resume101}
+              
               />
+
+<TileUI style={{width: '100%', margin: '10px 0 0 0'}} target="_blank" href={resumes101 + '?dl='}>Resumes 101 Presentation Slides</TileUI>
       </ContainerUI>
 
       <ContainerUI
         style={{
           flexDirection: "column",
           alignItems: "flex-start",
-          margin: "100px 0 200px 0",
+          margin: "100px 0 100px 0",
         }}
       >
         <BodyTextUI
@@ -391,7 +423,7 @@ export default function SkillIdentifierTool() {
           </TileUI>
         </GridTwoUI>
 
-        <ResumeTypeUI style={{ display: resumeTypes == "" ? "none" : "flex" }}>
+        <ResumeTypeUI style={{ display: resumeTypes == "" ? "none" : "flex", margin: "0px 0 10px 0", }}>
           {resumeTypes == "professional" ? (
             <div>
               <span style={{ fontWeight: 900 }}>
@@ -524,11 +556,25 @@ export default function SkillIdentifierTool() {
             ""
           )}
         </ResumeTypeUI>
+
+        <DropdownButton
+          color="white"
+          colorActive="#252525"
+          border="4px solid white"
+          borderActive="4px solid #252525"
+          background="white"
+          data={resourceData.filter((resource) =>
+            resource.category.includes("resume-examples")
+          )}
+          text="Resume Examples"
+        />
       </ContainerUI>
 
-      <ContainerUI>
+      <ContainerUI style={{justifyContent: 'center', alignItems: 'center', flexDirection: 'column', margin: '0 0 100px 0'}}>
+
+<HeadingUI>A resume doesn’t get you the job</HeadingUI>
         <img style={{ width: "50%" }} src={resumeInterview} />
-        
+        <HeadingUI>It gets you an interview!</HeadingUI>
 
       </ContainerUI>
 
@@ -540,6 +586,7 @@ export default function SkillIdentifierTool() {
       {/* <iframe frameborder="0" height="100%" width="100%" src="https://resume-builder.paperform.co/" ></iframe> */}
 
       {/* <div style={{width: '100vw', height: '1000px'}} data-paperform-id="resume-builder"></div> */}
+      <Footer/>
     </div>
   );
 }
