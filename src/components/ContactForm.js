@@ -19,7 +19,7 @@ const ContainerUI = styled.div`
   }
 `;
 
-const ButtonUI = styled.button`
+const ButtonUI = styled.div`
 
   border: 4px solid #252525;
   box-sizing: border-box;
