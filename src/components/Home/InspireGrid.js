@@ -113,7 +113,7 @@ export const InspireGrid = ({
 
     <GridUI>
       {allPostsData.slice(0, 5).map((video) => (
-        <VideoUI>
+        <VideoUI key={video.title}>
           <ReactPlayer
             width="100%"
             height="100%"

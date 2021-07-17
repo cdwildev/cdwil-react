@@ -1,28 +1,17 @@
 import { useEffect, useState, useRef } from "react";
 import React from "react";
 import styled from "styled-components";
-import {
-  PDFDownloadLink,
-  Page,
-  Text,
-  View,
-  Document,
-  StyleSheet,
-  ReactPDF,
-} from "@react-pdf/renderer";
 
 import "./styles.css";
 
 import Loader from "../../images/career-pathway-loader.svg";
 
-import { ChevronUp, ChevronDown, X, ArrowDown, ArrowUp } from "react-feather";
 import { FilterCircle } from "./FilterCircle";
 import { FilterSquare } from "./FilterSquare";
 import { FilterSemiCircle } from "./FilterSemiCircle";
 import { Results } from "./Results";
 import { MobileSelection } from "./MobileSelection";
 import useWindowDimensions from "../../helpers/Window";
-
 
 const ContainerUI = styled.div`
   width: 100vw;
@@ -116,8 +105,6 @@ const ProgressUI = styled.div`
   cursor: pointer;
   z-index: 1000;
   display: flex;
-
-
 `;
 
 const CircleUI = styled.div`
@@ -335,25 +322,25 @@ export const CareerPathways = ({ allPostsData }) => {
   const [selectedValues, setSelectedValues] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
   const nextScreen = () => {
-    if (screen == 1) {
+    if (screen === 1) {
       setScreen(2);
-    } else if (screen == 2) {
+    } else if (screen === 2) {
       setScreen(3);
-    } else if (screen == 3) {
+    } else if (screen === 3) {
       setScreen(4);
       setLoading(true);
     }
   };
 
   const prevScreen = () => {
-    if (screen == 3) {
+    if (screen === 3) {
       setScreen(2);
-    } else if (screen == 2) {
+    } else if (screen === 2) {
       setScreen(1);
-    } else if (screen == 4) {
+    } else if (screen === 4) {
       setScreen(3);
     }
   };
@@ -366,26 +353,22 @@ export const CareerPathways = ({ allPostsData }) => {
     }
   }, [loading]);
 
-  
   useEffect(() => {
     if (width < 1200) {
-      setIsMobile(true)
-    } else{setIsMobile(false)}
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
   }, [width]);
-
-  const rndInt = Math.floor(Math.random() * 500) + 1;
 
   function randomIntFromInterval(min, max) {
     // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-
-
   return (
     <>
       <ContainerUI>
-
         {!isMobile ? (
           <SelectionContainerUI>
             <GridUI>
@@ -500,7 +483,7 @@ export const CareerPathways = ({ allPostsData }) => {
           ></MobileSelection>
         )}
 
-        {screen == 4 ? (
+        {screen === 4 ? (
           <>
             <LoadingScreenUI
               style={{
@@ -508,12 +491,12 @@ export const CareerPathways = ({ allPostsData }) => {
               }}
             >
               <img
+                alt="loading"
                 style={{ width: "100vw", animation: "2s scroll linear" }}
                 src={Loader}
               />
             </LoadingScreenUI>
             <Results
-         
               loading={loading}
               selectedIndustries={selectedIndustries}
               selectedSkills={selectedSkills}
@@ -532,7 +515,7 @@ export const CareerPathways = ({ allPostsData }) => {
                 position: "absolute",
                 bottom: "5vh",
                 left: "5vw",
-                display: screen == 1 ? "none" : "flex",
+                display: screen === 1 ? "none" : "flex",
               }}
             >
               Back
@@ -541,7 +524,7 @@ export const CareerPathways = ({ allPostsData }) => {
             {/* mobile screen */}
             {!isMobile ? (
               <PoolUI ref={pool}>
-                {screen == 1 ? (
+                {screen === 1 ? (
                   <>
                     <InstructionTopUI>
                       Which industries are you curious or passionate about?
@@ -550,7 +533,7 @@ export const CareerPathways = ({ allPostsData }) => {
                     </InstructionTopUI>{" "}
                     <InstructionUI>Drag and Drop here</InstructionUI>
                   </>
-                ) : screen == 2 ? (
+                ) : screen === 2 ? (
                   <>
                     <InstructionTopUI>
                       What are you really good at or interested in getting
@@ -559,7 +542,7 @@ export const CareerPathways = ({ allPostsData }) => {
                     </InstructionTopUI>{" "}
                     <InstructionUI>Drag and Drop here</InstructionUI>
                   </>
-                ) : screen == 3 ? (
+                ) : screen === 3 ? (
                   <>
                     <InstructionTopUI>
                       Values reflect who we are and indicate what is most
@@ -580,17 +563,19 @@ export const CareerPathways = ({ allPostsData }) => {
               onClick={nextScreen}
               style={{ position: "absolute", bottom: "5vh", right: "5vw" }}
             >
-              {screen == 3 ? "BOOM!" : "Next"}
+              {screen === 3 ? "BOOM!" : "Next"}
             </ButtonUI>
 
             {!isMobile ? (
               <ProgressUI>
                 <CircleUI
                   onClick={() => setScreen(1)}
-                  style={{ backgroundColor: screen == 1 ? "#0D3858" : "white" }}
+                  style={{
+                    backgroundColor: screen === 1 ? "#0D3858" : "white",
+                  }}
                 >
                   <ProgressLabelUI
-                    style={{ color: screen == 1 ? "#0D3858" : "white" }}
+                    style={{ color: screen === 1 ? "#0D3858" : "white" }}
                   >
                     Industry
                   </ProgressLabelUI>
@@ -603,10 +588,12 @@ export const CareerPathways = ({ allPostsData }) => {
                 />
                 <SquareUI
                   onClick={() => setScreen(2)}
-                  style={{ backgroundColor: screen == 2 ? "#0D3858" : "white" }}
+                  style={{
+                    backgroundColor: screen === 2 ? "#0D3858" : "white",
+                  }}
                 >
                   <ProgressLabelUI
-                    style={{ color: screen == 2 ? "#0D3858" : "white" }}
+                    style={{ color: screen === 2 ? "#0D3858" : "white" }}
                   >
                     Interests
                   </ProgressLabelUI>
@@ -619,10 +606,12 @@ export const CareerPathways = ({ allPostsData }) => {
                 />
                 <SemiUI
                   onClick={() => setScreen(3)}
-                  style={{ backgroundColor: screen == 3 ? "#0D3858" : "white" }}
+                  style={{
+                    backgroundColor: screen === 3 ? "#0D3858" : "white",
+                  }}
                 >
                   <ProgressLabelUI
-                    style={{ color: screen == 3 ? "#0D3858" : "white" }}
+                    style={{ color: screen === 3 ? "#0D3858" : "white" }}
                   >
                     Values
                   </ProgressLabelUI>

@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { useEffect, useState, lazy, Suspense  } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import styled from "styled-components";
 import heroOne from "./images/hero-1.png";
 import heroTwo from "./images/hero-2.png";
@@ -11,12 +11,10 @@ import sanityClient from "./client";
 
 import useWindowDimensions from "./helpers/Window";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavGrid = lazy(() => import("./components/Home/NavGrid"));
 const InspireGrid = lazy(() => import("./components/Home/InspireGrid"));
-
-
 
 const SectionUI = styled.div`
   display: flex;
@@ -53,7 +51,7 @@ const ButtonUI = styled.div`
   margin: 20px 0 0 0;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     background: #252525;
     color: white;
   }
@@ -246,7 +244,7 @@ const LoadingGradientUI = styled.div`
   display: flex;
   transition: 1s ease;
   -webkit-backface-visibility: hidden;
--webkit-perspective: 1000;
+  -webkit-perspective: 1000;
 `;
 const LoadingGradientTwoUI = styled.div`
   position: absolute;
@@ -262,7 +260,7 @@ const LoadingGradientTwoUI = styled.div`
   transition: 1s ease;
 
   -webkit-backface-visibility: hidden;
--webkit-perspective: 1000;
+  -webkit-perspective: 1000;
 
   @media (max-width: 1100px) {
     width: 150vw;
@@ -284,7 +282,7 @@ const LoadingGradientThreeUI = styled.div`
   transition: 1s ease;
 
   -webkit-backface-visibility: hidden;
--webkit-perspective: 1000;
+  -webkit-perspective: 1000;
 
   @media (max-width: 1100px) {
     width: 150vw;
@@ -320,7 +318,6 @@ function Home() {
     const news = JSON.parse(sessionStorage.getItem("news"));
 
     if (news) {
-
     } else {
       sanityClient
         .fetch(
@@ -343,7 +340,6 @@ function Home() {
         }`
         )
         .then((data) => {
-      
           sessionStorage.setItem("news", JSON.stringify(data));
         })
         .catch(console.error);
@@ -355,7 +351,7 @@ function Home() {
 
   const [imagesloaded, setImagesLoaded] = useState(0);
 
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
   if (imagesloaded > 2) {
     setTimeout(() => {
@@ -375,104 +371,113 @@ function Home() {
   }, []);
 
   return (
-
     <Suspense fallback={<div></div>}>
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "flex-start",
-      }}
-    >
-      <LoadingUI style={{ display: isLoading ? "flex" : "none" }}>
-        <LoadingContainerUI>
-          <LoadingGradientUI style={{ top: isAnimate ? "-100vh" : "300vh" }} />
-          <LoadingGradientTwoUI style={{ left: isAnimate ? "0vw" : "300vw" }} />
-          <LoadingGradientThreeUI
-            style={{ left: isAnimate ? "-100vw" : "-300vw" }}
-          />
-        </LoadingContainerUI>
-      </LoadingUI>
-      <SectionUI
+      <div
         style={{
-          margin: "200px 0 200px 0 ",
-          alignItems: "flex-start",
-        }}
-      >
-        <LeftColumn>
-          <TitleUI>
-            Career <br></br> Development <br></br>+ Work Integrated <br></br>
-            Learning Office
-          </TitleUI>
-          <SubTitleUI>
-            Connecting students and alumni with local, national and
-            international employers in the creative industries and beyond.
-          </SubTitleUI>
-          <Link to="/about" style={{ textDecoration: "none", color: "black" }}>
-            <ButtonUI>Learn More</ButtonUI>
-          </Link>
-        </LeftColumn>
-        <RightColumn>
-          <ImageGrid>
-            <ImageUI
-              alt="Design student looking down writing in a notebook in an office setting."
-              style={{ width: "100%", gridColumn: "2 / span 8" }}
-              src={heroOne}
-              onLoad={() => setImagesLoaded(imagesloaded + 1)}
-            />
-
-            <ImageUI
-              alt="Fine arts student sitting and painting on a large canvas in a studio space."
-              style={{ width: "100%", gridColumn: "1 / span 3" }}
-              src={heroTwo}
-              onLoad={() => setImagesLoaded(imagesloaded + 1)}
-            />
-
-            <ImageUI
-              alt="Media student applying film to a box light."
-              style={{ width: "100%", gridColumn: "5 / span 4" }}
-              src={heroThree}
-              onLoad={() => setImagesLoaded(imagesloaded + 1)}
-            />
-          </ImageGrid>
-        </RightColumn>
-      </SectionUI>
-
-      <SectionUI
-        className="section"
-        style={{
-          margin: "0vh 0 200px 0 ",
-          alignItems: "flex-start",
-        }}
-      >
-        <NavGrid />
-      </SectionUI>
-
-      <SectionUI
-        className="section"
-        style={{
-          margin: "00px 0 0 0 ",
-          alignItems: "flex-start",
+          display: "flex",
           flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "flex-start",
         }}
       >
-        <GradientUI></GradientUI>
-        <GradientMobileUI></GradientMobileUI>
-        <GradientUI style={{ left: "0", top: "0", width: "40vw" }}></GradientUI>
-        <GradientUI
-          style={{ right: "0", bottom: "0", width: "60vw" }}
-        ></GradientUI>
-        <InspireTitleUI>GET</InspireTitleUI>
+        <LoadingUI style={{ display: isLoading ? "flex" : "none" }}>
+          <LoadingContainerUI>
+            <LoadingGradientUI
+              style={{ top: isAnimate ? "-100vh" : "300vh" }}
+            />
+            <LoadingGradientTwoUI
+              style={{ left: isAnimate ? "0vw" : "300vw" }}
+            />
+            <LoadingGradientThreeUI
+              style={{ left: isAnimate ? "-100vw" : "-300vw" }}
+            />
+          </LoadingContainerUI>
+        </LoadingUI>
+        <SectionUI
+          style={{
+            margin: "200px 0 200px 0 ",
+            alignItems: "flex-start",
+          }}
+        >
+          <LeftColumn>
+            <TitleUI>
+              Career <br></br> Development <br></br>+ Work Integrated <br></br>
+              Learning Office
+            </TitleUI>
+            <SubTitleUI>
+              Connecting students and alumni with local, national and
+              international employers in the creative industries and beyond.
+            </SubTitleUI>
+            <Link
+              to="/about"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <ButtonUI>Learn More</ButtonUI>
+            </Link>
+          </LeftColumn>
+          <RightColumn>
+            <ImageGrid>
+              <ImageUI
+                alt="Design student looking down writing in a notebook in an office setting."
+                style={{ width: "100%", gridColumn: "2 / span 8" }}
+                src={heroOne}
+                onLoad={() => setImagesLoaded(imagesloaded + 1)}
+              />
 
-        <InspireTitleMobileUI>GET INSPIRED</InspireTitleMobileUI>
-        <InspireGrid allPostsData={allPostsData} />
-        <InspireTitleUI style={{ textAlign: "right" }}>INSPIRED</InspireTitleUI>
-      </SectionUI>
+              <ImageUI
+                alt="Fine arts student sitting and painting on a large canvas in a studio space."
+                style={{ width: "100%", gridColumn: "1 / span 3" }}
+                src={heroTwo}
+                onLoad={() => setImagesLoaded(imagesloaded + 1)}
+              />
 
-      <Footer/>
-    </div>
+              <ImageUI
+                alt="Media student applying film to a box light."
+                style={{ width: "100%", gridColumn: "5 / span 4" }}
+                src={heroThree}
+                onLoad={() => setImagesLoaded(imagesloaded + 1)}
+              />
+            </ImageGrid>
+          </RightColumn>
+        </SectionUI>
 
+        <SectionUI
+          className="section"
+          style={{
+            margin: "0vh 0 200px 0 ",
+            alignItems: "flex-start",
+          }}
+        >
+          <NavGrid />
+        </SectionUI>
+
+        <SectionUI
+          className="section"
+          style={{
+            margin: "00px 0 0 0 ",
+            alignItems: "flex-start",
+            flexDirection: "column",
+          }}
+        >
+          <GradientUI></GradientUI>
+          <GradientMobileUI></GradientMobileUI>
+          <GradientUI
+            style={{ left: "0", top: "0", width: "40vw" }}
+          ></GradientUI>
+          <GradientUI
+            style={{ right: "0", bottom: "0", width: "60vw" }}
+          ></GradientUI>
+          <InspireTitleUI>GET</InspireTitleUI>
+
+          <InspireTitleMobileUI>GET INSPIRED</InspireTitleMobileUI>
+          <InspireGrid allPostsData={allPostsData} />
+          <InspireTitleUI style={{ textAlign: "right" }}>
+            INSPIRED
+          </InspireTitleUI>
+        </SectionUI>
+
+        <Footer />
+      </div>
     </Suspense>
   );
 }

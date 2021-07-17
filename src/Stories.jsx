@@ -1,24 +1,13 @@
 import { useEffect, useState } from "react";
-import { SkillIdentifier } from "./components/SkillIdentifier/SkillIdentifier";
 import sanityClient from "./client";
 import styled from "styled-components";
-import skillIdentifierImage from "../src/images/skill-identifier.svg";
-import InspireGrid from "./components/Home/InspireGrid";
-import gridOne from "./images/grid-1.png";
-import gridTwo from "./images/grid-2.png";
-import gridThree from "./images/grid-3.png";
-import gridFour from "./images/grid-4.png";
-import gridFive from "./images/grid-5.png";
-import Dropdown from "./components/Dropdown.js";
 import ReactPlayer from "react-player";
 import Footer from "./components/Footer";
-
 
 import React from "react";
 import { Player } from "video-react";
 
 const SectionUI = styled.div`
-
   display: flex;
   width: 75vw;
   justify-content: flex-start;
@@ -29,34 +18,32 @@ const SectionUI = styled.div`
   justify-content: flex-start;
   flex-direction: column;
 
-
   @media (max-width: 1400px) {
     width: 90vw;
   }
 `;
 
 const TitleUI = styled.div`
-display: flex;
-justify-content: flex-start;
-text-align: left;
-font-weight: 900;
-font-size: 100px;
-margin: 72px 0;
-padding: 0 0 10px 0;
-background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
-font-family: "Noto Sans JP", sans-serif;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-text-overflow: ellipsis;
-white-space: nowrap;
-display: block;
-text-align: left;
-animation: gradient 5s ease infinite;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  font-weight: 900;
+  font-size: 100px;
+  margin: 72px 0;
+  padding: 0 0 10px 0;
+  background: linear-gradient(111.11deg, #03a27d 25.33%, #005695 75.02%);
+  font-family: "Noto Sans JP", sans-serif;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  text-align: left;
+  animation: gradient 5s ease infinite;
 
-@media (max-width: 1000px) {
-  font-size: 10vw;
-}
-
+  @media (max-width: 1000px) {
+    font-size: 10vw;
+  }
 `;
 
 const GridUI = styled.div`
@@ -65,24 +52,18 @@ const GridUI = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: space-between;
-  grid-template-columns: repeat( auto-fit, minmax(350px, 2fr) );
+  grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
   grid-gap: 50px;
   @media (max-width: 1200px) {
-
-
   }
 
   @media (max-width: 1000px) {
- 
-
   }
 `;
 
 const VideoUI = styled.div`
   margin: 0 0 88px 0;
   @media (max-width: 1000px) {
-
-
   }
 `;
 
@@ -101,85 +82,99 @@ const VideoTitleUI = styled.div`
 `;
 
 const ShowMoreButtonUI = styled.div`
-width: 160px;
-height: 51px;
-display: flex;
-align-items: center;
-justify-content: center;
-border: 4px solid black;
-border-radius: 15px;
-font-style: normal;
-font-weight: bold;
-font-size: 19px;
-margin: 20px 0 0 0;
-cursor: pointer;
+  width: 160px;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid black;
+  border-radius: 15px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 19px;
+  margin: 20px 0 0 0;
+  cursor: pointer;
 
-&:hover{
-  background: #252525;
-  color: white;
-}
+  &:hover {
+    background: #252525;
+    color: white;
+  }
 `;
 
 export default function Stories() {
   const [allPostsData, setAllPosts] = useState([]);
 
   useEffect(() => {
-
     const videos = JSON.parse(sessionStorage.getItem("videos"));
 
-    if(videos){
-      setAllPosts(videos)
+    if (videos) {
+      setAllPosts(videos);
     } else {
-    sanityClient
-      .fetch(
-        `*[_type == "videos"]{
+      sanityClient
+        .fetch(
+          `*[_type == "videos"]{
             title,
             link,
             publishedAt,
         }`
-      )
-      .then((data) => {
-        setAllPosts(data.sort((a, b) => b.publishedAt < a.publishedAt ? -1: 1));
-        sessionStorage.setItem("videos", JSON.stringify(data));
-      })
-      .catch(console.error);
-
+        )
+        .then((data) => {
+          setAllPosts(
+            data.sort((a, b) => (b.publishedAt < a.publishedAt ? -1 : 1))
+          );
+          sessionStorage.setItem("videos", JSON.stringify(data));
+        })
+        .catch(console.error);
     }
   }, []);
 
   console.log(allPostsData);
 
-  const [showAllPosts, setShowAllPosts] = useState(1)
+  const [showAllPosts, setShowAllPosts] = useState(1);
 
-  var postsShown = allPostsData.slice(0, showAllPosts * 9)
+  var postsShown = allPostsData.slice(0, showAllPosts * 9);
 
   return (
     <div className="container">
-      <SectionUI style={{ margin: '100px 0 0 0'}}>
+      <SectionUI style={{ margin: "100px 0 0 0" }}>
         <TitleUI>
           Alumni Stories + <br></br>Career Pathways
         </TitleUI>
 
         <GridUI>
-          { allPostsData &&  postsShown.map((video) => (
-            <VideoUI>
-              <ReactPlayer
-                width="100%"
-                height="216px"
-                style={{ border: "5px solid #252525", borderRadius: "10px", boxSizing: "border-box", position: 'relative'}}
-                light={true}
-                controls={true}
-                url={video.link}
-              />
-              <VideoTitleUI>{video.title}</VideoTitleUI>
-            </VideoUI>
-          ))}
+          {allPostsData &&
+            postsShown.map((video) => (
+              <VideoUI>
+                <ReactPlayer
+                  width="100%"
+                  height="216px"
+                  style={{
+                    border: "5px solid #252525",
+                    borderRadius: "10px",
+                    boxSizing: "border-box",
+                    position: "relative",
+                  }}
+                  light={true}
+                  controls={true}
+                  url={video.link}
+                />
+                <VideoTitleUI>{video.title}</VideoTitleUI>
+              </VideoUI>
+            ))}
         </GridUI>
       </SectionUI>
 
-      <ShowMoreButtonUI style={{display: postsShown.length >= allPostsData.length ? 'none' : 'flex', margin: '50px 0 0 0'}} onClick={() => setShowAllPosts(showAllPosts + 1)}>Show More</ShowMoreButtonUI>
+      <ShowMoreButtonUI
+        style={{
+          display: postsShown.length >= allPostsData.length ? "none" : "flex",
+          margin: "50px 0 0 0",
+        }}
+        onClick={() => setShowAllPosts(showAllPosts + 1)}
+      >
+        Show More
+      </ShowMoreButtonUI>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 }

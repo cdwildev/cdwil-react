@@ -138,7 +138,7 @@ export const DropdownButton = ({ text, data, background="#00B188" , backgroundAc
       setHover(false);
     }
   };
-  console.log(data);
+
 
   return (
     <>
@@ -172,7 +172,7 @@ export const DropdownButton = ({ text, data, background="#00B188" , backgroundAc
         {active ? (
           <ContentUI>
             {data.map((resource) => (
-              <LinkContainerUI>
+              <LinkContainerUI key={resource.title}>
                 {resource.title && (
                   <LinkUI target="_blank" href={resource.link}>
                     {resource.title}

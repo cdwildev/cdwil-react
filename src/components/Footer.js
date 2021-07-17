@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import React from "react";
 import styled from "styled-components";
 import logo from "../images/logo.svg";
-import FooterImage from "../images/footer.svg";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Twitter, Instagram } from "react-feather";
 

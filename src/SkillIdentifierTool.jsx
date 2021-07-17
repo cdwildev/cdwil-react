@@ -45,7 +45,7 @@ const BodyTextUI = styled.div`
 `;
 
 const DetailTextUI = styled.div`
-    font-family: "Noto Sans JP", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
@@ -127,21 +127,22 @@ export default function SkillIdentifierTool() {
         </InfoUI>
 
         <ImageUI>
-          <img src={skillIdentifierImage} 
-          alt="Black, white and grey illustration of a student in a black shirt looking through a telescope.The student stands sideways and through the telescope sees the night sky with stars, planets and constellations."/>
+          <img
+            src={skillIdentifierImage}
+            alt="Black, white and grey illustration of a student in a black shirt looking through a telescope.The student stands sideways and through the telescope sees the night sky with stars, planets and constellations."
+          />
         </ImageUI>
       </ContainerUI>
 
       <ContainerUI
-              style={{
-                alignItems: "flex-start",
-                flexDirection: "column",
-              }}>
+        style={{
+          alignItems: "flex-start",
+          flexDirection: "column",
+        }}
+      >
         <DetailTextUI style={{ margin: "50px 0 0 0" }}>
           For the full experience, use this tool on a desktop or laptop.
         </DetailTextUI>
-
-       
       </ContainerUI>
 
       <SkillIdentifier allPostsData={allPostsData} />

@@ -1,27 +1,24 @@
 import { useEffect, useState } from "react";
-import { SkillIdentifier } from "./components/SkillIdentifier/SkillIdentifier";
+
 import sanityClient from "./client";
 import styled from "styled-components";
 import skillIdentifierImage from "../src/images/resume-builder.svg";
 import JotformEmbed from "react-jotform-embed";
 
-import CareerPathways from "./components/CareerPathways/CareerPathways";
-import useWindowDimensions from "./helpers/Window";
 import DropdownButton from "./components/DropdownButton";
 import puzzleOne from "../src/images/resume-1.svg";
 import puzzleTwo from "../src/images/resume-2.svg";
 import puzzleThree from "../src/images/resume-3.svg";
 import resumeInterview from "../src/images/resume-interview.svg";
 
-import resume101 from './videos/resumes-101.mp4'
+import resume101 from "./videos/resumes-101.mp4";
 import ReactPlayer from "react-player";
 
-import actionWords from "./pdf/action-words.pdf"
-import coverLetters from "./pdf/cover-letters.pdf"
-import interviewBasics from "./pdf/interview-basics.pdf"
-import linkedinChecklist from "./pdf/linkedin-checklist.pdf"
-import resumes from "./pdf/resumes.pdf"
-import resumes101 from "./pdf/resumes-101.pdf"
+import actionWords from "./pdf/action-words.pdf";
+import coverLetters from "./pdf/cover-letters.pdf";
+import interviewBasics from "./pdf/interview-basics.pdf";
+import resumes from "./pdf/resumes.pdf";
+import resumes101 from "./pdf/resumes-101.pdf";
 import Footer from "./components/Footer";
 
 const ContainerUI = styled.div`
@@ -88,20 +85,20 @@ const InfoUI = styled.div`
 `;
 
 const HeadingUI = styled.div`
-font-family: "Noto Sans JP", sans-serif;
-font-family: Noto Sans;
-font-style: normal;
-font-weight: 800;
-font-size: 54px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 54px;
 
-/* or 89% */
-margin: 50px 0;
-width: 100%;
-color: white;
+  /* or 89% */
+  margin: 50px 0;
+  width: 100%;
+  color: white;
 
-@media (max-width: 1000px) {
-  font-size: 10vw;
-}
+  @media (max-width: 1000px) {
+    font-size: 10vw;
+  }
 `;
 
 const ImageUI = styled.div`
@@ -259,9 +256,6 @@ export default function SkillIdentifierTool() {
     }
   }, []);
 
-
-  console.log(allPostsData)
-
   return (
     <div
       className="container"
@@ -292,7 +286,10 @@ export default function SkillIdentifierTool() {
         </InfoUI>
 
         <ImageUI>
-          <img alt="Black, white and grey illustration of a student in a black shirt holding a magnifying glass while looking at a long unfolding list. A paper airplane flies off the top righthand corner. A few sheets of paper and a crumpled paper ball is in the bottom lefthand corner." src={skillIdentifierImage} />
+          <img
+            alt="Black, white and grey illustration of a student in a black shirt holding a magnifying glass while looking at a long unfolding list. A paper airplane flies off the top righthand corner. A few sheets of paper and a crumpled paper ball is in the bottom lefthand corner."
+            src={skillIdentifierImage}
+          />
         </ImageUI>
       </ContainerUI>
 
@@ -302,22 +299,28 @@ export default function SkillIdentifierTool() {
         }}
       >
         <ImageContainerUI>
-          <img src={puzzleOne} 
-          alt="Illustration in black of a long unfolding resume next to an illustration of stars, ribbons and a certificate."
-          />A master resume is a document that lists all of
-          your work experience, training and achievements.
+          <img
+            src={puzzleOne}
+            alt="Illustration in black of a long unfolding resume next to an illustration of stars, ribbons and a certificate."
+          />
+          A master resume is a document that lists all of your work experience,
+          training and achievements.
         </ImageContainerUI>
 
         <ImageContainerUI>
-          <img src={puzzleTwo}
-          alt="Illustration in black of a long unfolding resume next to a much shorter one page resume." />
+          <img
+            src={puzzleTwo}
+            alt="Illustration in black of a long unfolding resume next to a much shorter one page resume."
+          />
           The resume you submit to employers should only be 1 to 2 pages, but
           your master resume should be much longer.
         </ImageContainerUI>
 
         <ImageContainerUI>
-          <img src={puzzleThree} 
-          alt="Illustration in black of an opened closet or wardrobe containing clothes on hangers and folded on shelves. A pair of pants and a black t-shirt is floating in the top right hand corner slightly above the closet/wardrobe with tiny stars and dots all around."/>
+          <img
+            src={puzzleThree}
+            alt="Illustration in black of an opened closet or wardrobe containing clothes on hangers and folded on shelves. A pair of pants and a black t-shirt is floating in the top right hand corner slightly above the closet/wardrobe with tiny stars and dots all around."
+          />
           Think of your master resume as a closet and the resumes you send out
           to employers as the outfits created from your closet.
         </ImageContainerUI>
@@ -341,13 +344,21 @@ export default function SkillIdentifierTool() {
         </BodyTextUI>
 
         <GridUI style={{ margin: "0px 0 10px 0" }}>
-          <TileUI target="_blank" href={actionWords + '?dl='}>Action Words</TileUI>
+          <TileUI target="_blank" href={actionWords + "?dl="}>
+            Action Words
+          </TileUI>
 
-          <TileUI target="_blank" href={interviewBasics + '?dl='}>Interview Basics</TileUI>
+          <TileUI target="_blank" href={interviewBasics + "?dl="}>
+            Interview Basics
+          </TileUI>
 
-          <TileUI target="_blank" href={coverLetters + '?dl='}>How to Write a Cover Letter</TileUI>
+          <TileUI target="_blank" href={coverLetters + "?dl="}>
+            How to Write a Cover Letter
+          </TileUI>
 
-          <TileUI target="_blank" href={resumes + '?dl='}>How to Write a Resume/CV</TileUI>
+          <TileUI target="_blank" href={resumes + "?dl="}>
+            How to Write a Resume/CV
+          </TileUI>
         </GridUI>
 
         <DropdownButton
@@ -381,16 +392,25 @@ export default function SkillIdentifierTool() {
         </BodyTextUI>
 
         <ReactPlayer
-                     width='100%'
-                     height='100%'
-                style={{ borderRadius: "10px", boxSizing: "border-box", position: 'relative'}}
-                light={false}
-                controls={true}
-                url={resume101}
-              
-              />
+          width="100%"
+          height="100%"
+          style={{
+            borderRadius: "10px",
+            boxSizing: "border-box",
+            position: "relative",
+          }}
+          light={false}
+          controls={true}
+          url={resume101}
+        />
 
-<TileUI style={{width: '100%', margin: '10px 0 0 0'}} target="_blank" href={resumes101 + '?dl='}>Resumes 101 Presentation Slides</TileUI>
+        <TileUI
+          style={{ width: "100%", margin: "10px 0 0 0" }}
+          target="_blank"
+          href={resumes101 + "?dl="}
+        >
+          Resumes 101 Presentation Slides
+        </TileUI>
       </ContainerUI>
 
       <ContainerUI
@@ -413,7 +433,6 @@ export default function SkillIdentifierTool() {
         <GridTwoUI
           style={{
             margin: "0px 0 10px 0",
-         
           }}
         >
           <TileUI onClick={() => setResumeTypes("professional")}>
@@ -431,8 +450,13 @@ export default function SkillIdentifierTool() {
           </TileUI>
         </GridTwoUI>
 
-        <ResumeTypeUI style={{ display: resumeTypes == "" ? "none" : "flex", margin: "0px 0 10px 0", }}>
-          {resumeTypes == "professional" ? (
+        <ResumeTypeUI
+          style={{
+            display: resumeTypes === "" ? "none" : "flex",
+            margin: "0px 0 10px 0",
+          }}
+        >
+          {resumeTypes === "professional" ? (
             <div>
               <span style={{ fontWeight: 900 }}>
                 For: Employment and Internship search
@@ -467,7 +491,7 @@ export default function SkillIdentifierTool() {
               <br />
               <br />
             </div>
-          ) : resumeTypes == "artist-cv" ? (
+          ) : resumeTypes === "artist-cv" ? (
             <div>
               <span style={{ fontWeight: 900 }}>
                 For: Galleries and Competitions
@@ -501,7 +525,7 @@ export default function SkillIdentifierTool() {
               <br />
               <br />
             </div>
-          ) : resumeTypes == "artist-bio" ? (
+          ) : resumeTypes === "artist-bio" ? (
             <div>
               <span style={{ fontWeight: 900 }}>Length: </span>
               <span>1-2 pages, recommended 1 page if still in school</span>{" "}
@@ -520,7 +544,7 @@ export default function SkillIdentifierTool() {
               <br />
               <br />
             </div>
-          ) : resumeTypes == "teaching-cv" ? (
+          ) : resumeTypes === "teaching-cv" ? (
             <div>
               <span style={{ fontWeight: 900 }}>
                 The Latin name for resume, Curriculum Vitae.
@@ -578,12 +602,21 @@ export default function SkillIdentifierTool() {
         />
       </ContainerUI>
 
-      <ContainerUI style={{justifyContent: 'center', alignItems: 'center', flexDirection: 'column', margin: '0 0 100px 0'}}>
-
-<HeadingUI>A resume doesn’t get you the job</HeadingUI>
-        <img style={{ width: "50%" }} src={resumeInterview} alt="Black, white and grey illustration of two people. The person on the left is illustrated in white and is smiling while holding a resume out to the person on the right who is illustrated in grey with a black hair and a bun, while also smiling."/>
+      <ContainerUI
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          margin: "0 0 100px 0",
+        }}
+      >
+        <HeadingUI>A resume doesn’t get you the job</HeadingUI>
+        <img
+          style={{ width: "50%" }}
+          src={resumeInterview}
+          alt="Black, white and grey illustration of two people. The person on the left is illustrated in white and is smiling while holding a resume out to the person on the right who is illustrated in grey with a black hair and a bun, while also smiling."
+        />
         <HeadingUI>It gets you an interview!</HeadingUI>
-
       </ContainerUI>
 
       {/*       <button  data-popup-button="1" prefill-inherit data-paperform-id="resume-builder" /> */}
@@ -594,7 +627,7 @@ export default function SkillIdentifierTool() {
       {/* <iframe frameborder="0" height="100%" width="100%" src="https://resume-builder.paperform.co/" ></iframe> */}
 
       {/* <div style={{width: '100vw', height: '1000px'}} data-paperform-id="resume-builder"></div> */}
-      <Footer/>
+      <Footer />
     </div>
   );
 }

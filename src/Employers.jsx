@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { SkillIdentifier } from "./components/SkillIdentifier/SkillIdentifier";
+
 import sanityClient from "./client";
 import styled from "styled-components";
-import Office from "../src/images/office.png";
-import { ContactFormTwo } from "./components/ContactFormTwo";
-import Map from "../src/images/map.svg";
+
 import Hero1 from "../src/images/employer-hero-1.png";
 import Hero2 from "../src/images/employer-hero-2.png";
 import InspireGrid from "./components/Home/InspireGrid";
@@ -125,29 +123,6 @@ width: 100%;
 }
 `;
 
-const HeroUI = styled.img`
-width: 40vw;
-max-width: 594px;
-
-border: 5px solid #252525;
-box-sizing: border-box;
-border-radius: 10px;
-`;
-
-const AboutUI = styled.div`
-width: 640px;
-height: 174px;
-font-family: Noto Sans;
-
-font-weight: 800;
-font-size: 22px;
-line-height: 30px;
-/* or 136% */
-
-text-align: center;
-
-color: #000000;
-`;
 
 const InfoPackageUI = styled.a`
 font-family: Noto Sans;
@@ -229,37 +204,7 @@ line-height: 35px;
 width: 100%;
 `;
 
-const GridTwoUI = styled.div`
-display: grid;
 
-text-align: left;
-grid-template-columns: repeat(8, 1fr);
-grid-gap: 9px;
-font-family: Noto Sans;
-font-style: normal;
-font-weight: bold;
-font-size: 32px;
-line-height: 35px;
-
-width: 50vw;
-`;
-
-const ContactInfoUI = styled.div`
-font-family: Noto Sans;
-font-style: normal;
-font-weight: normal;
-font-size: 22px;
-line-height: 30px;
-margin: 0 0 40px 0;
-text-align: left;
-`;
-
-const LineBreakUI = styled.div`
-border-bottom: 2px solid #252525;
-width: 90px;
-margin: 0 0 40px 0;
-text-align: left;
-`;
 
 const HighlightUI = styled.div`
 position: absolute;
@@ -287,18 +232,6 @@ right: -300px;
 @media (max-width: 800px) {
   width: 100%;
 }
-`;
-
-const GradientTwoUI = styled.div`
-position: absolute;
-width: 505.37px;
-height: 177.41px;
-background: linear-gradient(111.11deg, #00d1a1 25.33%, #0069b6 75.02%),
-  linear-gradient(90deg, #c1d42f 0%, #00a8e0 100%);
-filter: blur(150px);
-transform: rotate(158.09deg);
-z-index: -1000;
-left: -300px;
 `;
 
 const ImageGrid = styled.div`

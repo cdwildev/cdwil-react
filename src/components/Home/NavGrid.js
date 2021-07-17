@@ -103,10 +103,6 @@ export const NavGrid = ({
   data,
   color = "white",
 }) => {
-  const [showRelated, setShowRelated] = useState(false);
-  const [addSkill, setAddSkill] = useState(false);
-
-  console.log(allPostsData);
 
   return (
     <ContainerUI>

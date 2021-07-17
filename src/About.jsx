@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
-import { SkillIdentifier } from "./components/SkillIdentifier/SkillIdentifier";
 import sanityClient from "./client";
 import styled from "styled-components";
 import Office from "../src/images/office.png";
 import { ContactForm } from "./components/ContactForm";
 import Map from "../src/images/map.svg";
-import JotformEmbed from "react-jotform-embed";
 import Footer from "./components/Footer";
 import AboutTile from "./components/AboutTile";
-import BlockContent from '@sanity/block-content-to-react'
-
-
+import BlockContent from "@sanity/block-content-to-react";
 
 const SectionUI = styled.div`
   display: flex;
@@ -131,36 +127,6 @@ const AboutUI = styled.div`
   }
 `;
 
-const TileUI = styled.div`
-  font-family: Noto Sans;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 32px;
-  line-height: 35px;
-  text-align: left;
-  height: 168px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  overflow: hidden;
-  border: 4px solid #252525;
-  box-sizing: border-box;
-  border-radius: 20px;
-  position: relative;
-  padding: 22px;
-  cursor: pointer;
-
-  &:hover {
-    background: #252525;
-    color: white;
-  }
-
-  @media (max-width: 800px) {
-    font-size: 22px;
-    line-height: 20px;
-  }
-`;
-
 const GridUI = styled.div`
   display: grid;
 
@@ -221,22 +187,6 @@ const HighlightUI = styled.div`
   transform: rotate(-0.21deg);
 `;
 
-const IframeSectionUI = styled.div`
-  position: relative;
-  height: 50vh;
-
-  display: flex;
-  justify-content: center;
-  background: white;
-  align-items: center;
-  overflow-y: scroll;
-  border-radius: 10px;
-  width: 75vw;
-  @media (max-width: 1400px) {
-    width: 90vw;
-  }
-`;
-
 export default function About() {
   const [allPostsData, setAllPosts] = useState([]);
 
@@ -248,23 +198,17 @@ export default function About() {
         </pre>
       ),
     },
-  }
+  };
 
   useEffect(() => {
-
     const about = JSON.parse(sessionStorage.getItem("about"));
 
-    
-
-
-
     if (about) {
-      setAllPosts(about)
-
-    } else{
-    sanityClient
-      .fetch(
-        `*[_type == "about"]{
+      setAllPosts(about);
+    } else {
+      sanityClient
+        .fetch(
+          `*[_type == "about"]{
             title,
             body,
             publishedAt,
@@ -281,15 +225,13 @@ export default function About() {
     
             
         }`
-      )
-      .then((data) => {
-        setAllPosts(data);
-      })
-      .catch(console.error);
-
+        )
+        .then((data) => {
+          setAllPosts(data);
+        })
+        .catch(console.error);
     }
   }, []);
-
 
   return (
     <div className="container">
@@ -303,7 +245,10 @@ export default function About() {
           </HeaderUI>
         </LeftUI>
         <RightUI>
-          <HeroUI alt="A student walking by the Student Services Office at Emily Carr University." src={Office}></HeroUI>
+          <HeroUI
+            alt="A student walking by the Student Services Office at Emily Carr University."
+            src={Office}
+          ></HeroUI>
         </RightUI>
       </SectionUI>
 
@@ -318,8 +263,6 @@ export default function About() {
           calendar.
         </AboutUI>
       </SectionUI>
-
-      
 
       <SectionUI style={{ margin: " 0px 0 0 0", flexDirection: "column" }}>
         <ContactForm />
@@ -340,27 +283,32 @@ export default function About() {
           </ContactInfoUI>
         </LeftUI>
         <RightUI>
-          <img alt="A map of the second floor in Emily Carr University’s campus. Pink colour indicates the Career Development + Work Integrated office location." style={{ width: "90%" }} src={Map}></img>
+          <img
+            alt="A map of the second floor in Emily Carr University’s campus. Pink colour indicates the Career Development + Work Integrated office location."
+            style={{ width: "90%" }}
+            src={Map}
+          ></img>
         </RightUI>
       </SectionUI>
 
       <SectionUI style={{ margin: "0 0 0 0" }}>
         <GridUI style={{ width: "90vw" }}>
-        {allPostsData && allPostsData.map(post => <AboutTile
-            title={post.title}
-            text={<BlockContent projectId="5e3iqbhv" dataset="production" blocks={post.body} serializers={serializers} />}
-          />
-          )}
-
-
+          {allPostsData &&
+            allPostsData.map((post) => (
+              <AboutTile
+                title={post.title}
+                text={
+                  <BlockContent
+                    projectId="5e3iqbhv"
+                    dataset="production"
+                    blocks={post.body}
+                    serializers={serializers}
+                  />
+                }
+              />
+            ))}
         </GridUI>
       </SectionUI>
-
-
-
-
-
-
 
       <Footer />
     </div>

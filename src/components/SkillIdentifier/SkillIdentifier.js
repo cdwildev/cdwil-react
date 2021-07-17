@@ -94,10 +94,14 @@ export const SkillIdentifier = ({ allPostsData }) => {
   const [skill, setSkill] = useState("");
 
   const [skillList, setSkillList] = useState([]);
-  const [skillCategories, setSkillCategories] = useState({"software":[], "soft-skill":[], "hard-skill":[]});
-  const [softwareList, setSoftwareList] = useState([])
-  const [softSkillList, setSoftSkillList] = useState([])
-  const [hardSkillList, setHardSkillList] = useState([])
+  const [skillCategories, setSkillCategories] = useState({
+    software: [],
+    "soft-skill": [],
+    "hard-skill": [],
+  });
+  const [softwareList, setSoftwareList] = useState([]);
+  const [softSkillList, setSoftSkillList] = useState([]);
+  const [hardSkillList, setHardSkillList] = useState([]);
 
   const [scrolling, setScrolling] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
@@ -141,6 +145,9 @@ export const SkillIdentifier = ({ allPostsData }) => {
     setPageLoad(true);
   }, []);
 
+  console.log(allPostsData);
+
+  console.log(skill);
   return (
     <>
       <ContainerUI>
@@ -150,10 +157,9 @@ export const SkillIdentifier = ({ allPostsData }) => {
           skillList={skillList}
           setSkillList={setSkillList}
           scrollTop={scrollTop}
-
         />
 
-{/*         <InfoCard /> */}
+        {/*         <InfoCard /> */}
         <SkillCompass
           major={major}
           setMajor={setMajor}
@@ -183,27 +189,22 @@ export const SkillIdentifier = ({ allPostsData }) => {
             ? ""
             : allPostsData
                 .filter(function (allSkills) {
-                  if (allSkills.program.includes("all")) {
+                  if (allSkills.program && allSkills.program.includes("all")) {
                     return allSkills;
                   } else {
                     return allSkills.program.includes(major);
                   }
                 })
                 .filter(function (allSkills) {
-                  if (allSkills.category.includes("all")) {
+                  if (
+                    allSkills.category &&
+                    allSkills.category.includes("all")
+                  ) {
                     return allSkills;
-                  } else {
+                  } else if (allSkills.category) {
                     return allSkills.category.includes(skill);
                   }
                 })
-                /*     .filter(function (allSkills) {
-      for( var i = 0; i < major.length; i++){
-      return allSkills.program == major[i];
-      }
-    })
-    .filter(function (allSkills) {
-      return allSkills.category == skill;
-    }) */
                 .map((data) => {
                   return (
                     <Skill

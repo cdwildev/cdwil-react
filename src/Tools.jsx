@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
-import { SkillIdentifier } from "./components/SkillIdentifier/SkillIdentifier";
-import sanityClient from "./client";
+import { useState } from "react";
 import styled from "styled-components";
 import skillIdentifier from "../src/images/skill-identifier-borderless.svg";
 import resumeBuilder from "../src/images/resume-builder-borderless.svg";
 import careerPathfinder from "../src/images/career-pathfinder-borderless.svg";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ContainerUI = styled.div`
   width: 75vw;
@@ -19,25 +17,24 @@ const ContainerUI = styled.div`
 `;
 
 const HeaderUI = styled.div`
-display: flex;
-justify-content: flex-start;
-text-align: left;
-font-weight: 900;
-font-size: 120px;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  font-weight: 900;
+  font-size: 120px;
 
-text-overflow: ellipsis;
-white-space: nowrap;
-display: block;
-text-align: left;
-width: 100%;
-font-family: "Noto Sans JP", sans-serif;
-animation: gradient 5s ease infinite;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  text-align: left;
+  width: 100%;
+  font-family: "Noto Sans JP", sans-serif;
+  animation: gradient 5s ease infinite;
 
-@media (max-width: 1000px) {
-  font-size: 10vw;
-}
+  @media (max-width: 1000px) {
+    font-size: 10vw;
+  }
 `;
-
 
 const RowUI = styled.div`
   justify-content: space-between;
@@ -75,7 +72,6 @@ const BodyTextUI = styled.div`
   text-align: center;
   @media (max-width: 1400px) {
     width: 305px;
-
   }
 `;
 
@@ -104,8 +100,6 @@ const ImageUI = styled.div`
     width: 305px;
     height: 197px;
   }
-
-
 `;
 
 const ImageTwoUI = styled.div`
@@ -145,57 +139,71 @@ const ImageThreeUI = styled.div`
 `;
 
 export default function Tools() {
-  const [allPostsData, setAllPosts] = useState([]);
-
   return (
     <>
       <div className="container">
-
-<ContainerUI>
-<HeaderUI style={{ margin: "200px 0 0 0" }}>
-          Tools
-        </HeaderUI>
-
-</ContainerUI>
+        <ContainerUI>
+          <HeaderUI style={{ margin: "200px 0 0 0" }}>Tools</HeaderUI>
+        </ContainerUI>
 
         <RowUI style={{ margin: "50px 0 0 0" }}>
-          <Link to="/skill-identifier" style={{color: '#252525', textDecoration: 'none' }}> 
-          <ToolContainerUI>
-            <ImageUI>
-              <img alt="Black, white and grey illustration of a student in a black shirt looking through a telescope.The student stands sideways and through the telescope sees the night sky with stars, planets and constellations. " style={{width: '105%', position: 'relative', left: '4px'}}src={skillIdentifier}/>
-            </ImageUI>
-            <TitleUI>Skill Identifier</TitleUI>
-            <BodyTextUI>
-              Explore the skills and software connected to each major
-            </BodyTextUI>
-          </ToolContainerUI>
+          <Link
+            to="/skill-identifier"
+            style={{ color: "#252525", textDecoration: "none" }}
+          >
+            <ToolContainerUI>
+              <ImageUI>
+                <img
+                  alt="Black, white and grey illustration of a student in a black shirt looking through a telescope.The student stands sideways and through the telescope sees the night sky with stars, planets and constellations. "
+                  style={{ width: "105%", position: "relative", left: "4px" }}
+                  src={skillIdentifier}
+                />
+              </ImageUI>
+              <TitleUI>Skill Identifier</TitleUI>
+              <BodyTextUI>
+                Explore the skills and software connected to each major
+              </BodyTextUI>
+            </ToolContainerUI>
           </Link>
 
-
-          <Link to="/resume-builder" style={{color: '#252525', textDecoration: 'none' }}> 
-          <ToolContainerUI>
-            <ImageTwoUI>
-            <img alt="Black, white and grey illustration of a student in a black shirt holding a magnifying glass while looking at a long unfolding list. A paper airplane flies off the top righthand corner. A few sheets of paper and a crumpled paper ball is in the bottom lefthand corner." style={{width: '90%', position: 'relative', top: '12px'}}src={resumeBuilder}/>
-            </ImageTwoUI>
-            <TitleUI>Resume Builder</TitleUI>
-            <BodyTextUI>
-              Build a master resume documenting your creative background, skills
-              and artistic achievements
-            </BodyTextUI>
-          </ToolContainerUI>
+          <Link
+            to="/resume-builder"
+            style={{ color: "#252525", textDecoration: "none" }}
+          >
+            <ToolContainerUI>
+              <ImageTwoUI>
+                <img
+                  alt="Black, white and grey illustration of a student in a black shirt holding a magnifying glass while looking at a long unfolding list. A paper airplane flies off the top righthand corner. A few sheets of paper and a crumpled paper ball is in the bottom lefthand corner."
+                  style={{ width: "90%", position: "relative", top: "12px" }}
+                  src={resumeBuilder}
+                />
+              </ImageTwoUI>
+              <TitleUI>Resume Builder</TitleUI>
+              <BodyTextUI>
+                Build a master resume documenting your creative background,
+                skills and artistic achievements
+              </BodyTextUI>
+            </ToolContainerUI>
           </Link>
 
-          <Link to="/career-pathways" style={{color: '#252525', textDecoration: 'none' }}> 
-          <ToolContainerUI>
-            <ImageThreeUI>
-            <img alt="Black, white and grey illustration of a student in a black shirt looking through binoculars. A large three arrow sign post is behind the student and a stone pathway is in front." style={{width: '100%', position: 'relative', top: '-14px'}}src={careerPathfinder}/>
-            </ImageThreeUI>
-            <TitleUI>Career Pathfinder</TitleUI>
-            <BodyTextUI>
-              Explore career interests and discover creative careers connected
-              to each major
-            </BodyTextUI>
-          </ToolContainerUI>
+          <Link
+            to="/career-pathways"
+            style={{ color: "#252525", textDecoration: "none" }}
+          >
+            <ToolContainerUI>
+              <ImageThreeUI>
+                <img
+                  alt="Black, white and grey illustration of a student in a black shirt looking through binoculars. A large three arrow sign post is behind the student and a stone pathway is in front."
+                  style={{ width: "100%", position: "relative", top: "-14px" }}
+                  src={careerPathfinder}
+                />
+              </ImageThreeUI>
+              <TitleUI>Career Pathfinder</TitleUI>
+              <BodyTextUI>
+                Explore career interests and discover creative careers connected
+                to each major
+              </BodyTextUI>
+            </ToolContainerUI>
           </Link>
         </RowUI>
 

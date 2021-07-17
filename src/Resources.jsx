@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
-import { SkillIdentifier } from "./components/SkillIdentifier/SkillIdentifier";
+
 import sanityClient from "./client";
 import styled from "styled-components";
-import skillIdentifierImage from "../src/images/skill-identifier.svg";
+
 import InspireGrid from "./components/Home/InspireGrid";
-import gridOne from "./images/grid-1.png";
-import gridTwo from "./images/grid-2.png";
-import gridThree from "./images/grid-3.png";
-import gridFour from "./images/grid-4.png";
-import gridFive from "./images/grid-5.png";
+
 import Dropdown from "./components/Dropdown.js";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const SectionUI = styled.div`
   display: flex;
@@ -48,37 +43,6 @@ const InfoContainerUI = styled.div`
     font-size: 16px;
     line-height: 26px;
   }
-`;
-
-const LeftColumn = styled.div`
-  width: 420px;
-  margin: 0 64px 0 0;
-  @media (max-width: 1000px) {
-    margin: 0 0 64px 0;
-
-    width: 100%;
-  }
-`;
-
-const RightColumn = styled.div`
-  width: 318px;
-
-  @media (max-width: 1000px) {
-    width: 100%;
-  }
-`;
-
-const HeroOneUI = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-`;
-
-const HeroTwoUI = styled.div`
-  background: red;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
 `;
 
 const TitleUI = styled.div`
@@ -126,20 +90,6 @@ const HeaderUI = styled.div`
   }
 `;
 
-const SubTitleUI = styled.p`
-  display: flex;
-  justify-content: flex-start;
-  text-align: left;
-  width: 480px;
-  font-family: Noto Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 19px;
-  line-height: 32px;
-  position: relative;
-  top: -55px;
-`;
-
 const TileUI = styled.div`
   font-family: Noto Sans;
   font-style: normal;
@@ -166,10 +116,6 @@ const TileUI = styled.div`
     font-size: 22px;
     line-height: 20px;
   }
-`;
-
-const FlexUI = styled.div`
-  display: flex;
 `;
 
 const GridUI = styled.div`
@@ -212,25 +158,6 @@ const MobileGridUI = styled.div`
   }
 `;
 
-const TileImageUI = styled.div`
-  height: 30vh;
-
-  background: white;
-  border: 4px solid #252525;
-  box-sizing: border-box;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-`;
-
-const ImageUI = styled.img`
-  flex-shrink: 0;
-
-  min-height: 100%;
-`;
-
 const LinkUI = styled.a`
   text-decoration: none;
   color: #252525;
@@ -238,7 +165,6 @@ const LinkUI = styled.a`
 
 export default function Resources() {
   const [allPostsData, setAllPosts] = useState([]);
-  const [allVideos, setAllVideos] = useState([]);
 
   useEffect(() => {
     const resources = JSON.parse(sessionStorage.getItem("resources"));
@@ -262,30 +188,6 @@ export default function Resources() {
         .catch(console.error);
     }
   }, []);
-
-  /*   useEffect(() => {
-
-    const videos = JSON.parse(localStorage.getItem("videos"));
-
-    if(videos){
-      setAllVideos(videos)
-    } else {
-    sanityClient
-      .fetch(
-        `*[_type == "videos"]{
-            title,
-            link,
-        }`
-      )
-      .then((data) => {
-        setAllVideos(data);
-        localStorage.setItem("videos", JSON.stringify(data));
-      })
-      .catch(console.error);
-
-    }
-  }, []);
- */
 
   return (
     <div className="container">
@@ -316,35 +218,55 @@ export default function Resources() {
 
       <SectionUI style={{ width: "90vw", margin: "200px 0 0 0" }}>
         <GridUI style={{ width: "90vw" }}>
-          <LinkUI style={{ gridColumn: "1 / span 3"}} target="_blank" href="https://www.ecuad.ca/on-campus/agp">
+          <LinkUI
+            style={{ gridColumn: "1 / span 3" }}
+            target="_blank"
+            href="https://www.ecuad.ca/on-campus/agp"
+          >
             <TileUI>
-            Aboriginal <br></br> Gathering Place
+              Aboriginal <br></br> Gathering Place
             </TileUI>
           </LinkUI>
-          <LinkUI style={{ gridColumn: "4 / span 3" }} target="_blank" href="https://www.ecuad.ca/library">
-          <TileUI>
-            Emily Carr <br></br> University Library
+          <LinkUI
+            style={{ gridColumn: "4 / span 3" }}
+            target="_blank"
+            href="https://www.ecuad.ca/library"
+          >
+            <TileUI>
+              Emily Carr <br></br> University Library
             </TileUI>
           </LinkUI>
-          <LinkUI style={{ gridColumn: "7 / span 3" }} target="_blank" href="https://www.alumni.ubc.ca/">
-          <TileUI>
-            Alumni <br></br> Association
+          <LinkUI
+            style={{ gridColumn: "7 / span 3" }}
+            target="_blank"
+            href="https://www.alumni.ubc.ca/"
+          >
+            <TileUI>
+              Alumni <br></br> Association
             </TileUI>
           </LinkUI>
-          <LinkUI style={{ gridColumn: "1 / span 4"}} target="_blank" href="https://writingcentre.ecuad.ca/">
-          <TileUI>
-            Emily Carr <br></br> Writing Centre
+          <LinkUI
+            style={{ gridColumn: "1 / span 4" }}
+            target="_blank"
+            href="https://writingcentre.ecuad.ca/"
+          >
+            <TileUI>
+              Emily Carr <br></br> Writing Centre
             </TileUI>
           </LinkUI>
-          <LinkUI style={{ gridColumn: "5 / span 5" }} target="_blank" href="https://shumka.ecuad.ca/">
-          <TileUI>
-            Shumka Centre for <br></br> Creative Entrepreneurship
+          <LinkUI
+            style={{ gridColumn: "5 / span 5" }}
+            target="_blank"
+            href="https://shumka.ecuad.ca/"
+          >
+            <TileUI>
+              Shumka Centre for <br></br> Creative Entrepreneurship
             </TileUI>
           </LinkUI>
         </GridUI>
 
         <MobileGridUI>
-        <LinkUI target="_blank" href="https://www.ecuad.ca/on-campus/agp">
+          <LinkUI target="_blank" href="https://www.ecuad.ca/on-campus/agp">
             <TileUI style={{}}>Aboriginal Gathering Place</TileUI>
           </LinkUI>
 
@@ -362,12 +284,13 @@ export default function Resources() {
 
           <LinkUI
             style={{ textDecoration: "none", gridColumn: "1 / span 2" }}
-            target="_blank" href="https://shumka.ecuad.ca/"
+            target="_blank"
+            href="https://shumka.ecuad.ca/"
           >
-            <TileUI style={{ }}>Shumka Centre for Creative Entrepreneurship</TileUI>
+            <TileUI style={{}}>
+              Shumka Centre for Creative Entrepreneurship
+            </TileUI>
           </LinkUI>
-
-
         </MobileGridUI>
       </SectionUI>
 

@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { SkillIdentifier } from "./components/SkillIdentifier/SkillIdentifier";
 import sanityClient from "./client";
 import styled from "styled-components";
 import skillIdentifierImage from "../src/images/career-pathfinder.svg";
 import CareerPathways from "./components/CareerPathways/CareerPathways";
-import useWindowDimensions from "./helpers/Window";
 import DropdownButton from "./components/DropdownButton";
 import puzzleOne from "../src/images/puzzle-1.svg";
 import puzzleTwo from "../src/images/puzzle-2.svg";
@@ -21,24 +19,20 @@ const ContainerUI = styled.div`
 `;
 
 const RowUI = styled.div`
-justify-content: space-between;
-flex-wrap: wrap;
-width: 75vw;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 75vw;
 
-display: flex;
+  display: flex;
   @media (max-width: 1400px) {
-
     width: 90vw;
   }
 
   @media (max-width: 1000px) {
-
     align-items: center;
     flex-direction: column;
   }
 `;
-
-
 
 const TitleUI = styled.div`
   font-family: "Noto Sans JP", sans-serif;
@@ -78,8 +72,6 @@ const InfoUI = styled.div`
 `;
 
 const ImageUI = styled.div`
-
-
   @media (max-width: 1200px) {
     display: none;
   }
@@ -96,11 +88,10 @@ const ImageContainerUI = styled.div`
   /* or 144% */
   width: 300px;
   color: #426610;
-  margin: 50px 0 ;
+  margin: 50px 0;
 `;
 
-
-const TileUI = styled.div`
+const TileUI = styled.a`
   font-family: Noto Sans;
   font-style: normal;
   font-weight: bold;
@@ -120,12 +111,12 @@ const TileUI = styled.div`
   cursor: pointer;
   color: white;
   width: 50%;
+  text-decoration: none;
 
   &:hover {
     background: white;
     color: #252525;
     border: 4px solid #252525;
-
   }
 
   @media (max-width: 1000px) {
@@ -186,89 +177,101 @@ export default function SkillIdentifierTool() {
           "radial-gradient(110.45% 100% at 50% 0%, #C1D42F 0%, #00A8E0 100%)",
       }}
     >
-   
-        <ContainerUI style={{ margin: "200px 0 0 0", alignItems: 'center', justifyContent: 'space-between' }}>
-          <InfoUI>
-            <TitleUI>Career Pathways</TitleUI>
+      <ContainerUI
+        style={{
+          margin: "200px 0 0 0",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <InfoUI>
+          <TitleUI>Career Pathways</TitleUI>
 
-            <BodyTextUI style={{ margin: "50px 0 0 0" }}>
-              Discover what careers are connected to each major. Explore the
-              many career options available to you, no matter what you studied,
-              because spoiler: it’s all connected!
-            </BodyTextUI>
-          </InfoUI>
+          <BodyTextUI style={{ margin: "50px 0 0 0" }}>
+            Discover what careers are connected to each major. Explore the many
+            career options available to you, no matter what you studied, because
+            spoiler: it’s all connected!
+          </BodyTextUI>
+        </InfoUI>
 
-          <ImageUI>
-            <img src={skillIdentifierImage} 
-            alt="Black, white and grey illustration of a student in a black shirt looking through binoculars. A large three arrow sign post is behind the student and a stone pathway is in front."/>
-          </ImageUI>
-        </ContainerUI>
+        <ImageUI>
+          <img
+            src={skillIdentifierImage}
+            alt="Black, white and grey illustration of a student in a black shirt looking through binoculars. A large three arrow sign post is behind the student and a stone pathway is in front."
+          />
+        </ImageUI>
+      </ContainerUI>
 
-        <RowUI
-          style={{
+      <RowUI
+        style={{
+          margin: "100px 0 0 0",
+        }}
+      >
+        <ImageContainerUI>
+          <img
+            src={puzzleOne}
+            alt="Illustration in black of a hand holding a white puzzle piece. The hand is coming through a black circle shaped hole."
+          />
+          What am I passionate or curious about?
+        </ImageContainerUI>
 
-            margin: "100px 0 0 0",
-          }}
-        >
-          <ImageContainerUI>
-            <img src={puzzleOne}
-            alt="Illustration in black of a hand holding a white puzzle piece. The hand is coming through a black circle shaped hole." />
-            What am I passionate or curious about?
-          </ImageContainerUI>
+        <ImageContainerUI>
+          <img
+            src={puzzleTwo}
+            alt="Illustration in black of a hand holding a white puzzle piece. The hand is coming through a black circle shaped hole."
+          />
+          What are my skills or interests?
+        </ImageContainerUI>
 
-          <ImageContainerUI>
-            <img src={puzzleTwo}
-            alt="Illustration in black of a hand holding a white puzzle piece. The hand is coming through a black circle shaped hole." />
-            What are my skills or interests?
-          </ImageContainerUI>
+        <ImageContainerUI>
+          <img
+            src={puzzleThree}
+            alt="Illustration in black of a hand holding a white puzzle piece. The hand is coming through a black circle shaped hole."
+          />
+          What are my workplace values?
+        </ImageContainerUI>
+      </RowUI>
 
-          <ImageContainerUI>
-            <img src={puzzleThree}
-            alt="Illustration in black of a hand holding a white puzzle piece. The hand is coming through a black circle shaped hole." />
-            What are my workplace values?
-          </ImageContainerUI>
-        </RowUI>
-
-        <ContainerUI
+      <ContainerUI
+        style={{
+          flexDirection: "column",
+          alignItems: "flex-start",
+          margin: "100px 0 200px 0",
+        }}
+      >
+        <BodyTextUI
           style={{
             flexDirection: "column",
             alignItems: "flex-start",
-            margin: "100px 0 200px 0",
           }}
         >
-          <BodyTextUI
-            style={{
-              flexDirection: "column",
-              alignItems: "flex-start",
-            }}
-          >
-            Resources
-          </BodyTextUI>
+          Resources
+        </BodyTextUI>
 
-          <TileUI 
-                    style={{
-           
-                      margin: "50px 0",
-                    }}>
+        <TileUI
+          target="_blank"
+          href="https://miro.com/app/board/o9J_lUGDhE8=/"
+          style={{
+            margin: "50px 0 10px 0",
+          }}
+        >
+          Creative Careers Infographic
+        </TileUI>
 
-Creative Careers Infographic
-                    </TileUI>
-
-          <DropdownButton
-          color='white'
-          colorActive='#252525'
+        <DropdownButton
+          color="white"
+          colorActive="#252525"
           border="4px solid white"
           borderActive="4px solid #252525"
           background="white"
-            data={resourceData.filter((resource) =>
-              resource.category.includes("career-pathfinder")
-            )}
-            text="Helpful Links"
-          />
-        </ContainerUI>
+          data={resourceData.filter((resource) =>
+            resource.category.includes("career-pathfinder")
+          )}
+          text="Helpful Links"
+        />
+      </ContainerUI>
 
-        <CareerPathways allPostsData={allPostsData} />
-
+      <CareerPathways allPostsData={allPostsData} />
     </div>
   );
 }
