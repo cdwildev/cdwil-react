@@ -127,7 +127,8 @@ export default function SkillIdentifierTool() {
         </InfoUI>
 
         <ImageUI>
-          <img src={skillIdentifierImage} />
+          <img src={skillIdentifierImage} 
+          alt="Black, white and grey illustration of a student in a black shirt looking through a telescope.The student stands sideways and through the telescope sees the night sky with stars, planets and constellations."/>
         </ImageUI>
       </ContainerUI>
 

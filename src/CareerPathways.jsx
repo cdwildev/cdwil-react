@@ -199,7 +199,8 @@ export default function SkillIdentifierTool() {
           </InfoUI>
 
           <ImageUI>
-            <img src={skillIdentifierImage} />
+            <img src={skillIdentifierImage} 
+            alt="Black, white and grey illustration of a student in a black shirt looking through binoculars. A large three arrow sign post is behind the student and a stone pathway is in front."/>
           </ImageUI>
         </ContainerUI>
 
@@ -210,17 +211,20 @@ export default function SkillIdentifierTool() {
           }}
         >
           <ImageContainerUI>
-            <img src={puzzleOne} />
+            <img src={puzzleOne}
+            alt="Illustration in black of a hand holding a white puzzle piece. The hand is coming through a black circle shaped hole." />
             What am I passionate or curious about?
           </ImageContainerUI>
 
           <ImageContainerUI>
-            <img src={puzzleTwo} />
+            <img src={puzzleTwo}
+            alt="Illustration in black of a hand holding a white puzzle piece. The hand is coming through a black circle shaped hole." />
             What are my skills or interests?
           </ImageContainerUI>
 
           <ImageContainerUI>
-            <img src={puzzleThree} />
+            <img src={puzzleThree}
+            alt="Illustration in black of a hand holding a white puzzle piece. The hand is coming through a black circle shaped hole." />
             What are my workplace values?
           </ImageContainerUI>
         </RowUI>

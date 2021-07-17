@@ -267,7 +267,7 @@ export const Header = ({width}) => {
 
         <ContainerUI>
           <Link to="/home">
-            <LogoUI src={logo}></LogoUI>
+            <LogoUI src={logo} alt="career development and work integrated learning at emily carr logo"></LogoUI>
           </Link>
 
           <NavUI>

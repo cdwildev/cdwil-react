@@ -292,7 +292,7 @@ export default function SkillIdentifierTool() {
         </InfoUI>
 
         <ImageUI>
-          <img src={skillIdentifierImage} />
+          <img alt="Black, white and grey illustration of a student in a black shirt holding a magnifying glass while looking at a long unfolding list. A paper airplane flies off the top righthand corner. A few sheets of paper and a crumpled paper ball is in the bottom lefthand corner." src={skillIdentifierImage} />
         </ImageUI>
       </ContainerUI>
 
@@ -302,18 +302,22 @@ export default function SkillIdentifierTool() {
         }}
       >
         <ImageContainerUI>
-          <img src={puzzleOne} />A master resume is a document that lists all of
+          <img src={puzzleOne} 
+          alt="Illustration in black of a long unfolding resume next to an illustration of stars, ribbons and a certificate."
+          />A master resume is a document that lists all of
           your work experience, training and achievements.
         </ImageContainerUI>
 
         <ImageContainerUI>
-          <img src={puzzleTwo} />
+          <img src={puzzleTwo}
+          alt="Illustration in black of a long unfolding resume next to a much shorter one page resume." />
           The resume you submit to employers should only be 1 to 2 pages, but
           your master resume should be much longer.
         </ImageContainerUI>
 
         <ImageContainerUI>
-          <img src={puzzleThree} />
+          <img src={puzzleThree} 
+          alt="Illustration in black of an opened closet or wardrobe containing clothes on hangers and folded on shelves. A pair of pants and a black t-shirt is floating in the top right hand corner slightly above the closet/wardrobe with tiny stars and dots all around."/>
           Think of your master resume as a closet and the resumes you send out
           to employers as the outfits created from your closet.
         </ImageContainerUI>
@@ -577,7 +581,7 @@ export default function SkillIdentifierTool() {
       <ContainerUI style={{justifyContent: 'center', alignItems: 'center', flexDirection: 'column', margin: '0 0 100px 0'}}>
 
 <HeadingUI>A resume doesn’t get you the job</HeadingUI>
-        <img style={{ width: "50%" }} src={resumeInterview} />
+        <img style={{ width: "50%" }} src={resumeInterview} alt="Black, white and grey illustration of two people. The person on the left is illustrated in white and is smiling while holding a resume out to the person on the right who is illustrated in grey with a black hair and a bun, while also smiling."/>
         <HeadingUI>It gets you an interview!</HeadingUI>
 
       </ContainerUI>

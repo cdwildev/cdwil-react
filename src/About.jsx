@@ -303,7 +303,7 @@ export default function About() {
           </HeaderUI>
         </LeftUI>
         <RightUI>
-          <HeroUI src={Office}></HeroUI>
+          <HeroUI alt="A student walking by the Student Services Office at Emily Carr University." src={Office}></HeroUI>
         </RightUI>
       </SectionUI>
 
@@ -340,7 +340,7 @@ export default function About() {
           </ContactInfoUI>
         </LeftUI>
         <RightUI>
-          <img style={{ width: "90%" }} src={Map}></img>
+          <img alt="A map of the second floor in Emily Carr University’s campus. Pink colour indicates the Career Development + Work Integrated office location." style={{ width: "90%" }} src={Map}></img>
         </RightUI>
       </SectionUI>
 

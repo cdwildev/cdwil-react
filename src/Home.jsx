@@ -413,18 +413,21 @@ function Home() {
         <RightColumn>
           <ImageGrid>
             <ImageUI
+              alt="Design student looking down writing in a notebook in an office setting."
               style={{ width: "100%", gridColumn: "2 / span 8" }}
               src={heroOne}
               onLoad={() => setImagesLoaded(imagesloaded + 1)}
             />
 
             <ImageUI
+              alt="Fine arts student sitting and painting on a large canvas in a studio space."
               style={{ width: "100%", gridColumn: "1 / span 3" }}
               src={heroTwo}
               onLoad={() => setImagesLoaded(imagesloaded + 1)}
             />
 
             <ImageUI
+              alt="Media student applying film to a box light."
               style={{ width: "100%", gridColumn: "5 / span 4" }}
               src={heroThree}
               onLoad={() => setImagesLoaded(imagesloaded + 1)}

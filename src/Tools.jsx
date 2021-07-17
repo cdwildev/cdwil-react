@@ -162,7 +162,7 @@ export default function Tools() {
           <Link to="/skill-identifier" style={{color: '#252525', textDecoration: 'none' }}> 
           <ToolContainerUI>
             <ImageUI>
-              <img style={{width: '105%', position: 'relative', left: '4px'}}src={skillIdentifier}/>
+              <img alt="Black, white and grey illustration of a student in a black shirt looking through a telescope.The student stands sideways and through the telescope sees the night sky with stars, planets and constellations. " style={{width: '105%', position: 'relative', left: '4px'}}src={skillIdentifier}/>
             </ImageUI>
             <TitleUI>Skill Identifier</TitleUI>
             <BodyTextUI>
@@ -175,7 +175,7 @@ export default function Tools() {
           <Link to="/resume-builder" style={{color: '#252525', textDecoration: 'none' }}> 
           <ToolContainerUI>
             <ImageTwoUI>
-            <img style={{width: '90%', position: 'relative', top: '12px'}}src={resumeBuilder}/>
+            <img alt="Black, white and grey illustration of a student in a black shirt holding a magnifying glass while looking at a long unfolding list. A paper airplane flies off the top righthand corner. A few sheets of paper and a crumpled paper ball is in the bottom lefthand corner." style={{width: '90%', position: 'relative', top: '12px'}}src={resumeBuilder}/>
             </ImageTwoUI>
             <TitleUI>Resume Builder</TitleUI>
             <BodyTextUI>
@@ -188,7 +188,7 @@ export default function Tools() {
           <Link to="/career-pathways" style={{color: '#252525', textDecoration: 'none' }}> 
           <ToolContainerUI>
             <ImageThreeUI>
-            <img style={{width: '100%', position: 'relative', top: '-14px'}}src={careerPathfinder}/>
+            <img alt="Black, white and grey illustration of a student in a black shirt looking through binoculars. A large three arrow sign post is behind the student and a stone pathway is in front." style={{width: '100%', position: 'relative', top: '-14px'}}src={careerPathfinder}/>
             </ImageThreeUI>
             <TitleUI>Career Pathfinder</TitleUI>
             <BodyTextUI>
