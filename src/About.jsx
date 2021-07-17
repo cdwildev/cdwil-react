@@ -8,6 +8,10 @@ import Map from "../src/images/map.svg";
 import JotformEmbed from "react-jotform-embed";
 import Footer from "./components/Footer";
 import AboutTile from "./components/AboutTile";
+import BlockContent from '@sanity/block-content-to-react'
+
+
+
 const SectionUI = styled.div`
   display: flex;
   justify-content: center;
@@ -161,7 +165,7 @@ const GridUI = styled.div`
   display: grid;
 
   text-align: left;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: 9px;
   font-family: Noto Sans;
   font-style: normal;
@@ -235,6 +239,58 @@ const IframeSectionUI = styled.div`
 
 export default function About() {
   const [allPostsData, setAllPosts] = useState([]);
+
+  const serializers = {
+    types: {
+      code: (props) => (
+        <pre data-language={props.node.language}>
+          <code>{props.node.code}</code>
+        </pre>
+      ),
+    },
+  }
+
+  useEffect(() => {
+
+    const about = JSON.parse(sessionStorage.getItem("about"));
+
+    
+
+
+
+    if (about) {
+      setAllPosts(about)
+
+    } else{
+    sanityClient
+      .fetch(
+        `*[_type == "about"]{
+            title,
+            body,
+            publishedAt,
+            categories,
+            mainImage{
+              asset->{
+                _id, 
+                url
+              },
+              alt
+            },
+            author,
+            slug,
+    
+            
+        }`
+      )
+      .then((data) => {
+        setAllPosts(data);
+      })
+      .catch(console.error);
+
+    }
+  }, []);
+
+
   return (
     <div className="container">
       <SectionUI style={{ margin: "200px 0 0 0" }}>
@@ -263,116 +319,9 @@ export default function About() {
         </AboutUI>
       </SectionUI>
 
-      <SectionUI style={{ margin: "0 0 0 0" }}>
-        <GridUI style={{ width: "90vw" }}>
-          <AboutTile
-            title="Career Advising"
-            text={
-              <div>
-                Big ideas don't just happen. They are process driven, tested,
-                made and re-made and it will be the same with your professional
-                career. <br />
-                <br /> Emily Carr University is committed to help you transform
-                and contextualize your creative practice so that upon graduation
-                you are able to deliver value to community, culture, and the
-                economy, while - perhaps most importantly - making a meaningful
-                life for yourself.
-              </div>
-            }
-          />
-          <AboutTile
-            title="Programming"
-            text={
-              <div>
-                During the regular academic year, the Career Development + Work
-                Integrated Learning Office offers a series of workshops,
-                planning and info sessions in a wide range of career-related
-                topics.
-                <br />
-                <br />
-                To RSVP for Clinics + Sessions: email us with student name,
-                student number, session title and session date.
-                <br />
-                <br />
-                To RSVP for Career Development + Work Integrated Learning
-                Events: email us with student name, student number, Event name,
-                and Event date.
-              </div>
-            }
-          />
-          <AboutTile
-            title="Resources"
-            text={
-              <div>
-                The Career Development + Work Integrated Learning Office has put
-                together a wide array of resources from PDF guides to online
-                info sessions which you can check out here.
-              </div>
-            }
-          />
-          <AboutTile
-            title="Co-op/WIL"
-            text={
-              <div>
-                As part of our Work Integrated Learning program, ECU offers
-                co-op opportunities. In order to be eligible to apply, students
-                must meet the following criteria:
-                <br />
-                <br />
-                * Currently enrolled in one of Emily Carr's undergraduate
-                programs
-                <br />
-                * Successfully completed all second year courses
-                <br />
-                * Minimum 3.0 GPA
-                <br />* Minimum of 3 Open Studio Elective credits available in
-                their program for every semester of the co-op
-              </div>
-            }
-          />
-          <AboutTile
-            title="Artswork"
-            text={
-              <div>
-                Find a network of current opportunities head to Artswork where
-                you can find jobs, resources, events, announcments and more!
-              </div>
-            }
-          />
-          <AboutTile
-            title="The Leeway"
-            text={
-              <div>
-                The Leeway is a social and professional networking site where
-                you can interact with members of the platform through
-                mentorship, connection and collaboration. Fully supported by
-                RBC.
-                <br />
-                <br />
-                Through the Leeway, students can connect to alumni to seek
-                guidance for their futures as well as:
-                <br />
-           
-                <ul>
-                  <li>Seek feedback on their work</li>
-                  <li>Find a long or short term mentor</li>
-                  <li>Engage in critique groups</li>
-                  <li>Promote their events</li>
-                </ul>
-       
-        
-                Discover artists willing to collaborate Students can sign up at
-                any time in their journey from foundation to convocation. Alumni
-                are encouraged to join to connect with their peers and help out
-                a student. What are you waiting for? Join today and introduce
-                yourself!
-              </div>
-            }
-          />
-        </GridUI>
-      </SectionUI>
+      
 
-      <SectionUI style={{ margin: " 150px 0 0px 0", flexDirection: "column" }}>
+      <SectionUI style={{ margin: " 0px 0 0 0", flexDirection: "column" }}>
         <ContactForm />
       </SectionUI>
 
@@ -394,6 +343,24 @@ export default function About() {
           <img style={{ width: "90%" }} src={Map}></img>
         </RightUI>
       </SectionUI>
+
+      <SectionUI style={{ margin: "0 0 0 0" }}>
+        <GridUI style={{ width: "90vw" }}>
+        {allPostsData && allPostsData.map(post => <AboutTile
+            title={post.title}
+            text={<BlockContent projectId="5e3iqbhv" dataset="production" blocks={post.body} serializers={serializers} />}
+          />
+          )}
+
+
+        </GridUI>
+      </SectionUI>
+
+
+
+
+
+
 
       <Footer />
     </div>
