@@ -11,6 +11,7 @@ import moment from "moment";
 import useWindowDimensions from "./helpers/Window";
 
 import BlockContent from '@sanity/block-content-to-react'
+import PortableText from "react-portable-text"
 
 
 // Get a pre-configured url-builder from your sanity client
@@ -57,22 +58,23 @@ const TitleUI = styled.div`
   text-align: left;
 
   @media (max-width: 1000px) {
+
+    font-size: 24px;
   }
 
-  animation: gradient 9s ease infinite;
 `;
 
 const ImageUI = styled.img``;
 
 const BodyUI = styled.div`
 font-family: Noto Sans;
-line-height: 20px;
+line-height: 25px;
 object-fit: contain;
 text-decoration: none;
 
-width: 75vw;
+width: 50vw;
 
-@media (max-width:1400px) {
+@media (max-width:1000px) {
   width: 90vw;
 }
 `;
@@ -139,16 +141,6 @@ export default function Post(props) {
 
   const { height, width } = useWindowDimensions();
 
-  const serializers = {
-    types: {
-      code: (props) => (
-        <pre data-language={props.node.language}>
-          <code>{props.node.code}</code>
-        </pre>
-      ),
-    },
-  }
-
   useEffect(() => {
     sanityClient
       .fetch(
@@ -176,29 +168,6 @@ export default function Post(props) {
       .catch(console.error);
   }, [slug]);
 
-  console.log(singlePost);
-
-  const styleText = (el) => {
-    if (el.style == "h2") {
-      return { color: "black", fontSize: "36px", margin: "0 0 48px 0", fontWeight: '800' };
-    } else if (el.style == "h3") {
-      return { color: "green", fontSize: "24px", margin: "24px 0 24px 0" };
-    } else if (el.style == "normal") {
-      return { color: "black", margin: "0 0 24px 0" };
-    }
-  };
-
-  const styleSpan = (el) => {
-    if (el.marks.includes('strong')) {
-      return { color: "black", fontWeight: '800' };
-    } else if (el.text.includes('https')) {
-      return { color: "blue", fontWeight: '800' };
-    } else if (el.marks.includes('em')) {
-      return {fontStyle : 'italic'};
-    } 
-
-
-  };
 
   return (
     <div
@@ -225,7 +194,25 @@ export default function Post(props) {
               </div>
             ))} */}
 
-        {singlePost && <BlockContent  imageOptions={{ w: width < 1000 ? 400 : 1000, fit: 'max'}} projectId="5e3iqbhv" dataset="production" blocks={singlePost.body} serializers={serializers} />}
+        {singlePost &&     <PortableText
+      // Pass in block content straight from Sanity.io
+      content={singlePost.body}
+      projectId="5e3iqbhv" dataset="production" 
+      imageOptions={{ w: width < 400 ? 300 : 800, fit: 'max', h: 500, margin: 0}}
+      // Optionally override marks, decorators, blocks, etc. in a flat
+      // structure without doing any gymnastics
+      serializers={{
+        link: props => <a style={{ color: "#244468" }} {...props} />,
+  
+
+
+      
+      }}
+    />}
+
+
+
+    {/*     {singlePost && <BlockContent  imageOptions={{ w: width < 1000 ? 400 : 1000, fit: 'max'}} projectId="5e3iqbhv" dataset="production" blocks={singlePost.body} serializers={serializers} />} */}
         </BodyUI>
       </SectionUI>
 
