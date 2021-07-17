@@ -189,13 +189,6 @@ export const Header = ({width}) => {
   return (
     <>
       <MobileMenuUI style={{ display: active ? "flex" : "none" }}>
-{/*         <Link
-          onClick={() => setActive(!active)}
-          to="/home"
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          <MobileLinkUI>Home</MobileLinkUI>
-        </Link> */}
 
         <Link
           onClick={() => setActive(!active)}
@@ -290,12 +283,8 @@ export const Header = ({width}) => {
               </Link>
             </NavTopUI>
             <NavBottomUI>
-{/*               <Link
-                to="/home"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <NavLinkUI>Home</NavLinkUI>
-              </Link> */}
+
+
               <Link
                 to="/tools"
                 style={{ textDecoration: "none", color: "black" }}
@@ -323,12 +312,7 @@ export const Header = ({width}) => {
               >
                 <NavLinkUI>About</NavLinkUI>
               </Link>
-              {/*             <Link
-              to="/stories"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <NavLinkUI>Stories</NavLinkUI>
-            </Link> */}
+
             </NavBottomUI>
           </NavUI>
         </ContainerUI>

@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import styled from "styled-components";
-import gridOne from "../../images/grid-1.png";
-import gridTwo from "../../images/grid-2.png";
-import gridThree from "../../images/grid-3.png";
-import gridFour from "../../images/grid-4.png";
-import gridFive from "../../images/grid-5.png";
 import ReactPlayer from "react-player";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -54,73 +49,6 @@ const VideoUI = styled.div`
   }
 `;
 
-const ContainerUI = styled.div`
-  display: flex;
-  flex-direction: column;
-
-
-`
-
-const TitleUI = styled.div`
-font-family: "Noto Sans JP", sans-serif;
-font-size: 150px;
-font-style: normal;
-font-weight: 900;
-z-index: 1000;
-text-align: left;
-color: white;
-
-@media (max-width: 1100px) {
-  display: none;
-}
-
-`;
-
-const TitleMobileUI = styled.div`
-font-family: "Noto Sans JP", sans-serif;
-font-size: 46px;
-font-style: normal;
-font-weight: 900;
-z-index: 1000;
-text-align: left;
-color: white;
-margin 0 0 5vh 0;
-display: none;
-@media (max-width: 1100px) {
-  display: flex;
-}
-
-`;
-
-const GradientMobileUI = styled.div`
-position: absolute;
-width: 100vw;
-height: 50vw;
-top: -50px;
-left: -10vh;
-background: #C1D42F;
-filter: blur(100px);
-display: none;
-@media (max-width: 1100px) {
-  display: flex;
-}
-
-`;
-
-const GradientUI = styled.div`
-position: absolute;
-width: 40vw;
-height: 20vw;
-background: #C1D42F;
-filter: blur(100px);
-display: flex;
-@media (max-width: 1100px) {
-  display: none;
-}
-`;
-
-
-
 const TileUI = styled.div`
   width: 100%;
 
@@ -154,8 +82,6 @@ export const InspireGrid = ({
   data,
   color = "white",
 }) => {
-  const [showRelated, setShowRelated] = useState(false);
-  const [addSkill, setAddSkill] = useState(false);
 
   const [allPostsData, setAllPosts] = useState([]);
 
@@ -180,13 +106,6 @@ export const InspireGrid = ({
         .catch(console.error);
     }
   }, []);
-
-  const handleSkillClick = (e) => {
-    setShowRelated(!showRelated);
-    setAddSkill(!addSkill);
-  };
-
-  const handleRelatedClick = (e) => {};
 
   return (
   

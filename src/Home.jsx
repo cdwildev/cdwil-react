@@ -1,21 +1,22 @@
 import "./App.css";
-import { NavGrid } from "./components/Home/NavGrid";
-import { InspireGrid } from "./components/Home/InspireGrid";
-import { Button } from "./components/Home/Button";
-import { useEffect, useState } from "react";
+
+import { useEffect, useState, lazy, Suspense  } from "react";
 import styled from "styled-components";
 import heroOne from "./images/hero-1.png";
 import heroTwo from "./images/hero-2.png";
 import heroThree from "./images/hero-3.png";
-import footerGradient from "./images/footer.svg";
-import buttonBgOne from "./images/bg-1.png";
-import buttonBgTwo from "./images/bg-2.png";
+
 import Footer from "./components/Footer";
 import sanityClient from "./client";
 
 import useWindowDimensions from "./helpers/Window";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+const NavGrid = lazy(() => import("./components/Home/NavGrid"));
+const InspireGrid = lazy(() => import("./components/Home/InspireGrid"));
+
+
 
 const SectionUI = styled.div`
   display: flex;
@@ -374,6 +375,8 @@ function Home() {
   }, []);
 
   return (
+
+    <Suspense fallback={<div></div>}>
     <div
       style={{
         display: "flex",
@@ -469,6 +472,8 @@ function Home() {
 
       <Footer/>
     </div>
+
+    </Suspense>
   );
 }
 

@@ -106,16 +106,6 @@ export const NavGrid = ({
   const [showRelated, setShowRelated] = useState(false);
   const [addSkill, setAddSkill] = useState(false);
 
-  const handleSkillClick = (e) => {
-    console.log(e.target);
-    setShowRelated(!showRelated);
-    setAddSkill(!addSkill);
-  };
-
-  const handleRelatedClick = (e) => {
-    console.log(e.target);
-  };
-
   console.log(allPostsData);
 
   return (
