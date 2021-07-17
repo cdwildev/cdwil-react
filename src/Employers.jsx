@@ -10,7 +10,7 @@ import Hero2 from "../src/images/employer-hero-2.png";
 import InspireGrid from "./components/Home/InspireGrid";
 import Footer from "./components/Footer";
 import DropdownButton from "./components/DropdownButton";
-
+import employerInfo from "./pdf/employer-info.pdf"
 
 
 const SectionUI = styled.div`
@@ -386,7 +386,7 @@ export default function About() {
 
       <SectionUI style={{ margin: "0px 0 50px 0", flexDirection: "column" }}>
         <div style={{ margin: "0 0 30px 0", display: 'grid' }}>
-          <InfoPackageUI style={{  width: "50vw" }}>
+          <InfoPackageUI target="_blank" href={employerInfo + '?dl='} style={{  width: "50vw" }}>
           Employer
 Info Package
           </InfoPackageUI>
