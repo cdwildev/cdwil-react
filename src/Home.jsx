@@ -451,7 +451,10 @@ function Home() {
               style={{ textDecoration: "none", color: "black" }}
             >
 
-              <div style={{display: 'flex', margin: '20px 0 0 0',
+              
+            </Link>
+
+            <div style={{display: 'flex', margin: '20px 0 0 0',
             alignItems: 'flex-start'}}>
 
               <ButtonUI>Learn More</ButtonUI>
@@ -464,8 +467,6 @@ function Home() {
           <Twitter/>
           </IconUI>
               </div>
-              
-            </Link>
           </LeftColumn>
           <RightColumn>
             <ImageGrid>
