@@ -313,7 +313,7 @@ export default function SkillIdentifierTool() {
             alt="Illustration in black of a long unfolding resume next to a much shorter one page resume."
           />
           The resume you submit to employers should only be 1 to 2 pages, but
-          your master resume should be much longer.
+          your master resume can be much longer.
         </ImageContainerUI>
 
         <ImageContainerUI>
