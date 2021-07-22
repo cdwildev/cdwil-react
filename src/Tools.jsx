@@ -10,6 +10,7 @@ const ContainerUI = styled.div`
   width: 75vw;
   position: relative;
   display: flex;
+  flex-direction: column;
 
   @media (max-width: 1400px) {
     width: 90vw;
@@ -138,15 +139,43 @@ const ImageThreeUI = styled.div`
   }
 `;
 
+const InfoContainerUI = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+
+  text-align: left;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  margin: 50px 0 0 0 ;
+
+  @media (max-width: 800px) {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+  }
+`;
+
 export default function Tools() {
   return (
     <>
       <div className="container">
         <ContainerUI>
           <HeaderUI style={{ margin: "200px 0 0 0" }}>Tools</HeaderUI>
+
+          <InfoContainerUI>
+        Please note: all tools function best on a desktop or laptop.
+        </InfoContainerUI>
         </ContainerUI>
 
-        <RowUI style={{ margin: "50px 0 0 0" }}>
+
+
+        <RowUI style={{ margin: "100px 0 0 0" }}>
           <Link
             to="/skill-identifier"
             style={{ color: "#252525", textDecoration: "none" }}

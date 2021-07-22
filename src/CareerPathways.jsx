@@ -185,12 +185,10 @@ export default function SkillIdentifierTool() {
         }}
       >
         <InfoUI>
-          <TitleUI>Career Pathways</TitleUI>
+          <TitleUI>Career Pathfinder</TitleUI>
 
           <BodyTextUI style={{ margin: "50px 0 0 0" }}>
-            Discover what careers are connected to each major. Explore the many
-            career options available to you, no matter what you studied, because
-            spoiler: it’s all connected!
+          Explore your career interests and discover which careers are connected to each major. This tool helps you explore career options by guiding you through the following questions:
           </BodyTextUI>
         </InfoUI>
 

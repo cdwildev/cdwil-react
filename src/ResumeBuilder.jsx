@@ -610,7 +610,7 @@ export default function SkillIdentifierTool() {
           margin: "0 0 100px 0",
         }}
       >
-        <HeadingUI>A resume doesn’t get you the job</HeadingUI>
+        <HeadingUI>And Remember: A resume doesn't get you the job</HeadingUI>
         <img
           style={{ width: "50%" }}
           src={resumeInterview}

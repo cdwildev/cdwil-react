@@ -4,9 +4,10 @@ import sanityClient from "./client";
 import styled from "styled-components";
 import Footer from "./components/Footer";
 import moment from "moment";
+import { Twitter, Instagram } from "react-feather";
 
 const SectionUI = styled.div`
-  min-height: 100vh;
+
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -15,6 +16,10 @@ const SectionUI = styled.div`
   width: 75vw;
   @media (max-width: 1400px) {
     width: 90vw;
+  }
+
+  @media (max-width: 800px) {
+    align-items: flex-end;
   }
 `;
 
@@ -140,6 +145,68 @@ const ShowMoreButtonUI = styled.div`
   }
 `;
 
+const InfoContainerUI = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  position: relative;
+  
+  top: 24px;
+  text-align: left;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+
+  flex-direction: column;
+
+  @media (max-width: 800px) {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    flex-direction: column;
+    align-items: flex-end;
+    top: -8px;
+
+  }
+`;
+
+const IconContainerUI = styled.div`
+  display: flex;
+  justify-content: flex-end;
+
+
+  @media (max-width: 1000px) {
+    justify-content: flex-start;
+  }
+`;
+
+const IconUI = styled.a`
+  width: 39px;
+  height: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #252525;
+  text-decoration: none;
+  &:hover{
+    color: white;
+    background: #252525;
+  }
+  border: 3px solid #252525;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin: 12px 0px 0 24px;
+
+  @media (max-width: 800px) {
+margin: 12px 0 0 24px
+  }
+`;
+
 export default function News() {
   const [allPostsData, setAllPosts] = useState([]);
 
@@ -192,10 +259,33 @@ export default function News() {
         textAlign: "left",
       }}
     >
-      <SectionUI style={{ margin: "200px 0 0 0" }}>
+      <SectionUI style={{ margin: "200px 0 0 0", flexDirection: 'row' }}>
         <TitleUI style={{ margin: "0 0 50px 0" }}>
           News + <br></br>Events
         </TitleUI>
+
+        <InfoContainerUI style={{margin: '0 0 50px 0'}}>
+          Follow CD+WIL
+          <IconContainerUI>
+            <IconUI
+              href="https://www.instagram.com/ecucareerswil/"
+              target="_blank"
+            >
+              <Instagram />
+            </IconUI>
+
+            <IconUI
+              href="https://twitter.com/emilycarrcareer?lang=en"
+              target="_blank"
+            >
+              <Twitter />
+            </IconUI>
+          </IconContainerUI>
+        </InfoContainerUI>
+
+        </SectionUI>
+
+        <SectionUI >
 
         <GridUI>
           {allPostsData &&

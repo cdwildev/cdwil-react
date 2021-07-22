@@ -235,18 +235,6 @@ const GridTwoUI = styled.div`
   }
 `;
 
-const HighlightUI = styled.div`
-  position: absolute;
-  width: 50%;
-  height: 8px;
-  bottom: 0px;
-  z-index: -100;
-  background: #ede04a;
-  opacity: 0.7;
-  filter: blur(5px);
-  transform: rotate(-0.21deg);
-`;
-
 const ImageGrid = styled.div`
   width: 90%;
   min-width: 250px;
@@ -297,6 +285,20 @@ const GradientTwoUI = styled.div`
   left: -300px;
 `;
 
+const HighlightUI = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  bottom: 0px;
+  right:0;
+  z-index: -100;
+  background: #ede04a;
+  opacity: 0.7;
+  filter: blur(5px);
+  transform: rotate(-0.21deg);
+`;
+
+
 export default function About() {
 
   return (
@@ -307,8 +309,10 @@ export default function About() {
           <HeaderUI>
             Hey Alumni! <br></br>
             These resources <br></br>
-            are for you too!
-            <HighlightUI />
+            are for            
+            <span style={{position: 'relative'}}> you too!
+            <HighlightUI></HighlightUI>
+            </span>
           </HeaderUI>
 
           <InfoContainerUI>
@@ -357,7 +361,9 @@ export default function About() {
           <AboutUsUI>For Non-ECU Students</AboutUsUI>
           <HeaderUI>
             Not a student? <br></br>
-            Not a problem!
+            <span style={{position: 'relative'}}> Not a problem!
+            <HighlightUI></HighlightUI>
+            </span>
           </HeaderUI>
 
           <InfoContainerUI>

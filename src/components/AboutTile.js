@@ -30,7 +30,7 @@ const TileUI = styled.div`
   }
 
   @media (max-width: 800px) {
-    font-size: 22px;
+    font-size: 18px;
     line-height: 20px;
   }
 `;

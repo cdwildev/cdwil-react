@@ -207,15 +207,16 @@ width: 100%;
 
 
 const HighlightUI = styled.div`
-position: absolute;
-width: 55%;
-height: 8px;
-bottom: 0px;
-z-index: -100;
-background: #ede04a;
-opacity: 0.7;
-filter: blur(5px);
-transform: rotate(-0.21deg);
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  bottom: 0px;
+  right:0;
+  z-index: -100;
+  background: #ede04a;
+  opacity: 0.7;
+  filter: blur(5px);
+  transform: rotate(-0.21deg);
 `;
 
 const GradientOneUI = styled.div`
@@ -293,8 +294,11 @@ export default function About() {
         <LeftUI>
           <AboutUsUI>For Employers</AboutUsUI>
           <HeaderUI>
-            Interested in <br></br>hiring a student?
-            <HighlightUI />
+            Interested in <br></br>
+            <span style={{position: 'relative'}}> hiring a student?
+            <HighlightUI></HighlightUI>
+            </span>
+            
           </HeaderUI>
 
           <InfoContainerUI>

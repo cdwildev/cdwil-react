@@ -71,6 +71,29 @@ const HeaderUI = styled.div`
   }
 `;
 
+const GradientHeaderUI = styled.div`
+display: flex;
+justify-content: flex-start;
+text-align: left;
+font-weight: 900;
+font-size: 55px;
+background: linear-gradient(113.03deg, #e01583 31.82%, #1c878c 71.61%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-overflow: ellipsis;
+white-space: nowrap;
+display: block;
+text-align: left;
+padding: 0 0 50px 0;
+width: 100%;
+font-family: "Noto Sans JP", sans-serif;
+animation: gradient 5s ease infinite;
+
+@media (max-width: 1000px) {
+  font-size: 8vw;
+}
+`;
+
 const RightUI = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -141,8 +164,9 @@ const GridUI = styled.div`
   width: 100%;
   width: 75vw;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1400px) {
     grid-template-columns: repeat(1, 1fr);
+    width: 90vw;
   }
 `;
 
@@ -177,9 +201,10 @@ const GradientUI = styled.div`
 
 const HighlightUI = styled.div`
   position: absolute;
-  width: 78%;
+  width: 100%;
   height: 8px;
   bottom: 0px;
+  right:0;
   z-index: -100;
   background: #ede04a;
   opacity: 0.7;
@@ -240,8 +265,11 @@ export default function About() {
           <AboutUsUI>About Us</AboutUsUI>
           <HeaderUI>
             The Career Development + Work Integrated Learning Office helps you
-            to see and seize your opportunities
+            to see and seize your
+            <span style={{position: 'relative'}}> opportunities
             <HighlightUI></HighlightUI>
+            </span>
+            
           </HeaderUI>
         </LeftUI>
         <RightUI>
@@ -291,8 +319,18 @@ export default function About() {
         </RightUI>
       </SectionUI>
 
-      <SectionUI style={{ margin: "0 0 0 0" }}>
-        <GridUI style={{ width: "90vw" }}>
+
+
+
+
+
+
+
+      <SectionUI style={{ margin: "0 0 0 0", flexDirection: 'column',  }}>
+
+      <GradientHeaderUI>Services</GradientHeaderUI>
+        
+        <GridUI style={{ }}>
           {allPostsData &&
             allPostsData.map((post) => (
               <AboutTile

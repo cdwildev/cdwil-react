@@ -113,8 +113,9 @@ const TileUI = styled.div`
     background: #b9d9eb;
   }
   @media (max-width: 1000px) {
-    font-size: 22px;
+    font-size: 18px;
     line-height: 20px;
+  
   }
 `;
 
@@ -129,7 +130,7 @@ const GridUI = styled.div`
   font-weight: bold;
   font-size: 32px;
   line-height: 35px;
-  width: 100%;
+
   width: 75vw;
 
   @media (max-width: 1000px) {
@@ -144,13 +145,12 @@ const MobileGridUI = styled.div`
   display: none;
 
   text-align: left;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(1, 1fr);
   grid-gap: 9px;
   font-family: Noto Sans;
   font-style: normal;
   font-weight: bold;
-  width: 100%;
+  width: 90vw;
   font-size: 22px;
   @media (max-width: 1000px) {
     display: grid;

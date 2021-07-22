@@ -10,40 +10,73 @@ import {
   Image,
 } from "@react-pdf/renderer";
 
-import Bg from './career-pdf-bg.jpg'
-import styled from "styled-components";
-
-const sampleText = 'one two three four five six seven eight nine ten eleven twelve'
-
-export const MyDocument = ({  selectedIndustries, selectedSkills, selectedValues, filteredIndustries }) => {
+import Bg from "./career-pdf-bg.jpg";
+import pdf1 from "./career-pdf-1.jpg";
+import pdf2 from "./career-pdf-2.jpg";
+import pdf3 from "./career-pdf-3.jpg";
 
 
+const sampleText =
+  "one two three four five six seven eight nine ten eleven twelve";
+
+export const MyDocument = ({
+  selectedIndustries,
+  selectedSkills,
+  selectedValues,
+  filteredIndustries,
+}) => {
   return (
     <Document>
-
       <Page wrap size={[1920, 1080]} style={styles.page}>
-      <Image style={styles.image} src={Bg} />
+        <Image style={styles.image} src={Bg} />
 
         <View style={styles.container}>
-          
           <Text style={styles.titleUI}>Your Career Pathways</Text>
 
-              <View style={styles.gridUI}>
-                {filteredIndustries.map(skill => <View  style={styles.careerUI}><Text>{skill.title}</Text></View>)}
+          <View style={styles.gridUI}>
+            {filteredIndustries.map((skill) => (
+              <View style={styles.careerUI}>
+                <Text>{skill.title}</Text>
               </View>
-          
-              <View style={styles.gridUI}>
-                {selectedIndustries.map(skill => <View  style={styles.industryUI}><Text>{skill.title}</Text></View>)}
+            ))}
+          </View>
+
+          <View style={styles.gridUI}>
+            {selectedIndustries.map((skill) => (
+              <View style={styles.industryUI}>
+                <Text>{skill.title}</Text>
               </View>
-          
-              <View style={styles.gridUI}>
-              {selectedSkills.map(skill => <View  style={styles.skillUI}><Text>{skill.title}</Text></View>)}
+            ))}
+          </View>
+
+          <View style={styles.gridUI}>
+            {selectedSkills.map((skill) => (
+              <View style={styles.skillUI}>
+                <Text>{skill.title}</Text>
               </View>
-          
-                        <View style={styles.gridUI}>
-                        {selectedValues.map(skill => <View  style={styles.valueUI}><Text>{skill.title}</Text></View>)}
+            ))}
+          </View>
+
+          <View style={styles.gridUI}>
+            {selectedValues.map((skill) => (
+              <View style={styles.valueUI}>
+                <Text>{skill.title}</Text>
               </View>
+            ))}
+          </View>
         </View>
+      </Page>
+
+      <Page wrap size={[595, 842]} style={styles.page}>
+        <Image style={styles.image} src={pdf1} />
+      </Page>
+
+      <Page wrap size={[595, 842]} style={styles.page}>
+        <Image style={styles.image} src={pdf2} />
+      </Page>
+
+      <Page wrap size={[595, 842]} style={styles.page}>
+        <Image style={styles.image} src={pdf3} />
       </Page>
     </Document>
   );
@@ -64,33 +97,29 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     width: "100%",
-   	height: "100%",
+    height: "100%",
     alignItems: "center",
-    position: 'absolute',
-    top: '0'
+    position: "absolute",
+    top: "0",
   },
 
   gridUI: {
-  
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection:'row',
-    margin: "10px 0"
-
-  },
-  
-    titleUI: {
+    width: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-	color: "white",
+    flexDirection: "row",
+    margin: "10px 0",
+  },
+
+  titleUI: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "white",
     padding: "20px 40px",
     borderRadius: "50px",
     fontSize: "36px",
-
-
   },
 
   careerUI: {
@@ -101,27 +130,24 @@ const styles = StyleSheet.create({
     padding: "20px 40px",
     borderRadius: "50px",
     fontSize: "18px",
-      margin: '10px',
-    fontWeight: '800',
-    
-
+    margin: "10px",
+    fontWeight: "800",
   },
-  
-    industryUI: {
+
+  industryUI: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     padding: "10px 20px",
-      color: "white",
+    color: "white",
     borderRadius: "50px",
-      borderStyle:"solid",
-      borderColor: "white",
-      borderWidth: "3px",
-        margin: '5px'
-
+    borderStyle: "solid",
+    borderColor: "white",
+    borderWidth: "3px",
+    margin: "5px",
   },
-  
-      skillUI: {
+
+  skillUI: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -129,12 +155,10 @@ const styles = StyleSheet.create({
     padding: "10px 20px",
     borderRadius: "10px",
     fontSize: "14px",
-          margin: '5px',
-        color: "white"
-      
-
+    margin: "5px",
+    color: "white",
   },
-      valueUI: {
+  valueUI: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -142,10 +166,7 @@ const styles = StyleSheet.create({
     padding: "10px 20px",
     borderRadius: "10px",
     fontSize: "14px",
-        margin: '5px',
-        color: "white"
+    margin: "5px",
+    color: "white",
   },
-
-
-  
 });

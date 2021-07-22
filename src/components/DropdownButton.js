@@ -23,7 +23,8 @@ const DropdownUI = styled.div`
   font-size: 32px;
   @media (max-width: 1200px) {
     width: 90vw;
-    font-size: 22px;
+    font-size: 18px;
+    padding: 0 25px;
   }
 
   cursor: pointer;
@@ -140,6 +141,15 @@ export const DropdownButton = ({ text, data, background="#00B188" , backgroundAc
   };
 
 
+  const sortData = data.sort(function(a, b) {
+    var textA = a.title.toUpperCase();
+    var textB = b.title.toUpperCase();
+    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+});
+
+console.log(sortData)
+
+
   return (
     <>
       <DropdownUI
@@ -164,14 +174,18 @@ export const DropdownButton = ({ text, data, background="#00B188" , backgroundAc
               }}
             ></div>
 
-            {text}
+           <div style={{width: '100%'}}>{text}</div>
           </div>{" "}
+
+          <div style={{minWidth: '50px', display: 'flex', justifyContent: 'flex-end'}}>
           {active ? <Minus></Minus> : <Plus></Plus>}{" "}
+          </div>
+     
         </ButtonUI>
 
         {active ? (
           <ContentUI>
-            {data.map((resource) => (
+            {sortData.map((resource) => (
               <LinkContainerUI key={resource.title}>
                 {resource.title && (
                   <LinkUI target="_blank" href={resource.link}>

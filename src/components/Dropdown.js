@@ -48,7 +48,7 @@ export const Dropdown = ({allPostsData}) => {
   return (
     <ContainerUI>
       <DropdownButton data = {allPostsData.filter(resource => resource.category.includes('portfolio'))} text = "Professional Practice"/>
-      <DropdownButton data = {allPostsData.filter(resource => resource.category.includes('resume'))} text = "CVs/Resumes, Cover Letters and Artist Statements"/>
+      <DropdownButton data = {allPostsData.filter(resource => resource.category.includes('resume'))} text = "CVs/Resumes, Cover Letters and Getting The Job"/>
       <DropdownButton data = {allPostsData.filter(resource => resource.category.includes('applications'))} text = "Applications, Proposals and Grant Writing"/>
       <DropdownButton data = {allPostsData.filter(resource => resource.category.includes('entrepreneurship'))} text = "Entrepreneurship, Small Businesses and Collectives"/>
       
