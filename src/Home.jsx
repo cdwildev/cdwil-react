@@ -12,9 +12,13 @@ import sanityClient from "./client";
 import useWindowDimensions from "./helpers/Window";
 
 import { Link } from "react-router-dom";
+import { Twitter, Instagram } from "react-feather";
 
 const NavGrid = lazy(() => import("./components/Home/NavGrid"));
 const InspireGrid = lazy(() => import("./components/Home/InspireGrid"));
+
+
+
 
 const SectionUI = styled.div`
   display: flex;
@@ -39,16 +43,16 @@ const LeftColumn = styled.div`
 
 const ButtonUI = styled.div`
   width: 160px;
-  height: 51px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 4px solid black;
+  border: 4px solid #252525;
   border-radius: 15px;
   font-style: normal;
   font-weight: bold;
   font-size: 19px;
-  margin: 20px 0 0 0;
+
   cursor: pointer;
 
   &:hover {
@@ -290,6 +294,40 @@ const LoadingGradientThreeUI = styled.div`
   }
 `;
 
+
+const IconContainerUI = styled.div`
+ display: flex;
+ justify-content: flex-end;
+  @media (max-width: 1000px) {
+    justify-content: flex-start;
+  }
+`;
+
+
+const IconUI = styled.a`
+width: 50px;
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+color: #252525;
+text-decoration: none;
+
+border: 4px solid #252525;
+border-radius: 15px;
+font-weight: bold;
+margin: 0 0 0 12px ;
+
+&:hover{
+  color: white;
+  background: #252525;
+}
+@media (max-width: 1000px) {
+  margin: 0px 12px 0 0;
+}
+`;
+
 function Home() {
   const [allPostsData, setAllPosts] = useState([]);
 
@@ -412,7 +450,21 @@ function Home() {
               to="/about"
               style={{ textDecoration: "none", color: "black" }}
             >
+
+              <div style={{display: 'flex', margin: '20px 0 0 0',
+            alignItems: 'flex-start'}}>
+
               <ButtonUI>Learn More</ButtonUI>
+
+              <IconUI href="https://www.instagram.com/ecucareerswil/" target="_blank">
+          <Instagram/>
+          </IconUI>
+          
+          <IconUI href="https://twitter.com/emilycarrcareer?lang=en" target="_blank">
+          <Twitter/>
+          </IconUI>
+              </div>
+              
             </Link>
           </LeftColumn>
           <RightColumn>

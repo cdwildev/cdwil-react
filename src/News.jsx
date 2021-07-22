@@ -158,7 +158,7 @@ const InfoContainerUI = styled.div`
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
-
+  font-weight: bold;
   flex-direction: column;
 
   @media (max-width: 800px) {
@@ -185,26 +185,27 @@ const IconContainerUI = styled.div`
 `;
 
 const IconUI = styled.a`
-  width: 39px;
-  height: 39px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  color: #252525;
-  text-decoration: none;
-  &:hover{
-    color: white;
-    background: #252525;
-  }
-  border: 3px solid #252525;
-  box-sizing: border-box;
-  border-radius: 5px;
-  margin: 12px 0px 0 24px;
+width: 50px;
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+color: #252525;
+text-decoration: none;
 
-  @media (max-width: 800px) {
-margin: 12px 0 0 24px
-  }
+border: 3px solid #252525;
+border-radius: 15px;
+font-weight: bold;
+margin: 12px 0 0 12px ;
+
+&:hover{
+  color: white;
+  background: #252525;
+}
+@media (max-width: 1000px) {
+  margin: 0px 12px 0 0;
+}
 `;
 
 export default function News() {
