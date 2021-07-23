@@ -26,7 +26,7 @@ export const MyDocument = ({
   filteredIndustries,
 }) => {
   return (
-    <Document>
+    <Document title="career pathfinder">
       <Page wrap size={[1920, 1080]} style={styles.page}>
         <Image style={styles.image} src={Bg} />
 

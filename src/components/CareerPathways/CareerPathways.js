@@ -540,29 +540,26 @@ export const CareerPathways = ({ allPostsData }) => {
                   <>
                     <InstructionTopUI>
                       Which industries are you curious or passionate about?
-                      Where can you see yourself working? <br></br>
-                      <br></br> Drag and Drop up to 3
+                      Where can you see yourself working?
                     </InstructionTopUI>{" "}
-                    <InstructionUI>Drag and Drop here</InstructionUI>
+                    <InstructionUI>Drag and Drop up to 3</InstructionUI>
                   </>
                 ) : screen === 2 ? (
                   <>
                     <InstructionTopUI>
                       What are you really good at or interested in getting
-                      better at? <br></br>
-                      <br></br> Drag and Drop up to 10
+                      better at? 
                     </InstructionTopUI>{" "}
-                    <InstructionUI>Drag and Drop here</InstructionUI>
+                    <InstructionUI>Drag and Drop up to 10</InstructionUI>
                   </>
                 ) : screen === 3 ? (
                   <>
                     <InstructionTopUI>
                       Values reflect who we are and indicate what is most
-                      important to us. <br></br>
-                      <br></br> Drag and Drop up to 5 values that resonate with you for
-                      the workplace.
+                      important to us.
                     </InstructionTopUI>{" "}
-                    <InstructionUI>Drag and Drop here</InstructionUI>
+                    <InstructionUI>Drag and Drop up to 5 values that resonate with you for
+                      the workplace.</InstructionUI>
                   </>
                 ) : (
                   ""
