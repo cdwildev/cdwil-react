@@ -613,7 +613,7 @@ export const CareerPathways = ({ allPostsData }) => {
                 <LineUI
                   style={{
                     borderBottom:
-                      screen >= 3 ? "3px solid #0d3858" : "3px solid #0d3858",
+                      screen >= 3 ? "3px solid #0d3858" : "3px solid #0d3858s",
                   }}
                 />
                 <SemiUI
