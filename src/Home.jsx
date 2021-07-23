@@ -318,9 +318,7 @@ const IconUI = styled.a`
     color: white;
     background: #252525;
   }
-  @media (max-width: 1000px) {
-    margin: 0px 12px 0 0;
-  }
+
 `;
 
 function Home() {
