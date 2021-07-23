@@ -17,9 +17,6 @@ import { Twitter, Instagram } from "react-feather";
 const NavGrid = lazy(() => import("./components/Home/NavGrid"));
 const InspireGrid = lazy(() => import("./components/Home/InspireGrid"));
 
-
-
-
 const SectionUI = styled.div`
   display: flex;
   justify-content: center;
@@ -294,38 +291,36 @@ const LoadingGradientThreeUI = styled.div`
   }
 `;
 
-
 const IconContainerUI = styled.div`
- display: flex;
- justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
   @media (max-width: 1000px) {
     justify-content: flex-start;
   }
 `;
 
-
 const IconUI = styled.a`
-width: 50px;
-height: 50px;
-display: flex;
-justify-content: center;
-align-items: center;
-cursor: pointer;
-color: #252525;
-text-decoration: none;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #252525;
+  text-decoration: none;
 
-border: 4px solid #252525;
-border-radius: 15px;
-font-weight: bold;
-margin: 0 0 0 12px ;
+  border: 4px solid #252525;
+  border-radius: 15px;
+  font-weight: bold;
+  margin: 0 0 0 12px;
 
-&:hover{
-  color: white;
-  background: #252525;
-}
-@media (max-width: 1000px) {
-  margin: 0px 12px 0 0;
-}
+  &:hover {
+    color: white;
+    background: #252525;
+  }
+  @media (max-width: 1000px) {
+    margin: 0px 12px 0 0;
+  }
 `;
 
 function Home() {
@@ -446,27 +441,35 @@ function Home() {
               Connecting students and alumni with local, national and
               international employers in the creative industries and beyond.
             </SubTitleUI>
-            <Link
-              to="/about"
-              style={{ textDecoration: "none", color: "black" }}
+
+            <div
+              style={{
+                display: "flex",
+                margin: "20px 0 0 0",
+                alignItems: "flex-start",
+              }}
             >
+              <Link
+                to="/about"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <ButtonUI>Learn More</ButtonUI>
+              </Link>
 
-              
-            </Link>
+              <IconUI
+                href="https://www.instagram.com/ecucareerswil/"
+                target="_blank"
+              >
+                <Instagram />
+              </IconUI>
 
-            <div style={{display: 'flex', margin: '20px 0 0 0',
-            alignItems: 'flex-start'}}>
-
-              <ButtonUI>Learn More</ButtonUI>
-
-              <IconUI href="https://www.instagram.com/ecucareerswil/" target="_blank">
-          <Instagram/>
-          </IconUI>
-          
-          <IconUI href="https://twitter.com/emilycarrcareer?lang=en" target="_blank">
-          <Twitter/>
-          </IconUI>
-              </div>
+              <IconUI
+                href="https://twitter.com/emilycarrcareer?lang=en"
+                target="_blank"
+              >
+                <Twitter />
+              </IconUI>
+            </div>
           </LeftColumn>
           <RightColumn>
             <ImageGrid>
