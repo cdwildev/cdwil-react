@@ -13,7 +13,7 @@ const ContainerUI = styled.div`
 
   display: flex;
 
-  @media (max-width: 1400px) {
+  @media (max-width: 1500px) {
     width: 90vw;
   }
 `;
@@ -72,7 +72,7 @@ const InfoUI = styled.div`
 `;
 
 const ImageUI = styled.div`
-  @media (max-width: 1200px) {
+  @media (max-width: 1300px) {
     display: none;
   }
 `;
@@ -188,7 +188,8 @@ export default function SkillIdentifierTool() {
           <TitleUI>Career Pathfinder</TitleUI>
 
           <BodyTextUI style={{ margin: "50px 0 0 0" }}>
-          Explore your career interests and discover which careers are connected to each major. This tool helps you explore career options by guiding you through the following questions:
+          Explore your career interests and discover which careers are connected to each major. For the full experience, use this tool on a desktop or laptop. This tool helps you explore career options by guiding you through the following questions:
+
           </BodyTextUI>
         </InfoUI>
 
@@ -243,7 +244,7 @@ export default function SkillIdentifierTool() {
             alignItems: "flex-start",
           }}
         >
-          Resources
+          Resources | View links or skip to use the pathfinder tool below
         </BodyTextUI>
 
         <TileUI

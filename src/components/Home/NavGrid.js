@@ -147,7 +147,7 @@ export const NavGrid = ({
           to="/career-pathways"
         >
           <TileUI style={{ background: "#C1D42F", color: "#252525" }}>
-            Explore Career Pathways
+            Explore Career Pathfinder
           </TileUI>
         </Link>
         <Link
@@ -234,7 +234,7 @@ export const NavGrid = ({
         >
 
         <TileUI style={{ background: "#C1D42F", color: "#252525" }}>
-          Explore Career Pathways
+          Explore Career Pathfinder
         </TileUI>
 
         </Link>

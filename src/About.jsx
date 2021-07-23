@@ -296,7 +296,30 @@ export default function About() {
         <ContactForm />
       </SectionUI>
 
-      <SectionUI style={{ margin: "200px 0 200px 0" }}>
+
+      <SectionUI style={{ margin: "0 0 0 0", flexDirection: 'column',  margin: "200px 0 200px 0", alignItems: "flex-start" }}>
+
+      <AboutUsUI>Services | Click to learn about each</AboutUsUI>
+        
+        <GridUI style={{ }}>
+          {allPostsData &&
+            allPostsData.map((post) => (
+              <AboutTile
+                title={post.title}
+                text={
+                  <BlockContent
+                    projectId="5e3iqbhv"
+                    dataset="production"
+                    blocks={post.body}
+                    serializers={serializers}
+                  />
+                }
+              />
+            ))}
+        </GridUI>
+      </SectionUI>
+
+      <SectionUI style={{ }}>
         <LeftUI>
           <AboutUsUI>Contact</AboutUsUI>
           <ContactInfoUI>604.844.3843 | coop@ecuad.ca</ContactInfoUI>
@@ -317,35 +340,6 @@ export default function About() {
             src={Map}
           ></img>
         </RightUI>
-      </SectionUI>
-
-
-
-
-
-
-
-
-      <SectionUI style={{ margin: "0 0 0 0", flexDirection: 'column',  }}>
-
-      <GradientHeaderUI>Services</GradientHeaderUI>
-        
-        <GridUI style={{ }}>
-          {allPostsData &&
-            allPostsData.map((post) => (
-              <AboutTile
-                title={post.title}
-                text={
-                  <BlockContent
-                    projectId="5e3iqbhv"
-                    dataset="production"
-                    blocks={post.body}
-                    serializers={serializers}
-                  />
-                }
-              />
-            ))}
-        </GridUI>
       </SectionUI>
 
       <Footer />

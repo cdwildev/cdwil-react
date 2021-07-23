@@ -106,7 +106,7 @@ export const FilterSquare = ({
     <animated.div
       className="square-filter"
       {...bind()}
-      style={{ x, y, display: screen == 2 ? 'flex' : 'none', transform: `rotate(${rotate}deg)` }}
+      style={{ x, y, display: screen == 2 ? 'flex' : 'none', transform: `rotate(${rotate}deg)`, animation: `float ${floatingY}s ease infinite` }}
       ref={circle}
       onMouseDown={() => setMouseDown(true)}
       onMouseUp={() => setMouseDown(false)}

@@ -66,7 +66,7 @@ const ButtonUI = styled.div`
   width: 153px;
   height: 57px;
 
-  border: 3px solid #ffffff;
+  border: 3px solid #0d3858;
   box-sizing: border-box;
   border-radius: 10px;
 
@@ -74,9 +74,15 @@ const ButtonUI = styled.div`
   font-size: 20px;
   font-style: normal;
   font-weight: 800;
+  background: white;
+  background: rgba( 255, 255, 255, 0.50 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
 
   text-align: center;
-  color: white;
+  color: #0d3858;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,30 +118,36 @@ const CircleUI = styled.div`
   height: 27px;
 
   border-radius: 50px;
-  border: 3px solid white;
+  border: 3px solid #0d3858;
   background: #0d3858;
   position: relative;
   left: 10px;
+
+
 `;
 
 const SquareUI = styled.div`
   width: 48px;
   height: 27px;
 
-  border: 3px solid white;
+  border: 3px solid #0d3858;
   border-radius: 3px;
 
   background: #0d3858;
+
+
 `;
 
 const SemiUI = styled.div`
   width: 48px;
   height: 27px;
-  border: 3px solid white;
+  border: 3px solid #0d3858;
   position: relative;
   right: 10px;
   border-radius: 48px 48px 0 0;
   background: #0d3858;
+
+
 `;
 
 const GridUI = styled.div`
@@ -149,12 +161,12 @@ const GridRowUI = styled.div`
 `;
 
 const LineUI = styled.div`
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid #0d3858;
   width: 128px;
 `;
 
 const ProgressLabelUI = styled.div`
-  transform: translateY(48px);
+  transform: translateY(36px);
   font-family: Noto Sans;
   font-style: normal;
   font-weight: 800;
@@ -529,7 +541,7 @@ export const CareerPathways = ({ allPostsData }) => {
                     <InstructionTopUI>
                       Which industries are you curious or passionate about?
                       Where can you see yourself working? <br></br>
-                      <br></br> Select up to 3
+                      <br></br> Drag and Drop up to 3
                     </InstructionTopUI>{" "}
                     <InstructionUI>Drag and Drop here</InstructionUI>
                   </>
@@ -538,7 +550,7 @@ export const CareerPathways = ({ allPostsData }) => {
                     <InstructionTopUI>
                       What are you really good at or interested in getting
                       better at? <br></br>
-                      <br></br> Select up to 10
+                      <br></br> Drag and Drop up to 10
                     </InstructionTopUI>{" "}
                     <InstructionUI>Drag and Drop here</InstructionUI>
                   </>
@@ -547,7 +559,7 @@ export const CareerPathways = ({ allPostsData }) => {
                     <InstructionTopUI>
                       Values reflect who we are and indicate what is most
                       important to us. <br></br>
-                      <br></br> Select up to 5 values that resonate with you for
+                      <br></br> Drag and Drop up to 5 values that resonate with you for
                       the workplace.
                     </InstructionTopUI>{" "}
                     <InstructionUI>Drag and Drop here</InstructionUI>
@@ -583,7 +595,7 @@ export const CareerPathways = ({ allPostsData }) => {
                 <LineUI
                   style={{
                     borderBottom:
-                      screen >= 2 ? "3px solid white" : "3px solid white",
+                      screen >= 2 ? "3px solid #0d3858" : "3px solid #0d3858",
                   }}
                 />
                 <SquareUI
@@ -601,7 +613,7 @@ export const CareerPathways = ({ allPostsData }) => {
                 <LineUI
                   style={{
                     borderBottom:
-                      screen >= 3 ? "3px solid white" : "3px solid white",
+                      screen >= 3 ? "3px solid #0d3858" : "3px solid #0d3858",
                   }}
                 />
                 <SemiUI
