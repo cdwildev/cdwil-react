@@ -188,7 +188,7 @@ console.log(sortData)
             {sortData.map((resource) => (
               <LinkContainerUI key={resource.title}>
                 {resource.title && (
-                  <LinkUI target="_blank" href={resource.link}>
+                  <LinkUI target="_blank" href={resource.link ? resource.link : resource.pdfURL }>
                     {resource.title}
                   </LinkUI>
                 )}

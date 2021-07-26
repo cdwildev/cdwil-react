@@ -126,6 +126,16 @@ const TileUI = styled.a`
   }
 `;
 
+const DetailTextUI = styled.div`
+  font-family: "Noto Sans JP", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: white;
+`;
+
 export default function SkillIdentifierTool() {
   const [allPostsData, setAllPosts] = useState([]);
 
@@ -188,9 +198,13 @@ export default function SkillIdentifierTool() {
           <TitleUI>Career Pathfinder</TitleUI>
 
           <BodyTextUI style={{ margin: "50px 0 0 0" }}>
-          Explore your career interests and discover which careers are connected to each major. For the full experience, use this tool on a desktop or laptop. This tool helps you explore career options by guiding you through the following questions:
+          Explore your career interests and discover which careers are connected to each major. This tool helps you explore career options by guiding you through the following questions:
 
           </BodyTextUI>
+
+          <DetailTextUI style={{ margin: "50px 0 0 0" }}>
+        For the full experience, use this tool on a desktop or laptop. For increased accessibility, use this tool on mobile or half screen.
+        </DetailTextUI>
         </InfoUI>
 
         <ImageUI>

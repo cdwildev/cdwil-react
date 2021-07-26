@@ -141,7 +141,7 @@ export default function SkillIdentifierTool() {
         }}
       >
         <DetailTextUI style={{ margin: "50px 0 0 0" }}>
-          For the full experience, use this tool on a desktop or laptop.
+        For the full experience, use this tool on a desktop or laptop. For increased accessibility, use this tool on mobile or half screen.
         </DetailTextUI>
       </ContainerUI>
 
