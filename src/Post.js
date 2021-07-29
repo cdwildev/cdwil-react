@@ -11,15 +11,7 @@ import moment from "moment";
 import useWindowDimensions from "./helpers/Window";
 import PortableText from "react-portable-text";
 
-// Get a pre-configured url-builder from your sanity client
-const builder = imageUrlBuilder(sanityClient);
 
-// Then we like to make a simple function like this that gives the
-// builder an image and returns the builder for you to specify additional
-// parameters:
-function urlFor(source) {
-  return builder.image(source);
-}
 
 const SectionUI = styled.div`
   margin: 100px 0 0 0;
@@ -87,11 +79,22 @@ const DateUI = styled.div`
   }
 `;
 
+// Get a pre-configured url-builder from your sanity client
+const builder = imageUrlBuilder(sanityClient);
+
+// Then we like to make a simple function like this that gives the
+// builder an image and returns the builder for you to specify additional
+// parameters:
+function urlFor(source) {
+  return builder.image(source);
+}
+
 export default function Post(props) {
   const [singlePost, setSinglePost] = useState(null);
   const { slug } = useParams();
 
   const { height, width } = useWindowDimensions();
+
 
   useEffect(() => {
     sanityClient
@@ -133,7 +136,7 @@ export default function Post(props) {
       <SectionUI>
         <TitleUI>{singlePost && singlePost.title}</TitleUI>
 
-        <img width="100%" src={singlePost && singlePost.mainImage.asset.url} />
+        <img style={{ width:'100%', boxShadow: '4px 4px 10px grey' }} src={singlePost && singlePost.mainImage.asset.url} />
 
         <DateUI>
           Posted on{" "}
@@ -147,23 +150,19 @@ export default function Post(props) {
               content={singlePost.body}
               projectId="5e3iqbhv"
               dataset="production"
-              imageOptions={{
-                w: width < 400 ? 300 : 800,
-                fit: "max",
-                h: 500,
-                margin: 0,
-              }}
-              // Optionally override marks, decorators, blocks, etc. in a flat
-              // structure without doing any gymnastics
+
               serializers={{
-                link: (props) => <a style={{ color: "#244468" }} {...props} />,
+                link: (props) => <a target="_blank" style={{ color: "#244468" }} {...props} />,
+                image: (props) => <img style={{ width:'100%', boxShadow: '4px 4px 10px grey', margin: '25px 0 0 0' }} src={urlFor(props)} />,
+                quote: (props) => <p style={{ color:'red', boxShadow: '4px 4px 10px grey', margin: '25px 0 0 0' }} {...props}  />
               }}
             />
           )}
 
-          {/*     {singlePost && <BlockContent  imageOptions={{ w: width < 1000 ? 400 : 1000, fit: 'max'}} projectId="5e3iqbhv" dataset="production" blocks={singlePost.body} serializers={serializers} />} */}
+
         </BodyUI>
       </SectionUI>
+
 
       <Footer />
     </div>
