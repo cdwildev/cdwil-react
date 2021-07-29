@@ -259,7 +259,7 @@ export const Header = ({width}) => {
         </MobileNavButtonUI>
 
         <ContainerUI>
-          <Link to="/home">
+          <Link to="/">
             <LogoUI src={logo} alt="career development and work integrated learning at emily carr logo"></LogoUI>
           </Link>
 
