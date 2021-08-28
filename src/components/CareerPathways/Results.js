@@ -255,7 +255,7 @@ export const Results = ({ selectedIndustries, selectedSkills, selectedValues, al
         <SkillGridUI>{selectedValues.map(industry => <SkillUI>{industry.title}</SkillUI>)}</SkillGridUI>
 
          
-      {!loading ? <PDFDownloadLink fileName="CareerPathfinder.pdf" document={<MyDocument selectedIndustries={selectedIndustries} selectedSkills={selectedSkills} selectedValues={selectedValues} filteredIndustries={filteredIndustries}/>} ><DownloadButtonUI><Download/></DownloadButtonUI></PDFDownloadLink> : '' }
+      {!loading ? <PDFDownloadLink fileName="Career Pathfinder.pdf" document={<MyDocument selectedIndustries={selectedIndustries} selectedSkills={selectedSkills} selectedValues={selectedValues} filteredIndustries={filteredIndustries}/>} ><DownloadButtonUI><Download/></DownloadButtonUI></PDFDownloadLink> : '' }
         
       </ContainerUI>
     </>

@@ -257,7 +257,7 @@ setSkillArray(skillList.reverse())
    
       <SkillBarUI style={{overflowY: expandMenu ? 'scroll' : 'hidden', display: skillArray.length > 0 ? 'flex' : 'none', height: expandMenu ? '50vh' : '15vh'}}>
       {!exportPDF ? <DownloadButtonUI onClick={() => setExportPDF(true)}>Export as PDF</DownloadButtonUI> : ''}
-      {exportPDF ? <PDFDownloadLink document={<MyDocument skillList={skillList} softSkillList={softSkillList} softwareList={softwareList} hardSkillList={hardSkillList}/>} fileName="somename.pdf"><DownloadButtonUI onClick={() => setExportPDF(false)}><Download/></DownloadButtonUI></PDFDownloadLink> : ''}
+      {exportPDF ? <PDFDownloadLink  fileName="Skill Identifier.pdf" document={<MyDocument skillList={skillList} softSkillList={softSkillList} softwareList={softwareList} hardSkillList={hardSkillList}/>} ><DownloadButtonUI onClick={() => setExportPDF(false)}><Download/></DownloadButtonUI></PDFDownloadLink> : ''}
 
         
         {skillArray.length > 0 ?skillArray.map(skill => <SkillTagUI key={skill} onClick={handleClick}>{skill}<SkillDeleteUI><X/></SkillDeleteUI></SkillTagUI>) : ''}

@@ -361,7 +361,7 @@ export const CareerPathways = ({ allPostsData }) => {
     if (loading) {
       setTimeout(() => {
         setLoading(false);
-      }, 500);
+      }, 1000);
     }
   }, [loading]);
 

@@ -120,7 +120,7 @@ export default function Stories() {
         )
         .then((data) => {
           setAllPosts(
-            data.sort((a, b) => (b.publishedAt < a.publishedAt ? -1 : 1))
+            data.sort((a, b) => (a.title < b.title ? -1 : 1))
           );
           sessionStorage.setItem("videos", JSON.stringify(data));
         })

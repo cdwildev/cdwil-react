@@ -190,7 +190,7 @@ export default function Tools() {
               </ImageUI>
               <TitleUI>Skill Identifier</TitleUI>
               <BodyTextUI>
-                Explore the skills and software connected to each major
+              Explore the skills and software connected to each ECU major
               </BodyTextUI>
             </ToolContainerUI>
           </Link>
@@ -229,8 +229,8 @@ export default function Tools() {
               </ImageThreeUI>
               <TitleUI>Career Pathfinder</TitleUI>
               <BodyTextUI>
-                Explore career interests and discover creative careers connected
-                to each major
+              Explore career interests and discover creative careers connected to each ECU major
+
               </BodyTextUI>
             </ToolContainerUI>
           </Link>
