@@ -10,7 +10,7 @@ import useWindowDimensions from "../helpers/Window";
 const HeaderUI = styled.div`
   display: flex;
   height: 120px;
-  width: 100vw;
+  width: 100%;
   min-height: 100px;
   position: fixed;
   top: 0;

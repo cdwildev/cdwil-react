@@ -12,15 +12,16 @@ const FooterUI = styled.div`
 
   width: 100%;
   
-  position: relative;
+  position: fixed;
   bottom: 0;
   left: 0;
   justify-content: center;
+ 
   overflow: hidden;
-  
   padding: 200px 0 200px 0;
-  position:relative;
+width: 100%;
 z-index:1;
+position: relative;
 
 
 `;

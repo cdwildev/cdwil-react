@@ -368,7 +368,9 @@ function App(props) {
         }`
         )
         .then((data) => {
-          setAllPosts(data);
+          setAllPosts(
+            data.sort((a, b) => (a.title < b.title ? -1 : 1))
+          );
           sessionStorage.setItem("videos", JSON.stringify(data));
         })
         .catch(console.error);
@@ -432,162 +434,161 @@ function App(props) {
   }, []);
 
   return (
-    <Router>
+    <Router >
       <Suspense fallback={<div></div>}>
-        <div className="App" style={{ width: windowWidth }}>
-          <Header width={width} />
+        <Header width={width}  />
 
-          <ScrollToTop />
-          <Switch>
-            <Route exact path="/">
-              <div
+        <ScrollToTop />
+        <Switch>
+          <Route exact path="/">
+
+            <div className="container">
+
+              <LoadingUI style={{ display: isLoading ? "flex" : "none" }}>
+                <LoadingContainerUI>
+                  <LoadingGradientUI
+                    style={{ top: isAnimate ? "-100vh" : "300vh" }}
+                  />
+                  <LoadingGradientTwoUI
+                    style={{ left: isAnimate ? "0vw" : "300vw" }}
+                  />
+                  <LoadingGradientThreeUI
+                    style={{ left: isAnimate ? "-100vw" : "-300vw" }}
+                  />
+                </LoadingContainerUI>
+              </LoadingUI>
+              <SectionUI
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
+                  margin: "200px 0 200px 0 ",
+                  alignItems: "flex-start",
+                  
                 }}
               >
-                <LoadingUI style={{ display: isLoading ? "flex" : "none" }}>
-                  <LoadingContainerUI>
-                    <LoadingGradientUI
-                      style={{ top: isAnimate ? "-100vh" : "300vh" }}
-                    />
-                    <LoadingGradientTwoUI
-                      style={{ left: isAnimate ? "0vw" : "300vw" }}
-                    />
-                    <LoadingGradientThreeUI
-                      style={{ left: isAnimate ? "-100vw" : "-300vw" }}
-                    />
-                  </LoadingContainerUI>
-                </LoadingUI>
-                <SectionUI
-                  style={{
-                    margin: "200px 0 200px 0 ",
-                    alignItems: "flex-start",
-                  }}
-                >
-                  <LeftColumn>
-                    <TitleUI>
-                      Career <br></br> Development <br></br>+ Work Integrated{" "}
-                      <br></br>
-                      Learning Office
-                    </TitleUI>
-                    <SubTitleUI>
-                      Connecting students and alumni with local, national and
-                      international employers in the creative industries and
-                      beyond.
-                    </SubTitleUI>
+                <LeftColumn>
+                  <TitleUI>
+                    Career <br></br> Development <br></br>+ Work Integrated{" "}
+                    <br></br>
+                    Learning Office
+                  </TitleUI>
+                  <SubTitleUI>
+                    Connecting students and alumni with local, national and
+                    international employers in the creative industries and
+                    beyond.
+                  </SubTitleUI>
 
-                    <div
-                      style={{
-                        display: "flex",
-                        margin: "20px 0 0 0",
-                        alignItems: "flex-start",
-                      }}
+                  <div
+                    style={{
+                      display: "flex",
+                      margin: "20px 0 0 0",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <Link
+                      to="/about"
+                      style={{ textDecoration: "none", color: "black" }}
                     >
-                      <Link
-                        to="/about"
-                        style={{ textDecoration: "none", color: "black" }}
-                      >
-                        <ButtonUI>Learn More</ButtonUI>
-                      </Link>
+                      <ButtonUI>Learn More</ButtonUI>
+                    </Link>
 
-                      <IconUI
-                        href="https://www.instagram.com/ecucareerswil/"
-                        target="_blank"
-                      >
-                        <Instagram />
-                      </IconUI>
+                    <IconUI
+                      href="https://www.instagram.com/ecucareerswil/"
+                      target="_blank"
+                    >
+                      <Instagram />
+                    </IconUI>
 
-                      <IconUI
-                        href="https://twitter.com/emilycarrcareer?lang=en"
-                        target="_blank"
-                      >
-                        <Twitter />
-                      </IconUI>
-                    </div>
-                  </LeftColumn>
-                  <RightColumn>
-                    <ImageGrid>
-                      <ImageUI
-                        alt="Design student looking down writing in a notebook in an office setting."
-                        style={{ width: "100%", gridColumn: "2 / span 8" }}
-                        src={heroOne}
-                        onLoad={() => setImagesLoaded(imagesloaded + 1)}
-                      />
+                    <IconUI
+                      href="https://twitter.com/emilycarrcareer?lang=en"
+                      target="_blank"
+                    >
+                      <Twitter />
+                    </IconUI>
+                  </div>
+                </LeftColumn>
+                <RightColumn>
+                  <ImageGrid>
+                    <ImageUI
+                      alt="Design student looking down writing in a notebook in an office setting."
+                      style={{ width: "100%", gridColumn: "2 / span 8" }}
+                      src={heroOne}
+                      onLoad={() => setImagesLoaded(imagesloaded + 1)}
+                    />
 
-                      <ImageUI
-                        alt="Fine arts student sitting and painting on a large canvas in a studio space."
-                        style={{ width: "100%", gridColumn: "1 / span 3" }}
-                        src={heroTwo}
-                        onLoad={() => setImagesLoaded(imagesloaded + 1)}
-                      />
+                    <ImageUI
+                      alt="Fine arts student sitting and painting on a large canvas in a studio space."
+                      style={{ width: "100%", gridColumn: "1 / span 3" }}
+                      src={heroTwo}
+                      onLoad={() => setImagesLoaded(imagesloaded + 1)}
+                    />
 
-                      <ImageUI
-                        alt="Media student applying film to a box light."
-                        style={{ width: "100%", gridColumn: "5 / span 4" }}
-                        src={heroThree}
-                        onLoad={() => setImagesLoaded(imagesloaded + 1)}
-                      />
-                    </ImageGrid>
-                  </RightColumn>
-                </SectionUI>
+                    <ImageUI
+                      alt="Media student applying film to a box light."
+                      style={{ width: "100%", gridColumn: "5 / span 4" }}
+                      src={heroThree}
+                      onLoad={() => setImagesLoaded(imagesloaded + 1)}
+                    />
+                  </ImageGrid>
+                </RightColumn>
+              </SectionUI>
 
-                <SectionUI
-                  className="section"
-                  style={{
-                    margin: "0vh 0 200px 0 ",
-                    alignItems: "flex-start",
-                  }}
-                >
-                  <NavGrid />
-                </SectionUI>
+              <SectionUI
+                className="section"
+                style={{
+                  margin: "0vh 0 200px 0 ",
+                  alignItems: "flex-start",
+                }}
+              >
+                <NavGrid />
+              </SectionUI>
 
-                <SectionUI
-                  className="section"
-                  style={{
-                    margin: "00px 0 0 0 ",
-                    alignItems: "flex-start",
-                    flexDirection: "column",
-                  }}
-                >
-                  <GradientUI></GradientUI>
-                  <GradientMobileUI></GradientMobileUI>
-                  <GradientUI
-                    style={{ left: "0", top: "0", width: "40vw" }}
-                  ></GradientUI>
-                  <GradientUI
-                    style={{ right: "0", bottom: "0", width: "60vw" }}
-                  ></GradientUI>
-                  <InspireTitleUI>GET</InspireTitleUI>
+              <SectionUI
+                className="section"
+                style={{
+                  margin: "00px 0 0 0 ",
+                  alignItems: "flex-start",
+                  flexDirection: "column",
+                }}
+              >
+                <GradientUI></GradientUI>
+                <GradientMobileUI></GradientMobileUI>
+                <GradientUI
+                  style={{ left: "0", top: "0", width: "40vw" }}
+                ></GradientUI>
+                <GradientUI
+                  style={{ right: "0", bottom: "0", width: "60vw" }}
+                ></GradientUI>
+                <InspireTitleUI>GET</InspireTitleUI>
 
-                  <InspireTitleMobileUI>GET INSPIRED</InspireTitleMobileUI>
-                  <InspireGrid allPostsData={allPostsData} />
-                  <InspireTitleUI style={{ textAlign: "right" }}>
-                    INSPIRED
-                  </InspireTitleUI>
-                </SectionUI>
+                <InspireTitleMobileUI>GET INSPIRED</InspireTitleMobileUI>
+                <InspireGrid allPostsData={allPostsData} />
+                <InspireTitleUI style={{ textAlign: "right" }}>
+                  INSPIRED
+                </InspireTitleUI>
+              </SectionUI>
 
-                <Footer />
+              <Footer />
+
               </div>
-            </Route>
+        
+          </Route>
 
-            <Route path="/tools" component={Tools} />
-            <Route path="/career-pathways" component={CareerPathways} />
-            <Route path="/skill-identifier" component={SkillIdentifierTool} />
-            <Route path="/resume-builder" component={ResumeBuilder} />
-            <Route path="/resources" component={Resources} />
-            <Route path="/news" component={News} exact />
-            <Route path="/news/:slug" component={Post} />
 
-            <Route path="/about" component={About} />
-            <Route path="/stories" component={Stories} />
+          <Route path="/tools" component={Tools} />
+          <Route path="/career-pathways" component={CareerPathways} />
+          <Route path="/skill-identifier" component={SkillIdentifierTool} />
+          <Route path="/resume-builder" component={ResumeBuilder} />
+          <Route path="/resources" component={Resources} />
+          <Route path="/news" component={News} exact />
+          <Route path="/news/:slug" component={Post} />
 
-            <Route path="/employers" component={Employers} />
-            <Route path="/students" component={Students} />
-          </Switch>
-        </div>
+          <Route path="/about" component={About} />
+          <Route path="/stories" component={Stories} />
+
+          <Route path="/employers" component={Employers} />
+          <Route path="/students" component={Students} />
+        </Switch>
+
+    
       </Suspense>
     </Router>
   );
