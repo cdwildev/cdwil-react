@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import styled from "styled-components";
-import Hero1 from "../src/images/alumni-hero-1.png";
+import Hero from "../src/images/student-hero.png";
 import Hero2 from "../src/images/alumni-hero-2.png";
 import { ContactFormTwo } from "./components/ContactFormTwo";
 
@@ -324,6 +324,16 @@ export default function About() {
             exhibitions and employment opportunities.
           </InfoContainerUI>
         </LeftUI>
+
+        <RightUI>
+          <ImageGrid>
+            <ImageUI
+              src={Hero}
+              style={{ gridColumn: "1 / span 4", width: "100%" }}
+            />
+
+          </ImageGrid>
+        </RightUI>
       </SectionUI>
 
       <SectionUI style={{ margin: "0 0 200px 0", flexDirection: "column" }}>
