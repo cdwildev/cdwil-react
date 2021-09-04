@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Footer from "./components/Footer";
 import moment from "moment";
 import { Twitter, Instagram } from "react-feather";
+import { SiTiktok } from "react-icons/si";
 
 const SectionUI = styled.div`
 
@@ -281,6 +282,15 @@ export default function News() {
             >
               <Twitter />
             </IconUI>
+
+            <IconUI
+                      href="https://www.tiktok.com/@ecucareerswil?lang=en&is_copy_url=1&is_from_webapp=v1"
+                      target="_blank"
+                    >
+
+                      <SiTiktok style={{fontSize: '20px'}}/>
+                      
+                    </IconUI>
           </IconContainerUI>
         </InfoContainerUI>
 

@@ -21,7 +21,12 @@ import Footer from "./components/Footer";
 import sanityClient from "./client";
 
 import { Link } from "react-router-dom";
-import { Twitter, Instagram } from "react-feather";
+import { Twitter, Instagram, } from "react-feather";
+
+
+import { SiTiktok } from "react-icons/si";
+import Alumni from "./Alumni";
+import Instruction from "./components/Instruction";
 
 const NavGrid = lazy(() => import("./components/Home/NavGrid"));
 const InspireGrid = lazy(() => import("./components/Home/InspireGrid"));
@@ -37,6 +42,7 @@ const Stories = lazy(() => import("./Stories"));
 const Post = lazy(() => import("./Post"));
 const Employers = lazy(() => import("./Employers"));
 const Students = lazy(() => import("./Students"));
+
 
 const SectionUI = styled.div`
   display: flex;
@@ -465,16 +471,21 @@ function App(props) {
                 }}
               >
                 <LeftColumn>
+                <SubTitleUI style={{fontWeight: '700'}}>
+                    Welcome students and alumni!
+                  </SubTitleUI>
                   <TitleUI>
-                    Career <br></br> Development <br></br>+ Work Integrated{" "}
+                    The Career <br></br> Development <br></br>+ Work Integrated{" "}
                     <br></br>
                     Learning Office
                   </TitleUI>
                   <SubTitleUI>
-                    Connecting students and alumni with local, national and
+                    Connects students and alumni with local, national and
                     international employers in the creative industries and
                     beyond.
                   </SubTitleUI>
+
+           
 
                   <div
                     style={{
@@ -503,10 +514,19 @@ function App(props) {
                     >
                       <Twitter />
                     </IconUI>
+
+                    <IconUI
+                      href="https://www.tiktok.com/@ecucareerswil?lang=en&is_copy_url=1&is_from_webapp=v1"
+                      target="_blank"
+                    >
+
+                      <SiTiktok style={{fontSize: '20px'}}/>
+                      
+                    </IconUI>
                   </div>
                 </LeftColumn>
                 <RightColumn>
-                  <ImageGrid>
+                  <ImageGrid >
                     <ImageUI
                       alt="Design student looking down writing in a notebook in an office setting."
                       style={{ width: "100%", gridColumn: "2 / span 8" }}
@@ -516,14 +536,14 @@ function App(props) {
 
                     <ImageUI
                       alt="Fine arts student sitting and painting on a large canvas in a studio space."
-                      style={{ width: "100%", gridColumn: "1 / span 3" }}
+                      style={{ width: "100%", gridColumn: "2 / span 3" }}
                       src={heroTwo}
                       onLoad={() => setImagesLoaded(imagesloaded + 1)}
                     />
 
                     <ImageUI
                       alt="Media student applying film to a box light."
-                      style={{ width: "100%", gridColumn: "5 / span 4" }}
+                      style={{ width: "100%", gridColumn: "6 / span 4" }}
                       src={heroThree}
                       onLoad={() => setImagesLoaded(imagesloaded + 1)}
                     />
@@ -586,6 +606,7 @@ function App(props) {
 
           <Route path="/employers" component={Employers} />
           <Route path="/students" component={Students} />
+          <Route path="/alumni" component={Alumni} />
         </Switch>
 
     

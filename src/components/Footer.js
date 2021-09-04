@@ -4,6 +4,8 @@ import styled from "styled-components";
 import logo from "../images/logo.svg";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Twitter, Instagram } from "react-feather";
+import { SiTiktok } from "react-icons/si";
+
 
 
 const FooterUI = styled.div`
@@ -18,7 +20,7 @@ const FooterUI = styled.div`
   justify-content: center;
  
   overflow: hidden;
-  padding: 200px 0 200px 0;
+  padding: 300px 0 100px 0;
 width: 100%;
 z-index:1;
 position: relative;
@@ -217,6 +219,10 @@ export const Footer = ({}) => {
           
           <IconUI href="https://twitter.com/emilycarrcareer?lang=en" target="_blank">
           <Twitter/>
+          </IconUI>
+
+          <IconUI href="https://www.tiktok.com/@ecucareerswil?lang=en&is_copy_url=1&is_from_webapp=v1" target="_blank">
+          <SiTiktok style={{fontSize:'20px'}}/>
           </IconUI>
 
           </IconContainerUI>

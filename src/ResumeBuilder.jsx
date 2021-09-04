@@ -20,6 +20,7 @@ import interviewBasics from "./pdf/interview-basics.pdf";
 import resumes from "./pdf/resumes.pdf";
 import resumes101 from "./pdf/resumes-101.pdf";
 import Footer from "./components/Footer";
+import Instruction from "./components/Instruction";
 
 const ContainerUI = styled.div`
   width: 75vw;
@@ -283,7 +284,10 @@ export default function SkillIdentifierTool() {
             when you later create tailored resumes for specific job
             applications.
           </BodyTextUI>
+
+        
         </InfoUI>
+        
 
         <ImageUI>
           <img
@@ -292,6 +296,8 @@ export default function SkillIdentifierTool() {
           />
         </ImageUI>
       </ContainerUI>
+
+      <Instruction/>
 
       <RowUI
         style={{

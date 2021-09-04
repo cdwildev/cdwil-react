@@ -3,6 +3,7 @@ import { SkillIdentifier } from "./components/SkillIdentifier/SkillIdentifier";
 import sanityClient from "./client";
 import styled from "styled-components";
 import skillIdentifierImage from "../src/images/skill-identifier.svg";
+import Instruction from "./components/Instruction";
 
 const ContainerUI = styled.div`
   width: 75vw;
@@ -134,6 +135,8 @@ export default function SkillIdentifierTool() {
         </ImageUI>
       </ContainerUI>
 
+      
+
       <ContainerUI
         style={{
           alignItems: "flex-start",
@@ -144,6 +147,8 @@ export default function SkillIdentifierTool() {
         For the full experience, use this tool on a desktop or laptop. For increased accessibility, use this tool on mobile or half screen.
         </DetailTextUI>
       </ContainerUI>
+
+      <Instruction/>
 
       <SkillIdentifier allPostsData={allPostsData} />
     </div>

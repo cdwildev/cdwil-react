@@ -171,7 +171,7 @@ export const NavGrid = ({
           to="/about"
         >
           <TileUI style={{}}>
-          Learn about Co-op
+          Learn about <br></br>  Work Integrated Learning/Co-op
           </TileUI>
         </Link>
 
@@ -180,7 +180,7 @@ export const NavGrid = ({
           to="/news"
         >
           <TileUI style={{}}>
-            Attend<br></br>
+            Attend
             an Event
           </TileUI>
         </Link>
@@ -255,7 +255,7 @@ export const NavGrid = ({
         >
 
         <TileUI style={{}}>
-        Learn about Co-op
+        Learn about Work Integrated Learning/Co-op
         </TileUI>
 
         </Link>

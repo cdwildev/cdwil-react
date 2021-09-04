@@ -299,69 +299,64 @@ const HighlightUI = styled.div`
 `;
 
 
-export default function About() {
+export default function Alumni() {
 
   return (
     <div className="container">
-
-
-      <SectionUI style={{ minHeight: "60vh", margin: '150px 0' }}>
+      <SectionUI style={{ margin: "150px 0 150px 0" }}>
         <LeftUI>
-          <AboutUsUI>For Prospective Student</AboutUsUI>
+          <AboutUsUI>For Alumni</AboutUsUI>
           <HeaderUI>
-            Not a student? <br></br>
-            <span style={{position: 'relative'}}> Not a problem!
+            Hey Alumni! <br></br>
+            These resources <br></br>
+            are for            
+            <span style={{position: 'relative'}}> you too!
             <HighlightUI></HighlightUI>
             </span>
           </HeaderUI>
 
           <InfoContainerUI>
-            Feel free to enjoy and share these resources! If you are interested
-            in studying at Emily Carr University or would like information on
-            teen programs, Indigenous youth programs, continuing studies or grad
-            studies, visit the main website or join Emix, our public university
-            newsletter sent every two weeks. Subscribe for news, events,
-            exhibitions and employment opportunities.
+            Subject to availability, contact the Career Development + WIL Office
+            at coop@ecuad.ca to schedule an individual appointment on career
+            advising, resume reviews, or grad school preparations
+          </InfoContainerUI>
+          <InfoContainerUI>
+            You can also visit Artswork for creative opportunities, the Leeway
+            for mentorship and networking opportunities and the Alumni
+            Association for other perks.{" "}
           </InfoContainerUI>
         </LeftUI>
+        <RightUI>
+          <ImageGrid>
+            <ImageUI
+              src={Hero2}
+              style={{ gridColumn: "1 / span 4", width: "100%" }}
+            />
+            <ImageUI
+              src={Hero1}
+              style={{ gridColumn: " 3 / span 4", width: "100%" }}
+            />
+          </ImageGrid>
+        </RightUI>
+        <GradientOneUI />
       </SectionUI>
 
-      <SectionUI style={{ margin: "0 0 200px 0", flexDirection: "column" }}>
-        <GradientTwoUI />
-        <GridTwoUI style={{ margin: "0 0 30px 0" }}>
-          <TileBlueUI
-            target="_blank"
-            href="https://mailchi.mp/ecuad.ca/emix-subscribe"
-            style={{ gridColumn: "1 / span 2" }}
-          >
-            Emix <br></br> Newsletter
-          </TileBlueUI>
-          <TileBlueUI
-            target="_blank"
-            href="https://www.ecuad.ca/"
-            style={{ gridColumn: "3 / span 2" }}
-          >
-            Emily Carr <br></br> Website
-          </TileBlueUI>
-          <TileBlueUI
-            target="_blank"
-            href="https://www.instagram.com/emilycarr_sas/?hl=en"
-            style={{ gridColumn: "1 / span 4" }}
-          >
-            Emily Carr Student Art Sale
-          </TileBlueUI>
-        </GridTwoUI>
+      <SectionUI style={{ margin: "0 0 150px 0", flexDirection: "column" }}>
+        <GridUI style={{ margin: "0 0 10px 0" }}>
+          <TileUI target="_blank" href="https://artswork.ecuad.ca/">
+            Artswork
+          </TileUI>
+          <TileUI target="_blank" href="https://theleeway.ca/">
+            The Leeway
+          </TileUI>
+          <TileUI target="_blank" href="https://www.ecuaa.ca/">
+            Alumni <br></br> Association
+          </TileUI>
+        </GridUI>
+        <ContactFormTwo />
       </SectionUI>
 
-      <SectionUI style={{ margin: "0 0 0 0", flexDirection: "column" }}>
-        <GradientHeaderUI>
-          Alumni Stories <br></br>
-          and Career Pathways
-        </GradientHeaderUI>
-
-        <InspireGrid />
-      </SectionUI>
-
+  
       <Footer />
     </div>
   );

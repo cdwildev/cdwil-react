@@ -104,7 +104,7 @@ const NavBottomUI = styled.div`
 
 const LogoUI = styled.img`
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1200px) {
     width: 20vw;
     min-width: 150px;
   }
@@ -118,7 +118,7 @@ const NavLinkTopUI = styled.a`
 
 const NavLinkUI = styled.a`
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   margin-left: 35px;
   text-decoration: none;
 
@@ -224,6 +224,14 @@ export const Header = ({width}) => {
 
         <Link
           onClick={() => setActive(!active)}
+          to="/alumni"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <MobileLinkUI>Alumni</MobileLinkUI>
+        </Link>
+
+        <Link
+          onClick={() => setActive(!active)}
           to="/about"
           style={{ textDecoration: "none", color: "black" }}
         >
@@ -235,7 +243,7 @@ export const Header = ({width}) => {
           to="/employers"
           style={{ textDecoration: "none", color: "black" }}
         >
-          <MobileLinkUI>For Alumni / Non-ECU Students </MobileLinkUI>
+          <MobileLinkUI>For Prospective Student</MobileLinkUI>
         </Link>
 
         <Link
@@ -270,7 +278,7 @@ export const Header = ({width}) => {
                 to="/students"
                 style={{ textDecoration: "none", color: "black" }}
               >
-                <NavLinkTopUI>For Alumni / Non-ECU Students</NavLinkTopUI>
+                <NavLinkTopUI>For Prospective Student</NavLinkTopUI>
               </Link>
 
               <NavLinkTopUI>|</NavLinkTopUI>
@@ -306,6 +314,12 @@ export const Header = ({width}) => {
               <NavLinkUI target="_blank" href="https://artswork.ecuad.ca/">
                 Artswork
               </NavLinkUI>
+              <Link
+                to="/alumni"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <NavLinkUI>Alumni</NavLinkUI>
+              </Link>
               <Link
                 to="/about"
                 style={{ textDecoration: "none", color: "black" }}

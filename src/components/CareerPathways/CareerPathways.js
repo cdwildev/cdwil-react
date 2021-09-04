@@ -459,7 +459,7 @@ export const CareerPathways = ({ allPostsData }) => {
                 selectedIndustries={selectedSkills}
                 industries={el}
                 industry={el.title}
-                floatY={randomIntFromInterval(2, 5)}
+                floatY={randomIntFromInterval(5, 7)}
                 rotateShape={randomIntFromInterval(-50, 50)}
                 positionX={randomIntFromInterval(0, 800)}
                 positionY={randomIntFromInterval(0, 500)}
@@ -473,7 +473,7 @@ export const CareerPathways = ({ allPostsData }) => {
                 selectedIndustries={selectedValues}
                 industries={el}
                 industry={el.title}
-                floatY={randomIntFromInterval(2, 5)}
+                floatY={randomIntFromInterval(5, 7)}
                 rotateShape={randomIntFromInterval(-20, 20)}
                 positionX={randomIntFromInterval(0, 800)}
                 positionY={randomIntFromInterval(0, 500)}

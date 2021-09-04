@@ -7,6 +7,7 @@ import DropdownButton from "./components/DropdownButton";
 import puzzleOne from "../src/images/puzzle-1.svg";
 import puzzleTwo from "../src/images/puzzle-2.svg";
 import puzzleThree from "../src/images/puzzle-3.svg";
+import Instruction from "./components/Instruction";
 
 const ContainerUI = styled.div`
   width: 75vw;
@@ -214,6 +215,8 @@ export default function SkillIdentifierTool() {
           />
         </ImageUI>
       </ContainerUI>
+
+      <Instruction/>
 
       <RowUI
         style={{
