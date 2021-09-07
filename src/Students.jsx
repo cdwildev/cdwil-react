@@ -307,7 +307,7 @@ export default function About() {
 
       <SectionUI style={{ minHeight: "60vh", margin: '150px 0' }}>
         <LeftUI>
-          <AboutUsUI>For Prospective Student</AboutUsUI>
+          <AboutUsUI>For Prospective Students</AboutUsUI>
           <HeaderUI>
             Not a student? <br></br>
             <span style={{position: 'relative'}}> Not a problem!
@@ -328,6 +328,7 @@ export default function About() {
         <RightUI>
           <ImageGrid>
             <ImageUI
+              alt="Fine arts student sitting and painting on a large canvas in a studio space."
               src={Hero}
               style={{ gridColumn: "1 / span 4", width: "100%" }}
             />

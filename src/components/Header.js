@@ -38,8 +38,8 @@ const NavUI = styled.div`
   flex-direction: column;
   align-items: space-between;
 
-  height: 12.5vh;
-  max-height: 55px;
+  height: 60px;
+
   justify-content: space-between;
 
   @media (max-width: 1000px) {
@@ -112,13 +112,13 @@ const LogoUI = styled.img`
 
 const NavLinkTopUI = styled.a`
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   margin-left: 35px;
 `;
 
 const NavLinkUI = styled.a`
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   margin-left: 35px;
   text-decoration: none;
 
@@ -240,15 +240,15 @@ export const Header = ({width}) => {
 
         <Link
           onClick={() => setActive(!active)}
-          to="/employers"
+          to="/students"
           style={{ textDecoration: "none", color: "black" }}
         >
-          <MobileLinkUI>For Prospective Student</MobileLinkUI>
+          <MobileLinkUI>For Prospective Students</MobileLinkUI>
         </Link>
 
         <Link
           onClick={() => setActive(!active)}
-          to="/students"
+          to="/employers"
           style={{ textDecoration: "none", color: "black" }}
         >
           <MobileLinkUI>For Employers</MobileLinkUI>
@@ -278,7 +278,7 @@ export const Header = ({width}) => {
                 to="/students"
                 style={{ textDecoration: "none", color: "black" }}
               >
-                <NavLinkTopUI>For Prospective Student</NavLinkTopUI>
+                <NavLinkTopUI>For Prospective Students</NavLinkTopUI>
               </Link>
 
               <NavLinkTopUI>|</NavLinkTopUI>

@@ -471,7 +471,7 @@ function App(props) {
                 }}
               >
                 <LeftColumn>
-                <SubTitleUI style={{fontWeight: '700'}}>
+                <SubTitleUI>
                     Welcome students and alumni!
                   </SubTitleUI>
                   <TitleUI>
@@ -535,7 +535,7 @@ function App(props) {
                     />
 
                     <ImageUI
-                      alt="Fine arts student sitting and painting on a large canvas in a studio space."
+                      alt="Printmaking student standing at printing press with work on a table in front of them."
                       style={{ width: "100%", gridColumn: "2 / span 3" }}
                       src={heroTwo}
                       onLoad={() => setImagesLoaded(imagesloaded + 1)}

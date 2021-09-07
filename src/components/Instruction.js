@@ -11,10 +11,9 @@ import ReactPlayer from "react-player";
 
 import { X } from "react-feather";
 
-
 const ButtonUI = styled.div`
-  width: 75%;
-  height: 120px;
+  width: 300px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,8 +33,8 @@ const ButtonUI = styled.div`
   }
 
 
-  @media (max-width: 1400px){
-      width: 90%
+  @media (max-width: 700px){
+      width: 100%
   }
 `;
 
@@ -62,8 +61,7 @@ export default function Instruction() {
 
 
     <ButtonUI onClick={() => setActive(true)}>
-
-Watch Video Instruction
+      Watch Video Instructions
     </ButtonUI>
 
 

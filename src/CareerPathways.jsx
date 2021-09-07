@@ -216,7 +216,7 @@ export default function SkillIdentifierTool() {
         </ImageUI>
       </ContainerUI>
 
-      <Instruction/>
+     
 
       <RowUI
         style={{
@@ -252,7 +252,7 @@ export default function SkillIdentifierTool() {
         style={{
           flexDirection: "column",
           alignItems: "flex-start",
-          margin: "100px 0 200px 0",
+          margin: "100px 0 100px 0",
         }}
       >
         <BodyTextUI
@@ -287,6 +287,11 @@ export default function SkillIdentifierTool() {
         />
       </ContainerUI>
 
+
+    <ContainerUI style={{margin: '0 0 100px 0'}}>
+    <Instruction/>
+    </ContainerUI>
+    
       <CareerPathways allPostsData={allPostsData} />
     </div>
   );

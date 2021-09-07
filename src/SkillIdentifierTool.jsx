@@ -148,8 +148,9 @@ export default function SkillIdentifierTool() {
         </DetailTextUI>
       </ContainerUI>
 
-      <Instruction/>
-
+      <ContainerUI style={{margin: '0 0 100px 0'}}>
+    <Instruction/>
+    </ContainerUI>
       <SkillIdentifier allPostsData={allPostsData} />
     </div>
   );
