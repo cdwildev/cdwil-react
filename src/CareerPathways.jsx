@@ -8,7 +8,7 @@ import puzzleOne from "../src/images/puzzle-1.svg";
 import puzzleTwo from "../src/images/puzzle-2.svg";
 import puzzleThree from "../src/images/puzzle-3.svg";
 import Instruction from "./components/Instruction";
-import instructions from "../src/videos/careerpathfinder-instructions.mov";
+
 
 const ContainerUI = styled.div`
   width: 75vw;
@@ -290,7 +290,7 @@ export default function SkillIdentifierTool() {
 
 
     <ContainerUI style={{margin: '0 0 100px 0'}}>
-    <Instruction video={instructions} />
+    <Instruction video="https://emilycarr.s3.us-east-2.amazonaws.com/careerpathfinder-instructions.mov" />
     </ContainerUI>
     
       <CareerPathways allPostsData={allPostsData} />

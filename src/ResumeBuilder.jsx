@@ -11,7 +11,6 @@ import puzzleTwo from "../src/images/resume-2.svg";
 import puzzleThree from "../src/images/resume-3.svg";
 import resumeInterview from "../src/images/resume-interview.svg";
 
-import resume101 from "./videos/resumes-101.mp4";
 import ReactPlayer from "react-player";
 
 import actionWords from "./pdf/action-words.pdf";
@@ -407,7 +406,7 @@ export default function SkillIdentifierTool() {
           }}
           light={false}
           controls={true}
-          url={resume101}
+          url="https://emilycarr.s3.us-east-2.amazonaws.com/resumes-101.mp4"
         />
 
         <TileUI
