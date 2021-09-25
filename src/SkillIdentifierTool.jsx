@@ -4,6 +4,7 @@ import sanityClient from "./client";
 import styled from "styled-components";
 import skillIdentifierImage from "../src/images/skill-identifier.svg";
 import Instruction from "./components/Instruction";
+import instructions from "../src/videos/skillidentifier-instructions.mov";
 
 const ContainerUI = styled.div`
   width: 75vw;
@@ -149,7 +150,7 @@ export default function SkillIdentifierTool() {
       </ContainerUI>
 
       <ContainerUI style={{margin: '0 0 100px 0'}}>
-    <Instruction/>
+    <Instruction video={instructions}/>
     </ContainerUI>
       <SkillIdentifier allPostsData={allPostsData} />
     </div>

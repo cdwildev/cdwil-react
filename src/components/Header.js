@@ -237,21 +237,21 @@ export const Header = ({width}) => {
         >
           <MobileLinkUI>About</MobileLinkUI>
         </Link>
-
+{/* 
         <Link
           onClick={() => setActive(!active)}
           to="/students"
           style={{ textDecoration: "none", color: "black" }}
         >
           <MobileLinkUI>For Prospective Students</MobileLinkUI>
-        </Link>
+        </Link> */}
 
         <Link
           onClick={() => setActive(!active)}
           to="/employers"
           style={{ textDecoration: "none", color: "black" }}
         >
-          <MobileLinkUI>For Employers</MobileLinkUI>
+          <MobileLinkUI>Resources For Employers</MobileLinkUI>
         </Link>
       </MobileMenuUI>
 
@@ -274,20 +274,20 @@ export const Header = ({width}) => {
           <NavUI>
             <NavTopUI>
 
-              <Link
+{/*               <Link
                 to="/students"
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <NavLinkTopUI>For Prospective Students</NavLinkTopUI>
               </Link>
 
-              <NavLinkTopUI>|</NavLinkTopUI>
+              <NavLinkTopUI>|</NavLinkTopUI> */}
 
               <Link
                 to="/employers"
                 style={{ textDecoration: "none", color: "black" }}
               >
-                <NavLinkTopUI>For Employers</NavLinkTopUI>
+                <NavLinkTopUI>Resources For Employers</NavLinkTopUI>
               </Link>
             </NavTopUI>
             <NavBottomUI>

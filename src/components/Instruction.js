@@ -5,9 +5,9 @@ import styled from "styled-components";
 
 
 
-
-import resume101 from "../videos/resumes-101.mp4";
 import ReactPlayer from "react-player";
+
+
 
 import { X } from "react-feather";
 
@@ -17,7 +17,7 @@ const ButtonUI = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 4px solid white;
+  border: 3px solid white;
   border-radius: 15px;
   font-style: normal;
   font-weight: bold;
@@ -29,7 +29,7 @@ const ButtonUI = styled.div`
   &:hover {
     background: white;
     color: #252525;
-    border: 4px solid #252525;
+    border: 3px solid #252525;
   }
 
 
@@ -51,7 +51,7 @@ z-index: 10000;
 background: rgba(0, 0, 0, 1);
 `;
 
-export default function Instruction() {
+export default function Instruction({video}) {
   const [active, setActive] = useState(false);
 
 
@@ -61,7 +61,7 @@ export default function Instruction() {
 
 
     <ButtonUI onClick={() => setActive(true)}>
-      Watch Video Instructions
+      Instructions
     </ButtonUI>
 
 
@@ -85,7 +85,7 @@ export default function Instruction() {
           }}
           light={false}
           controls={true}
-          url={resume101}
+          url={video}
           playing={!active ? false : true  }
         />
 

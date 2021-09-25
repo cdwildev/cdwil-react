@@ -472,7 +472,7 @@ function App(props) {
               >
                 <LeftColumn>
                 <SubTitleUI>
-                    Welcome students and alumni!
+                Welcome Students and Alumni!
                   </SubTitleUI>
                   <TitleUI>
                     The Career <br></br> Development <br></br>+ Work Integrated{" "}

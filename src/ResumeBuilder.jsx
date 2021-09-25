@@ -624,11 +624,6 @@ export default function SkillIdentifierTool() {
         />
         <HeadingUI>It gets you an interview!</HeadingUI>
       </ContainerUI>
-
-
-      <ContainerUI style={{margin: '0 0 100px 0'}}>
-      <Instruction/>
-      </ContainerUI>
       
 
       {/*       <button  data-popup-button="1" prefill-inherit data-paperform-id="resume-builder" /> */}
