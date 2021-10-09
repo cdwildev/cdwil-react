@@ -193,9 +193,11 @@ const InstructionTopUI = styled.div`
 const LoadingScreenUI = styled.div`
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
+  top: 0;
   transition: 1s ease;
   overflow: hidden;
+  z-index: 1000;
 `;
 
 const industries = [

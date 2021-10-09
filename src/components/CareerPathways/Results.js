@@ -30,8 +30,7 @@ const ContainerUI = styled.div`
   width: 100vw;
   min-height: 100vh;
   display: flex;
-
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   position: relative;
@@ -48,6 +47,7 @@ const IndustriesGridUI = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin: 0 0 10px 0;
 `;
 
 const IndustryUI = styled.div`
@@ -78,6 +78,7 @@ const SkillGridUI = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
 `;
 
 const SkillUI = styled.div`
@@ -115,6 +116,7 @@ const CareerGridUI = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin: 0 0 10px 0;
 `;
 
 const CareerUI = styled.div`
@@ -162,8 +164,8 @@ const BackButtonUI = styled.div`
   line-height: 14px;
   letter-spacing: 0em;
   text-align: center;
-  position: absolute;
-  left: 5vw;
+  position: relative;
+  
   top: 5vh;
   color: white;
   cursor: pointer;
@@ -189,7 +191,7 @@ const DownloadButtonUI = styled.div`
   line-height: 14px;
   letter-spacing: 0em;
   text-align: center;
-  position: absolute;
+
   right: 5vw;
   bottom: 5vh;
   color: white;
@@ -200,6 +202,13 @@ const BackButtonTextUI = styled.div`
   width: 200px;
   position: absolute;
   left: 100px;
+  z-index: 1000;
+`;
+
+const DownloadButtonTextUI = styled.div`
+  width: 200px;
+  position: absolute;
+  right: 100px;
   z-index: 1000;
 `;
 
@@ -246,10 +255,13 @@ console.log(allPostsData)
       <ContainerUI
         style={{ transform: loading ? "translateX(100vw)" : "translateX(0vw)" }}
       >
+                              <div style={{width: '100%', display: 'flex', justifyContent: 'flex-start', padding: '0 0 0 5vw', margin: '0 0 50px 0' }}>
         <BackButtonUI onClick={() => setScreen(1)}>
           <ArrowLeft />
           <BackButtonTextUI>Explore More Careers</BackButtonTextUI>
         </BackButtonUI>
+
+        </div>
         <TitleUI>Your Careers Pathways</TitleUI>
         <CareerGridUI>
           {filteredIndustries.map((industry) => (
@@ -274,6 +286,7 @@ console.log(allPostsData)
         </SkillGridUI>
 
         {!loading ? (
+                      <div style={{width: '100%', display: 'flex', justifyContent: 'flex-end', padding: '0 5vw 5vh 0' }}>
           <PDFDownloadLink
             fileName="Career Pathfinder.pdf"
             document={
@@ -285,10 +298,13 @@ console.log(allPostsData)
               />
             }
           >
+
             <DownloadButtonUI>
+            <DownloadButtonTextUI>Download a PDF</DownloadButtonTextUI>
               <Download />
             </DownloadButtonUI>
           </PDFDownloadLink>
+          </div>
         ) : (
           ""
         )}
