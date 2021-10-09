@@ -234,10 +234,10 @@ console.log(allPostsData)
   const filteredIndustries= allPostsData.filter(
     (industry) => industry.industry && industry.industry.some((r) => r && industries.includes(r) || r.includes('all'))
   ).filter(
-    (industry) => industry.skills && industry.skills.some((r) => r && skills.includes(r) || r.includes('all'))
-  ).filter(
+    (industry) => industry.skills && industry.skills.some((r) => r && skills.includes(r) || r.includes('all')) 
+  )/* .filter(
     (industry) => industry.values && industry.values.some((r) => r && values.includes(r) || r.includes('all')) 
-  )
+  ) */
   
   console.log(filteredIndustries +' filtered industry');
 

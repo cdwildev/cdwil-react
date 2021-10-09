@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     margin: "10px 0",
+    flexWrap:"wrap"
   },
 
   titleUI: {

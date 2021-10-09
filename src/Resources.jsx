@@ -179,6 +179,7 @@ export default function Resources() {
           description,
           category,
           link,
+          "pdfURL": pdf.asset->url
       }`
         )
         .then((data) => {
