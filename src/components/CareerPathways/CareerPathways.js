@@ -225,9 +225,10 @@ const industries = [
 
 const skills = [
   { title: "Animate", value: "animate" },
+  { title: "Analyze", value: "analyze" },
   { title: "Build", value: "build" },
   { title: "Carve", value: "carve" },
-  { title: "Capture", value: "capture" },
+/*   { title: "Capture", value: "capture" }, */
   { title: "Curate", value: "curate" },
   { title: "Critique", value: "critique" },
   { title: "Code", value: "code" },

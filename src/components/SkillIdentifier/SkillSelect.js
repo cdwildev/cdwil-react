@@ -91,8 +91,8 @@ export const SkillSelect = ({ handleInnerClick, handleMiddleClick, bachelor, set
       <BoldUI style={{display: major ? 'flex' : 'none' }}>Skill</BoldUI> 
       <SelectionContainerUI style={{display: major ? 'flex' : 'none' }}>
         
-        <SelectionUI id="soft-skill" onClick={() => setSkill('soft-skill')} style={{background: skill == 'soft-skill' ? 'white' : 'transparent', color : skill == 'soft-skill' ? '#005695' : 'white' }}>Soft Skill</SelectionUI>
-        <SelectionUI id="hard-skill" onClick={() => setSkill('hard-skill')} style={{background: skill == 'hard-skill' ? 'white' : 'transparent', color : skill == 'hard-skill' ? '#005695' : 'white' }}>Hard Skill</SelectionUI>
+        <SelectionUI id="soft-skill" onClick={() => setSkill('soft-skill')} style={{background: skill == 'soft-skill' ? 'white' : 'transparent', color : skill == 'soft-skill' ? '#005695' : 'white' }}>Soft Skills</SelectionUI>
+        <SelectionUI id="hard-skill" onClick={() => setSkill('hard-skill')} style={{background: skill == 'hard-skill' ? 'white' : 'transparent', color : skill == 'hard-skill' ? '#005695' : 'white' }}>Studio Skills</SelectionUI>
         <SelectionUI id="software" onClick={() => setSkill('software')} style={{background: skill == 'software' ? 'white' : 'transparent', color : skill == 'software' ? '#005695' : 'white' }}>Software</SelectionUI>
       </SelectionContainerUI>
 

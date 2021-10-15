@@ -163,7 +163,6 @@ console.log(sortData)
               style={{
                 display: active ? 'flex' : 'none',
                 width: "100%",
-                background: "red",
                 height: "10px",
                 background: "#C1D42F",
                 opacity: "0.5",

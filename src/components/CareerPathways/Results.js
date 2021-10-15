@@ -78,7 +78,6 @@ const SkillGridUI = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-
 `;
 
 const SkillUI = styled.div`
@@ -165,7 +164,7 @@ const BackButtonUI = styled.div`
   letter-spacing: 0em;
   text-align: center;
   position: relative;
-  
+
   top: 5vh;
   color: white;
   cursor: pointer;
@@ -231,8 +230,7 @@ export const Results = ({
   const values = selectedValues
     .map((industry) => industry.value)
     .map((array) => array);
-console.log(allPostsData)
-
+  console.log(allPostsData);
 
   console.log(industries);
 
@@ -240,27 +238,44 @@ console.log(allPostsData)
 
   console.log(values);
 
-  const filteredIndustries= allPostsData.filter(
-    (industry) => industry.industry && industry.industry.some((r) => r && industries.includes(r) || r.includes('all'))
-  ).filter(
-    (industry) => industry.skills && industry.skills.some((r) => r && skills.includes(r) || r.includes('all')) 
-  )/* .filter(
+  const filteredIndustries = allPostsData
+    .filter(
+      (industry) =>
+        industry.industry &&
+        industry.industry.some(
+          (r) => (r && industries.includes(r)) || r.includes("all")
+        )
+    )
+    .filter(
+      (industry) =>
+        industry.skills &&
+        industry.skills.some(
+          (r) => (r && skills.includes(r)) || r.includes("all")
+        )
+    ); /* .filter(
     (industry) => industry.values && industry.values.some((r) => r && values.includes(r) || r.includes('all')) 
   ) */
-  
-  console.log(filteredIndustries +' filtered industry');
+
+  console.log(filteredIndustries + " filtered industry");
 
   return (
     <>
       <ContainerUI
         style={{ transform: loading ? "translateX(100vw)" : "translateX(0vw)" }}
       >
-                              <div style={{width: '100%', display: 'flex', justifyContent: 'flex-start', padding: '0 0 0 5vw', margin: '0 0 50px 0' }}>
-        <BackButtonUI onClick={() => setScreen(1)}>
-          <ArrowLeft />
-          <BackButtonTextUI>Explore More Careers</BackButtonTextUI>
-        </BackButtonUI>
-
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "flex-start",
+            padding: "0 0 0 5vw",
+            margin: "0 0 50px 0",
+          }}
+        >
+          <BackButtonUI onClick={() => setScreen(1)}>
+            <ArrowLeft />
+            <BackButtonTextUI>Explore More Careers</BackButtonTextUI>
+          </BackButtonUI>
         </div>
         <TitleUI>Your Careers Pathways</TitleUI>
         <CareerGridUI>
@@ -286,24 +301,30 @@ console.log(allPostsData)
         </SkillGridUI>
 
         {!loading ? (
-                      <div style={{width: '100%', display: 'flex', justifyContent: 'flex-end', padding: '0 5vw 5vh 0' }}>
-          <PDFDownloadLink
-            fileName="Career Pathfinder.pdf"
-            document={
-              <MyDocument
-                selectedIndustries={selectedIndustries}
-                selectedSkills={selectedSkills}
-                selectedValues={selectedValues}
-                filteredIndustries={filteredIndustries}
-              />
-            }
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "flex-end",
+              padding: "0 5vw 5vh 0",
+            }}
           >
-
-            <DownloadButtonUI>
-            <DownloadButtonTextUI>Download a PDF</DownloadButtonTextUI>
-              <Download />
-            </DownloadButtonUI>
-          </PDFDownloadLink>
+            <PDFDownloadLink
+              fileName="Career Pathfinder.pdf"
+              document={
+                <MyDocument
+                  selectedIndustries={selectedIndustries}
+                  selectedSkills={selectedSkills}
+                  selectedValues={selectedValues}
+                  filteredIndustries={filteredIndustries}
+                />
+              }
+            >
+              <DownloadButtonUI>
+                <DownloadButtonTextUI>Download a PDF</DownloadButtonTextUI>
+                <Download />
+              </DownloadButtonUI>
+            </PDFDownloadLink>
           </div>
         ) : (
           ""

@@ -203,7 +203,7 @@ const HighlightUI = styled.div`
   position: absolute;
   width: 100%;
   height: 8px;
-  bottom: 0px;
+  bottom: 10px;
   right:0;
   z-index: -100;
   background: #ede04a;

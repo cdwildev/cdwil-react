@@ -169,7 +169,7 @@ export default function Tools() {
           <HeaderUI style={{ margin: "200px 0 0 0" }}>Tools</HeaderUI>
 
           <InfoContainerUI>
-          Please note: for full experience, use tools full screen on a desktop or laptop. For increased accessibility, use tools on mobile or half screen.
+          These tools will get you started and help you build your creative career. Please note: for the full experience, use these tools full screen on a desktop or laptop. For increased accessibility, use these tools on mobile, tablet, or a smaller sized window.
         </InfoContainerUI>
         </ContainerUI>
 

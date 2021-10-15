@@ -289,7 +289,7 @@ const HighlightUI = styled.div`
   position: absolute;
   width: 100%;
   height: 8px;
-  bottom: 0px;
+  bottom: 10px;
   right:0;
   z-index: -100;
   background: #ede04a;
@@ -303,7 +303,7 @@ export default function Alumni() {
 
   return (
     <div className="container">
-      <SectionUI style={{ margin: "150px 0 150px 0" }}>
+      <SectionUI style={{ margin: "200px 0 150px 0" }}>
         <LeftUI>
           <AboutUsUI>For Alumni</AboutUsUI>
           <HeaderUI>
