@@ -274,14 +274,14 @@ export const Header = ({width}) => {
           <NavUI>
             <NavTopUI>
 
-{/*               <Link
+              <Link
                 to="/students"
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <NavLinkTopUI>For Prospective Students</NavLinkTopUI>
               </Link>
 
-              <NavLinkTopUI>|</NavLinkTopUI> */}
+              <NavLinkTopUI>|</NavLinkTopUI>
 
               <Link
                 to="/employers"

@@ -300,7 +300,7 @@ export default function SkillIdentifierTool() {
 
       <RowUI
         style={{
-          margin: "100px 0 0 0",
+          margin: "100px 0 100px 0s",
         }}
       >
         <ImageContainerUI>
@@ -330,6 +330,10 @@ export default function SkillIdentifierTool() {
           to employers as the outfits created from your closet.
         </ImageContainerUI>
       </RowUI>
+
+      <IframeSectionUI>
+        <JotformEmbed src="https://form.jotform.com/212866013077252" />
+      </IframeSectionUI>
 
       <ContainerUI
         style={{
@@ -626,9 +630,7 @@ export default function SkillIdentifierTool() {
       
 
       {/*       <button  data-popup-button="1" prefill-inherit data-paperform-id="resume-builder" /> */}
-      <IframeSectionUI>
-        <JotformEmbed src="https://form.jotform.com/212866013077252" />
-      </IframeSectionUI>
+
 
       {/* <iframe frameborder="0" height="100%" width="100%" src="https://resume-builder.paperform.co/" ></iframe> */}
 

@@ -27,6 +27,7 @@ import { Twitter, Instagram, } from "react-feather";
 import { SiTiktok } from "react-icons/si";
 import Alumni from "./Alumni";
 import Instruction from "./components/Instruction";
+import Banner from "./components/Banner";
 
 const NavGrid = lazy(() => import("./components/Home/NavGrid"));
 const InspireGrid = lazy(() => import("./components/Home/InspireGrid"));
@@ -444,11 +445,15 @@ function App(props) {
       <Suspense fallback={<div></div>}>
         <Header width={width}  />
 
+
+
         <ScrollToTop />
         <Switch>
           <Route exact path="/">
 
             <div className="container">
+
+              <Banner/>
 
               <LoadingUI style={{ display: isLoading ? "flex" : "none" }}>
                 <LoadingContainerUI>

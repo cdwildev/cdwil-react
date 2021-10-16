@@ -249,6 +249,12 @@ export default function SkillIdentifierTool() {
         </ImageContainerUI>
       </RowUI>
 
+      <ContainerUI style={{margin: '0 0 100px 0'}}>
+    <Instruction video="https://emilycarr.s3.us-east-2.amazonaws.com/careerpathfinder-instructions.mov" />
+    </ContainerUI>
+    
+      <CareerPathways allPostsData={allPostsData} />
+
       <ContainerUI
         style={{
           flexDirection: "column",
@@ -289,11 +295,7 @@ export default function SkillIdentifierTool() {
       </ContainerUI>
 
 
-    <ContainerUI style={{margin: '0 0 100px 0'}}>
-    <Instruction video="https://emilycarr.s3.us-east-2.amazonaws.com/careerpathfinder-instructions.mov" />
-    </ContainerUI>
-    
-      <CareerPathways allPostsData={allPostsData} />
+
     </div>
   );
 }

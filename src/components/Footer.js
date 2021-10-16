@@ -202,6 +202,7 @@ export const Footer = ({}) => {
           </TextUI>
           <LineUI/>
           <TextUI style={{ width: "420px", margin: "24px 0 0px 0"  }}>Made by Students + Alumni </TextUI>
+          
         </SectionTwo>
 
         <SectionFour>
