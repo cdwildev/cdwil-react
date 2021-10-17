@@ -7,6 +7,7 @@ import InspireGrid from "./components/Home/InspireGrid";
 
 import Dropdown from "./components/Dropdown.js";
 import Footer from "./components/Footer";
+import Alumni from "./Alumni";
 
 const SectionUI = styled.div`
   display: flex;
@@ -295,7 +296,9 @@ export default function Resources() {
         </MobileGridUI>
       </SectionUI>
 
-      <Footer />
+      <Alumni/>
+
+     
     </div>
   );
 }

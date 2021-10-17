@@ -268,7 +268,7 @@ export default function SkillIdentifierTool() {
             alignItems: "flex-start",
           }}
         >
-          Resources | View links or skip to use the pathfinder tool below
+          Resources
         </BodyTextUI>
 
         <TileUI

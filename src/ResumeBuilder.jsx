@@ -276,12 +276,7 @@ export default function SkillIdentifierTool() {
           <TitleUI>Resume Builder</TitleUI>
 
           <BodyTextUI style={{ margin: "50px 0 0 0" }}>
-            Learn about resume basics as you build a master resume documenting
-            your creative background, skills, and artistic achievements. This
-            resume will be much more detailed and way longer than your typical
-            resume. Use this tool to build a resume you will use as a reference
-            when you later create tailored resumes for specific job
-            applications.
+          Build a master resume documenting your creative background, skills, and artistic achievements. This resume will be much more detailed and way longer than your typical resume. Use this tool to build a resume you will use as a reference when you later create tailored resumes for specific job applications.
           </BodyTextUI>
 
         

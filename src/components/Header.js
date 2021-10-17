@@ -4,12 +4,12 @@ import styled from "styled-components";
 import logo from "../images/logo.svg";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import { ChevronUp, ChevronDown, X, Plus, Menu } from "react-feather";
+import { ChevronUp, ChevronDown, X, Plus, Menu, } from "react-feather";
 import useWindowDimensions from "../helpers/Window";
 
 const HeaderUI = styled.div`
   display: flex;
-  height: 120px;
+  height: 50px;
   width: 100%;
   min-height: 100px;
   position: fixed;
@@ -38,9 +38,9 @@ const NavUI = styled.div`
   flex-direction: column;
   align-items: space-between;
 
-  height: 60px;
+  height: 50px;
 
-  justify-content: space-between;
+  justify-content: center;
 
   @media (max-width: 1000px) {
     display: none;
@@ -69,11 +69,10 @@ const MobileMenuUI = styled.div`
   width: 100vw;
   height: calc(100vh);
   position: fixed;
-  top: 120px;
+  top: 103px;
   left: 0;
-  z-index: 10000;
+  z-index: 100000;
   flex-direction: column;
-
 `;
 
 const MobileLinkUI = styled.div`
@@ -84,7 +83,7 @@ const MobileLinkUI = styled.div`
   align-items: center;
   padding: 0 0 0 5vw;
 
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 14px;
@@ -103,7 +102,7 @@ const NavBottomUI = styled.div`
 `;
 
 const LogoUI = styled.img`
-
+  width: 15vw;
   @media (max-width: 1200px) {
     width: 20vw;
     min-width: 150px;
@@ -116,39 +115,97 @@ const NavLinkTopUI = styled.a`
   margin-left: 35px;
 `;
 
+
+
 const NavLinkUI = styled.a`
   font-weight: 700;
   font-size: 16px;
-  margin-left: 35px;
+  margin-left: 50px;
   text-decoration: none;
-
+position: relative;
   color: black;
+  cursor: pointer;
 `;
 
-export const Header = ({width}) => {
+const BannerUI = styled.div`
+  position: absolute;
+  left: 0;
+  top: 100px;
+  border-radius: 0 0 5px 5px;
+  background: white;
+  border: 3px solid #252525;
+  color: white;
 
- 
+  width: 100vw;
+  background: #252525;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+`;
+
+const DropDownUI = styled.div`
+  position: absolute;
+  display: flex;
+  left: ;
+
+  z-index: 1000;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 25px 0 0 0;
+
+`;
+
+const DropDownLinkUI = styled.div`
+
+  display: flex;
+  left: 0;
+  width: 200px;
+  padding:10px  25px;
+  z-index: 1000;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  &:hover{
+
+background: #252525;
+color: white;
+text-decoration: underline;
+  }
+`;
+
+export const Header = ({ width }) => {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
-    if(active){
-      document.body.style.overflow = "hidden"
+    if (active) {
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "auto"
+      document.body.style.overflow = "auto";
     }
-    
-  }, [active])
+  }, [active]);
 
   useEffect(() => {
-    if(width >= 1000){
-      setActive(false)
-    } 
-    
-  }, [width])
+    if (width >= 1000) {
+      setActive(false);
+    }
+  }, [width]);
 
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
   const [currentScrollPosition, setCurrentScrollPosition] = useState(0);
+
+  const [showResources, setShowResources] = useState(false);
 
   function debounce(func, wait, immediate) {
     var timeout;
@@ -189,7 +246,6 @@ export const Header = ({width}) => {
   return (
     <>
       <MobileMenuUI style={{ display: active ? "flex" : "none" }}>
-
         <Link
           onClick={() => setActive(!active)}
           to="/tools"
@@ -203,7 +259,15 @@ export const Header = ({width}) => {
           to="/resources"
           style={{ textDecoration: "none", color: "black" }}
         >
-          <MobileLinkUI>Resources</MobileLinkUI>
+          <MobileLinkUI>Resources For Students / Alumni</MobileLinkUI>
+        </Link>
+
+        <Link
+          onClick={() => setActive(!active)}
+          to="/employers"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <MobileLinkUI>Resources For Employers</MobileLinkUI>
         </Link>
 
         <Link
@@ -222,13 +286,13 @@ export const Header = ({width}) => {
           <MobileLinkUI>Artswork</MobileLinkUI>
         </Link>
 
-        <Link
+{/*         <Link
           onClick={() => setActive(!active)}
           to="/alumni"
           style={{ textDecoration: "none", color: "black" }}
         >
           <MobileLinkUI>Alumni</MobileLinkUI>
-        </Link>
+        </Link> */}
 
         <Link
           onClick={() => setActive(!active)}
@@ -237,7 +301,7 @@ export const Header = ({width}) => {
         >
           <MobileLinkUI>About</MobileLinkUI>
         </Link>
-{/* 
+        {/* 
         <Link
           onClick={() => setActive(!active)}
           to="/students"
@@ -246,21 +310,28 @@ export const Header = ({width}) => {
           <MobileLinkUI>For Prospective Students</MobileLinkUI>
         </Link> */}
 
-        <Link
-          onClick={() => setActive(!active)}
-          to="/employers"
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          <MobileLinkUI>Resources For Employers</MobileLinkUI>
-        </Link>
+
       </MobileMenuUI>
 
       <HeaderUI
         style={{
-      
-          transform: visible ? "translateY(0px)" : "translateY(-150px)",
+          transform: visible ? "translateY(0px)" : "translateY(-200px)",
         }}
       >
+        <BannerUI>
+          <p style={{ width: "90%" }}>
+            Welcome to creativecareers.ca! The site is currently in the
+            development/beta testing phase. We would love your feedback and
+            ideas, please submit them{" "}
+            <a
+              style={{ color: "inherit" }}
+              target="_blank"
+              href="https://www.surveymonkey.com/r/2KKY6CJ"
+            >
+              here
+            </a>
+          </p>
+        </BannerUI>
         <MobileNavButtonUI onClick={() => setActive(!active)}>
           <Menu style={{ display: active ? "none" : "flex" }} />
           <X style={{ display: active ? "flex" : "none" }} />
@@ -268,11 +339,14 @@ export const Header = ({width}) => {
 
         <ContainerUI>
           <Link to="/">
-            <LogoUI src={logo} alt="career development and work integrated learning at emily carr logo"></LogoUI>
+            <LogoUI
+              src={logo}
+              alt="career development and work integrated learning at emily carr logo"
+            ></LogoUI>
           </Link>
 
           <NavUI>
-            <NavTopUI>
+            {/*             <NavTopUI>
 
               <Link
                 to="/students"
@@ -289,22 +363,41 @@ export const Header = ({width}) => {
               >
                 <NavLinkTopUI>Resources For Employers</NavLinkTopUI>
               </Link>
-            </NavTopUI>
+            </NavTopUI> */}
             <NavBottomUI>
-
-
               <Link
                 to="/tools"
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <NavLinkUI>Tools</NavLinkUI>
               </Link>
-              <Link
+
+                <NavLinkUI onMouseEnter={() => setShowResources(true)} onMouseLeave={() => setShowResources(false)}>Resources <ChevronDown style={{position: 'absolute', top: '-2px'}}></ChevronDown>
+
+                {showResources ? <DropDownUI>
+                  
+                <Link
                 to="/resources"
                 style={{ textDecoration: "none", color: "black" }}
               >
-                <NavLinkUI>Resources</NavLinkUI>
+                <DropDownLinkUI>
+               For Students / Alumni
+               </DropDownLinkUI>
               </Link>
+
+              <Link
+                to="/employers"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                          <DropDownLinkUI>
+                          For Employers
+               </DropDownLinkUI>
+              </Link>
+
+              </DropDownUI> : <></>}
+                </NavLinkUI>
+
+
               <Link
                 to="/news"
                 style={{ textDecoration: "none", color: "black" }}
@@ -314,19 +407,13 @@ export const Header = ({width}) => {
               <NavLinkUI target="_blank" href="https://artswork.ecuad.ca/">
                 Artswork
               </NavLinkUI>
-              <Link
-                to="/alumni"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <NavLinkUI>Alumni</NavLinkUI>
-              </Link>
+
               <Link
                 to="/about"
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <NavLinkUI>About</NavLinkUI>
               </Link>
-
             </NavBottomUI>
           </NavUI>
         </ContainerUI>

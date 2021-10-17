@@ -41,8 +41,8 @@ const BannerUI = styled.div`
     right: 2.5vw;
     bottom: 2.5vh;
     border-radius: 15px;
-    background: white;
-    border: 3px solid #252525;
+    background: #252525;
+ 
     padding: 50px;
     width: 300px;
     z-index: 1000;
@@ -65,7 +65,7 @@ const [banner, setBanner] = useState(false)
 <BannerUI onClick={() => setBanner(false)}>
     <X style={{position: 'absolute', top: '10px', right: '10px'}}/>
     <p>
-Welcome to creativecareers.ca! <br/> The site is currently in the development/beta testing phase. We would love your feedback and ideas, please submit them <a target="_blank" href="https://www.surveymonkey.com/r/2KKY6CJ">here</a>
+Welcome to creativecareers.ca! <br/> The site is currently in the development/beta testing phase. We would love your feedback and ideas, please submit them <a style={{color: 'inherit'}} target="_blank" href="https://www.surveymonkey.com/r/2KKY6CJ">here</a>
 </p>
 </BannerUI> :
 

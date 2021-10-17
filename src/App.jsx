@@ -454,7 +454,7 @@ function App(props) {
 
             <div className="container">
 
-              <Banner/>
+ 
 
               <LoadingUI style={{ display: isLoading ? "flex" : "none" }}>
                 <LoadingContainerUI>
