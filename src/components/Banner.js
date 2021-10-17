@@ -28,7 +28,9 @@ const BannerButtonUI = styled.div`
     cursor: pointer;
     z-index: 1000;
     &:hover{
-        background: #252525;
+      background: linear-gradient(113.03deg, #e01583 31.82%, #1c878c 71.61%);
+
+  animation: gradient 5s ease infinite;
         color: white;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }

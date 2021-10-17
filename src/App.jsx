@@ -96,13 +96,14 @@ const TitleUI = styled.div`
   background: linear-gradient(113.03deg, #e01583 31.82%, #1c878c 71.61%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: gradient 5s ease infinite;
   text-overflow: ellipsis;
   white-space: nowrap;
   display: block;
   text-align: left;
   width: 100%;
   font-family: "Noto Sans JP", sans-serif;
-  animation: gradient 5s ease infinite;
+
   z-index: 1000;
 
   @media (max-width: 1200px) {
