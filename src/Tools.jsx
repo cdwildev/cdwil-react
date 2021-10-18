@@ -15,6 +15,11 @@ const ContainerUI = styled.div`
   @media (max-width: 1400px) {
     width: 90vw;
   }
+
+  @media (max-width: 800px) {
+
+padding: 50px 0 0 0;
+}
 `;
 
 const HeaderUI = styled.div`

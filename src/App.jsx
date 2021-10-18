@@ -55,6 +55,11 @@ const SectionUI = styled.div`
   @media (max-width: 1400px) {
     width: 90vw;
   }
+
+  @media (max-width: 800px) {
+
+padding: 50px 0 0 0;
+}
 `;
 
 const LeftColumn = styled.div`
@@ -67,7 +72,7 @@ const LeftColumn = styled.div`
 `;
 
 const ButtonUI = styled.div`
-  width: 160px;
+  width: 190px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -77,6 +82,7 @@ const ButtonUI = styled.div`
   font-style: normal;
   font-weight: bold;
   font-size: 19px;
+  
 
   cursor: pointer;
 
@@ -341,7 +347,7 @@ const IconUI = styled.a`
   border: 4px solid #252525;
   border-radius: 15px;
   font-weight: bold;
-  margin: 0 0 0 12px;
+
 
   &:hover {
     color: white;
@@ -498,16 +504,27 @@ function App(props) {
                       display: "flex",
                       margin: "20px 0 0 0",
                       alignItems: "flex-start",
+                      flexWrap: 'wrap',
+                  
                     }}
                   >
                     <Link
                       to="/about"
-                      style={{ textDecoration: "none", color: "black" }}
+                      style={{ textDecoration: "none", color: "black", margin: '0 12px 12px 0' }}
                     >
                       <ButtonUI>Learn More</ButtonUI>
                     </Link>
 
+                    <div       style={{
+                      display: "flex",
+          
+                      alignItems: "flex-start",
+                      justifyContent:'flex-start',
+                      
+                  
+                    }}>
                     <IconUI
+                  
                       href="https://www.instagram.com/ecucareerswil/"
                       target="_blank"
                     >
@@ -515,6 +532,7 @@ function App(props) {
                     </IconUI>
 
                     <IconUI
+                      style={{margin: '0 0 0 12px'}}
                       href="https://twitter.com/emilycarrcareer?lang=en"
                       target="_blank"
                     >
@@ -522,6 +540,7 @@ function App(props) {
                     </IconUI>
 
                     <IconUI
+                      style={{margin: '0 0 0 12px'}}
                       href="https://www.tiktok.com/@ecucareerswil?lang=en&is_copy_url=1&is_from_webapp=v1"
                       target="_blank"
                     >
@@ -529,6 +548,10 @@ function App(props) {
                       <SiTiktok style={{fontSize: '20px'}}/>
                       
                     </IconUI>
+
+                    </div>
+
+   
                   </div>
                 </LeftColumn>
                 <RightColumn>

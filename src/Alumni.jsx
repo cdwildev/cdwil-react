@@ -21,8 +21,9 @@ const SectionUI = styled.div`
     width: 90vw;
   }
 
-  @media (max-height: 800px) {
-    padding: 10vh;
+  @media (max-width: 800px) {
+
+    padding: 50px 0 0 0;
   }
 `;
 

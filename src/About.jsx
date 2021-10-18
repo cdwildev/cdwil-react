@@ -21,9 +21,9 @@ const SectionUI = styled.div`
   }
 
   @media (max-width: 800px) {
-    padding: 10vh 0 0 0;
+    padding: 50px 0 0 0;
     justify-content: flex-start;
-    align-items: flex-star;
+    align-items: flex-start;
     flex-direction: column;
   }
 `;

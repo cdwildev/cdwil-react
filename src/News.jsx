@@ -11,9 +11,10 @@ const SectionUI = styled.div`
 
   display: flex;
   justify-content: flex-start;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   position: relative;
+
   width: 75vw;
   @media (max-width: 1400px) {
     width: 90vw;
@@ -21,6 +22,13 @@ const SectionUI = styled.div`
 
   @media (max-width: 800px) {
     align-items: flex-end;
+  }
+
+  @media (max-width: 800px) {
+    padding: 50px 0 0 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 `;
 
@@ -169,7 +177,7 @@ const InfoContainerUI = styled.div`
     font-size: 16px;
     line-height: 26px;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     top: -8px;
 
   }
@@ -182,6 +190,7 @@ const IconContainerUI = styled.div`
 
   @media (max-width: 1000px) {
     justify-content: flex-start;
+    margin: 25px 0 0 0;
   }
 `;
 
@@ -261,7 +270,7 @@ export default function News() {
         textAlign: "left",
       }}
     >
-      <SectionUI style={{ margin: "200px 0 0 0", flexDirection: 'row' }}>
+      <SectionUI style={{ margin: "200px 0 0 0"}}>
         <TitleUI style={{ margin: "0 0 50px 0" }}>
           News + <br></br>Events
         </TitleUI>

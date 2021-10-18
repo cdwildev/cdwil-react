@@ -21,6 +21,10 @@ width: 75vw;
 @media (max-width: 1400px) {
   width: 90vw;
 }
+
+@media (max-width: 800px) {
+    padding: 50px 0 0 0;
+  }
 `;
 
 const LeftUI = styled.div`
