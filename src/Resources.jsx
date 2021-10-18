@@ -295,8 +295,7 @@ export default function Resources() {
           </LinkUI>
         </MobileGridUI>
       </SectionUI>
-
-      <Alumni/>
+<Footer/>
 
      
     </div>

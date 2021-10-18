@@ -286,13 +286,13 @@ export const Header = ({ width }) => {
           <MobileLinkUI>Artswork</MobileLinkUI>
         </Link>
 
-{/*         <Link
+        <Link
           onClick={() => setActive(!active)}
           to="/alumni"
           style={{ textDecoration: "none", color: "black" }}
         >
           <MobileLinkUI>Alumni</MobileLinkUI>
-        </Link> */}
+        </Link>
 
         <Link
           onClick={() => setActive(!active)}
@@ -407,6 +407,13 @@ export const Header = ({ width }) => {
               <NavLinkUI target="_blank" href="https://artswork.ecuad.ca/">
                 Artswork
               </NavLinkUI>
+
+              <Link
+                to="/alumni"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <NavLinkUI>Alumni</NavLinkUI>
+              </Link>
 
               <Link
                 to="/about"
