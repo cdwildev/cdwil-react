@@ -356,7 +356,7 @@ Info Package
           </TileUI>
         </GridUI>
 
-        <DropdownButton data = {allPostsData.filter(resource => resource.category.includes('funding'))} text = "Funding Resources to Hire Students"/>
+        <DropdownButton data = {allPostsData.filter(resource => resource.category && resource.category.includes('funding'))} text = "Funding Resources to Hire Students"/>
       </SectionUI>
 
       <SectionUI style={{ flexDirection: "column" }}>
