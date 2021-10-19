@@ -293,7 +293,7 @@ export default function SkillIdentifierTool() {
           borderActive="4px solid #252525"
           background="white"
           data={resourceData.filter((resource) =>
-            resource.category.includes("career-pathfinder")
+            resource.category && resource.category.includes("career-pathfinder")
           )}
           text="Helpful Links"
         />

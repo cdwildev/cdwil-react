@@ -377,7 +377,7 @@ export default function SkillIdentifierTool() {
           borderActive="4px solid #252525"
           background="white"
           data={resourceData.filter((resource) =>
-            resource.category.includes("resume-builder")
+            resource.category && resource.category.includes("resume-builder")
           )}
           text="Helpful Links"
         />
@@ -605,7 +605,7 @@ export default function SkillIdentifierTool() {
           borderActive="4px solid #252525"
           background="white"
           data={resourceData.filter((resource) =>
-            resource.category.includes("resume-examples")
+            resource.category && resource.category.includes("resume-examples")
           )}
           text="Resume Examples"
         />
