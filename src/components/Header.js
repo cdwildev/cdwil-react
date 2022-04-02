@@ -318,7 +318,7 @@ export const Header = ({ width }) => {
           transform: visible ? "translateY(0px)" : "translateY(-200px)",
         }}
       >
-        <BannerUI>
+{/*         <BannerUI>
           <p style={{ width: "90%" }}>
             Welcome to creativecareers.ca! The site is currently in the
             development/beta testing phase. We would love your feedback and
@@ -331,7 +331,7 @@ export const Header = ({ width }) => {
               here
             </a>
           </p>
-        </BannerUI>
+        </BannerUI> */}
         <MobileNavButtonUI onClick={() => setActive(!active)}>
           <Menu style={{ display: active ? "none" : "flex" }} />
           <X style={{ display: active ? "flex" : "none" }} />
